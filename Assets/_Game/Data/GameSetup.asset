@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1c4ea737cd44f54aa42637abdb0b05, type: 3}
+  m_Name: GameSetup
+  m_EditorClassIdentifier: 
+  CameraSettings:
+    RotationSpeed: 35
+    HorizontalBounds: {x: -45, y: 45}
+    VerticalBounds: {x: 0, y: 60}
+  FlowFieldSettings:
+    CellSize: 0.4
+    MoverRepulsionSize: 4
+    MoverRepulsionValue: 500
+    StepWeight: 100
+    StepDiagonalWeight: 140
+    MaxCalculationDistance: 80000
+  DebugSettings:
+    VisualizeFlowField: 0
+    FlowFieldMaterial: {fileID: 2100000, guid: 7444c09ed2ebc4b56ac689c2eb5cf15e, type: 2}
+    CellMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+    MaxValueColor: 36685
+    mapGradient:
+      serializedVersion: 2
+      key0: {r: 0.9137255, g: 0.8923656, b: 0, a: 0.84313726}
+      key1: {r: 0.9137255, g: 0, b: 0.053627923, a: 0.827451}
+      key2: {r: 0, g: 0.1998853, b: 0.9137255, a: 0.627451}
+      key3: {r: 0, g: 0.8117647, b: 0.9137255, a: 0.627451}
+      key4: {r: 0, g: 0.8117647, b: 0.9137255, a: 0.627451}
+      key5: {r: 0, g: 0.8117647, b: 0.9137255, a: 0.627451}
+      key6: {r: 0, g: 0.8117647, b: 0.9137255, a: 0.627451}
+      key7: {r: 0, g: 0.8117647, b: 0.9137255, a: 0.627451}
+      ctime0: 0
+      ctime1: 31611
+      ctime2: 65535
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 3
+      m_NumAlphaKeys: 2
+  TestEnemySettings:
+    Prefab: {fileID: 7969321768603503873, guid: 134ad446ccbf54bdeb043185af1fda9f,
+      type: 3}
+    Speed: 1
+    Health: 5
+  TestWeaponSettings:
+    Cooldown: 0.5
+    Damage: 10
+    ProjectilePrefab: {fileID: 7671730865203008364, guid: 05d8dc39a59ca4726829f1680fd4b918,
+      type: 3}
+    ExplosionVisualPrefab: {fileID: 1043818705560514718, guid: 7a84eff5bd15f42b5aa7f3e592448eae,
+      type: 3}
+    ProjectileSpeed: 40
+    ExplosionRadius: 3
