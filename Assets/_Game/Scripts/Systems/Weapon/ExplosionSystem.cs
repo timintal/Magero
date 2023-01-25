@@ -45,8 +45,9 @@ public class ExplosionSystem : ReactiveSystem<GameEntity>
                     {
                         totalDamage += target.damage.Damage;
                     }
-                    
+
                     target.ReplaceDamage(totalDamage);
+                    target.ReplaceDamageSourcePosition(position);
                 }
             }
         }

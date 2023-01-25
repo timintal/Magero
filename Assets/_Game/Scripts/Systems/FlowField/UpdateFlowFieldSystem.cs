@@ -10,6 +10,7 @@ public class UpdateFlowFieldSystem : IExecuteSystem, IInitializeSystem
     private IGroup<GameEntity> _flowFieldGroup;
     private IGroup<GameEntity> _moversGroup;
     private List<int> _cellsToCheck;
+    private IGroup<GameEntity> _tempObstaclesGroup;
 
     public UpdateFlowFieldSystem(Contexts contexts)
     {
@@ -18,6 +19,7 @@ public class UpdateFlowFieldSystem : IExecuteSystem, IInitializeSystem
         _targetsGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowFieldTarget, GameMatcher.Transform));
         _flowFieldGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField));
         _moversGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowFieldMover, GameMatcher.Transform));
+        _tempObstaclesGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowFieldTemporaryObstacle, GameMatcher.Position, GameMatcher.Timer));
         _cellsToCheck = new List<int>(8192);
     }
     
@@ -25,15 +27,9 @@ public class UpdateFlowFieldSystem : IExecuteSystem, IInitializeSystem
     {
         var flowField = _flowFieldGroup.GetSingleEntity().flowField;
         flowField.ResetField();
-        
-        // var fieldSettings = _contexts.game.gameSetup.value.FlowFieldSettings;
-        
-        // foreach (var targetEntity in _targetsGroup.GetEntities())
-        // {
-        //     UpdateFlowFieldForTarget(targetEntity, flowField, fieldSettings);
-        // }
 
         IncludeMoversIntoFlowField(flowField);
+        UpdateFlowFieldObstacles(flowField);
         
         flowField.SwapFields();
     }
@@ -61,6 +57,41 @@ public class UpdateFlowFieldSystem : IExecuteSystem, IInitializeSystem
                     if (flowField.IsIndexValid(indexX, indexY) && flowField.BackField[indexX][indexY] != int.MaxValue)
                     {
                         flowField.BackField[indexX][indexY] += fieldSettings.MoverRepulsionValue / dist;
+                    }
+                }
+            }
+        }
+    }
+    
+    private void UpdateFlowFieldObstacles(FlowFieldComponent flowField)
+    {
+        var fieldSettings = _contexts.game.gameSetup.value.FlowFieldSettings;
+        
+        foreach (var e in _tempObstaclesGroup.GetEntities())
+        {
+            if (e.isTimerCompleted)
+            {
+                e.isDestroyed = true;
+                continue;
+            }
+            
+            var pos = e.position.Value;
+            var (x, y) = flowField.GetIndex(pos);
+
+            for (int i = -e.flowFieldTemporaryObstacle.Radius; i <= e.flowFieldTemporaryObstacle.Radius; i++)
+            {
+                for (int j = -e.flowFieldTemporaryObstacle.Radius; j <= e.flowFieldTemporaryObstacle.Radius; j++)
+                {
+                    int dist = Mathf.Abs(i) + Mathf.Abs(j) + 1;
+                    if (dist > e.flowFieldTemporaryObstacle.Radius)
+                        continue;
+
+                    var indexX = x + i;
+                    var indexY = y + j;
+
+                    if (flowField.IsIndexValid(indexX, indexY) && flowField.BackField[indexX][indexY] != int.MaxValue)
+                    {
+                        flowField.BackField[indexX][indexY] += e.flowFieldTemporaryObstacle.InitialWeight / dist;
                     }
                 }
             }

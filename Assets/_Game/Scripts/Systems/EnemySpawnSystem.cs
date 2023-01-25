@@ -34,7 +34,7 @@ public class EnemySpawnSystem : ReactiveSystem<GameEntity>
                 enemyEntity.AddMaxHealth(_contexts.game.gameSetup.value.TestEnemySettings.Health);
                 enemyEntity.AddTarget(TargetType.Enemy);
                 enemyEntity.isFlowFieldMover = true;
-                
+                enemyEntity.isRagdollDeath = true;
                 
                 var randomPart = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
                 enemyEntity.AddPosition(e.position.Value + randomPart);

@@ -49,6 +49,7 @@ public class Bootstrap : MonoBehaviour
                 .Add(new ShootingFeature(contexts))
             
                 .Add(new MovementSystem(contexts))
+                .Add(new RagdollUpdateSystem(contexts))
                 
                 .Add(new LandingExplosionSystem(contexts))
                 
@@ -59,10 +60,13 @@ public class Bootstrap : MonoBehaviour
             
                 .Add(new DamageSystem(contexts))
                 
+                .Add(new RagdollCreationSystem(contexts))
+                
                 .Add(new AutoDestructionSystem(contexts))
                 .Add(new DestroyViewSystem(contexts))
                 .Add(new MultiDestroySystem(contexts))
-                
+                //Cleanup
+                .Add(new CleanupDamageSourceSystem(contexts))
             ;
     }
 

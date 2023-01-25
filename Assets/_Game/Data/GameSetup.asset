@@ -17,17 +17,19 @@ MonoBehaviour:
     HorizontalBounds: {x: -45, y: 45}
     VerticalBounds: {x: 0, y: 60}
   FlowFieldSettings:
-    CellSize: 0.4
-    MoverRepulsionSize: 4
-    MoverRepulsionValue: 500
     StepWeight: 100
     StepDiagonalWeight: 140
     MaxCalculationDistance: 80000
+    MoverRepulsionSize: 4
+    MoverRepulsionValue: 500
+    ExplosionRepulsionTime: 1.5
+    ExplosionRepulsionValue: 8000
+    ExplosionRepulsionSizeMultiplier: 2
   DebugSettings:
     VisualizeFlowField: 0
     FlowFieldMaterial: {fileID: 2100000, guid: 7444c09ed2ebc4b56ac689c2eb5cf15e, type: 2}
     CellMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
-    MaxValueColor: 36685
+    MaxValueColor: 15562
     mapGradient:
       serializedVersion: 2
       key0: {r: 0.9137255, g: 0.8923656, b: 0, a: 0.84313726}

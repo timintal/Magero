@@ -33,6 +33,12 @@ public class CreateViewSystem : ReactiveSystem<GameEntity>
             {
                 entity.AddCollider(collider);
             }
+            var renderer = obj.GetComponentInChildren<Renderer>();
+            if (renderer != null)
+            {
+                entity.AddRenderer(renderer);
+            }
+            
             obj.transform.position = entity.position.Value;
             obj.Link(entity);
         }

@@ -14,41 +14,47 @@ public static class GameComponentsLookup {
     public const int ColliderCache = 3;
     public const int Collider = 4;
     public const int Damage = 5;
-    public const int Destroyed = 6;
-    public const int Direction = 7;
-    public const int EnemySpawner = 8;
-    public const int EnemySpawnRequest = 9;
-    public const int EntityRef = 10;
-    public const int ExplodableProjectile = 11;
-    public const int ExplodableProjectileShooter = 12;
-    public const int Explosion = 13;
-    public const int ExplosionVisualization = 14;
-    public const int FlowField = 15;
-    public const int FlowFieldDirectionUpdateDelay = 16;
-    public const int FlowFieldMover = 17;
-    public const int FlowFieldPath = 18;
+    public const int DamageSourcePosition = 6;
+    public const int Destroyed = 7;
+    public const int Direction = 8;
+    public const int EnemySpawner = 9;
+    public const int EnemySpawnRequest = 10;
+    public const int EntityRef = 11;
+    public const int ExplodableProjectile = 12;
+    public const int ExplodableProjectileShooter = 13;
+    public const int Explosion = 14;
+    public const int ExplosionVisualization = 15;
+    public const int FlowField = 16;
+    public const int FlowFieldDirectionUpdateDelay = 17;
+    public const int FlowFieldMover = 18;
     public const int FlowFieldTarget = 19;
-    public const int GameSceneReferences = 20;
-    public const int GameSetup = 21;
-    public const int Health = 22;
-    public const int Id = 23;
-    public const int LayerMask = 24;
-    public const int MaxHealth = 25;
-    public const int PartitionGrid = 26;
-    public const int Position = 27;
-    public const int Projectile = 28;
-    public const int ProjectileShooter = 29;
-    public const int Radius = 30;
-    public const int Resource = 31;
-    public const int Rotation = 32;
-    public const int Speed = 33;
-    public const int Target = 34;
-    public const int TimerCompleted = 35;
-    public const int Timer = 36;
-    public const int Transform = 37;
-    public const int WeaponCooldown = 38;
+    public const int FlowFieldTemporaryObstacle = 20;
+    public const int GameSceneReferences = 21;
+    public const int GameSetup = 22;
+    public const int Health = 23;
+    public const int Id = 24;
+    public const int LayerMask = 25;
+    public const int MaxHealth = 26;
+    public const int PartitionGrid = 27;
+    public const int Position = 28;
+    public const int Projectile = 29;
+    public const int ProjectileShooter = 30;
+    public const int Radius = 31;
+    public const int RagdollAngularVelocity = 32;
+    public const int RagdollCurrentVelocity = 33;
+    public const int RagdollDeath = 34;
+    public const int RagdollRemoveTimer = 35;
+    public const int Renderer = 36;
+    public const int Resource = 37;
+    public const int Rotation = 38;
+    public const int Speed = 39;
+    public const int Target = 40;
+    public const int TimerCompleted = 41;
+    public const int Timer = 42;
+    public const int Transform = 43;
+    public const int WeaponCooldown = 44;
 
-    public const int TotalComponents = 39;
+    public const int TotalComponents = 45;
 
     public static readonly string[] componentNames = {
         "Attacker",
@@ -57,6 +63,7 @@ public static class GameComponentsLookup {
         "ColliderCache",
         "Collider",
         "Damage",
+        "DamageSourcePosition",
         "Destroyed",
         "Direction",
         "EnemySpawner",
@@ -69,8 +76,8 @@ public static class GameComponentsLookup {
         "FlowField",
         "FlowFieldDirectionUpdateDelay",
         "FlowFieldMover",
-        "FlowFieldPath",
         "FlowFieldTarget",
+        "FlowFieldTemporaryObstacle",
         "GameSceneReferences",
         "GameSetup",
         "Health",
@@ -82,6 +89,11 @@ public static class GameComponentsLookup {
         "Projectile",
         "ProjectileShooter",
         "Radius",
+        "RagdollAngularVelocity",
+        "RagdollCurrentVelocity",
+        "RagdollDeath",
+        "RagdollRemoveTimer",
+        "Renderer",
         "Resource",
         "Rotation",
         "Speed",
@@ -99,6 +111,7 @@ public static class GameComponentsLookup {
         typeof(ColliderCacheComponent),
         typeof(ColliderComponent),
         typeof(DamageComponent),
+        typeof(DamageSourcePositionComponent),
         typeof(DestroyedComponent),
         typeof(DirectionComponent),
         typeof(EnemySpawnerComponent),
@@ -111,8 +124,8 @@ public static class GameComponentsLookup {
         typeof(FlowFieldComponent),
         typeof(FlowFieldDirectionUpdateDelayComponent),
         typeof(FlowFieldMoverComponent),
-        typeof(FlowFieldPathComponent),
         typeof(FlowFieldTargetComponent),
+        typeof(FlowFieldTemporaryObstacleComponent),
         typeof(GameSceneReferencesComponent),
         typeof(GameSetupComponent),
         typeof(HealthComponent),
@@ -124,6 +137,11 @@ public static class GameComponentsLookup {
         typeof(ProjectileComponent),
         typeof(ProjectileShooterComponent),
         typeof(RadiusComponent),
+        typeof(RagdollAngularVelocityComponent),
+        typeof(RagdollCurrentVelocityComponent),
+        typeof(RagdollDeathComponent),
+        typeof(RagdollRemoveTimerComponent),
+        typeof(RendererComponent),
         typeof(ResourceComponent),
         typeof(RotationComponent),
         typeof(SpeedComponent),

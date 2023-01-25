@@ -24,15 +24,17 @@ public class CameraSettings
 [Serializable]
 public class FlowFieldSettings
 {
-    public float CellSize;
-    
-    public int MoverRepulsionSize;
-    public int MoverRepulsionValue;
-    
     public int StepWeight;
     public int StepDiagonalWeight;
 
     public int MaxCalculationDistance;
+    
+    public int MoverRepulsionSize;
+    public int MoverRepulsionValue;
+    
+    public float ExplosionRepulsionTime;
+    public int ExplosionRepulsionValue;
+    public int ExplosionRepulsionSizeMultiplier;
 }
 
 [Serializable]

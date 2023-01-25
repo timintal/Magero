@@ -3,8 +3,6 @@ using System.Runtime.CompilerServices;
 using Entitas;
 using UnityEngine;
 
-
-
 [Game]
 public class FlowFieldComponent : IComponent
 {
