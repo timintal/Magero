@@ -14,14 +14,14 @@ public partial class GameEntity {
     public void AddRotation(UnityEngine.Quaternion newRotation) {
         var index = GameComponentsLookup.Rotation;
         var component = (RotationComponent)CreateComponent(index, typeof(RotationComponent));
-        component.Rotation = newRotation;
+        component.Value = newRotation;
         AddComponent(index, component);
     }
 
     public void ReplaceRotation(UnityEngine.Quaternion newRotation) {
         var index = GameComponentsLookup.Rotation;
         var component = (RotationComponent)CreateComponent(index, typeof(RotationComponent));
-        component.Rotation = newRotation;
+        component.Value = newRotation;
         ReplaceComponent(index, component);
     }
 

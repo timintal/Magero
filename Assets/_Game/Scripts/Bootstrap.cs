@@ -53,6 +53,7 @@ public class Bootstrap : MonoBehaviour
                 .Add(new ShootingFeature(contexts))
             
                 .Add(new MovementSystem(contexts))
+                .Add(new RotationSystem(contexts))
                 .Add(new RagdollUpdateSystem(contexts))
                 
                 .Add(new LandingExplosionSystem(contexts))
