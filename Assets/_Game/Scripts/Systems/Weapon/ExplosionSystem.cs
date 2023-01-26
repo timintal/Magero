@@ -56,7 +56,7 @@ public class ExplosionSystem : ReactiveSystem<GameEntity>
     private void AddVisualization(Vector3 position, GameEntity e)
     {
         var visualizationEntity = _contexts.game.CreateEntity();
-        visualizationEntity.AddExplosionVisualization(1);
+        visualizationEntity.AddExplosionVisualization(2);
         visualizationEntity.AddPosition(position + Vector3.up * 0.1f);
         visualizationEntity.AddRadius(e.explosion.Radius * 2);
         visualizationEntity.AddResource(_contexts.game.gameSetup.value.TestWeaponSettings.ExplosionVisualPrefab);
