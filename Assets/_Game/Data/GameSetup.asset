@@ -65,7 +65,7 @@ MonoBehaviour:
     Speed: 1
     Health: 5
   TestWeaponSettings:
-    Cooldown: 0.5
+    Cooldown: 1
     Damage: 10
     ProjectilePrefab: {fileID: 7671730865203008364, guid: 05d8dc39a59ca4726829f1680fd4b918,
       type: 3}

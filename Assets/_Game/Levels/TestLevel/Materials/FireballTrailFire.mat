@@ -41,8 +41,8 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ScrollSpeed1: 2
-    - _ScrollSpeed2: 2.5
+    - _ScrollSpeed1: 2.25
+    - _ScrollSpeed2: 2.75
     m_Colors:
     - _Color1: {r: 6.498019, g: 1.0702621, b: 0, a: 0}
     - _Color2: {r: 21.361254, g: 0, b: 0, a: 0}

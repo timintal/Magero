@@ -24,7 +24,7 @@ public class DebugExplosionVisualizationSystem : IExecuteSystem
             else
             {
                 e.ReplaceExplosionVisualization(explosionVisualizationTimeLeft);
-                e.transform.Transform.localScale = e.radius.Value * new Vector3(1, 0, 1);
+                e.transform.Transform.localScale = Vector3.one * e.radius.Value * 2f;
             }
         }
     }
