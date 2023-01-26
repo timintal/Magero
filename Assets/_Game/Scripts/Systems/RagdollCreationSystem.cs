@@ -47,7 +47,8 @@ public class RagdollCreationSystem : ReactiveSystem<GameEntity>
             var diff = e.position.Value - e.damageSourcePosition.Value;
             diff.y = 0;
             diff.Normalize();
-            diff.y = 2;
+            diff *= Random.Range(0.5f, 1.5f);
+            diff.y = 3;
             e.AddRagdollCurrentVelocity(diff * 5);
             e.AddRagdollAngularVelocity(Random.insideUnitSphere, Random.Range(0f, 360f));
             e.AddRagdollRemoveTimer(3);

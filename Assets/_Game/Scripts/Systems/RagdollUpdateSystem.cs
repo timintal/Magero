@@ -31,7 +31,7 @@ public class RagdollUpdateSystem : IExecuteSystem
 
                 var position = e.position.Value;
                 var currVelocity = e.ragdollCurrentVelocity.Value;
-                currVelocity += Vector3.down * 20 * Time.deltaTime;
+                currVelocity += Vector3.down * 30 * Time.deltaTime;
                 position += currVelocity * Time.deltaTime;
                 
                 e.transform.Transform.Rotate(e.ragdollAngularVelocity.Axis, e.ragdollAngularVelocity.AnglePerSecond * Time.deltaTime);

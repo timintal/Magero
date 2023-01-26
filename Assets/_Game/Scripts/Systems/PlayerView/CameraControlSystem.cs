@@ -1,7 +1,7 @@
 using Entitas;
 using UnityEngine;
 
-public class CameraControlSystem : IExecuteSystem, IInitializeSystem
+public class CameraControlSystem : IExecuteSystem
 {
     Contexts _contexts;
     private readonly IGroup<InputEntity> _userInputGroup;
@@ -13,19 +13,7 @@ public class CameraControlSystem : IExecuteSystem, IInitializeSystem
         _userInputGroup = contexts.input.GetGroup(InputMatcher.UserInput);
         _cameraGroup = contexts.game.GetGroup(GameMatcher.Camera);
     }
-
-    public void Initialize()
-    {
-        var gameSceneReferences = _contexts.game.gameSceneReferences.value;
-        var gameSetup = _contexts.game.gameSetup.value;
-        var cameraEntity = _contexts.game.CreateEntity();
-
-        cameraEntity.AddCamera(gameSceneReferences.CameraTransform,
-            gameSetup.CameraSettings.HorizontalBounds,
-            gameSetup.CameraSettings.VerticalBounds,
-            gameSetup.CameraSettings.RotationSpeed);
-    }
-
+    
     public void Execute()
     {
         var input = _userInputGroup.GetSingleEntity().userInput;

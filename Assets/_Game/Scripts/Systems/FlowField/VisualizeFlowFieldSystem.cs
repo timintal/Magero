@@ -24,7 +24,7 @@ public class VisualizeFlowFieldSystem : IExecuteSystem
     public void Execute()
     {
         DebugSettings debugSettings = _contexts.game.gameSetup.value.DebugSettings;
-        if (!debugSettings.VisualizeFlowField)
+        if (!debugSettings.VisualizeFlowField || _flowFieldGroup.count == 0)
             return;
         
         var e = _flowFieldGroup.GetSingleEntity();

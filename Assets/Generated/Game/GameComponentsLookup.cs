@@ -13,48 +13,51 @@ public static class GameComponentsLookup {
     public const int Camera = 2;
     public const int ColliderCache = 3;
     public const int Collider = 4;
-    public const int Damage = 5;
-    public const int DamageSourcePosition = 6;
-    public const int Destroyed = 7;
-    public const int Direction = 8;
-    public const int EnemySpawner = 9;
-    public const int EnemySpawnRequest = 10;
-    public const int EntityRef = 11;
-    public const int ExplodableProjectile = 12;
-    public const int ExplodableProjectileShooter = 13;
-    public const int Explosion = 14;
-    public const int ExplosionVisualization = 15;
-    public const int FlowField = 16;
-    public const int FlowFieldDirectionUpdateDelay = 17;
-    public const int FlowFieldMover = 18;
-    public const int FlowFieldTarget = 19;
-    public const int FlowFieldTemporaryObstacle = 20;
-    public const int GameSceneReferences = 21;
-    public const int GameSetup = 22;
-    public const int Health = 23;
-    public const int Id = 24;
-    public const int LayerMask = 25;
-    public const int MaxHealth = 26;
-    public const int PartitionGrid = 27;
-    public const int Position = 28;
-    public const int Projectile = 29;
-    public const int ProjectileShooter = 30;
-    public const int Radius = 31;
-    public const int RagdollAngularVelocity = 32;
-    public const int RagdollCurrentVelocity = 33;
-    public const int RagdollDeath = 34;
-    public const int RagdollRemoveTimer = 35;
-    public const int Renderer = 36;
-    public const int Resource = 37;
-    public const int Rotation = 38;
-    public const int Speed = 39;
-    public const int Target = 40;
-    public const int TimerCompleted = 41;
-    public const int Timer = 42;
-    public const int Transform = 43;
-    public const int WeaponCooldown = 44;
+    public const int CurrentLevelStage = 5;
+    public const int Damage = 6;
+    public const int DamageSourcePosition = 7;
+    public const int Destroyed = 8;
+    public const int Direction = 9;
+    public const int EnemySpawner = 10;
+    public const int EnemySpawnRequest = 11;
+    public const int EntityRef = 12;
+    public const int ExplodableProjectile = 13;
+    public const int ExplodableProjectileShooter = 14;
+    public const int Explosion = 15;
+    public const int ExplosionVisualization = 16;
+    public const int FlowField = 17;
+    public const int FlowFieldDirectionUpdateDelay = 18;
+    public const int FlowFieldMover = 19;
+    public const int FlowFieldTarget = 20;
+    public const int FlowFieldTemporaryObstacle = 21;
+    public const int GameSceneReferences = 22;
+    public const int GameSetup = 23;
+    public const int Health = 24;
+    public const int Id = 25;
+    public const int LayerMask = 26;
+    public const int Level = 27;
+    public const int LevelFinished = 28;
+    public const int MaxHealth = 29;
+    public const int PartitionGrid = 30;
+    public const int Position = 31;
+    public const int Projectile = 32;
+    public const int ProjectileShooter = 33;
+    public const int Radius = 34;
+    public const int RagdollAngularVelocity = 35;
+    public const int RagdollCurrentVelocity = 36;
+    public const int RagdollDeath = 37;
+    public const int RagdollRemoveTimer = 38;
+    public const int Renderer = 39;
+    public const int Resource = 40;
+    public const int Rotation = 41;
+    public const int Speed = 42;
+    public const int Target = 43;
+    public const int TimerCompleted = 44;
+    public const int Timer = 45;
+    public const int Transform = 46;
+    public const int WeaponCooldown = 47;
 
-    public const int TotalComponents = 45;
+    public const int TotalComponents = 48;
 
     public static readonly string[] componentNames = {
         "Attacker",
@@ -62,6 +65,7 @@ public static class GameComponentsLookup {
         "Camera",
         "ColliderCache",
         "Collider",
+        "CurrentLevelStage",
         "Damage",
         "DamageSourcePosition",
         "Destroyed",
@@ -83,6 +87,8 @@ public static class GameComponentsLookup {
         "Health",
         "Id",
         "LayerMask",
+        "Level",
+        "LevelFinished",
         "MaxHealth",
         "PartitionGrid",
         "Position",
@@ -110,6 +116,7 @@ public static class GameComponentsLookup {
         typeof(CameraComponent),
         typeof(ColliderCacheComponent),
         typeof(ColliderComponent),
+        typeof(CurrentLevelStageComponent),
         typeof(DamageComponent),
         typeof(DamageSourcePositionComponent),
         typeof(DestroyedComponent),
@@ -131,6 +138,8 @@ public static class GameComponentsLookup {
         typeof(HealthComponent),
         typeof(IdComponent),
         typeof(LayerMaskComponent),
+        typeof(LevelComponent),
+        typeof(LevelFinishedComponent),
         typeof(MaxHealthComponent),
         typeof(PartitionGridComponent),
         typeof(PositionComponent),

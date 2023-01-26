@@ -1,7 +1,10 @@
+using System.Collections.Generic;
+using System.Linq;
+using Cinemachine;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+public class LevelStage : MonoBehaviour
 {
     public int width, height;
     public float cellSize;
@@ -9,12 +12,15 @@ public class Level : MonoBehaviour
     public Obstacle[] obstacles;
 
     public Transform[] CrowdTargets;
+    public MonoEntityLink[] EnemySpawners;
+
+    public CinemachineVirtualCamera StageCamera;
 
 #if UNITY_EDITOR
     public bool drawBounds;
     public bool drawObstacles;
     [Button]
-    void UpdateObstacles()
+    void UpdateSettings()
     {
         obstacles = GetComponentsInChildren<Obstacle>();
         foreach (var obstacle in obstacles)
@@ -29,6 +35,17 @@ public class Level : MonoBehaviour
             obstacle.height = Mathf.RoundToInt(obstacleScale.z / cellSize);
             obstacle.indexX = Mathf.RoundToInt((obstacleTransform.position.x - transform.position.x) / cellSize);
             obstacle.indexY = Mathf.RoundToInt((obstacleTransform.position.z - transform.position.z) / cellSize);
+        }
+
+        foreach (var spawner in EnemySpawners)
+        {
+            for (int i = 0; i < spawner.Overrides.Count; i++)
+            {
+                if (spawner.Overrides[i] is PositionComponent)
+                {
+                    ((PositionComponent) spawner.Overrides[i]).Value = spawner.transform.position;
+                }
+            }
         }
     }
     
