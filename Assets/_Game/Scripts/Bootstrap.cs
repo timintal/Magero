@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Entitas;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -32,6 +33,7 @@ public class Bootstrap : MonoBehaviour
     {
         return new Feature("Game")
                 .Add(new PlayerInitializeSystem(contexts))
+                .Add(new LevelStageActivationSystem(contexts))
                 
                 .Add(new UserInputSystem(contexts))
                 
@@ -40,6 +42,8 @@ public class Bootstrap : MonoBehaviour
                 .Add(new CreateViewSystem(contexts))
                 
                 .Add(new CameraControlSystem(contexts))
+                
+                .Add(new LevelStageProgressSystem(contexts))
                 
                 .Add(new EnemySpawnersUpdateSystem(contexts))
                 .Add(new EnemySpawnSystem(contexts))
@@ -59,14 +63,15 @@ public class Bootstrap : MonoBehaviour
                 .Add(new DebugExplosionVisualizationSystem(contexts))
             
                 .Add(new DamageSystem(contexts))
-                
-                .Add(new RagdollCreationSystem(contexts))
+
+                .Add(new RagdollCreationSystem(contexts))//should be after damage system
                 
                 .Add(new AutoDestructionSystem(contexts))
                 .Add(new DestroyViewSystem(contexts))
                 .Add(new MultiDestroySystem(contexts))
+                
                 //Cleanup
-                .Add(new CleanupDamageSourceSystem(contexts))
+                .Add(new CleanupComponentSystem<DamageSourcePositionComponent>(contexts.game))
             ;
     }
 
@@ -87,8 +92,7 @@ public class Bootstrap : MonoBehaviour
         _sceneEntities.Clear();
         foreach (var rootGameObject in gameObject.scene.GetRootGameObjects())
         {
-            _sceneEntities.AddRange(rootGameObject.GetComponents<MonoEntityLink>());
-            _sceneEntities.AddRange(rootGameObject.GetComponentsInChildren<MonoEntityLink>());
+            _sceneEntities.AddRange(rootGameObject.GetComponentsInChildren<MonoEntityLink>().ToList().FindAll(x=>x.CreateOnStart));
         }
         
     }

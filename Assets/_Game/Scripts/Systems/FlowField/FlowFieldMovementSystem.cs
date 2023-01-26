@@ -33,6 +33,8 @@ public class FlowFieldMovementSystem : IExecuteSystem
 
     public void Execute()
     {
+        if (_flowFieldsGroup.count == 0) return;
+        
         var flowField = _flowFieldsGroup.GetSingleEntity().flowField;
 
         var maxCalculationDistance = _contexts.game.gameSetup.value.FlowFieldSettings.MaxCalculationDistance;

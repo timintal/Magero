@@ -31,6 +31,9 @@ public class FlowFieldSettings
     
     public int MoverRepulsionSize;
     public int MoverRepulsionValue;
+
+    public int ObstacleRepulsionSize;
+    public int ObstacleRepulsionValue;
     
     public float ExplosionRepulsionTime;
     public int ExplosionRepulsionValue;

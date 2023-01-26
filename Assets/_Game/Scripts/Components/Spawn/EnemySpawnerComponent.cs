@@ -1,4 +1,5 @@
 using Entitas;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 [Game]
@@ -9,6 +10,8 @@ public class EnemySpawnerComponent : IComponent
 
     public int UnitsToSpawn;
 
+    // [ReadOnly]
     public int UnitsSpawned;
+    // [ReadOnly] 
     public float TimeToNextSpawn;
 }
