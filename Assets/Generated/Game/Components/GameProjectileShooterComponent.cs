@@ -11,21 +11,25 @@ public partial class GameEntity {
     public ProjectileShooterComponent projectileShooter { get { return (ProjectileShooterComponent)GetComponent(GameComponentsLookup.ProjectileShooter); } }
     public bool hasProjectileShooter { get { return HasComponent(GameComponentsLookup.ProjectileShooter); } }
 
-    public void AddProjectileShooter(float newCooldown, UnityEngine.GameObject newPrefab, float newProjectileSpeed) {
+    public void AddProjectileShooter(float newCooldown, UnityEngine.GameObject newPrefab, float newProjectileSpeed, TargetType newTarget, int newDamage) {
         var index = GameComponentsLookup.ProjectileShooter;
         var component = (ProjectileShooterComponent)CreateComponent(index, typeof(ProjectileShooterComponent));
         component.Cooldown = newCooldown;
         component.Prefab = newPrefab;
         component.ProjectileSpeed = newProjectileSpeed;
+        component.Target = newTarget;
+        component.Damage = newDamage;
         AddComponent(index, component);
     }
 
-    public void ReplaceProjectileShooter(float newCooldown, UnityEngine.GameObject newPrefab, float newProjectileSpeed) {
+    public void ReplaceProjectileShooter(float newCooldown, UnityEngine.GameObject newPrefab, float newProjectileSpeed, TargetType newTarget, int newDamage) {
         var index = GameComponentsLookup.ProjectileShooter;
         var component = (ProjectileShooterComponent)CreateComponent(index, typeof(ProjectileShooterComponent));
         component.Cooldown = newCooldown;
         component.Prefab = newPrefab;
         component.ProjectileSpeed = newProjectileSpeed;
+        component.Target = newTarget;
+        component.Damage = newDamage;
         ReplaceComponent(index, component);
     }
 

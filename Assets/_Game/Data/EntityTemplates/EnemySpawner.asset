@@ -54,6 +54,18 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: SpawnArea
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: UnitsToSpawn
       Entry: 3
       Data: 1000
@@ -63,6 +75,9 @@ MonoBehaviour:
     - Name: TimeToNextSpawn
       Entry: 4
       Data: 0
+    - Name: EnemyToSpawn
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 

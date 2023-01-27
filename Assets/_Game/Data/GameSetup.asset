@@ -21,7 +21,7 @@ MonoBehaviour:
     StepWeight: 100
     StepDiagonalWeight: 140
     MaxCalculationDistance: 80000
-    MoverRepulsionSize: 4
+    MoverRepulsionSize: 3
     MoverRepulsionValue: 500
     ObstacleRepulsionSize: 5
     ObstacleRepulsionValue: 800
@@ -29,10 +29,10 @@ MonoBehaviour:
     ExplosionRepulsionValue: 8000
     ExplosionRepulsionSizeMultiplier: 2
   DebugSettings:
-    VisualizeFlowField: 0
+    VisualizeFlowField: 1
     FlowFieldMaterial: {fileID: 2100000, guid: 7444c09ed2ebc4b56ac689c2eb5cf15e, type: 2}
     CellMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
-    MaxValueColor: 20000
+    MaxValueColor: 30000
     mapGradient:
       serializedVersion: 2
       key0: {r: 0.9137255, g: 0.8923656, b: 0, a: 0.84313726}
@@ -62,11 +62,6 @@ MonoBehaviour:
       m_Mode: 0
       m_NumColorKeys: 3
       m_NumAlphaKeys: 2
-  TestEnemySettings:
-    Prefab: {fileID: 7969321768603503873, guid: 134ad446ccbf54bdeb043185af1fda9f,
-      type: 3}
-    Speed: 1
-    Health: 5
   TestWeaponSettings:
     Cooldown: 1
     Damage: 10

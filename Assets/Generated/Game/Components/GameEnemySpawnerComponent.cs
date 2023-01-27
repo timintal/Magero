@@ -11,25 +11,29 @@ public partial class GameEntity {
     public EnemySpawnerComponent enemySpawner { get { return (EnemySpawnerComponent)GetComponent(GameComponentsLookup.EnemySpawner); } }
     public bool hasEnemySpawner { get { return HasComponent(GameComponentsLookup.EnemySpawner); } }
 
-    public void AddEnemySpawner(UnityEngine.Vector2 newSpawnDelayRange, UnityEngine.Vector2Int newSpawnCountRange, int newUnitsToSpawn, int newUnitsSpawned, float newTimeToNextSpawn) {
+    public void AddEnemySpawner(UnityEngine.Vector2 newSpawnDelayRange, UnityEngine.Vector2Int newSpawnCountRange, UnityEngine.Vector2 newSpawnArea, int newUnitsToSpawn, int newUnitsSpawned, float newTimeToNextSpawn, EnemySettings newEnemyToSpawn) {
         var index = GameComponentsLookup.EnemySpawner;
         var component = (EnemySpawnerComponent)CreateComponent(index, typeof(EnemySpawnerComponent));
         component.SpawnDelayRange = newSpawnDelayRange;
         component.SpawnCountRange = newSpawnCountRange;
+        component.SpawnArea = newSpawnArea;
         component.UnitsToSpawn = newUnitsToSpawn;
         component.UnitsSpawned = newUnitsSpawned;
         component.TimeToNextSpawn = newTimeToNextSpawn;
+        component.EnemyToSpawn = newEnemyToSpawn;
         AddComponent(index, component);
     }
 
-    public void ReplaceEnemySpawner(UnityEngine.Vector2 newSpawnDelayRange, UnityEngine.Vector2Int newSpawnCountRange, int newUnitsToSpawn, int newUnitsSpawned, float newTimeToNextSpawn) {
+    public void ReplaceEnemySpawner(UnityEngine.Vector2 newSpawnDelayRange, UnityEngine.Vector2Int newSpawnCountRange, UnityEngine.Vector2 newSpawnArea, int newUnitsToSpawn, int newUnitsSpawned, float newTimeToNextSpawn, EnemySettings newEnemyToSpawn) {
         var index = GameComponentsLookup.EnemySpawner;
         var component = (EnemySpawnerComponent)CreateComponent(index, typeof(EnemySpawnerComponent));
         component.SpawnDelayRange = newSpawnDelayRange;
         component.SpawnCountRange = newSpawnCountRange;
+        component.SpawnArea = newSpawnArea;
         component.UnitsToSpawn = newUnitsToSpawn;
         component.UnitsSpawned = newUnitsSpawned;
         component.TimeToNextSpawn = newTimeToNextSpawn;
+        component.EnemyToSpawn = newEnemyToSpawn;
         ReplaceComponent(index, component);
     }
 

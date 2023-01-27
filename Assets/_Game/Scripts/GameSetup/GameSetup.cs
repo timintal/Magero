@@ -9,7 +9,6 @@ public class GameSetup : ScriptableObject
     public CameraSettings CameraSettings;
     public FlowFieldSettings FlowFieldSettings;
     public DebugSettings DebugSettings;
-    public TestEnemySettings TestEnemySettings;
     public TestWeaponSettings TestWeaponSettings;
 }
 
@@ -50,16 +49,6 @@ public class DebugSettings
     public Mesh CellMesh;
     public int MaxValueColor;
     public Gradient mapGradient;
-}
-
-[Serializable]
-public class TestEnemySettings
-{
-    public GameObject Prefab;
-
-    public float Speed;
-
-    public int Health;
 }
 
 [Serializable]

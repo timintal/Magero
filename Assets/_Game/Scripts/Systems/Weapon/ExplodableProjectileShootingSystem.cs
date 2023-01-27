@@ -24,9 +24,8 @@ public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
         return
             entity.hasProjectileShooter &&
             entity.hasExplodableProjectileShooter &&
-            entity.hasTarget &&
-            entity.hasDamage &&
             entity.hasTransform &&
+            entity.hasDirection && 
             !entity.isWeaponDisabled &&
             !entity.hasWeaponCooldown;
     }
@@ -36,16 +35,16 @@ public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             var projectileEntity = _contexts.game.CreateEntity();
-            projectileEntity.AddProjectile(e.target.TargetType, e.damage.Damage);
+            projectileEntity.AddProjectile(e.projectileShooter.Target, e.projectileShooter.Damage);
             projectileEntity.AddResource(e.projectileShooter.Prefab);
             projectileEntity.AddPosition(e.transform.Transform.position);
             projectileEntity.AddRotation(Quaternion.identity);
-            projectileEntity.AddDirection(e.transform.Transform.forward);
+            projectileEntity.AddDirection(e.direction.Value);
             projectileEntity.AddSpeed(e.projectileShooter.ProjectileSpeed);
             projectileEntity.AddAutoDestruction(7);
             projectileEntity.AddEntityRef(e.id.Value);
             projectileEntity.AddExplodableProjectile(e.explodableProjectileShooter.ExplosionRadius);
-            projectileEntity.AddDamage(e.damage.Damage);
+            projectileEntity.AddDamage(e.projectileShooter.Damage);
             e.hasWeaponCooldown = true;
             
             var timerEntity = _contexts.game.CreateEntity();

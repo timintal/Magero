@@ -11,20 +11,20 @@ public partial class GameEntity {
     public CameraComponent camera { get { return (CameraComponent)GetComponent(GameComponentsLookup.Camera); } }
     public bool hasCamera { get { return HasComponent(GameComponentsLookup.Camera); } }
 
-    public void AddCamera(UnityEngine.Transform newCameraTransform, UnityEngine.Vector2 newHorizontalRange, UnityEngine.Vector2 newVerticalRange, float newRotationSpeed) {
+    public void AddCamera(UnityEngine.Quaternion newInitialForwardOffset, UnityEngine.Vector2 newHorizontalRange, UnityEngine.Vector2 newVerticalRange, float newRotationSpeed) {
         var index = GameComponentsLookup.Camera;
         var component = (CameraComponent)CreateComponent(index, typeof(CameraComponent));
-        component.CameraTransform = newCameraTransform;
+        component.InitialForwardOffset = newInitialForwardOffset;
         component.HorizontalRange = newHorizontalRange;
         component.VerticalRange = newVerticalRange;
         component.RotationSpeed = newRotationSpeed;
         AddComponent(index, component);
     }
 
-    public void ReplaceCamera(UnityEngine.Transform newCameraTransform, UnityEngine.Vector2 newHorizontalRange, UnityEngine.Vector2 newVerticalRange, float newRotationSpeed) {
+    public void ReplaceCamera(UnityEngine.Quaternion newInitialForwardOffset, UnityEngine.Vector2 newHorizontalRange, UnityEngine.Vector2 newVerticalRange, float newRotationSpeed) {
         var index = GameComponentsLookup.Camera;
         var component = (CameraComponent)CreateComponent(index, typeof(CameraComponent));
-        component.CameraTransform = newCameraTransform;
+        component.InitialForwardOffset = newInitialForwardOffset;
         component.HorizontalRange = newHorizontalRange;
         component.VerticalRange = newVerticalRange;
         component.RotationSpeed = newRotationSpeed;

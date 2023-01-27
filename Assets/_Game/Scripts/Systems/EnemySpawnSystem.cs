@@ -28,16 +28,15 @@ public class EnemySpawnSystem : ReactiveSystem<GameEntity>
             for (int i = 0; i < e.enemySpawnRequest.Count; i++)
             {
                 var enemyEntity = _contexts.game.CreateEntity();
-                enemyEntity.AddResource(_contexts.game.gameSetup.value.TestEnemySettings.Prefab);
-                enemyEntity.AddSpeed(_contexts.game.gameSetup.value.TestEnemySettings.Speed);
-                enemyEntity.AddHealth(_contexts.game.gameSetup.value.TestEnemySettings.Health);
-                enemyEntity.AddMaxHealth(_contexts.game.gameSetup.value.TestEnemySettings.Health);
+                enemyEntity.AddResource(e.enemySpawnRequest.EnemySettings.Prefab);
+                enemyEntity.AddSpeed(e.enemySpawnRequest.EnemySettings.Speed);
+                enemyEntity.AddHealth(e.enemySpawnRequest.EnemySettings.Health);
+                enemyEntity.AddMaxHealth(e.enemySpawnRequest.EnemySettings.Health);
                 enemyEntity.AddTarget(TargetType.Enemy);
                 enemyEntity.isFlowFieldMover = true;
                 enemyEntity.isRagdollDeath = true;
                 
-                var randomPart = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
-                enemyEntity.AddPosition(e.position.Value + randomPart);
+                enemyEntity.AddPosition(e.position.Value);
                 enemyEntity.AddRotation(Quaternion.identity);
             }
 

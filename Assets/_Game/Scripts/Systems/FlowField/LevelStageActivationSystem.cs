@@ -71,7 +71,7 @@ public class LevelStageActivationSystem : ReactiveSystem<GameEntity>
         else
         {
             cameraEntity = _cameraGroup.GetSingleEntity();
-            var cinemachineVirtualCamera = cameraEntity.camera.CameraTransform.GetComponent<CinemachineVirtualCamera>();
+            var cinemachineVirtualCamera = cameraEntity.transform.Transform.GetComponent<CinemachineVirtualCamera>();
             if (cinemachineVirtualCamera != null)
             {
                 cinemachineVirtualCamera.enabled = false;
@@ -80,11 +80,13 @@ public class LevelStageActivationSystem : ReactiveSystem<GameEntity>
         
         var gameSetup = _contexts.game.gameSetup.value;
 
-        cameraEntity.ReplaceCamera(camera.transform,
+        cameraEntity.ReplaceCamera(
+            camera.transform.rotation,
             gameSetup.CameraSettings.HorizontalBounds,
             gameSetup.CameraSettings.VerticalBounds,
             gameSetup.CameraSettings.RotationSpeed);
-
+        
+        cameraEntity.ReplaceTransform(camera.transform);
         camera.enabled = true;
     }
 

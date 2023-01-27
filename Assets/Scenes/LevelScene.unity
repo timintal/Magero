@@ -170,7 +170,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 7855af1fff7e049b089c395cb0193b1d, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -230,6 +231,18 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: SpawnArea
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: UnitsToSpawn
       Entry: 3
       Data: 500
@@ -238,6 +251,9 @@ MonoBehaviour:
       Data: 0
     - Name: TimeToNextSpawn
       Entry: 4
+      Data: 0
+    - Name: EnemyToSpawn
+      Entry: 10
       Data: 0
     - Name: 
       Entry: 8
@@ -312,7 +328,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289558512}
-  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 23.155, z: 2.112}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -320,7 +336,7 @@ Transform:
   - {fileID: 1362972201}
   m_Father: {fileID: 776496327}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +538,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 7855af1fff7e049b089c395cb0193b1d, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -582,6 +599,18 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: SpawnArea
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: UnitsToSpawn
       Entry: 3
       Data: 500
@@ -590,6 +619,9 @@ MonoBehaviour:
       Data: 0
     - Name: TimeToNextSpawn
       Entry: 4
+      Data: 0
+    - Name: EnemyToSpawn
+      Entry: 10
       Data: 0
     - Name: 
       Entry: 8
@@ -749,7 +781,6 @@ Transform:
   - {fileID: 752908441}
   - {fileID: 622035759}
   - {fileID: 2040608801}
-  - {fileID: 1343379359}
   - {fileID: 1223034718}
   m_Father: {fileID: 1722013887}
   m_RootOrder: 1
@@ -782,7 +813,6 @@ MonoBehaviour:
   EnemySpawners:
   - {fileID: 622035760}
   - {fileID: 2040608802}
-  - {fileID: 1343379360}
   StageCamera: {fileID: 1063444102}
   drawBounds: 0
   drawObstacles: 0
@@ -819,9 +849,9 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0.7
     y: 0
-    width: 61.39
+    width: 83.39
     height: 90
-  width: 123
+  width: 167
   height: 180
   cellSize: 0.5
   obstacles:
@@ -831,7 +861,7 @@ MonoBehaviour:
   EnemySpawners:
   - {fileID: 555104607}
   StageCamera: {fileID: 289558513}
-  drawBounds: 0
+  drawBounds: 1
   drawObstacles: 0
 --- !u!4 &483403729
 Transform:
@@ -900,7 +930,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 7855af1fff7e049b089c395cb0193b1d, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -960,14 +991,29 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: SpawnArea
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: UnitsToSpawn
       Entry: 3
-      Data: 500
+      Data: 2
     - Name: UnitsSpawned
       Entry: 3
       Data: 0
     - Name: TimeToNextSpawn
       Entry: 4
+      Data: 0
+    - Name: EnemyToSpawn
+      Entry: 10
       Data: 0
     - Name: 
       Entry: 8
@@ -1005,7 +1051,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622035758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.1, y: 0, z: 60.7}
+  m_LocalPosition: {x: 25.2, y: 0, z: 64.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1027,7 +1073,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 47c350ec924dd45a0a2a149fe8c5baba, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -1047,13 +1094,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 2.1
+      Data: 25.2
     - Name: 
       Entry: 4
       Data: 0
     - Name: 
       Entry: 4
-      Data: 60.7
+      Data: 64.3
     - Name: 
       Entry: 8
       Data: 
@@ -1080,21 +1127,36 @@ MonoBehaviour:
       Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 25
+      Data: 1
     - Name: 
       Entry: 3
-      Data: 45
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: SpawnArea
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 4
+    - Name: 
+      Entry: 4
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
     - Name: UnitsToSpawn
       Entry: 3
-      Data: 500
+      Data: 1
     - Name: UnitsSpawned
       Entry: 3
       Data: 0
     - Name: TimeToNextSpawn
       Entry: 4
+      Data: 0
+    - Name: EnemyToSpawn
+      Entry: 10
       Data: 0
     - Name: 
       Entry: 8
@@ -1409,8 +1471,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776496326}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.7, y: 0, z: 3}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 76.1, y: 0, z: 45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1418,7 +1480,7 @@ Transform:
   - {fileID: 289558514}
   m_Father: {fileID: 483403729}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &938469246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,7 +1744,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063444100}
-  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 23.155, z: 2.112}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1690,7 +1752,7 @@ Transform:
   - {fileID: 1004839408}
   m_Father: {fileID: 752908441}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1063444102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1836,7 +1898,7 @@ Transform:
   m_Children:
   - {fileID: 730153808}
   m_Father: {fileID: 455506933}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1223034719
 MonoBehaviour:
@@ -2110,133 +2172,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1343379358
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1343379359}
-  - component: {fileID: 1343379360}
-  m_Layer: 0
-  m_Name: EnemySpawner (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1343379359
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343379358}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.2, y: 0, z: 74.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 455506933}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1343379360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343379358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bdce58d7395e49a0a09b7ca1712363c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _overrides
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Entitas.IComponent, Entitas]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 1|PositionComponent, Assembly-CSharp
-    - Name: Value
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 23.2
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 74.1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 2|EnemySpawnerComponent, Assembly-CSharp
-    - Name: SpawnDelayRange
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.1
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: SpawnCountRange
-      Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 25
-    - Name: 
-      Entry: 3
-      Data: 45
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: UnitsToSpawn
-      Entry: 3
-      Data: 500
-    - Name: UnitsSpawned
-      Entry: 3
-      Data: 0
-    - Name: TimeToNextSpawn
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  CreateOnStart: 0
-  _template: {fileID: 0}
 --- !u!1 &1362972200
 GameObject:
   m_ObjectHideFlags: 3
@@ -2467,7 +2402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560298609}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8, y: -1.2, z: -10}
+  m_LocalPosition: {x: 0.79999924, y: -1.2000008, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2672,7 +2607,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040608800}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.4, y: 0, z: 54.2}
+  m_LocalPosition: {x: 25.4, y: 0, z: 83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2694,7 +2629,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 7855af1fff7e049b089c395cb0193b1d, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -2720,7 +2656,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 54.2
+      Data: 83
     - Name: 
       Entry: 8
       Data: 
@@ -2754,14 +2690,29 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: SpawnArea
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: UnitsToSpawn
       Entry: 3
-      Data: 500
+      Data: 5
     - Name: UnitsSpawned
       Entry: 3
       Data: 0
     - Name: TimeToNextSpawn
       Entry: 4
+      Data: 0
+    - Name: EnemyToSpawn
+      Entry: 10
       Data: 0
     - Name: 
       Entry: 8

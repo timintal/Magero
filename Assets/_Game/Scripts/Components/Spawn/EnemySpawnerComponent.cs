@@ -7,11 +7,12 @@ public class EnemySpawnerComponent : IComponent
 {
     public Vector2 SpawnDelayRange;
     public Vector2Int SpawnCountRange;
+    public Vector2 SpawnArea;
 
     public int UnitsToSpawn;
 
-    // [ReadOnly]
     public int UnitsSpawned;
-    // [ReadOnly] 
     public float TimeToNextSpawn;
+
+    public EnemySettings EnemyToSpawn;
 }

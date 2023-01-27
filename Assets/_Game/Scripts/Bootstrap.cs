@@ -38,6 +38,7 @@ public class Bootstrap : MonoBehaviour
                 .Add(new UserInputSystem(contexts))
                 
                 .Add(new PlayerUpdateSystem(contexts))
+                .Add(new PlayerWeaponDirectionUpdateSystem(contexts))
                 
                 .Add(new TimerSystem(contexts))
                 
