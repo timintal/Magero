@@ -29,7 +29,7 @@ MonoBehaviour:
     ExplosionRepulsionValue: 8000
     ExplosionRepulsionSizeMultiplier: 2
   DebugSettings:
-    VisualizeFlowField: 1
+    VisualizeFlowField: 0
     FlowFieldMaterial: {fileID: 2100000, guid: 7444c09ed2ebc4b56ac689c2eb5cf15e, type: 2}
     CellMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
     MaxValueColor: 30000
