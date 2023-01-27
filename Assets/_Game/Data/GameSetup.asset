@@ -65,14 +65,14 @@ MonoBehaviour:
   TestEnemySettings:
     Prefab: {fileID: 7969321768603503873, guid: 134ad446ccbf54bdeb043185af1fda9f,
       type: 3}
-    Speed: 1
+    Speed: 1.5
     Health: 5
   TestWeaponSettings:
-    Cooldown: 1
+    Cooldown: 0.75
     Damage: 10
     ProjectilePrefab: {fileID: 7671730865203008364, guid: 05d8dc39a59ca4726829f1680fd4b918,
       type: 3}
     ExplosionVisualPrefab: {fileID: 1043818705560514718, guid: 7a84eff5bd15f42b5aa7f3e592448eae,
       type: 3}
-    ProjectileSpeed: 40
-    ExplosionRadius: 3
+    ProjectileSpeed: 50
+    ExplosionRadius: 4
