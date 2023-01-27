@@ -63,11 +63,11 @@ MonoBehaviour:
       m_NumColorKeys: 3
       m_NumAlphaKeys: 2
   TestWeaponSettings:
-    Cooldown: 1
+    Cooldown: 0.75
     Damage: 10
     ProjectilePrefab: {fileID: 7671730865203008364, guid: 05d8dc39a59ca4726829f1680fd4b918,
       type: 3}
     ExplosionVisualPrefab: {fileID: 1043818705560514718, guid: 7a84eff5bd15f42b5aa7f3e592448eae,
       type: 3}
-    ProjectileSpeed: 40
-    ExplosionRadius: 3
+    ProjectileSpeed: 50
+    ExplosionRadius: 4
