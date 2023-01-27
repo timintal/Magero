@@ -20,8 +20,8 @@ public class CameraControlSystem : IExecuteSystem
         var cameraEntity = _cameraGroup.GetSingleEntity();
         var camera = cameraEntity.camera;
 
-        float xOffset = input.Axis.x * camera.RotationSpeed * Time.deltaTime;
-        float yOffset = -input.Axis.y * camera.RotationSpeed * Time.deltaTime;
+        float xOffset = input.Axis.x / Screen.width * camera.RotationSpeed;
+        float yOffset = -input.Axis.y / Screen.height * camera.RotationSpeed;
 
         var currentRotation = camera.CameraTransform.localRotation.eulerAngles;
         

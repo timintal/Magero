@@ -13,7 +13,10 @@ public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
 
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
     {
-        return context.CreateCollector(GameMatcher.WeaponCooldown.Removed(), GameMatcher.ProjectileShooter.Added());
+        return context.CreateCollector(
+            GameMatcher.WeaponCooldown.Removed(),
+            GameMatcher.WeaponDisabled.Removed(),
+            GameMatcher.ProjectileShooter.Added());
     }
 
     protected override bool Filter(GameEntity entity)
@@ -24,6 +27,7 @@ public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
             entity.hasTarget &&
             entity.hasDamage &&
             entity.hasTransform &&
+            !entity.isWeaponDisabled &&
             !entity.hasWeaponCooldown;
     }
 

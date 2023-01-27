@@ -41,6 +41,7 @@ public class MonoEntityLink : SerializedMonoBehaviour
         }
         
 
+        gameEntity.AddTransform(transform);
         gameObject.Link(gameEntity);
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using Entitas;
+using Entitas.CodeGeneration.Attributes;
 
 [Flags]
 public enum TargetType
@@ -14,5 +15,6 @@ public enum TargetType
 [Game]
 public class TargetComponent : IComponent
 {
+    [EntityIndex]
     public TargetType TargetType;
 }

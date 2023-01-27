@@ -46,7 +46,7 @@ public class FlowFieldComponent : IComponent
 
     public Vector3 GetPosition(int x, int y)
     {
-        return new Vector3(InitialPoint.x + (x + 0.5f) * CellSize, 0, InitialPoint.y + (y + 0.5f) * CellSize);
+        return new Vector3(InitialPoint.x + (x + 0.5f) * CellSize, 0, InitialPoint.z + (y + 0.5f) * CellSize);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

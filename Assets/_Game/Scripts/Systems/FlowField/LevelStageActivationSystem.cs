@@ -9,8 +9,7 @@ public class LevelStageActivationSystem : ReactiveSystem<GameEntity>
     Contexts _contexts;
     private IGroup<GameEntity> _levelGroup;
     private IGroup<GameEntity> _flowFieldGroup;
-
-
+    
     public LevelStageActivationSystem(Contexts contexts) : base(contexts.game)
     {
         _contexts = contexts;
@@ -100,11 +99,9 @@ public class LevelStageActivationSystem : ReactiveSystem<GameEntity>
         if (_flowFieldGroup.count > 0)
         {
             flowFieldEntity = _flowFieldGroup.GetSingleEntity();
-            levelField = flowFieldEntity.flowField.LevelField;
-            currentField = flowFieldEntity.flowField.CurrentField;
-            backFiled = flowFieldEntity.flowField.BackField;
+            flowFieldEntity.Destroy();
         }
-        else
+        
         {
             flowFieldEntity = _contexts.game.CreateEntity();
 
@@ -132,7 +129,7 @@ public class LevelStageActivationSystem : ReactiveSystem<GameEntity>
             }
         }
 
-        var initialPos = levelToLoad.transform.position;
+        var initialPos = levelToLoad.FlowFieldInitialPos;
 
         foreach (var obstacle in levelToLoad.obstacles)
         {
@@ -192,6 +189,7 @@ public class LevelStageActivationSystem : ReactiveSystem<GameEntity>
     private void UpdateFlowFieldForTarget(Transform target, FlowFieldComponent flowField,
         FlowFieldSettings fieldSettings)
     {
+        _cellsToCheck.Clear();
         var targetPosition = target.position;
 
         var (initX, initY) = flowField.GetIndex(targetPosition);

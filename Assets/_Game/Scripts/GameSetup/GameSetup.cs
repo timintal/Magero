@@ -24,6 +24,8 @@ public class CameraSettings
 [Serializable]
 public class FlowFieldSettings
 {
+    public float CellSize;
+    
     public int StepWeight;
     public int StepDiagonalWeight;
 

@@ -1,13 +1,17 @@
-using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
 using Sirenix.OdinInspector;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 
 public class LevelStage : MonoBehaviour
 {
-    public int width, height;
-    public float cellSize;
+    public Rect bounds;
+    
+    [ReadOnly] public int width, height;
+    [ReadOnly] public float cellSize;
 
     public Obstacle[] obstacles;
 
@@ -16,12 +20,21 @@ public class LevelStage : MonoBehaviour
 
     public CinemachineVirtualCamera StageCamera;
 
+    public Vector3 FlowFieldInitialPos => transform.position + new Vector3(bounds.x, 0, bounds.y);
+    
 #if UNITY_EDITOR
     public bool drawBounds;
     public bool drawObstacles;
     [Button]
     void UpdateSettings()
     {
+        var gameSetupGUID = AssetDatabase.FindAssets("t:GameSetup").First();
+        var gameSetup = AssetDatabase.LoadAssetAtPath<GameSetup>(AssetDatabase.GUIDToAssetPath(gameSetupGUID));
+
+        cellSize = gameSetup.FlowFieldSettings.CellSize;
+        width = Mathf.RoundToInt(bounds.size.x / cellSize);
+        height = Mathf.RoundToInt(bounds.size.y / cellSize);
+        
         obstacles = GetComponentsInChildren<Obstacle>();
         foreach (var obstacle in obstacles)
         {
@@ -33,8 +46,8 @@ public class LevelStage : MonoBehaviour
             
             obstacle.width = Mathf.RoundToInt(obstacleScale.x / cellSize);
             obstacle.height = Mathf.RoundToInt(obstacleScale.z / cellSize);
-            obstacle.indexX = Mathf.RoundToInt((obstacleTransform.position.x - transform.position.x) / cellSize);
-            obstacle.indexY = Mathf.RoundToInt((obstacleTransform.position.z - transform.position.z) / cellSize);
+            obstacle.indexX = Mathf.RoundToInt((obstacleTransform.position.x - FlowFieldInitialPos.x) / cellSize);
+            obstacle.indexY = Mathf.RoundToInt((obstacleTransform.position.z - FlowFieldInitialPos.z) / cellSize);
         }
 
         foreach (var spawner in EnemySpawners)
@@ -73,9 +86,11 @@ public class LevelStage : MonoBehaviour
         {
             Gizmos.color = new Color(0, 1f, 1f, 0.5f);
 
-            var center = new Vector3(width * cellSize * 0.5f, 1, height * cellSize * 0.5f) + transform.position;
+            // var center = new Vector3(width * cellSize * 0.5f, 1, height * cellSize * 0.5f) + transform.position;
 
-            Gizmos.DrawCube(center, new Vector3(width * cellSize, 1, height * cellSize));
+            // Gizmos.DrawCube(center, new Vector3(width * cellSize, 1, height * cellSize));
+            
+            Gizmos.DrawCube(new Vector3(bounds.center.x, 1, bounds.center.y) + transform.position, new Vector3(bounds.size.x, 1, bounds.size.y));
         }
 
         if (drawObstacles)

@@ -50,7 +50,7 @@ public class FlowFieldMovementSystem : IExecuteSystem
                     direction = Vector3.RotateTowards(e.direction.Value, direction, 15f * Time.deltaTime, 0);
                 }
                 e.ReplaceDirection(direction);
-                // e.AddFlowFieldDirectionUpdateDelay(Random.Range(0.5f, 1f));
+                e.AddFlowFieldDirectionUpdateDelay(Random.Range(0.3f, 0.5f));
             }
             else
             {

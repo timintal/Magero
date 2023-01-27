@@ -1,60 +1,52 @@
 using Entitas;
 using UnityEngine;
 
-public class UserInputSystem : IExecuteSystem, ICleanupSystem, IInitializeSystem
+public class UserInputSystem : IExecuteSystem, IInitializeSystem
 {
     private readonly Contexts _contexts;
 
     private readonly IGroup<InputEntity> _userInputs;
-    private readonly IGroup<InputEntity> _joystickGroup;
 
     public UserInputSystem(Contexts contexts)
     {
         _contexts = contexts;
         _userInputs = _contexts.input.GetGroup(InputMatcher.UserInput);
-        _joystickGroup = _contexts.input.GetGroup(InputMatcher.Joystick);
     }
 
     public void Execute()
     {
-        Vector2 currentInput;
-        var joystick = _joystickGroup.GetSingleEntity().joystick;
-        if (joystick.Joystick.Direction != Vector2.zero)
+        var inputEntity = _userInputs.GetSingleEntity();
+
+        var input = inputEntity.userInput;
+        if (Input.GetMouseButtonDown(0))
         {
-            currentInput = joystick.Joystick.Direction;
+            input.PreviousPosition = Input.mousePosition;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            input.Axis = (Vector2)Input.mousePosition - input.PreviousPosition;
+            input.PreviousPosition = Input.mousePosition;
+            input.IsFirePressed = true;
         }
         else
         {
-            currentInput.x = Input.GetAxis("Horizontal");
-            currentInput.y = Input.GetAxis("Vertical");
-            if (currentInput.x > float.Epsilon && currentInput.y > float.Epsilon)
-            {
-                currentInput.Normalize();
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) || Input.touchCount == 4)
-        {
-            var spawnRequest = _contexts.game.CreateEntity();
-            spawnRequest.AddEnemySpawnRequest(100);
+            input.Axis = Vector2.zero;
+            input.PreviousPosition = Vector2.zero;
+            input.IsFirePressed = false;
         }
         
-        _contexts.input.CreateEntity().AddUserInput(currentInput);
+        inputEntity.ReplaceUserInput(input.PreviousPosition, input.Axis, input.IsFirePressed);
     }
 
-    public void Cleanup()
-    {
-        foreach (var entity in _userInputs.GetEntities())
-        {
-            entity.Destroy();
-        }
-    }
+    
 
     public void Initialize()
     {
         var gameSceneReferences = _contexts.game.gameSceneReferences.value;
         var joystickEntity = _contexts.input.CreateEntity();
         joystickEntity.AddJoystick(gameSceneReferences.Joystick);
+        _contexts.input.CreateEntity().AddUserInput(Vector2.zero, Vector2.zero, false);
 
     }
 }

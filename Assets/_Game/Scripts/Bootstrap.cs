@@ -37,6 +37,8 @@ public class Bootstrap : MonoBehaviour
                 
                 .Add(new UserInputSystem(contexts))
                 
+                .Add(new PlayerUpdateSystem(contexts))
+                
                 .Add(new TimerSystem(contexts))
                 
                 .Add(new CreateViewSystem(contexts))
@@ -63,6 +65,7 @@ public class Bootstrap : MonoBehaviour
                 .Add(new UpdateViewSystem(contexts))
                 .Add(new DebugExplosionVisualizationSystem(contexts))
             
+                .Add(new DebugFeature(contexts))
                 .Add(new DamageSystem(contexts))
 
                 .Add(new RagdollCreationSystem(contexts))//should be after damage system

@@ -11,17 +11,21 @@ public partial class InputEntity {
     public UserInputComponent userInput { get { return (UserInputComponent)GetComponent(InputComponentsLookup.UserInput); } }
     public bool hasUserInput { get { return HasComponent(InputComponentsLookup.UserInput); } }
 
-    public void AddUserInput(UnityEngine.Vector2 newAxis) {
+    public void AddUserInput(UnityEngine.Vector2 newPreviousPosition, UnityEngine.Vector2 newAxis, bool newIsFirePressed) {
         var index = InputComponentsLookup.UserInput;
         var component = (UserInputComponent)CreateComponent(index, typeof(UserInputComponent));
+        component.PreviousPosition = newPreviousPosition;
         component.Axis = newAxis;
+        component.IsFirePressed = newIsFirePressed;
         AddComponent(index, component);
     }
 
-    public void ReplaceUserInput(UnityEngine.Vector2 newAxis) {
+    public void ReplaceUserInput(UnityEngine.Vector2 newPreviousPosition, UnityEngine.Vector2 newAxis, bool newIsFirePressed) {
         var index = InputComponentsLookup.UserInput;
         var component = (UserInputComponent)CreateComponent(index, typeof(UserInputComponent));
+        component.PreviousPosition = newPreviousPosition;
         component.Axis = newAxis;
+        component.IsFirePressed = newIsFirePressed;
         ReplaceComponent(index, component);
     }
 

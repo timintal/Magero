@@ -39,25 +39,27 @@ public static class GameComponentsLookup {
     public const int LevelFinished = 28;
     public const int MaxHealth = 29;
     public const int PartitionGrid = 30;
-    public const int Position = 31;
-    public const int Projectile = 32;
-    public const int ProjectileShooter = 33;
-    public const int Radius = 34;
-    public const int RagdollAngularVelocity = 35;
-    public const int RagdollCurrentVelocity = 36;
-    public const int RagdollDeath = 37;
-    public const int RagdollRemoveTimer = 38;
-    public const int Renderer = 39;
-    public const int Resource = 40;
-    public const int Rotation = 41;
-    public const int Speed = 42;
-    public const int Target = 43;
-    public const int TimerCompleted = 44;
-    public const int Timer = 45;
-    public const int Transform = 46;
-    public const int WeaponCooldown = 47;
+    public const int Player = 31;
+    public const int Position = 32;
+    public const int Projectile = 33;
+    public const int ProjectileShooter = 34;
+    public const int Radius = 35;
+    public const int RagdollAngularVelocity = 36;
+    public const int RagdollCurrentVelocity = 37;
+    public const int RagdollDeath = 38;
+    public const int RagdollRemoveTimer = 39;
+    public const int Renderer = 40;
+    public const int Resource = 41;
+    public const int Rotation = 42;
+    public const int Speed = 43;
+    public const int Target = 44;
+    public const int TimerCompleted = 45;
+    public const int Timer = 46;
+    public const int Transform = 47;
+    public const int WeaponCooldown = 48;
+    public const int WeaponDisabled = 49;
 
-    public const int TotalComponents = 48;
+    public const int TotalComponents = 50;
 
     public static readonly string[] componentNames = {
         "Attacker",
@@ -91,6 +93,7 @@ public static class GameComponentsLookup {
         "LevelFinished",
         "MaxHealth",
         "PartitionGrid",
+        "Player",
         "Position",
         "Projectile",
         "ProjectileShooter",
@@ -107,7 +110,8 @@ public static class GameComponentsLookup {
         "TimerCompleted",
         "Timer",
         "Transform",
-        "WeaponCooldown"
+        "WeaponCooldown",
+        "WeaponDisabled"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -142,6 +146,7 @@ public static class GameComponentsLookup {
         typeof(LevelFinishedComponent),
         typeof(MaxHealthComponent),
         typeof(PartitionGridComponent),
+        typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(ProjectileComponent),
         typeof(ProjectileShooterComponent),
@@ -158,6 +163,7 @@ public static class GameComponentsLookup {
         typeof(TimerCompletedComponent),
         typeof(TimerComponent),
         typeof(TransformComponent),
-        typeof(WeaponCooldownComponent)
+        typeof(WeaponCooldownComponent),
+        typeof(WeaponDisabledComponent)
     };
 }

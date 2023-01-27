@@ -223,16 +223,16 @@ MonoBehaviour:
       Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 2
+      Data: 10
     - Name: 
       Entry: 3
-      Data: 8
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
     - Name: UnitsToSpawn
       Entry: 3
-      Data: 20
+      Data: 500
     - Name: UnitsSpawned
       Entry: 3
       Data: 0
@@ -575,16 +575,16 @@ MonoBehaviour:
       Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 2
+      Data: 10
     - Name: 
       Entry: 3
-      Data: 8
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
     - Name: UnitsToSpawn
       Entry: 3
-      Data: 20
+      Data: 500
     - Name: UnitsSpawned
       Entry: 3
       Data: 0
@@ -766,9 +766,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b083b7d0fe36493a92ae0bb65318a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 150
-  height: 260
-  cellSize: 0.3
+  bounds:
+    serializedVersion: 2
+    x: -18.8
+    y: 0
+    width: 100
+    height: 116
+  width: 200
+  height: 232
+  cellSize: 0.5
   obstacles:
   - {fileID: 1223034719}
   CrowdTargets:
@@ -809,17 +815,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b083b7d0fe36493a92ae0bb65318a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 150
-  height: 260
-  cellSize: 0.3
+  bounds:
+    serializedVersion: 2
+    x: 0.7
+    y: 0
+    width: 61.39
+    height: 90
+  width: 123
+  height: 180
+  cellSize: 0.5
   obstacles:
   - {fileID: 732431186}
   CrowdTargets:
   - {fileID: 776496327}
   EnemySpawners:
   - {fileID: 555104607}
-  - {fileID: 333554745}
-  - {fileID: 274682885}
   StageCamera: {fileID: 289558513}
   drawBounds: 0
   drawObstacles: 0
@@ -943,16 +953,16 @@ MonoBehaviour:
       Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 2
+      Data: 10
     - Name: 
       Entry: 3
-      Data: 8
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
     - Name: UnitsToSpawn
       Entry: 3
-      Data: 20
+      Data: 500
     - Name: UnitsSpawned
       Entry: 3
       Data: 0
@@ -1070,16 +1080,16 @@ MonoBehaviour:
       Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 20
+      Data: 25
     - Name: 
       Entry: 3
-      Data: 80
+      Data: 45
     - Name: 
       Entry: 8
       Data: 
     - Name: UnitsToSpawn
       Entry: 3
-      Data: 1000
+      Data: 500
     - Name: UnitsSpawned
       Entry: 3
       Data: 0
@@ -1319,8 +1329,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732431184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.40001, y: 0, z: 39.000008}
-  m_LocalScale: {x: 5.1000004, y: 1, z: 5.1000004}
+  m_LocalPosition: {x: 16.800003, y: 0, z: 40.9}
+  m_LocalScale: {x: 27.5, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 722676445}
@@ -1339,10 +1349,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444a2b1eb73b48c6a4f11ffada4458ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 17
-  height: 17
-  indexX: 98
-  indexY: 130
+  width: 55
+  height: 10
+  indexX: 32
+  indexY: 82
 --- !u!1 &752908440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,8 +1830,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223034717}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.1, y: 0, z: 27.900002}
-  m_LocalScale: {x: 24, y: 4.73, z: 24}
+  m_LocalPosition: {x: 19.5, y: 0, z: 33}
+  m_LocalScale: {x: 20, y: 4.73, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 730153808}
@@ -1840,10 +1850,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444a2b1eb73b48c6a4f11ffada4458ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 80
-  height: 80
-  indexX: 27
-  indexY: 93
+  width: 40
+  height: 40
+  indexX: 77
+  indexY: 66
 --- !u!1001 &1239213666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1960,6 +1970,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dynamic Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135886326569738825, guid: 56fae09712773584fb63896d473a98ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8135886327475159576, guid: 56fae09712773584fb63896d473a98ee,
         type: 3}
@@ -2195,16 +2210,16 @@ MonoBehaviour:
       Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 20
+      Data: 25
     - Name: 
       Entry: 3
-      Data: 80
+      Data: 45
     - Name: 
       Entry: 8
       Data: 
     - Name: UnitsToSpawn
       Entry: 3
-      Data: 1000
+      Data: 500
     - Name: UnitsSpawned
       Entry: 3
       Data: 0
@@ -2732,16 +2747,16 @@ MonoBehaviour:
       Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 20
+      Data: 25
     - Name: 
       Entry: 3
-      Data: 80
+      Data: 45
     - Name: 
       Entry: 8
       Data: 
     - Name: UnitsToSpawn
       Entry: 3
-      Data: 1000
+      Data: 500
     - Name: UnitsSpawned
       Entry: 3
       Data: 0

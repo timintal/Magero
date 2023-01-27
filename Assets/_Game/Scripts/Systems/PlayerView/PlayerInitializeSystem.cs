@@ -1,5 +1,6 @@
 using Entitas;
 
+
 public class PlayerInitializeSystem : IInitializeSystem
 {
     Contexts _contexts;
@@ -19,5 +20,6 @@ public class PlayerInitializeSystem : IInitializeSystem
         weaponEntity.AddExplodableProjectileShooter(gameSetup.TestWeaponSettings.ExplosionRadius);
         weaponEntity.AddTarget(TargetType.Enemy);
         weaponEntity.AddTransform(sceneReferences.ShootTransform);
+        weaponEntity.isPlayer = true;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Entitas;
 using Entitas.Unity;
+using Entitas.VisualDebugging.Unity;
 using UnityEngine;
 
 public class DestroyViewSystem : ReactiveSystem<GameEntity>
@@ -27,7 +28,7 @@ public class DestroyViewSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             e.transform.Transform.gameObject.Unlink();
-            Object.Destroy(e.transform.Transform.gameObject);
+            e.transform.Transform.gameObject.DestroyGameObject();
         }
     }
 }
