@@ -11,19 +11,19 @@ public class UpdateViewSystem : ReactiveSystem<GameEntity>
     
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
     {
-        return context.CreateCollector(GameMatcher.Position.Added());
+        return context.CreateCollector(GameMatcher.Position.Added(), GameMatcher.Rotation.Added());
     }
 
     protected override bool Filter(GameEntity entity)
     {
-        return entity.hasPosition && entity.hasTransform;
+        return entity.hasPosition && entity.hasRotation && entity.hasTransform;
     }
 
     protected override void Execute(List<GameEntity> entities)
     {
         foreach (var entity in entities)
         {
-            entity.transform.Transform.position = entity.position.Value;
+            entity.transform.Transform.SetPositionAndRotation(entity.position.Value, entity.rotation.Value);
         }
     }
 }

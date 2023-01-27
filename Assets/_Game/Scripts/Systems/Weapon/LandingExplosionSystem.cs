@@ -21,7 +21,8 @@ public class LandingExplosionSystem : IExecuteSystem
             var positionValue = e.position.Value;
             if (positionValue.y < 0)
             {
-                e.isDestroyed = true;
+                e.RemoveProjectile();
+                
                 var explosion = _contexts.game.CreateEntity();
                 positionValue.y = 0;
                 explosion.AddPosition(positionValue);

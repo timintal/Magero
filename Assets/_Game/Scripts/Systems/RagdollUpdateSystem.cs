@@ -33,11 +33,13 @@ public class RagdollUpdateSystem : IExecuteSystem
                 var currVelocity = e.ragdollCurrentVelocity.Value;
                 currVelocity += Vector3.down * 30 * Time.deltaTime;
                 position += currVelocity * Time.deltaTime;
-                
-                e.transform.Transform.Rotate(e.ragdollAngularVelocity.Axis, e.ragdollAngularVelocity.AnglePerSecond * Time.deltaTime);
+
+                var rotation = e.rotation.Value;
+                var newRotation = rotation * Quaternion.AngleAxis(e.ragdollAngularVelocity.AnglePerSecond * Time.deltaTime,e.ragdollAngularVelocity.Axis);
                 
                 e.ReplaceRagdollCurrentVelocity(currVelocity);
                 e.ReplacePosition(position);
+                e.ReplaceRotation(newRotation);
             }
         }
     }

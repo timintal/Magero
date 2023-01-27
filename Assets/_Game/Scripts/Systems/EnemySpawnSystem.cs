@@ -38,6 +38,7 @@ public class EnemySpawnSystem : ReactiveSystem<GameEntity>
                 
                 var randomPart = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
                 enemyEntity.AddPosition(e.position.Value + randomPart);
+                enemyEntity.AddRotation(Quaternion.identity);
             }
 
             e.isDestroyed = true;

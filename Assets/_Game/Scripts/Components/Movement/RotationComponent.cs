@@ -4,5 +4,5 @@ using UnityEngine;
 [Game]
 public class RotationComponent : IComponent
 {
-    public Quaternion Rotation;
+    public Quaternion Value;
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Entitas;
+using UnityEngine;
 
 public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
 {
@@ -34,6 +35,7 @@ public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
             projectileEntity.AddProjectile(e.target.TargetType, e.damage.Damage);
             projectileEntity.AddResource(e.projectileShooter.Prefab);
             projectileEntity.AddPosition(e.transform.Transform.position);
+            projectileEntity.AddRotation(Quaternion.identity);
             projectileEntity.AddDirection(e.transform.Transform.forward);
             projectileEntity.AddSpeed(e.projectileShooter.ProjectileSpeed);
             projectileEntity.AddAutoDestruction(7);
