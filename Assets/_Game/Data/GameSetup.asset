@@ -13,17 +13,16 @@ MonoBehaviour:
   m_Name: GameSetup
   m_EditorClassIdentifier: 
   CameraSettings:
-    RotationSpeed: 25
-    HorizontalBounds: {x: -45, y: 45}
-    VerticalBounds: {x: 0, y: 60}
+    RotationSpeed: 40
+    HorizontalBounds: {x: -55, y: 55}
+    VerticalBounds: {x: 0, y: 80}
   FlowFieldSettings:
     CellSize: 0.5
     StepWeight: 100
-    StepDiagonalWeight: 140
+    StepDiagonalWeight: 141
     MaxCalculationDistance: 80000
-    MoverRepulsionSize: 3
     MoverRepulsionValue: 500
-    ObstacleRepulsionSize: 5
+    ObstacleRepulsionSize: 1
     ObstacleRepulsionValue: 800
     ExplosionRepulsionTime: 1.5
     ExplosionRepulsionValue: 8000
@@ -32,7 +31,7 @@ MonoBehaviour:
     VisualizeFlowField: 0
     FlowFieldMaterial: {fileID: 2100000, guid: 7444c09ed2ebc4b56ac689c2eb5cf15e, type: 2}
     CellMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
-    MaxValueColor: 30000
+    MaxValueColor: 16236
     mapGradient:
       serializedVersion: 2
       key0: {r: 0.9137255, g: 0.8923656, b: 0, a: 0.84313726}
@@ -69,5 +68,5 @@ MonoBehaviour:
       type: 3}
     ExplosionVisualPrefab: {fileID: 1043818705560514718, guid: 7a84eff5bd15f42b5aa7f3e592448eae,
       type: 3}
-    ProjectileSpeed: 50
+    ProjectileSpeed: 100
     ExplosionRadius: 4

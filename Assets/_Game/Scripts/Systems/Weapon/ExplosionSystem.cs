@@ -10,7 +10,12 @@ public class ExplosionSystem : ReactiveSystem<GameEntity>
     public ExplosionSystem(Contexts contexts) : base(contexts.game)
     {
         _contexts = contexts;
-        _targetsGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Target, GameMatcher.Health, GameMatcher.Position));
+        _targetsGroup = _contexts.game.GetGroup(
+            GameMatcher.AllOf(
+                GameMatcher.Target,
+                GameMatcher.Health, 
+                GameMatcher.Position, 
+                GameMatcher.Radius));
     }
 
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)

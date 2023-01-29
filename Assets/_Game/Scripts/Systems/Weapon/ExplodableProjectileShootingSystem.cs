@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
+
 public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
 {
     Contexts _contexts;
@@ -47,10 +48,15 @@ public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
             projectileEntity.AddDamage(e.projectileShooter.Damage);
             e.hasWeaponCooldown = true;
             
-            var timerEntity = _contexts.game.CreateEntity();
-            timerEntity.AddTimer(e.projectileShooter.Cooldown);
-            timerEntity.AddEntityRef(e.id.Value);
-            timerEntity.hasWeaponCooldown = true;
+            StartCooldown(e);
         }
+    }
+
+    private void StartCooldown(GameEntity e)
+    {
+        var timerEntity = _contexts.game.CreateEntity();
+        timerEntity.AddTimer(e.projectileShooter.Cooldown);
+        timerEntity.AddEntityRef(e.id.Value);
+        timerEntity.hasWeaponCooldown = true;
     }
 }

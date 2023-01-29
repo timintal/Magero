@@ -1,7 +1,15 @@
 using System;
 using System.Runtime.CompilerServices;
 using Entitas;
+using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
+
+public enum DirectionFetchResult
+{
+    Found,
+    FoundForced,
+    NotFound
+}
 
 [Game]
 public class FlowFieldComponent : IComponent
@@ -23,9 +31,11 @@ public class FlowFieldComponent : IComponent
 
     public void CopyField(int[][] source, int[][] destination)
     {
-        for (int i = 0; i < Width; i++)
+        int maxX = Width;
+        int maxY = Height;
+        for (int i = 0; i < maxX; i++)
         {
-            for (int j = 0; j < Height; j++)
+            for (int j = 0; j < maxY; j++)
             {
                 destination[i][j] = source[i][j];
             }
@@ -55,14 +65,29 @@ public class FlowFieldComponent : IComponent
         return x > 0 && x < LevelField.Length && y > 0 && y < LevelField[0].Length;
     }
 
-    public Vector3 GetDirection(Vector3 pos, int maxValue, out bool directionFound)
+    public bool IsPassablePosition(Vector3 position, float maxDistance)
+    {
+        var (x, y) = GetIndex(position);
+
+        return IsPassablePosition(maxDistance, x, y);
+    }
+
+    private bool IsPassablePosition(float maxDistance, int x, int y)
+    {
+        return CurrentField[x][y] <= maxDistance;
+    }
+
+
+    public Vector3 GetDirection(Vector3 pos, int maxValue, out DirectionFetchResult result, out int xTarget, out int yTarget)
     {
         var direction = Vector3.zero;
-        directionFound = false;
+        result = DirectionFetchResult.NotFound;
+        xTarget = 0;
+        yTarget = 0;
         
         var (x, y) = GetIndex(pos);
         
-        if (IsIndexValid(x, y))
+        if (IsIndexValid(x, y) && IsPassablePosition(maxValue, x, y))
         {
             int currValue = CurrentField[x][y];
             int currentWeight = currValue;
@@ -81,7 +106,9 @@ public class FlowFieldComponent : IComponent
                         {
                             currentWeight = CurrentField[currX][currY];
                             direction = GetPosition(currX, currY) - pos;
-                            directionFound = true;
+                            result = DirectionFetchResult.Found;
+                            xTarget = currX;
+                            yTarget = currY;
                         }
                         else if (CurrentField[currX][currY] == currentWeight)
                         {
@@ -89,8 +116,34 @@ public class FlowFieldComponent : IComponent
                             if (possibleDirection.ManhattanDistance() < direction.ManhattanDistance())
                             {
                                 direction = possibleDirection;
-                                directionFound = true;
+                                result = DirectionFetchResult.Found;
+                                xTarget = currX;
+                                yTarget = currY;
                             }
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            for (int offset = 1; offset < 100 && result == DirectionFetchResult.NotFound; offset++)
+            {
+                for (int i = -offset; i <= offset && result == DirectionFetchResult.NotFound; i++)
+                {
+                    for (int j = -offset; j <= offset && result == DirectionFetchResult.NotFound; j++)
+                    {
+                        if (i != offset && j != offset && i != -offset && j != -offset) continue;
+                        
+                        int currX = x + i;
+                        int currY = y + j;
+
+                        if (IsIndexValid(currX, currY) && IsPassablePosition(maxValue, currX, currY))
+                        {
+                            direction = GetPosition(currX, currY) - pos;
+                            result = DirectionFetchResult.FoundForced;
+                            xTarget = currX;
+                            yTarget = currY;
                         }
                     }
                 }

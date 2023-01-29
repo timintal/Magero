@@ -30,7 +30,6 @@ public class FlowFieldSettings
 
     public int MaxCalculationDistance;
     
-    public int MoverRepulsionSize;
     public int MoverRepulsionValue;
 
     public int ObstacleRepulsionSize;

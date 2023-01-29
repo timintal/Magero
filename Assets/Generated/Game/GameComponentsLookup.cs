@@ -25,41 +25,46 @@ public static class GameComponentsLookup {
     public const int ExplodableProjectileShooter = 14;
     public const int Explosion = 15;
     public const int ExplosionVisualization = 16;
-    public const int FlowField = 17;
-    public const int FlowFieldDirectionUpdateDelay = 18;
-    public const int FlowFieldMover = 19;
-    public const int FlowFieldTarget = 20;
-    public const int FlowFieldTemporaryObstacle = 21;
-    public const int GameSceneReferences = 22;
-    public const int GameSetup = 23;
-    public const int Health = 24;
-    public const int Id = 25;
-    public const int LayerMask = 26;
-    public const int Level = 27;
-    public const int LevelFinished = 28;
-    public const int MaxHealth = 29;
-    public const int PartitionGrid = 30;
-    public const int Player = 31;
-    public const int Position = 32;
-    public const int Projectile = 33;
-    public const int ProjectileShooter = 34;
-    public const int Radius = 35;
-    public const int RagdollAngularVelocity = 36;
-    public const int RagdollCurrentVelocity = 37;
-    public const int RagdollDeath = 38;
-    public const int RagdollRemoveTimer = 39;
-    public const int Renderer = 40;
-    public const int Resource = 41;
-    public const int Rotation = 42;
-    public const int Speed = 43;
-    public const int Target = 44;
-    public const int TimerCompleted = 45;
-    public const int Timer = 46;
-    public const int Transform = 47;
-    public const int WeaponCooldown = 48;
-    public const int WeaponDisabled = 49;
+    public const int FloatDamage = 17;
+    public const int FlowField = 18;
+    public const int FlowFieldDirectionUpdateDelay = 19;
+    public const int FlowFieldMover = 20;
+    public const int FlowFieldTarget = 21;
+    public const int FlowFieldTemporaryObstacle = 22;
+    public const int GameSceneReferences = 23;
+    public const int GameSetup = 24;
+    public const int Health = 25;
+    public const int Id = 26;
+    public const int LaserHitPoint = 27;
+    public const int LaserShooter = 28;
+    public const int LaserSparkles = 29;
+    public const int LayerMask = 30;
+    public const int Level = 31;
+    public const int LevelFinished = 32;
+    public const int MaxHealth = 33;
+    public const int PartitionGrid = 34;
+    public const int Player = 35;
+    public const int PlayerWeaponDirection = 36;
+    public const int Position = 37;
+    public const int Projectile = 38;
+    public const int ProjectileShooter = 39;
+    public const int Radius = 40;
+    public const int RagdollAngularVelocity = 41;
+    public const int RagdollCurrentVelocity = 42;
+    public const int RagdollDeath = 43;
+    public const int RagdollRemoveTimer = 44;
+    public const int Renderer = 45;
+    public const int Resource = 46;
+    public const int Rotation = 47;
+    public const int Speed = 48;
+    public const int Target = 49;
+    public const int TimerCompleted = 50;
+    public const int Timer = 51;
+    public const int Transform = 52;
+    public const int WeaponCooldown = 53;
+    public const int WeaponDisabled = 54;
 
-    public const int TotalComponents = 50;
+    public const int TotalComponents = 55;
 
     public static readonly string[] componentNames = {
         "Attacker",
@@ -79,6 +84,7 @@ public static class GameComponentsLookup {
         "ExplodableProjectileShooter",
         "Explosion",
         "ExplosionVisualization",
+        "FloatDamage",
         "FlowField",
         "FlowFieldDirectionUpdateDelay",
         "FlowFieldMover",
@@ -88,12 +94,16 @@ public static class GameComponentsLookup {
         "GameSetup",
         "Health",
         "Id",
+        "LaserHitPoint",
+        "LaserShooter",
+        "LaserSparkles",
         "LayerMask",
         "Level",
         "LevelFinished",
         "MaxHealth",
         "PartitionGrid",
         "Player",
+        "PlayerWeaponDirection",
         "Position",
         "Projectile",
         "ProjectileShooter",
@@ -132,6 +142,7 @@ public static class GameComponentsLookup {
         typeof(ExplodableProjectileShooterComponent),
         typeof(ExplosionComponent),
         typeof(ExplosionVisualizationComponent),
+        typeof(FloatDamageComponent),
         typeof(FlowFieldComponent),
         typeof(FlowFieldDirectionUpdateDelayComponent),
         typeof(FlowFieldMoverComponent),
@@ -141,12 +152,16 @@ public static class GameComponentsLookup {
         typeof(GameSetupComponent),
         typeof(HealthComponent),
         typeof(IdComponent),
+        typeof(LaserHitPointComponent),
+        typeof(LaserShooterComponent),
+        typeof(LaserSparklesComponent),
         typeof(LayerMaskComponent),
         typeof(LevelComponent),
         typeof(LevelFinishedComponent),
         typeof(MaxHealthComponent),
         typeof(PartitionGridComponent),
         typeof(PlayerComponent),
+        typeof(PlayerWeaponDirectionComponent),
         typeof(PositionComponent),
         typeof(ProjectileComponent),
         typeof(ProjectileShooterComponent),

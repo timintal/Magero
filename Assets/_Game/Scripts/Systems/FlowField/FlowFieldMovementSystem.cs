@@ -37,20 +37,24 @@ public class FlowFieldMovementSystem : IExecuteSystem
         
         var flowField = _flowFieldsGroup.GetSingleEntity().flowField;
 
-        var maxCalculationDistance = _contexts.game.gameSetup.value.FlowFieldSettings.MaxCalculationDistance;
+        var fieldSettings = _contexts.game.gameSetup.value.FlowFieldSettings;
+        var maxCalculationDistance = fieldSettings.MaxCalculationDistance;
         foreach (var e in _moversGroup.GetEntities())
         {
-            var direction = flowField.GetDirection(e.position.Value, maxCalculationDistance, out bool directionFound);
-            
+            var direction = flowField.GetDirection(e.position.Value, maxCalculationDistance, out DirectionFetchResult result,
+                out int targetX, out int targetY);
+            direction.y = 0;
             var hasDirection = e.hasDirection;
-            if (directionFound)
+            if (result != DirectionFetchResult.NotFound)
             {
-                if (hasDirection)
+                if (hasDirection && result != DirectionFetchResult.FoundForced)
                 {
-                    direction = Vector3.RotateTowards(e.direction.Value, direction, 15f * Time.deltaTime, 0);
+                    direction = Vector3.RotateTowards(e.direction.Value, direction, 10f * Time.deltaTime, 0);
                 }
+
+                flowField.CurrentField[targetX][targetY] += fieldSettings.StepWeight / 4;
                 e.ReplaceDirection(direction);
-                e.AddFlowFieldDirectionUpdateDelay(Random.Range(0.3f, 0.5f));
+                e.AddFlowFieldDirectionUpdateDelay(Random.Range(0.04f, 0.15f));
             }
             else
             {

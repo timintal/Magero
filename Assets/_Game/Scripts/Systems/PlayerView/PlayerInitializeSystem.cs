@@ -24,7 +24,18 @@ public class PlayerInitializeSystem : IInitializeSystem
         
         weaponEntity.AddExplodableProjectileShooter(gameSetup.TestWeaponSettings.ExplosionRadius);
         weaponEntity.AddHealth(10);
-        weaponEntity.AddTransform(sceneReferences.ShootTransform);
+        weaponEntity.AddTransform(sceneReferences.FireballsShootTransform);
+        weaponEntity.isPlayerWeaponDirection = true;
         weaponEntity.isPlayer = true;
+
+        var laserEntity = _contexts.game.CreateEntity();
+        laserEntity.AddLaserShooter(sceneReferences.LaserRenderer, 20);
+        laserEntity.AddTransform(sceneReferences.LaserShootTransform);
+        laserEntity.AddLaserSparkles(sceneReferences.LaserSparkles);
+        laserEntity.AddLaserHitPoint(sceneReferences.LaserShootTransform.position);
+        laserEntity.isPlayerWeaponDirection = true;
+        laserEntity.isPlayer = true;
+        
+        
     }
 }

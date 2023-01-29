@@ -32,6 +32,7 @@ public class EnemySpawnSystem : ReactiveSystem<GameEntity>
                 enemyEntity.AddSpeed(e.enemySpawnRequest.EnemySettings.Speed);
                 enemyEntity.AddHealth(e.enemySpawnRequest.EnemySettings.Health);
                 enemyEntity.AddMaxHealth(e.enemySpawnRequest.EnemySettings.Health);
+                enemyEntity.AddRadius(e.enemySpawnRequest.EnemySettings.Radius);
                 enemyEntity.AddTarget(TargetType.Enemy);
                 enemyEntity.isFlowFieldMover = true;
                 enemyEntity.isRagdollDeath = true;

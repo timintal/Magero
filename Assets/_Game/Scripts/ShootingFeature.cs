@@ -4,5 +4,6 @@ public class ShootingFeature : Feature
     {
         Add(new WeaponCooldownSystem(contexts));
         Add(new ExplodableProjectileShootingSystem(contexts));
+        Add(new LaserShootingSystem(contexts));
     }    
 }

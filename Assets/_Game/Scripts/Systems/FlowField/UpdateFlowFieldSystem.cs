@@ -15,7 +15,7 @@ public class UpdateFlowFieldSystem : IExecuteSystem
         _contexts = contexts;
 
         _flowFieldGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField));
-        _moversGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowFieldMover, GameMatcher.Transform));
+        _moversGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowFieldMover, GameMatcher.Transform, GameMatcher.Radius));
         _tempObstaclesGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowFieldTemporaryObstacle, GameMatcher.Position, GameMatcher.Timer));
     }
     
@@ -41,12 +41,14 @@ public class UpdateFlowFieldSystem : IExecuteSystem
             var pos = e.position.Value;
             var (x, y) = flowField.GetIndex(pos);
 
-            for (int i = -fieldSettings.MoverRepulsionSize; i <= fieldSettings.MoverRepulsionSize; i++)
+            var repulsionSize = Mathf.RoundToInt(e.radius.Value / fieldSettings.CellSize);
+            
+            for (int i = -repulsionSize; i <= repulsionSize; i++)
             {
-                for (int j = -fieldSettings.MoverRepulsionSize; j <= fieldSettings.MoverRepulsionSize; j++)
+                for (int j = -repulsionSize; j <= repulsionSize; j++)
                 {
                     int dist = Mathf.Abs(i) + Mathf.Abs(j) + 1;
-                    if (dist > fieldSettings.MoverRepulsionSize)
+                    if (dist > repulsionSize)
                         continue;
 
                     var indexX = x + i;

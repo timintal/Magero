@@ -35,10 +35,12 @@ public class Bootstrap : MonoBehaviour
                 .Add(new PlayerInitializeSystem(contexts))
                 .Add(new LevelStageActivationSystem(contexts))
                 
+                .Add(new ColliderCacheSystem(contexts))
+                
                 .Add(new UserInputSystem(contexts))
                 
                 .Add(new PlayerUpdateSystem(contexts))
-                .Add(new PlayerWeaponDirectionUpdateSystem(contexts))
+                .Add(new PlayerShooterDirectionUpdateSystem(contexts))
                 
                 .Add(new TimerSystem(contexts))
                 
@@ -53,8 +55,10 @@ public class Bootstrap : MonoBehaviour
             
                 .Add(new FlowFieldFeature(contexts))
                 
+                .Add(new LaserVisualizationSystem(contexts))
+                
                 .Add(new ShootingFeature(contexts))
-            
+                
                 .Add(new MovementSystem(contexts))
                 .Add(new RotationSystem(contexts))
                 .Add(new RagdollUpdateSystem(contexts))
@@ -67,6 +71,8 @@ public class Bootstrap : MonoBehaviour
                 .Add(new DebugExplosionVisualizationSystem(contexts))
             
                 .Add(new DebugFeature(contexts))
+                
+                .Add(new FloatDamageSystem(contexts))
                 .Add(new DamageSystem(contexts))
 
                 .Add(new RagdollCreationSystem(contexts))//should be after damage system
