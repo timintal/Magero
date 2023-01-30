@@ -236,7 +236,7 @@ MonoBehaviour:
       Data: 0
     - Name: TimeToNextSpawn
       Entry: 4
-      Data: 7.5
+      Data: 5
     - Name: EnemyToSpawn
       Entry: 10
       Data: 0
@@ -481,7 +481,7 @@ MonoBehaviour:
       Data: 0
     - Name: TimeToNextSpawn
       Entry: 4
-      Data: 2.5
+      Data: 2
     - Name: EnemyToSpawn
       Entry: 10
       Data: 0
@@ -1318,7 +1318,7 @@ MonoBehaviour:
   StageCamera: {fileID: 1063444102}
   drawBounds: 0
   drawObstacles: 0
-  drawSpawners: 1
+  drawSpawners: 0
 --- !u!1 &483403727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1367,7 @@ MonoBehaviour:
   StageCamera: {fileID: 289558513}
   drawBounds: 0
   drawObstacles: 0
-  drawSpawners: 1
+  drawSpawners: 0
 --- !u!4 &483403729
 Transform:
   m_ObjectHideFlags: 0
@@ -1515,7 +1515,7 @@ MonoBehaviour:
       Data: 0
     - Name: TimeToNextSpawn
       Entry: 4
-      Data: 2.5
+      Data: 2
     - Name: EnemyToSpawn
       Entry: 10
       Data: 0
@@ -3722,7 +3722,7 @@ MonoBehaviour:
   StageCamera: {fileID: 1795102185}
   drawBounds: 0
   drawObstacles: 0
-  drawSpawners: 1
+  drawSpawners: 0
 --- !u!4 &1383896305
 Transform:
   m_ObjectHideFlags: 0

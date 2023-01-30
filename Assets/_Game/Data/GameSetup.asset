@@ -73,7 +73,7 @@ MonoBehaviour:
     ProjectileSpeed: 100
     ExplosionRadius: 4
   LaserSettings:
-    DamagePerSecond: 40
+    DamagePerSecond: 60
   PlayerSettings:
     Health: 20
     DistanceForDamage: 5
