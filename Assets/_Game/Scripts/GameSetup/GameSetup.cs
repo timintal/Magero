@@ -1,16 +1,19 @@
 using System;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 [Game, Unique]
 public class GameSetup : ScriptableObject
 {
     public bool AddLaser;
+    public bool AddFireballs;
     public CameraSettings CameraSettings;
     public FlowFieldSettings FlowFieldSettings;
     public DebugSettings DebugSettings;
-    public TestWeaponSettings TestWeaponSettings;
+    public FireballSettings FireballSetings;
+    public LaserSettings LaserSettings;
 }
 
 [Serializable]
@@ -52,7 +55,7 @@ public class DebugSettings
 }
 
 [Serializable]
-public class TestWeaponSettings
+public class FireballSettings
 {
     public float Cooldown;
     public int Damage;
@@ -62,4 +65,9 @@ public class TestWeaponSettings
     public float ExplosionRadius;
 }
 
+[Serializable]
+public class LaserSettings
+{
+    public float DamagePerSecond;
+}
 

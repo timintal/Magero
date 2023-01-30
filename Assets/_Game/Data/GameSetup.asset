@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: GameSetup
   m_EditorClassIdentifier: 
   AddLaser: 1
+  AddFireballs: 1
   CameraSettings:
     RotationSpeed: 40
     HorizontalBounds: {x: -55, y: 55}
-    VerticalBounds: {x: 0, y: 80}
+    VerticalBounds: {x: -10, y: 80}
   FlowFieldSettings:
     CellSize: 0.5
     StepWeight: 100
@@ -71,3 +72,5 @@ MonoBehaviour:
       type: 3}
     ProjectileSpeed: 100
     ExplosionRadius: 4
+  LaserSettings:
+    DamagePerSecond: 40
