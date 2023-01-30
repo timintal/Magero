@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1c4ea737cd44f54aa42637abdb0b05, type: 3}
   m_Name: GameSetup
   m_EditorClassIdentifier: 
+  AddLaser: 1
   CameraSettings:
     RotationSpeed: 40
     HorizontalBounds: {x: -55, y: 55}
@@ -31,7 +32,7 @@ MonoBehaviour:
     VisualizeFlowField: 0
     FlowFieldMaterial: {fileID: 2100000, guid: 7444c09ed2ebc4b56ac689c2eb5cf15e, type: 2}
     CellMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
-    MaxValueColor: 16236
+    MaxValueColor: 23326
     mapGradient:
       serializedVersion: 2
       key0: {r: 0.9137255, g: 0.8923656, b: 0, a: 0.84313726}

@@ -155,34 +155,34 @@ public class LevelStageActivationSystem : ReactiveSystem<GameEntity>
 
         flowFieldEntity.flowField.CopyField(flowFieldEntity.flowField.BackField, flowFieldEntity.flowField.LevelField);
 
-        // var obstacleRepulsionSize = gameSetup.FlowFieldSettings.ObstacleRepulsionSize;
-        // foreach (var obstacle in levelToLoad.obstacles)
-        // {
-        //     for (int i = -obstacleRepulsionSize; i < obstacle.width + obstacleRepulsionSize; i++)
-        //     {
-        //         for (int j = -obstacleRepulsionSize; j < obstacle.height + obstacleRepulsionSize; j++)
-        //         {
-        //             var xIndex = obstacle.indexX + i;
-        //             var yIndex = obstacle.indexY + j;
-        //
-        //             if (xIndex < 0 || yIndex < 0 || xIndex > levelToLoad.width || yIndex > levelToLoad.height)
-        //                 continue;
-        //
-        //             int distanceFromObstacle = 0;
-        //
-        //             if (i < 0) distanceFromObstacle += Mathf.Abs(i);
-        //             if (j < 0) distanceFromObstacle += Mathf.Abs(j);
-        //             if (i > obstacle.width) distanceFromObstacle += i - obstacle.width;
-        //             if (j > obstacle.height) distanceFromObstacle += j - obstacle.height;
-        //
-        //             if (distanceFromObstacle > 0)
-        //             {
-        //                 levelField[xIndex][yIndex] +=
-        //                     gameSetup.FlowFieldSettings.ObstacleRepulsionValue / distanceFromObstacle;
-        //             }
-        //         }
-        //     }
-        // }
+        var obstacleRepulsionSize = gameSetup.FlowFieldSettings.ObstacleRepulsionSize;
+        foreach (var obstacle in levelToLoad.obstacles)
+        {
+            for (int i = -obstacleRepulsionSize; i < obstacle.width + obstacleRepulsionSize; i++)
+            {
+                for (int j = -obstacleRepulsionSize; j < obstacle.height + obstacleRepulsionSize; j++)
+                {
+                    var xIndex = obstacle.indexX + i;
+                    var yIndex = obstacle.indexY + j;
+        
+                    if (xIndex < 0 || yIndex < 0 || xIndex > levelToLoad.width || yIndex > levelToLoad.height)
+                        continue;
+        
+                    Vector2 distanceFromObstacle = Vector2.zero;
+        
+                    if (i < 0) distanceFromObstacle.x = Mathf.Abs(i);
+                    if (j < 0) distanceFromObstacle.y = Mathf.Abs(j);
+                    if (i > obstacle.width - 1) distanceFromObstacle.x = i - obstacle.width + 1;
+                    if (j > obstacle.height - 1) distanceFromObstacle.y = j - obstacle.height + 1;
+
+                    float magn = distanceFromObstacle.magnitude;
+                    if (magn > 0)
+                    {
+                        levelField[xIndex][yIndex] += Mathf.RoundToInt(gameSetup.FlowFieldSettings.ObstacleRepulsionValue / magn);
+                    }
+                }
+            }
+        }
     }
 
     private List<int> _cellsToCheck = new List<int>(8192);

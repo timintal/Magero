@@ -28,14 +28,16 @@ public class PlayerInitializeSystem : IInitializeSystem
         weaponEntity.isPlayerWeaponDirection = true;
         weaponEntity.isPlayer = true;
 
-        var laserEntity = _contexts.game.CreateEntity();
-        laserEntity.AddLaserShooter(sceneReferences.LaserRenderer, 20);
-        laserEntity.AddTransform(sceneReferences.LaserShootTransform);
-        laserEntity.AddLaserSparkles(sceneReferences.LaserSparkles);
-        laserEntity.AddLaserHitPoint(sceneReferences.LaserShootTransform.position);
-        laserEntity.isPlayerWeaponDirection = true;
-        laserEntity.isPlayer = true;
-        
-        
+        if (gameSetup.AddLaser)
+        {
+            var laserEntity = _contexts.game.CreateEntity();
+            laserEntity.AddLaserShooter(sceneReferences.LaserRenderer, 20);
+            laserEntity.AddTransform(sceneReferences.LaserShootTransform);
+            laserEntity.AddLaserSparkles(sceneReferences.LaserSparkles);
+            laserEntity.AddLaserHitPoint(sceneReferences.LaserShootTransform.position);
+            laserEntity.isPlayerWeaponDirection = true;
+            laserEntity.isPlayer = true;
+        }
+
     }
 }

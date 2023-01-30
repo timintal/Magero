@@ -6,6 +6,7 @@ using UnityEngine;
 [Game, Unique]
 public class GameSetup : ScriptableObject
 {
+    public bool AddLaser;
     public CameraSettings CameraSettings;
     public FlowFieldSettings FlowFieldSettings;
     public DebugSettings DebugSettings;
