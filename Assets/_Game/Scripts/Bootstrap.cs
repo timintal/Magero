@@ -54,9 +54,7 @@ public class Bootstrap : MonoBehaviour
                 .Add(new EnemySpawnSystem(contexts))
             
                 .Add(new FlowFieldFeature(contexts))
-                
-                .Add(new LaserVisualizationSystem(contexts))
-                
+
                 .Add(new ShootingFeature(contexts))
                 
                 .Add(new MovementSystem(contexts))
@@ -81,6 +79,11 @@ public class Bootstrap : MonoBehaviour
                 .Add(new MultiDestroySystem(contexts))
                 
                 //view
+                .Add(new LaserVisualizationSystem(contexts))
+                .Add(new LaserAnimationSystem(contexts))
+                
+                .Add(new FireballAnimationSystem(contexts))
+                
                 .Add(new UpdateViewSystem(contexts))
                 .Add(new DebugExplosionVisualizationSystem(contexts))
                 .Add(new HealthBarSystem(contexts))

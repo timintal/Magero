@@ -16,4 +16,7 @@ public class GameSceneReferences : MonoBehaviour
 
     public Image PlayerHealthBar;
 
+    public Animator LaserAnimator;
+    public Animator FireballAnimator;
+
 }

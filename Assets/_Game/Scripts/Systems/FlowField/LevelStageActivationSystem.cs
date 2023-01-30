@@ -165,7 +165,7 @@ public class LevelStageActivationSystem : ReactiveSystem<GameEntity>
                     var xIndex = obstacle.indexX + i;
                     var yIndex = obstacle.indexY + j;
         
-                    if (xIndex < 0 || yIndex < 0 || xIndex > levelToLoad.width || yIndex > levelToLoad.height)
+                    if (xIndex < 0 || yIndex < 0 || xIndex >= levelToLoad.width || yIndex >= levelToLoad.height)
                         continue;
         
                     Vector2 distanceFromObstacle = Vector2.zero;
