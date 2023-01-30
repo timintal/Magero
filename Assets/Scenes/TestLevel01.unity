@@ -129,6 +129,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1071962416}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &152221357 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 325490462228807947, guid: d6b984cc51e078a4dbdcaf1d5184baaf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1071962416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &161101286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2907,6 +2913,8 @@ MonoBehaviour:
   LaserRenderer: {fileID: 1116437693}
   LaserSparkles: {fileID: 161101287}
   PlayerHealthBar: {fileID: 947193404}
+  LaserAnimator: {fileID: 152221357}
+  FireballAnimator: {fileID: 4569035095157180201}
 --- !u!224 &1410321026 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8135886326569738822, guid: 56fae09712773584fb63896d473a98ee,
@@ -3986,6 +3994,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6b984cc51e078a4dbdcaf1d5184baaf, type: 3}
+--- !u!95 &4569035095157180201 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 325490462228807947, guid: d6b984cc51e078a4dbdcaf1d5184baaf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4317868954032670242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7604422402388188499 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5936996709922036593, guid: d6b984cc51e078a4dbdcaf1d5184baaf,
