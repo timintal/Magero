@@ -25,6 +25,8 @@ public class LevelStage : MonoBehaviour
 #if UNITY_EDITOR
     public bool drawBounds;
     public bool drawObstacles;
+    public bool drawSpawners;
+
     [Button]
     void UpdateSettings()
     {
@@ -104,6 +106,21 @@ public class LevelStage : MonoBehaviour
                 var center = new Vector3(obstacle.width * cellSize * 0.5f,1, obstacle.height * cellSize * 0.5f) + startPos;
                 Gizmos.DrawCube(center, new Vector3(obstacle.width * cellSize,1,  obstacle.height * cellSize));
                 
+            }
+        }
+
+        if (drawSpawners)
+        {
+            Gizmos.color = Color.green;
+            foreach (var spawner in EnemySpawners)
+            {
+                foreach (var spawnerOverride in spawner.Overrides)
+                {
+                    if (spawnerOverride is EnemySpawnerComponent spawnerComponent)
+                    {
+                        Gizmos.DrawCube(spawner.transform.position, new Vector3(spawnerComponent.SpawnArea.x, 1, spawnerComponent.SpawnArea.y));
+                    }
+                }
             }
         }
 
