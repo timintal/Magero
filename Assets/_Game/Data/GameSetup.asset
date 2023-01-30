@@ -21,12 +21,12 @@ MonoBehaviour:
   FlowFieldSettings:
     CellSize: 0.5
     StepWeight: 100
-    StepDiagonalWeight: 141
+    StepDiagonalWeight: 121
     MaxCalculationDistance: 80000
     MoverRepulsionValue: 500
-    ObstacleRepulsionSize: 1
-    ObstacleRepulsionValue: 800
-    ExplosionRepulsionTime: 1.5
+    ObstacleRepulsionSize: 2
+    ObstacleRepulsionValue: 1000
+    ExplosionRepulsionTime: 3
     ExplosionRepulsionValue: 8000
     ExplosionRepulsionSizeMultiplier: 2
   DebugSettings:

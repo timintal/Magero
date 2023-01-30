@@ -745,6 +745,7 @@ MonoBehaviour:
   StageCamera: {fileID: 1063444102}
   drawBounds: 0
   drawObstacles: 0
+  drawSpawners: 1
 --- !u!1 &483403727
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +781,7 @@ MonoBehaviour:
     y: -40
     width: 125
     height: 80
-  width: 240
+  width: 250
   height: 160
   cellSize: 0.5
   obstacles:
@@ -791,8 +792,9 @@ MonoBehaviour:
   - {fileID: 555104607}
   - {fileID: 333554745}
   StageCamera: {fileID: 289558513}
-  drawBounds: 1
+  drawBounds: 0
   drawObstacles: 0
+  drawSpawners: 1
 --- !u!4 &483403729
 Transform:
   m_ObjectHideFlags: 0
@@ -1237,8 +1239,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732431184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 90, y: 0, z: -13}
-  m_LocalScale: {x: 30, y: 1, z: 26}
+  m_LocalPosition: {x: 90, y: 0, z: -10}
+  m_LocalScale: {x: 30, y: 1, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 722676445}
@@ -1258,9 +1260,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   width: 60
-  height: 52
+  height: 40
   indexX: 180
-  indexY: 54
+  indexY: 60
 --- !u!1 &752908440
 GameObject:
   m_ObjectHideFlags: 0
