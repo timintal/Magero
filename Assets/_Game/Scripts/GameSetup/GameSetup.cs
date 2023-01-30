@@ -1,7 +1,6 @@
 using System;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 [Game, Unique]
@@ -14,6 +13,7 @@ public class GameSetup : ScriptableObject
     public DebugSettings DebugSettings;
     public FireballSettings FireballSetings;
     public LaserSettings LaserSettings;
+    public PlayerSettings PlayerSettings;
 }
 
 [Serializable]
@@ -69,5 +69,12 @@ public class FireballSettings
 public class LaserSettings
 {
     public float DamagePerSecond;
+}
+
+[Serializable]
+public class PlayerSettings
+{
+    public int Health;
+    public float DistanceForDamage;
 }
 

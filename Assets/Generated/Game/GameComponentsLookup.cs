@@ -33,38 +33,39 @@ public static class GameComponentsLookup {
     public const int FlowFieldTemporaryObstacle = 22;
     public const int GameSceneReferences = 23;
     public const int GameSetup = 24;
-    public const int Health = 25;
-    public const int Id = 26;
-    public const int LaserHitPoint = 27;
-    public const int LaserShooter = 28;
-    public const int LaserSparkles = 29;
-    public const int LayerMask = 30;
-    public const int Level = 31;
-    public const int LevelFinished = 32;
-    public const int MaxHealth = 33;
-    public const int PartitionGrid = 34;
-    public const int Player = 35;
-    public const int PlayerWeaponDirection = 36;
-    public const int Position = 37;
-    public const int Projectile = 38;
-    public const int ProjectileShooter = 39;
-    public const int Radius = 40;
-    public const int RagdollAngularVelocity = 41;
-    public const int RagdollCurrentVelocity = 42;
-    public const int RagdollDeath = 43;
-    public const int RagdollRemoveTimer = 44;
-    public const int Renderer = 45;
-    public const int Resource = 46;
-    public const int Rotation = 47;
-    public const int Speed = 48;
-    public const int Target = 49;
-    public const int TimerCompleted = 50;
-    public const int Timer = 51;
-    public const int Transform = 52;
-    public const int WeaponCooldown = 53;
-    public const int WeaponDisabled = 54;
+    public const int HealthBarUI = 25;
+    public const int Health = 26;
+    public const int Id = 27;
+    public const int LaserHitPoint = 28;
+    public const int LaserShooter = 29;
+    public const int LaserSparkles = 30;
+    public const int LayerMask = 31;
+    public const int Level = 32;
+    public const int LevelFinished = 33;
+    public const int MaxHealth = 34;
+    public const int PartitionGrid = 35;
+    public const int Player = 36;
+    public const int PlayerWeaponDirection = 37;
+    public const int Position = 38;
+    public const int Projectile = 39;
+    public const int ProjectileShooter = 40;
+    public const int Radius = 41;
+    public const int RagdollAngularVelocity = 42;
+    public const int RagdollCurrentVelocity = 43;
+    public const int RagdollDeath = 44;
+    public const int RagdollRemoveTimer = 45;
+    public const int Renderer = 46;
+    public const int Resource = 47;
+    public const int Rotation = 48;
+    public const int Speed = 49;
+    public const int Target = 50;
+    public const int TimerCompleted = 51;
+    public const int Timer = 52;
+    public const int Transform = 53;
+    public const int WeaponCooldown = 54;
+    public const int WeaponDisabled = 55;
 
-    public const int TotalComponents = 55;
+    public const int TotalComponents = 56;
 
     public static readonly string[] componentNames = {
         "Attacker",
@@ -92,6 +93,7 @@ public static class GameComponentsLookup {
         "FlowFieldTemporaryObstacle",
         "GameSceneReferences",
         "GameSetup",
+        "HealthBarUI",
         "Health",
         "Id",
         "LaserHitPoint",
@@ -150,6 +152,7 @@ public static class GameComponentsLookup {
         typeof(FlowFieldTemporaryObstacleComponent),
         typeof(GameSceneReferencesComponent),
         typeof(GameSetupComponent),
+        typeof(HealthBarUIComponent),
         typeof(HealthComponent),
         typeof(IdComponent),
         typeof(LaserHitPointComponent),

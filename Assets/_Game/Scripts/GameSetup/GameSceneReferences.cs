@@ -1,6 +1,6 @@
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
-using UnityEngine.VFX;
+using UnityEngine.UI;
 
 [Game, Unique]
 public class GameSceneReferences : MonoBehaviour
@@ -13,5 +13,7 @@ public class GameSceneReferences : MonoBehaviour
 
     public LineRenderer LaserRenderer;
     public Transform LaserSparkles;
+
+    public Image PlayerHealthBar;
 
 }

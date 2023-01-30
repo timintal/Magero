@@ -14,6 +14,14 @@ public class PlayerInitializeSystem : IInitializeSystem
         var gameSetup = _contexts.game.gameSetup.value;
         var sceneReferences = _contexts.game.gameSceneReferences.value;
 
+        var playerEntity = _contexts.game.CreateEntity();
+        playerEntity.AddHealth(gameSetup.PlayerSettings.Health);
+        playerEntity.AddMaxHealth(gameSetup.PlayerSettings.Health);
+        playerEntity.AddTarget(TargetType.Player);
+        playerEntity.AddTransform(sceneReferences.CameraTransform);
+        playerEntity.AddHealthBarUI(sceneReferences.PlayerHealthBar);
+        playerEntity.isPlayer = true;
+
         if (gameSetup.AddFireballs)
         {
             var weaponEntity = _contexts.game.CreateEntity();
@@ -25,7 +33,6 @@ public class PlayerInitializeSystem : IInitializeSystem
                 gameSetup.FireballSetings.Damage);
 
             weaponEntity.AddExplodableProjectileShooter(gameSetup.FireballSetings.ExplosionRadius);
-            weaponEntity.AddHealth(10);
             weaponEntity.AddTransform(sceneReferences.FireballsShootTransform);
             weaponEntity.isPlayerWeaponDirection = true;
             weaponEntity.isPlayer = true;

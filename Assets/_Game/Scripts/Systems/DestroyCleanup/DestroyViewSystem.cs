@@ -27,7 +27,11 @@ public class DestroyViewSystem : ReactiveSystem<GameEntity>
     {
         foreach (var e in entities)
         {
-            e.transform.Transform.gameObject.Unlink();
+            var entityLink = e.transform.Transform.gameObject.GetEntityLink();
+            if (entityLink != null)
+            {
+                entityLink.Unlink();
+            }
             e.transform.Transform.gameObject.DestroyGameObject();
         }
     }

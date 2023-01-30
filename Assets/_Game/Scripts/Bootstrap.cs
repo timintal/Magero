@@ -67,9 +67,8 @@ public class Bootstrap : MonoBehaviour
                 
                 .Add(new ExplosionSystem(contexts))
                 
-                .Add(new UpdateViewSystem(contexts))
-                .Add(new DebugExplosionVisualizationSystem(contexts))
-            
+                .Add(new PlayerDamageSystem(contexts))
+                
                 .Add(new DebugFeature(contexts))
                 
                 .Add(new FloatDamageSystem(contexts))
@@ -80,6 +79,11 @@ public class Bootstrap : MonoBehaviour
                 .Add(new AutoDestructionSystem(contexts))
                 .Add(new DestroyViewSystem(contexts))
                 .Add(new MultiDestroySystem(contexts))
+                
+                //view
+                .Add(new UpdateViewSystem(contexts))
+                .Add(new DebugExplosionVisualizationSystem(contexts))
+                .Add(new HealthBarSystem(contexts))
                 
                 //Cleanup
                 .Add(new CleanupComponentSystem<DamageSourcePositionComponent>(contexts.game))

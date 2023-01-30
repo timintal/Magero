@@ -63,7 +63,7 @@ MonoBehaviour:
       m_Mode: 0
       m_NumColorKeys: 3
       m_NumAlphaKeys: 2
-  TestWeaponSettings:
+  FireballSetings:
     Cooldown: 0.75
     Damage: 10
     ProjectilePrefab: {fileID: 7671730865203008364, guid: 05d8dc39a59ca4726829f1680fd4b918,
@@ -74,3 +74,6 @@ MonoBehaviour:
     ExplosionRadius: 4
   LaserSettings:
     DamagePerSecond: 40
+  PlayerSettings:
+    Health: 20
+    DistanceForDamage: 5

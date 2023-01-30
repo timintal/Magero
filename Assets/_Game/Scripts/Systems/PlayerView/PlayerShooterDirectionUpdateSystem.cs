@@ -10,8 +10,7 @@ public class PlayerShooterDirectionUpdateSystem : IExecuteSystem
     public PlayerShooterDirectionUpdateSystem(Contexts contexts)
     {
         _contexts = contexts;
-        _playerWeaponGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.PlayerWeaponDirection,
-            GameMatcher.Player, GameMatcher.Transform));
+        _playerWeaponGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.PlayerWeaponDirection, GameMatcher.Transform));
         _cameraGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Camera, GameMatcher.Transform));
     }
 
