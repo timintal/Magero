@@ -42,10 +42,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.35
-  m_Height: 5.47
+  m_Radius: 1.5
+  m_Height: 5
   m_Direction: 1
-  m_Center: {x: 0, y: 2.5, z: -0.34}
+  m_Center: {x: 0, y: 2.5, z: -0.25}
 --- !u!1 &7969321768603503873
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,17 +157,17 @@ PrefabInstance:
     - target: {fileID: 2567192069101704963, guid: e39f101d91daddd40961f2d4b6385c0f,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2567192069101704963, guid: e39f101d91daddd40961f2d4b6385c0f,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2567192069101704963, guid: e39f101d91daddd40961f2d4b6385c0f,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2567192069101704963, guid: e39f101d91daddd40961f2d4b6385c0f,
         type: 3}
@@ -337,12 +337,12 @@ PrefabInstance:
     - target: {fileID: 4398494785541310054, guid: 17dc3cbf2624e4392ab406ee9a1a579b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4398494785541310054, guid: 17dc3cbf2624e4392ab406ee9a1a579b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4398494785541310054, guid: 17dc3cbf2624e4392ab406ee9a1a579b,
         type: 3}
