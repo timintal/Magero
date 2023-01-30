@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14907049, g: 0.4220672, b: 0.6642967, a: 1}
+  m_IndirectSpecularColor: {r: 0.14910242, g: 0.42265308, b: 0.66295326, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -449,7 +449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333554743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 100, y: 0, z: -75}
+  m_LocalPosition: {x: 100, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -498,7 +498,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: -75
+      Data: -20
     - Name: 
       Entry: 8
       Data: 
@@ -513,10 +513,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.6
+      Data: 0.1
     - Name: 
       Entry: 4
-      Data: 0.8
+      Data: 0.1
     - Name: 
       Entry: 8
       Data: 
@@ -525,10 +525,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 20
+      Data: 1
     - Name: 
       Entry: 3
-      Data: 20
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -537,22 +537,22 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 3
+      Data: 8
     - Name: 
       Entry: 4
-      Data: 3
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
     - Name: UnitsToSpawn
       Entry: 3
-      Data: 200
+      Data: 75
     - Name: UnitsSpawned
       Entry: 3
       Data: 0
     - Name: TimeToNextSpawn
       Entry: 4
-      Data: 10
+      Data: 20
     - Name: EnemyToSpawn
       Entry: 10
       Data: 0
@@ -567,149 +567,6 @@ MonoBehaviour:
       Data: 
   CreateOnStart: 0
   _template: {fileID: 11400000, guid: 0c4d9e37fd73d4ac4aacc9f742b6cf1b, type: 2}
---- !u!1 &382983383
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 382983384}
-  - component: {fileID: 382983385}
-  m_Layer: 0
-  m_Name: EnemySpawner (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &382983384
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382983383}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.1, y: 0, z: 63.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 455506933}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &382983385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382983383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bdce58d7395e49a0a09b7ca1712363c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 47c350ec924dd45a0a2a149fe8c5baba, type: 2}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _overrides
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Entitas.IComponent, Entitas]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 1|PositionComponent, Assembly-CSharp
-    - Name: Value
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: -4.1
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 63.9
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 2|EnemySpawnerComponent, Assembly-CSharp
-    - Name: SpawnDelayRange
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.6
-    - Name: 
-      Entry: 4
-      Data: 0.8
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: SpawnCountRange
-      Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: SpawnArea
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: UnitsToSpawn
-      Entry: 3
-      Data: 5
-    - Name: UnitsSpawned
-      Entry: 3
-      Data: 0
-    - Name: TimeToNextSpawn
-      Entry: 4
-      Data: 0
-    - Name: EnemyToSpawn
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  CreateOnStart: 0
-  _template: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,9 +713,6 @@ Transform:
   m_Children:
   - {fileID: 752908441}
   - {fileID: 622035759}
-  - {fileID: 382983384}
-  - {fileID: 1969629088}
-  - {fileID: 1247434130}
   m_Father: {fileID: 1722013887}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -876,21 +730,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounds:
     serializedVersion: 2
-    x: -100
+    x: -30
     y: 0
-    width: 200
-    height: 150
-  width: 400
-  height: 300
+    width: 60
+    height: 120
+  width: 120
+  height: 240
   cellSize: 0.5
-  obstacles:
-  - {fileID: 1969629089}
+  obstacles: []
   CrowdTargets:
   - {fileID: 752908441}
   EnemySpawners:
-  - {fileID: 1247434129}
   - {fileID: 622035760}
-  - {fileID: 382983385}
   StageCamera: {fileID: 1063444102}
   drawBounds: 0
   drawObstacles: 0
@@ -926,11 +777,11 @@ MonoBehaviour:
   bounds:
     serializedVersion: 2
     x: 0
-    y: -100
-    width: 150
-    height: 200
-  width: 300
-  height: 400
+    y: -40
+    width: 125
+    height: 80
+  width: 240
+  height: 160
   cellSize: 0.5
   obstacles:
   - {fileID: 732431186}
@@ -940,7 +791,7 @@ MonoBehaviour:
   - {fileID: 555104607}
   - {fileID: 333554745}
   StageCamera: {fileID: 289558513}
-  drawBounds: 0
+  drawBounds: 1
   drawObstacles: 0
 --- !u!4 &483403729
 Transform:
@@ -986,7 +837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555104605}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 100, y: 0, z: 75}
+  m_LocalPosition: {x: 100, y: 0, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1035,7 +886,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 75
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -1050,10 +901,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.6
+      Data: 0.1
     - Name: 
       Entry: 4
-      Data: 0.8
+      Data: 0.1
     - Name: 
       Entry: 8
       Data: 
@@ -1062,10 +913,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 20
+      Data: 1
     - Name: 
       Entry: 3
-      Data: 20
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1074,22 +925,22 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 3
+      Data: 8
     - Name: 
       Entry: 4
-      Data: 3
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
     - Name: UnitsToSpawn
       Entry: 3
-      Data: 200
+      Data: 75
     - Name: UnitsSpawned
       Entry: 3
       Data: 0
     - Name: TimeToNextSpawn
       Entry: 4
-      Data: 0
+      Data: 2.5
     - Name: EnemyToSpawn
       Entry: 10
       Data: 0
@@ -1193,10 +1044,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.05
+      Data: 0.2
     - Name: 
       Entry: 4
-      Data: 0.15
+      Data: 0.2
     - Name: 
       Entry: 8
       Data: 
@@ -1208,7 +1059,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 3
-      Data: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1217,22 +1068,22 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 4
+      Data: 20
     - Name: 
       Entry: 4
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
     - Name: UnitsToSpawn
       Entry: 3
-      Data: 250
+      Data: 100
     - Name: UnitsSpawned
       Entry: 3
       Data: 0
     - Name: TimeToNextSpawn
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: EnemyToSpawn
       Entry: 10
       Data: 0
@@ -1386,8 +1237,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732431184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.5, y: 0, z: 39}
-  m_LocalScale: {x: 5, y: 1, z: 5}
+  m_LocalPosition: {x: 90, y: 0, z: -13}
+  m_LocalScale: {x: 30, y: 1, z: 26}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 722676445}
@@ -1406,10 +1257,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444a2b1eb73b48c6a4f11ffada4458ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 10
-  height: 10
-  indexX: 59
-  indexY: 278
+  width: 60
+  height: 52
+  indexX: 180
+  indexY: 54
 --- !u!1 &752908440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,149 +2104,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56fae09712773584fb63896d473a98ee, type: 3}
---- !u!1 &1247434128
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1247434130}
-  - component: {fileID: 1247434129}
-  m_Layer: 0
-  m_Name: EnemySpawner (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1247434129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247434128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bdce58d7395e49a0a09b7ca1712363c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 47c350ec924dd45a0a2a149fe8c5baba, type: 2}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _overrides
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Entitas.IComponent, Entitas]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 1|PositionComponent, Assembly-CSharp
-    - Name: Value
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: -3.9
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 51.26
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 2|EnemySpawnerComponent, Assembly-CSharp
-    - Name: SpawnDelayRange
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.6
-    - Name: 
-      Entry: 4
-      Data: 0.8
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: SpawnCountRange
-      Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: SpawnArea
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: UnitsToSpawn
-      Entry: 3
-      Data: 1
-    - Name: UnitsSpawned
-      Entry: 3
-      Data: 0
-    - Name: TimeToNextSpawn
-      Entry: 4
-      Data: 0
-    - Name: EnemyToSpawn
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  CreateOnStart: 0
-  _template: {fileID: 0}
---- !u!4 &1247434130
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247434128}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.9, y: 0, z: 51.26}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 455506933}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1281886291
 GameObject:
   m_ObjectHideFlags: 0
@@ -3103,152 +2811,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833134248}
   m_CullTransparentMesh: 1
---- !u!1 &1969629087
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1969629088}
-  - component: {fileID: 1969629089}
-  m_Layer: 0
-  m_Name: Obstacle (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1969629088
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969629087}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.5, y: 0, z: 48.5}
-  m_LocalScale: {x: 29, y: 1, z: 5}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2012885913}
-  m_Father: {fileID: 455506933}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1969629089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969629087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 444a2b1eb73b48c6a4f11ffada4458ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  width: 58
-  height: 10
-  indexX: 171
-  indexY: 97
---- !u!1 &2012885912
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2012885913}
-  - component: {fileID: 2012885915}
-  - component: {fileID: 2012885914}
-  - component: {fileID: 2012885916}
-  m_Layer: 7
-  m_Name: ObstacleView
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2012885913
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012885912}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969629088}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &2012885914
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012885912}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: cfe7b9d6114ac4c539efa08ebd28c408, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &2012885915
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012885912}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &2012885916
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012885912}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9999999, y: 1, z: 1}
-  m_Center: {x: -0.000000059604645, y: 0, z: 0}
 --- !u!1 &2097504375
 GameObject:
   m_ObjectHideFlags: 0

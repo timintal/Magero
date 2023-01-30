@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1c4ea737cd44f54aa42637abdb0b05, type: 3}
   m_Name: GameSetup
   m_EditorClassIdentifier: 
-  AddLaser: 1
+  AddLaser: 0
   AddFireballs: 1
   CameraSettings:
     RotationSpeed: 40
-    HorizontalBounds: {x: -55, y: 55}
-    VerticalBounds: {x: -10, y: 80}
+    HorizontalBounds: {x: -45, y: 45}
+    VerticalBounds: {x: -10, y: 85}
   FlowFieldSettings:
     CellSize: 0.5
     StepWeight: 100
