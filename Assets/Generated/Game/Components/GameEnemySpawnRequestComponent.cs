@@ -11,18 +11,20 @@ public partial class GameEntity {
     public EnemySpawnRequestComponent enemySpawnRequest { get { return (EnemySpawnRequestComponent)GetComponent(GameComponentsLookup.EnemySpawnRequest); } }
     public bool hasEnemySpawnRequest { get { return HasComponent(GameComponentsLookup.EnemySpawnRequest); } }
 
-    public void AddEnemySpawnRequest(EnemySettings newEnemySettings, int newCount) {
+    public void AddEnemySpawnRequest(EnemySettings newEnemySettings, UnityEngine.Vector2 newBounds, int newCount) {
         var index = GameComponentsLookup.EnemySpawnRequest;
         var component = (EnemySpawnRequestComponent)CreateComponent(index, typeof(EnemySpawnRequestComponent));
         component.EnemySettings = newEnemySettings;
+        component.Bounds = newBounds;
         component.Count = newCount;
         AddComponent(index, component);
     }
 
-    public void ReplaceEnemySpawnRequest(EnemySettings newEnemySettings, int newCount) {
+    public void ReplaceEnemySpawnRequest(EnemySettings newEnemySettings, UnityEngine.Vector2 newBounds, int newCount) {
         var index = GameComponentsLookup.EnemySpawnRequest;
         var component = (EnemySpawnRequestComponent)CreateComponent(index, typeof(EnemySpawnRequestComponent));
         component.EnemySettings = newEnemySettings;
+        component.Bounds = newBounds;
         component.Count = newCount;
         ReplaceComponent(index, component);
     }

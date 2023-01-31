@@ -36,8 +36,11 @@ public class EnemySpawnSystem : ReactiveSystem<GameEntity>
                 enemyEntity.AddTarget(TargetType.Enemy);
                 enemyEntity.isFlowFieldMover = true;
                 enemyEntity.isRagdollDeath = true;
-                
-                enemyEntity.AddPosition(e.position.Value);
+
+                var randPart = new Vector3(Random.Range(-e.enemySpawnRequest.Bounds.x * 0.5f, e.enemySpawnRequest.Bounds.x * 0.5f), 0,
+                    Random.Range(e.enemySpawnRequest.Bounds.y * 0.5f, e.enemySpawnRequest.Bounds.y * 0.5f));
+
+                enemyEntity.AddPosition(e.position.Value  + randPart);
                 enemyEntity.AddRotation(Quaternion.identity);
             }
 

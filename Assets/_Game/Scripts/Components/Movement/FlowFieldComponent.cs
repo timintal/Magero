@@ -51,7 +51,7 @@ public class FlowFieldComponent : IComponent
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public (int x, int y) GetIndex(Vector3 pos)
     {
-        return (Mathf.RoundToInt((pos.x - InitialPoint.x) / CellSize), Mathf.RoundToInt((pos.z - InitialPoint.z) / CellSize));
+        return (Mathf.RoundToInt((pos.x - InitialPoint.x) / CellSize - 0.5f), Mathf.RoundToInt((pos.z - InitialPoint.z) / CellSize - 0.5f));
     }
 
     public Vector3 GetPosition(int x, int y)
@@ -78,6 +78,33 @@ public class FlowFieldComponent : IComponent
     }
 
 
+    public (int, int) GetMinNeighbour(Vector3 pos, int depth)
+    {
+        int x = -1, y = -1;
+        
+        var (initX, initY) = GetIndex(pos);
+        
+        int currValue = Int32.MaxValue;
+
+        for (int i = -depth; i <= depth; i++)
+        {
+            for (int j = -depth; j <= depth; j++)
+            {
+                if (i == 0 && j == 0) continue;
+
+                if (IsIndexValid(initX + i, initY + j) &&
+                    CurrentField[initX + i][initY + j] < currValue)
+                {
+                    x = initX + i;
+                    y = initY + j;
+                    currValue = CurrentField[x][y];
+                }
+            }
+        }
+
+        return (x, y);
+    }
+    
     public Vector3 GetDirection(Vector3 pos, int maxValue, out DirectionFetchResult result, out int xTarget, out int yTarget)
     {
         var direction = Vector3.zero;
@@ -89,6 +116,18 @@ public class FlowFieldComponent : IComponent
         
         if (IsIndexValid(x, y) && IsPassablePosition(maxValue, x, y))
         {
+            // var (newX, newY) = GetMinNeighbour(pos, 1);
+            //
+            // if (newX >= 0 && newY >= 0)
+            // {
+            //     direction = GetPosition(newX, newY) - pos;
+            //     direction.Normalize();
+            //     result = DirectionFetchResult.Found;
+            //     xTarget = newX;
+            //     yTarget = newY;
+            //     return direction;
+            // }
+
             int currValue = CurrentField[x][y];
             int currentWeight = currValue;
             
@@ -96,9 +135,11 @@ public class FlowFieldComponent : IComponent
             {
                 for (int j = -1; j <= 1; j++)
                 {
+                    if (i == 0 && j == 0) continue;
+                    
                     int currX = x + i;
                     int currY = y + j;
-
+            
                     if (IsIndexValid(currX, currY) &&
                         CurrentField[currX][currY] < maxValue)
                     {
@@ -149,7 +190,7 @@ public class FlowFieldComponent : IComponent
                 }
             }
         }
-
+        
         return direction.normalized;
     }
 }

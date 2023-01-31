@@ -104,19 +104,17 @@ public class LevelStageActivationSystem : ReactiveSystem<GameEntity>
             flowFieldEntity.Destroy();
         }
         
+        flowFieldEntity = _contexts.game.CreateEntity();
+
+        levelField = new int[levelToLoad.width][];
+        currentField = new int[levelToLoad.width][];
+        backFiled = new int[levelToLoad.width][];
+
+        for (int i = 0; i < levelField.Length; i++)
         {
-            flowFieldEntity = _contexts.game.CreateEntity();
-
-            levelField = new int[levelToLoad.width][];
-            currentField = new int[levelToLoad.width][];
-            backFiled = new int[levelToLoad.width][];
-
-            for (int i = 0; i < levelField.Length; i++)
-            {
-                levelField[i] = new int[levelToLoad.height];
-                currentField[i] = new int[levelToLoad.height];
-                backFiled[i] = new int[levelToLoad.height];
-            }
+            levelField[i] = new int[levelToLoad.height];
+            currentField[i] = new int[levelToLoad.height];
+            backFiled[i] = new int[levelToLoad.height];
         }
 
         var gameSetup = _contexts.game.gameSetup.value;
@@ -150,7 +148,7 @@ public class LevelStageActivationSystem : ReactiveSystem<GameEntity>
 
         foreach (var crowdTarget in levelToLoad.CrowdTargets)
         {
-            UpdateFlowFieldForTarget(crowdTarget, flowFieldEntity.flowField, gameSetup.FlowFieldSettings);
+            UpdateFlowFieldForTarget(crowdTarget, flowFieldEntity.flowField, gameSetup.FlowFieldSettings, 8f);
         }
 
         flowFieldEntity.flowField.CopyField(flowFieldEntity.flowField.BackField, flowFieldEntity.flowField.LevelField);
@@ -189,18 +187,23 @@ public class LevelStageActivationSystem : ReactiveSystem<GameEntity>
     private IGroup<GameEntity> _cameraGroup;
 
     private void UpdateFlowFieldForTarget(Transform target, FlowFieldComponent flowField,
-        FlowFieldSettings fieldSettings)
+        FlowFieldSettings fieldSettings, float targetSize)
     {
         _cellsToCheck.Clear();
         var targetPosition = target.position;
 
         var (initX, initY) = flowField.GetIndex(targetPosition);
-        for (int i = -5; i < 10; i++)
+
+        int size = Mathf.RoundToInt(targetSize / fieldSettings.CellSize);
+        for (int i = -size; i <= size; i++)
         {
-            if (flowField.IsIndexValid(initX + i, initY))
+            for (int j = -size; j <= size; j++)
             {
-                _cellsToCheck.Add(HelperFunctions.PackedIndex(initX + i, initY));
-                flowField.BackField[initX + i][initY] = 0;
+                if (flowField.IsIndexValid(initX + i, initY + j))
+                {
+                    _cellsToCheck.Add(HelperFunctions.PackedIndex(initX + i, initY + j));
+                    flowField.BackField[initX + i][initY + j] = 0;
+                }
             }
         }
 

@@ -52,7 +52,7 @@ public class VisualizeFlowFieldSystem : IExecuteSystem
                     continue;
                 }
                 
-                var currMatrix = matrices[i * e.flowField.Height+ j];
+                var currMatrix = matrices[i * e.flowField.Height + j];
                 currMatrix.SetTRS(
                     initialPoint + new Vector3((i + 0.5f) * e.flowField.CellSize,1, (j + 0.5f) * e.flowField.CellSize),
                     quaternion, 

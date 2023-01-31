@@ -23,14 +23,8 @@ public class EnemySpawnersUpdateSystem : IExecuteSystem
             {
                 var spawnRequestEntity = _contexts.game.CreateEntity();
                 var unitsCount = Random.Range(e.enemySpawner.SpawnCountRange.x, e.enemySpawner.SpawnCountRange.y);
-                spawnRequestEntity.AddEnemySpawnRequest(e.enemySpawner.EnemyToSpawn, unitsCount);
-                spawnRequestEntity.AddPosition(e.position.Value +
-                                               new Vector3(
-                                                   Random.Range(-e.enemySpawner.SpawnArea.x,
-                                                       e.enemySpawner.SpawnArea.x), 
-                                                   0,
-                                                   Random.Range(-e.enemySpawner.SpawnArea.y,
-                                                       e.enemySpawner.SpawnArea.y)));
+                spawnRequestEntity.AddEnemySpawnRequest(e.enemySpawner.EnemyToSpawn, e.enemySpawner.SpawnArea, unitsCount);
+                spawnRequestEntity.AddPosition(e.position.Value);
 
                 e.ReplaceEnemySpawner(e.enemySpawner.SpawnDelayRange,
                     e.enemySpawner.SpawnCountRange,

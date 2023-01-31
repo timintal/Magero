@@ -114,6 +114,8 @@ public class LevelStage : MonoBehaviour
             Gizmos.color = Color.green;
             foreach (var spawner in EnemySpawners)
             {
+                if (spawner == null) continue;
+                
                 foreach (var spawnerOverride in spawner.Overrides)
                 {
                     if (spawnerOverride is EnemySpawnerComponent spawnerComponent)
