@@ -1,9 +1,9 @@
 ﻿using System;
 using DG.Tweening;
+using Game.UIFramework;
 using UnityEngine;
-using Vengadores.UIFramework;
 
-namespace Vengadores.BuiltInTransitions
+namespace Game.BuiltInTransitions
 {
     public class SimpleScaleTransition : UITransition
     {

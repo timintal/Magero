@@ -29,7 +29,7 @@ public class EnemySpawnSystem : ReactiveSystem<GameEntity>
             {
                 var enemyEntity = _contexts.game.CreateEntity();
                 enemyEntity.AddResource(e.enemySpawnRequest.EnemySettings.Prefab);
-                enemyEntity.AddSpeed(e.enemySpawnRequest.EnemySettings.Speed);
+                enemyEntity.AddSpeed(e.enemySpawnRequest.EnemySettings.Speed, e.enemySpawnRequest.EnemySettings.Speed);
                 enemyEntity.AddHealth(e.enemySpawnRequest.EnemySettings.Health);
                 enemyEntity.AddMaxHealth(e.enemySpawnRequest.EnemySettings.Health);
                 enemyEntity.AddRadius(e.enemySpawnRequest.EnemySettings.Radius);

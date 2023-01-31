@@ -6,9 +6,12 @@ using UnityEngine;
 public class CreateViewSystem : ReactiveSystem<GameEntity>
 {
     private Contexts _contexts;
-    public CreateViewSystem(Contexts context) : base(context.game)
+    private readonly PoolService _poolService;
+
+    public CreateViewSystem(Contexts context, PoolService poolService) : base(context.game)
     {
         _contexts = context;
+        _poolService = poolService;
     }
 
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -25,8 +28,8 @@ public class CreateViewSystem : ReactiveSystem<GameEntity>
     {
         foreach (var entity in entities)
         {
-            GameObject obj = Object.Instantiate(entity.resource.Prefab);
-         
+            var obj = _poolService.GetGameObject(entity.resource.Prefab);
+
             entity.AddTransform(obj.transform);
             var collider = obj.GetComponentInChildren<Collider>();
             if (collider != null)
@@ -39,8 +42,13 @@ public class CreateViewSystem : ReactiveSystem<GameEntity>
                 entity.AddRenderer(renderer);
             }
             
-            obj.transform.position = entity.position.Value;
-            obj.Link(entity);
+            var animator = obj.GetComponentInChildren<Animator>();
+            if (animator != null)
+            {
+                entity.AddAnimator(animator);
+            }
+            
+            obj.gameObject.Link(entity);
         }
     }
 }

@@ -51,5 +51,34 @@ public class PlayerInitializeSystem : IInitializeSystem
             laserEntity.isPlayer = true;
         }
 
+        if (gameSetup.AddLightning)
+        {
+            var lightningShooter = _contexts.game.CreateEntity();
+            lightningShooter.AddLightningShooter(
+                gameSetup.LightningStrikeSettings.Cooldown,
+                gameSetup.LightningStrikeSettings.EffectRadius,
+                gameSetup.LightningStrikeSettings.TargetDamage,
+                gameSetup.LightningStrikeSettings.AOEDamage,
+                gameSetup.LightningStrikeSettings.StunDuration);
+
+            lightningShooter.AddTransform(sceneReferences.LaserShootTransform);
+            lightningShooter.isPlayerWeaponDirection = true;
+            lightningShooter.isPlayer = true;
+        }
+
+        if (gameSetup.AddAcid)
+        {
+            var acidSpray = _contexts.game.CreateEntity();
+            acidSpray.AddAcidStream(
+                gameSetup._acidStreamSettings.Cooldown, 
+                gameSetup._acidStreamSettings.PoolRadius,
+                gameSetup._acidStreamSettings.PuddlePrefab,
+                gameSetup._acidStreamSettings.DamagePerSecond,
+                gameSetup._acidStreamSettings.RadiusDecreasePerSecond);
+
+            acidSpray.AddTransform(sceneReferences.LaserShootTransform);
+            acidSpray.isPlayerWeaponDirection = true;
+            acidSpray.isPlayer = true;
+        }
     }
 }

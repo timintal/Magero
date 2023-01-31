@@ -1,3 +1,5 @@
+using Entitas;
+
 public static class HelperFunctions
 {
     public static int PackedIndex(int x, int y)
@@ -8,4 +10,5 @@ public static class HelperFunctions
         return plainIndex;
     }
 
+    
 }

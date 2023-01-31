@@ -1,6 +1,7 @@
 using System;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 [Game, Unique]
@@ -8,11 +9,15 @@ public class GameSetup : ScriptableObject
 {
     public bool AddLaser;
     public bool AddFireballs;
+    public bool AddLightning;
+    public bool AddAcid;
     public CameraSettings CameraSettings;
     public FlowFieldSettings FlowFieldSettings;
     public DebugSettings DebugSettings;
     public FireballSettings FireballSetings;
     public LaserSettings LaserSettings;
+    public LightningStrikeSettings LightningStrikeSettings;
+    public AcidStreamSettings _acidStreamSettings;
     public PlayerSettings PlayerSettings;
 }
 
@@ -69,6 +74,27 @@ public class FireballSettings
 public class LaserSettings
 {
     public float DamagePerSecond;
+}
+
+[Serializable]
+public class LightningStrikeSettings
+{
+    public float Cooldown;
+    public float EffectRadius;
+    public int TargetDamage;
+    public int AOEDamage;
+    public float StunDuration;
+    public GameObject ImpactFx;
+}
+
+[Serializable]
+public class AcidStreamSettings
+{
+    public float Cooldown;
+    public float PoolRadius;
+    public GameObject PuddlePrefab;
+    public float DamagePerSecond;
+    public float RadiusDecreasePerSecond;
 }
 
 [Serializable]

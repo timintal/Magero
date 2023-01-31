@@ -11,10 +11,14 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private List<MonoEntityLink> _sceneEntities = new();
     
     private Systems _systems;
+    private PoolService _poolService;
     
     void Start()
     {
         Application.targetFrameRate = 60;
+
+        _poolService = new PoolService();
+        
         Contexts contexts = new Contexts();
         contexts.game.SetGameSetup(_gameSetup);
         contexts.game.SetGameSceneReferences(_gameSceneReferences);
@@ -39,13 +43,18 @@ public class Bootstrap : MonoBehaviour
                 
                 .Add(new UserInputSystem(contexts))
                 
+                //Reset
+                .Add(new SpeedResetSystem(contexts))
+                
+                //effects
+                .Add(new StunMovementSystem(contexts))
+                .Add(new ApplyStunSystem(contexts))
+                
                 .Add(new PlayerUpdateSystem(contexts))
                 .Add(new PlayerShooterDirectionUpdateSystem(contexts))
                 
                 .Add(new TimerSystem(contexts))
-                
-                .Add(new CreateViewSystem(contexts))
-                
+
                 .Add(new CameraControlSystem(contexts))
                 
                 .Add(new LevelStageProgressSystem(contexts))
@@ -55,7 +64,7 @@ public class Bootstrap : MonoBehaviour
             
                 .Add(new FlowFieldFeature(contexts))
 
-                .Add(new ShootingFeature(contexts))
+                .Add(new WeaponFeature(contexts))
                 
                 .Add(new MovementSystem(contexts))
                 .Add(new RotationSystem(contexts))
@@ -75,17 +84,20 @@ public class Bootstrap : MonoBehaviour
                 .Add(new RagdollCreationSystem(contexts))//should be after damage system
                 
                 .Add(new AutoDestructionSystem(contexts))
-                .Add(new DestroyViewSystem(contexts))
+                .Add(new ReturnToPoolSystem(contexts))
                 .Add(new MultiDestroySystem(contexts))
                 
                 //view
+                .Add(new CreateViewSystem(contexts, _poolService))
+                
                 .Add(new LaserVisualizationSystem(contexts))
                 .Add(new LaserAnimationSystem(contexts))
+                
+                .Add(new ExplosionVisualizationSystem(contexts))
                 
                 .Add(new FireballAnimationSystem(contexts))
                 
                 .Add(new UpdateViewSystem(contexts))
-                .Add(new DebugExplosionVisualizationSystem(contexts))
                 .Add(new HealthBarSystem(contexts))
                 
                 //Cleanup

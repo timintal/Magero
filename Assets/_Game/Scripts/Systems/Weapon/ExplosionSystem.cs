@@ -5,11 +5,13 @@ using UnityEngine;
 public class ExplosionSystem : ReactiveSystem<GameEntity>
 {
     Contexts _contexts;
+    private readonly PoolService _poolService;
     private IGroup<GameEntity> _targetsGroup;
 
     public ExplosionSystem(Contexts contexts) : base(contexts.game)
     {
         _contexts = contexts;
+        
         _targetsGroup = _contexts.game.GetGroup(
             GameMatcher.AllOf(
                 GameMatcher.Target,
@@ -63,6 +65,7 @@ public class ExplosionSystem : ReactiveSystem<GameEntity>
         var visualizationEntity = _contexts.game.CreateEntity();
         visualizationEntity.AddExplosionVisualization(5);
         visualizationEntity.AddPosition(position + Vector3.up * 0.1f);
+        visualizationEntity.AddRotation(Quaternion.identity);
         visualizationEntity.AddRadius(e.explosion.Radius * 2);
         visualizationEntity.AddResource(_contexts.game.gameSetup.value.FireballSetings.ExplosionVisualPrefab);
     }

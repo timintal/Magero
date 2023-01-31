@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1c4ea737cd44f54aa42637abdb0b05, type: 3}
   m_Name: GameSetup
   m_EditorClassIdentifier: 
-  AddLaser: 1
-  AddFireballs: 1
+  AddLaser: 0
+  AddFireballs: 0
+  AddLightning: 0
+  AddAcid: 1
   CameraSettings:
     RotationSpeed: 40
     HorizontalBounds: {x: -50, y: 50}
@@ -74,6 +76,21 @@ MonoBehaviour:
     ExplosionRadius: 4
   LaserSettings:
     DamagePerSecond: 60
+  LightningStrikeSettings:
+    Cooldown: 0.7
+    EffectRadius: 7
+    TargetDamage: 10
+    AOEDamage: 1
+    StunDuration: 1
+    ImpactFx: {fileID: 6772208814823110858, guid: 1ef3534a99690410db48b3baf42f3e09,
+      type: 3}
+  _acidStreamSettings:
+    Cooldown: 0.6
+    PoolRadius: 5
+    PuddlePrefab: {fileID: 7979384038678166815, guid: 22bba0a77eaf94d6698748f7b2cbff96,
+      type: 3}
+    DamagePerSecond: 4
+    RadiusDecreasePerSecond: 1
   PlayerSettings:
     Health: 20
     DistanceForDamage: 5

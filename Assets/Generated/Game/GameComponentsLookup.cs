@@ -8,67 +8,74 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Animator = 0;
-    public const int Attacker = 1;
-    public const int AutoDestruction = 2;
-    public const int Camera = 3;
-    public const int ColliderCache = 4;
-    public const int Collider = 5;
-    public const int CurrentLevelStage = 6;
-    public const int Damage = 7;
-    public const int DamageSourcePosition = 8;
-    public const int Destroyed = 9;
-    public const int Direction = 10;
-    public const int EnemySpawner = 11;
-    public const int EnemySpawnRequest = 12;
-    public const int EntityRef = 13;
-    public const int ExplodableProjectile = 14;
-    public const int ExplodableProjectileShooter = 15;
-    public const int Explosion = 16;
-    public const int ExplosionVisualization = 17;
-    public const int FloatDamage = 18;
-    public const int FlowField = 19;
-    public const int FlowFieldDirectionUpdateDelay = 20;
-    public const int FlowFieldMover = 21;
-    public const int FlowFieldTarget = 22;
-    public const int FlowFieldTemporaryObstacle = 23;
-    public const int GameSceneReferences = 24;
-    public const int GameSetup = 25;
-    public const int HealthBarUI = 26;
-    public const int Health = 27;
-    public const int Id = 28;
-    public const int LaserHitPoint = 29;
-    public const int LaserShooter = 30;
-    public const int LaserSparkles = 31;
-    public const int LayerMask = 32;
-    public const int Level = 33;
-    public const int LevelFinished = 34;
-    public const int MaxHealth = 35;
-    public const int PartitionGrid = 36;
-    public const int Player = 37;
-    public const int PlayerWeaponDirection = 38;
-    public const int Position = 39;
-    public const int Projectile = 40;
-    public const int ProjectileShooter = 41;
-    public const int Radius = 42;
-    public const int RagdollAngularVelocity = 43;
-    public const int RagdollCurrentVelocity = 44;
-    public const int RagdollDeath = 45;
-    public const int RagdollRemoveTimer = 46;
-    public const int Renderer = 47;
-    public const int Resource = 48;
-    public const int Rotation = 49;
-    public const int Speed = 50;
-    public const int Target = 51;
-    public const int TimerCompleted = 52;
-    public const int Timer = 53;
-    public const int Transform = 54;
-    public const int WeaponCooldown = 55;
-    public const int WeaponDisabled = 56;
+    public const int AcidPuddle = 0;
+    public const int AcidStream = 1;
+    public const int Animator = 2;
+    public const int Attacker = 3;
+    public const int AutoDestruction = 4;
+    public const int Camera = 5;
+    public const int ColliderCache = 6;
+    public const int Collider = 7;
+    public const int CurrentLevelStage = 8;
+    public const int Damage = 9;
+    public const int DamageSourcePosition = 10;
+    public const int Destroyed = 11;
+    public const int Direction = 12;
+    public const int EnemySpawner = 13;
+    public const int EnemySpawnRequest = 14;
+    public const int EntityRef = 15;
+    public const int ExplodableProjectile = 16;
+    public const int ExplodableProjectileShooter = 17;
+    public const int Explosion = 18;
+    public const int ExplosionVisualization = 19;
+    public const int FloatDamage = 20;
+    public const int FlowField = 21;
+    public const int FlowFieldDirectionUpdateDelay = 22;
+    public const int FlowFieldMover = 23;
+    public const int FlowFieldTarget = 24;
+    public const int FlowFieldTemporaryObstacle = 25;
+    public const int GameSceneReferences = 26;
+    public const int GameSetup = 27;
+    public const int HealthBarUI = 28;
+    public const int Health = 29;
+    public const int Id = 30;
+    public const int LaserHitPoint = 31;
+    public const int LaserShooter = 32;
+    public const int LaserSparkles = 33;
+    public const int LayerMask = 34;
+    public const int Level = 35;
+    public const int LevelFinished = 36;
+    public const int LightningShooter = 37;
+    public const int MaxHealth = 38;
+    public const int PartitionGrid = 39;
+    public const int Player = 40;
+    public const int PlayerWeaponDirection = 41;
+    public const int Pool = 42;
+    public const int Position = 43;
+    public const int Projectile = 44;
+    public const int ProjectileShooter = 45;
+    public const int Radius = 46;
+    public const int RagdollAngularVelocity = 47;
+    public const int RagdollCurrentVelocity = 48;
+    public const int RagdollDeath = 49;
+    public const int RagdollRemoveTimer = 50;
+    public const int Renderer = 51;
+    public const int Resource = 52;
+    public const int Rotation = 53;
+    public const int Speed = 54;
+    public const int Stunned = 55;
+    public const int Target = 56;
+    public const int TimerCompleted = 57;
+    public const int Timer = 58;
+    public const int Transform = 59;
+    public const int WeaponCooldown = 60;
+    public const int WeaponDisabled = 61;
 
-    public const int TotalComponents = 57;
+    public const int TotalComponents = 62;
 
     public static readonly string[] componentNames = {
+        "AcidPuddle",
+        "AcidStream",
         "Animator",
         "Attacker",
         "AutoDestruction",
@@ -104,10 +111,12 @@ public static class GameComponentsLookup {
         "LayerMask",
         "Level",
         "LevelFinished",
+        "LightningShooter",
         "MaxHealth",
         "PartitionGrid",
         "Player",
         "PlayerWeaponDirection",
+        "Pool",
         "Position",
         "Projectile",
         "ProjectileShooter",
@@ -120,6 +129,7 @@ public static class GameComponentsLookup {
         "Resource",
         "Rotation",
         "Speed",
+        "Stunned",
         "Target",
         "TimerCompleted",
         "Timer",
@@ -129,6 +139,8 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AcidPuddleComponent),
+        typeof(AcidStreamComponent),
         typeof(AnimatorComponent),
         typeof(AttackerComponent),
         typeof(AutoDestructionComponent),
@@ -164,10 +176,12 @@ public static class GameComponentsLookup {
         typeof(LayerMaskComponent),
         typeof(LevelComponent),
         typeof(LevelFinishedComponent),
+        typeof(LightningShooterComponent),
         typeof(MaxHealthComponent),
         typeof(PartitionGridComponent),
         typeof(PlayerComponent),
         typeof(PlayerWeaponDirectionComponent),
+        typeof(PoolComponent),
         typeof(PositionComponent),
         typeof(ProjectileComponent),
         typeof(ProjectileShooterComponent),
@@ -180,6 +194,7 @@ public static class GameComponentsLookup {
         typeof(ResourceComponent),
         typeof(RotationComponent),
         typeof(SpeedComponent),
+        typeof(StunnedComponent),
         typeof(TargetComponent),
         typeof(TimerCompletedComponent),
         typeof(TimerComponent),

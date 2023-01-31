@@ -1,9 +1,10 @@
 using System;
 using DG.Tweening;
+using Game.UIFramework;
 using UnityEngine;
-using Vengadores.UIFramework;
 
-namespace Voodoo.BuiltInTransitions
+
+namespace Game.BuiltInTransitions
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class SimpleFadeTransition : UITransition

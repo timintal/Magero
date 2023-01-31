@@ -41,22 +41,15 @@ public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
             projectileEntity.AddPosition(e.transform.Transform.position);
             projectileEntity.AddRotation(Quaternion.identity);
             projectileEntity.AddDirection(e.direction.Value);
-            projectileEntity.AddSpeed(e.projectileShooter.ProjectileSpeed);
+            projectileEntity.AddSpeed(e.projectileShooter.ProjectileSpeed, e.projectileShooter.ProjectileSpeed);
             projectileEntity.AddAutoDestruction(7);
             projectileEntity.AddEntityRef(e.id.Value);
             projectileEntity.AddExplodableProjectile(e.explodableProjectileShooter.ExplosionRadius);
             projectileEntity.AddDamage(e.projectileShooter.Damage);
-            e.hasWeaponCooldown = true;
-            
-            StartCooldown(e);
+
+            WeaponCooldownComponent.StartWeaponCooldown(e, e.projectileShooter.Cooldown, _contexts.game);
         }
     }
 
-    private void StartCooldown(GameEntity e)
-    {
-        var timerEntity = _contexts.game.CreateEntity();
-        timerEntity.AddTimer(e.projectileShooter.Cooldown);
-        timerEntity.AddEntityRef(e.id.Value);
-        timerEntity.hasWeaponCooldown = true;
-    }
+    
 }

@@ -1,13 +1,12 @@
 using Entitas;
 using UnityEngine;
 
-
-public class DebugExplosionVisualizationSystem : IExecuteSystem
+public class ExplosionVisualizationSystem : IExecuteSystem
 {
     Contexts _contexts;
     private IGroup<GameEntity> _explosionVisualGroup;
 
-    public DebugExplosionVisualizationSystem(Contexts contexts)
+    public ExplosionVisualizationSystem(Contexts contexts)
     {
         _contexts = contexts;
         _explosionVisualGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.ExplosionVisualization, GameMatcher.Transform, GameMatcher.Radius));

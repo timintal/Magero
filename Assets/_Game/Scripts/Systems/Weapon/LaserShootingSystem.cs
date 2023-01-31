@@ -1,7 +1,6 @@
 using Entitas;
 using UnityEngine;
 
-
 public class LaserShootingSystem : IExecuteSystem
 {
     Contexts _contexts;

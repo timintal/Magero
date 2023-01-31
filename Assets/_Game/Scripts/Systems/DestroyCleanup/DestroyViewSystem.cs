@@ -20,7 +20,7 @@ public class DestroyViewSystem : ReactiveSystem<GameEntity>
 
     protected override bool Filter(GameEntity entity)
     {
-        return entity.isDestroyed && entity.hasTransform;
+        return entity.isDestroyed && entity.hasTransform && entity.hasResource;
     }
 
     protected override void Execute(List<GameEntity> entities)
