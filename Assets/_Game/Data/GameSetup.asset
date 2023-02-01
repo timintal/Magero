@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GameSetup
   m_EditorClassIdentifier: 
   AddLaser: 0
-  AddFireballs: 1
+  AddFireballs: 0
   AddLightning: 0
-  AddAcid: 0
+  AddAcid: 1
   CameraSettings:
     RotationSpeed: 40
     HorizontalBounds: {x: -50, y: 50}
@@ -85,12 +85,12 @@ MonoBehaviour:
     ImpactFx: {fileID: 6772208814823110858, guid: 1ef3534a99690410db48b3baf42f3e09,
       type: 3}
   AcidStreamSettings:
-    Cooldown: 0.6
-    PoolRadius: 5
+    Cooldown: 0.1
+    PoolRadius: 1.5
     PuddlePrefab: {fileID: 7979384038678166815, guid: 22bba0a77eaf94d6698748f7b2cbff96,
       type: 3}
-    DamagePerSecond: 4
-    PuddleLifetime: 4
+    DamagePerSecond: 1.5
+    PuddleLifetime: 2
     RadiusCurve:
       serializedVersion: 2
       m_Curve:
