@@ -24,19 +24,19 @@ public class PlayerInitializeSystem : IInitializeSystem
 
         if (gameSetup.AddFireballs)
         {
-            var weaponEntity = _contexts.game.CreateEntity();
+            var fireballShooter = _contexts.game.CreateEntity();
 
-            weaponEntity.AddProjectileShooter(gameSetup.FireballSetings.Cooldown,
+            fireballShooter.AddProjectileShooter(gameSetup.FireballSetings.Cooldown,
                 gameSetup.FireballSetings.ProjectilePrefab,
                 gameSetup.FireballSetings.ProjectileSpeed,
                 TargetType.Enemy);
 
-            weaponEntity.AddExplodableProjectileShooter(gameSetup.FireballSetings.ExplosionRadius);
-            weaponEntity.AddTransform(sceneReferences.FireballsShootTransform);
-            weaponEntity.AddAnimator(sceneReferences.FireballAnimator);
-            weaponEntity.AddDamage(gameSetup.FireballSetings.Damage);
-            weaponEntity.isPlayerWeaponDirection = true;
-            weaponEntity.isPlayer = true;
+            fireballShooter.AddExplodableProjectileShooter(gameSetup.FireballSetings.ExplosionRadius);
+            fireballShooter.AddTransform(sceneReferences.FireballsShootTransform);
+            fireballShooter.AddAnimator(sceneReferences.FireballAnimator);
+            fireballShooter.AddDamage(gameSetup.FireballSetings.Damage);
+            fireballShooter.isPlayerWeaponDirection = true;
+            fireballShooter.isPlayer = true;
         }
 
         if (gameSetup.AddLaser)
@@ -76,12 +76,30 @@ public class PlayerInitializeSystem : IInitializeSystem
                 gameSetup.AcidStreamSettings.PoolRadius,
                 gameSetup.AcidStreamSettings.PuddlePrefab,
                 gameSetup.AcidStreamSettings.PuddleLifetime,
+                gameSetup.AcidStreamSettings.RefreshTimestamp,
                 gameSetup.AcidStreamSettings.RadiusCurve);
 
             acidSpray.AddDamage(gameSetup.AcidStreamSettings.DamagePerSecond);
             acidSpray.AddTransform(sceneReferences.LaserShootTransform);
             acidSpray.isPlayerWeaponDirection = true;
             acidSpray.isPlayer = true;
+        }
+
+        if (gameSetup.AddGasCloud)
+        {
+            var weaponEntity = _contexts.game.CreateEntity();
+
+            weaponEntity.AddProjectileShooter(gameSetup.FireballSetings.Cooldown,
+                gameSetup.FireballSetings.ProjectilePrefab,
+                gameSetup.FireballSetings.ProjectileSpeed,
+                TargetType.Enemy);
+
+            weaponEntity.AddExplodableProjectileShooter(gameSetup.FireballSetings.ExplosionRadius);
+            weaponEntity.AddTransform(sceneReferences.FireballsShootTransform);
+            weaponEntity.AddAnimator(sceneReferences.FireballAnimator);
+            weaponEntity.AddDamage(gameSetup.FireballSetings.Damage);
+            weaponEntity.isPlayerWeaponDirection = true;
+            weaponEntity.isPlayer = true;
         }
     }
 }

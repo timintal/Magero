@@ -8,5 +8,6 @@ public class AcidStreamComponent : IComponent
     public float PoolRadius;
     public GameObject PoolPrefab;
     public float PuddleLifetime;
+    public float RefreshTimeStamp;
     public AnimationCurve RadiusCurve;
 }

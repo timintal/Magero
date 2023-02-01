@@ -47,7 +47,7 @@ public class AcidStreamSystem : ReactiveSystem<GameEntity>
                     if ((hit.point - puddleEntity.position.Value).sqrMagnitude < sqrRadius)
                     {
                         hitExistingPuddle = true;
-                        puddleEntity.ReplaceAutoDestruction(e.acidStream.PuddleLifetime);
+                        puddleEntity.ReplaceAutoDestruction(Mathf.Max(puddleEntity.autoDestruction.Delay, e.acidStream.PuddleLifetime * e.acidStream.RefreshTimeStamp));
                         break;
                     }
                 }

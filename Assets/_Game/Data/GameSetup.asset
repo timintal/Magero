@@ -16,6 +16,7 @@ MonoBehaviour:
   AddFireballs: 0
   AddLightning: 0
   AddAcid: 1
+  AddGasCloud: 0
   CameraSettings:
     RotationSpeed: 40
     HorizontalBounds: {x: -50, y: 50}
@@ -91,6 +92,7 @@ MonoBehaviour:
       type: 3}
     DamagePerSecond: 1.5
     PuddleLifetime: 2
+    RefreshTimestamp: 0.9
     RadiusCurve:
       serializedVersion: 2
       m_Curve:
@@ -124,6 +126,13 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  GasCloudSettings:
+    Cooldown: 0
+    Damage: 0
+    ProjectilePrefab: {fileID: 0}
+    CloudPrefab: {fileID: 0}
+    ProjectileSpeed: 0
+    CloudRadius: 0
   PlayerSettings:
     Health: 20
     DistanceForDamage: 5

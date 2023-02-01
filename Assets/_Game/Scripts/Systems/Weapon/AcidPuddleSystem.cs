@@ -21,7 +21,7 @@ public class AcidPuddleSystem : IExecuteSystem
                             e.acidPuddle.RadiusCurve.Evaluate(1 - e.autoDestruction.Delay /
                                 e.acidPuddle.PuddleLifetime);
             
-            e.ReplaceRadius(newRadius);
+            e.ReplaceRadius(Mathf.Lerp(e.radius.Value, newRadius, 10f * Time.deltaTime));
 
             e.transform.Transform.localScale = Vector3.one * newRadius;
         }

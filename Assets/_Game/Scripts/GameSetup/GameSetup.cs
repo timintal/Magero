@@ -11,6 +11,7 @@ public class GameSetup : ScriptableObject
     public bool AddFireballs;
     public bool AddLightning;
     public bool AddAcid;
+    public bool AddGasCloud;
     public CameraSettings CameraSettings;
     public FlowFieldSettings FlowFieldSettings;
     public DebugSettings DebugSettings;
@@ -18,6 +19,7 @@ public class GameSetup : ScriptableObject
     public LaserSettings LaserSettings;
     public LightningStrikeSettings LightningStrikeSettings;
     public AcidStreamSettings AcidStreamSettings;
+    public GasCloudSettings GasCloudSettings;
     public PlayerSettings PlayerSettings;
 }
 
@@ -63,7 +65,7 @@ public class DebugSettings
 public class FireballSettings
 {
     public float Cooldown;
-    public int Damage;
+    public float Damage;
     public GameObject ProjectilePrefab;
     public GameObject ExplosionVisualPrefab;
     public float ProjectileSpeed;
@@ -95,6 +97,7 @@ public class AcidStreamSettings
     public GameObject PuddlePrefab;
     public float DamagePerSecond;
     public float PuddleLifetime;
+    public float RefreshTimestamp;
     public AnimationCurve RadiusCurve;
 }
 
@@ -103,5 +106,16 @@ public class PlayerSettings
 {
     public int Health;
     public float DistanceForDamage;
+}
+
+[Serializable]
+public class GasCloudSettings
+{
+    public float Cooldown;
+    public float Damage;
+    public GameObject ProjectilePrefab;
+    public GameObject CloudPrefab;
+    public float ProjectileSpeed;
+    public float CloudRadius;
 }
 
