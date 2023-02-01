@@ -1,5 +1,4 @@
 using UnityEngine;
-using Sirenix;
 using Sirenix.OdinInspector;
 
 public class ColorRandomizer : MonoBehaviour
@@ -27,11 +26,8 @@ public class ColorRandomizer : MonoBehaviour
 								Random.Range(_startRGBValues.z, _endRGBValues.z),
 								1f);
 		}
-        
 
-        MaterialPropertyBlock block = new MaterialPropertyBlock();
-        rend.GetPropertyBlock(block);
-        block.SetColor(BaseColor, color);
-        rend.SetPropertyBlock(block);
+
+		rend.material.color = color;
     }
 }

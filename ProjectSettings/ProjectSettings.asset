@@ -774,20 +774,20 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: 
-    EmbeddedLinux: 
-    GameCoreXboxOne: 
-    Lumin: 
-    Nintendo Switch: 
-    PS4: 
-    PS5: 
-    Stadia: 
-    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1
-    WebGL: 
-    Windows Store Apps: 
-    XboxOne: 
+    Android: ENTITAS_DISABLE_VISUAL_DEBUGGING
+    EmbeddedLinux: ENTITAS_DISABLE_VISUAL_DEBUGGING
+    GameCoreXboxOne: ENTITAS_DISABLE_VISUAL_DEBUGGING
+    Lumin: ENTITAS_DISABLE_VISUAL_DEBUGGING
+    Nintendo Switch: ENTITAS_DISABLE_VISUAL_DEBUGGING
+    PS4: ENTITAS_DISABLE_VISUAL_DEBUGGING
+    PS5: ENTITAS_DISABLE_VISUAL_DEBUGGING
+    Stadia: ENTITAS_DISABLE_VISUAL_DEBUGGING
+    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;ENTITAS_DISABLE_VISUAL_DEBUGGING
+    WebGL: ENTITAS_DISABLE_VISUAL_DEBUGGING
+    Windows Store Apps: ENTITAS_DISABLE_VISUAL_DEBUGGING
+    XboxOne: ENTITAS_DISABLE_VISUAL_DEBUGGING
     iPhone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1
-    tvOS: 
+    tvOS: ENTITAS_DISABLE_VISUAL_DEBUGGING
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
