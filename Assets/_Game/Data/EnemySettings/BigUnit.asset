@@ -15,5 +15,5 @@ MonoBehaviour:
   Prefab: {fileID: 7969321768603503873, guid: f8ccf6ec0d2bc47e78ef6363893ea49c, type: 3}
   Speed: 1
   Health: 50
-  Radius: 5
+  Radius: 6
   RepulsionRadius: 0
