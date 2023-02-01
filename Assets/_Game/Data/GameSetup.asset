@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GameSetup
   m_EditorClassIdentifier: 
   AddLaser: 0
-  AddFireballs: 0
+  AddFireballs: 1
   AddLightning: 0
-  AddAcid: 1
+  AddAcid: 0
   CameraSettings:
     RotationSpeed: 40
     HorizontalBounds: {x: -50, y: 50}
@@ -78,7 +78,7 @@ MonoBehaviour:
     DamagePerSecond: 60
   LightningStrikeSettings:
     Cooldown: 0.7
-    EffectRadius: 7
+    EffectRadius: 5
     TargetDamage: 10
     AOEDamage: 1
     StunDuration: 1

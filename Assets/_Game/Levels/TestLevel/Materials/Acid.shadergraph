@@ -163,7 +163,7 @@
                 "m_Node": {
                     "m_Id": "3af572caa76246b283485d9231a338e4"
                 },
-                "m_SlotId": 0
+                "m_SlotId": 4
             },
             "m_InputSlot": {
                 "m_Node": {
@@ -219,7 +219,7 @@
                 "m_Node": {
                     "m_Id": "94997661ec854a398416f210567f9f95"
                 },
-                "m_SlotId": 0
+                "m_SlotId": 4
             },
             "m_InputSlot": {
                 "m_Node": {
@@ -321,7 +321,7 @@
     },
     "m_PreviewData": {
         "serializedMesh": {
-            "m_SerializedMesh": "{\"mesh\":{\"instanceID\":0}}",
+            "m_SerializedMesh": "{\"mesh\":{\"fileID\":10210,\"guid\":\"0000000000000000e000000000000000\",\"type\":0}}",
             "m_Guid": ""
         },
         "preventRotation": false
@@ -764,10 +764,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 243.19976806640626,
-            "y": 244.79989624023438,
-            "width": 208.0001220703125,
-            "height": 301.6001281738281
+            "x": 252.0,
+            "y": 244.7999725341797,
+            "width": 208.0,
+            "height": 301.60003662109377
         }
     },
     "m_Slots": [
