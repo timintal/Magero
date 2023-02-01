@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
-
 public class AcidStreamSystem : ReactiveSystem<GameEntity>
 {
     Contexts _contexts;
@@ -26,6 +25,7 @@ public class AcidStreamSystem : ReactiveSystem<GameEntity>
     protected override bool Filter(GameEntity entity)
     {
         return entity.hasAcidStream &&
+               entity.hasDamage && 
                !entity.isWeaponDisabled &&
                !entity.hasWeaponCooldown;
     }
@@ -47,7 +47,7 @@ public class AcidStreamSystem : ReactiveSystem<GameEntity>
                     if ((hit.point - puddleEntity.position.Value).sqrMagnitude < sqrRadius)
                     {
                         hitExistingPuddle = true;
-                        puddleEntity.ReplaceRadius(e.acidStream.PoolRadius);
+                        puddleEntity.ReplaceAutoDestruction(e.acidStream.PuddleLifetime);
                         break;
                     }
                 }
@@ -55,10 +55,13 @@ public class AcidStreamSystem : ReactiveSystem<GameEntity>
                 if (!hitExistingPuddle)
                 {
                     var newPuddleEntity = _contexts.game.CreateEntity();
-                    newPuddleEntity.AddAcidPuddle(e.acidStream.DamagePerSecond, e.acidStream.RadiusDecreasePerSecond);
+                    newPuddleEntity.AddAcidPuddle(e.acidStream.PuddleLifetime, e.acidStream.PoolRadius, e.acidStream.RadiusCurve);
                     newPuddleEntity.AddRadius(e.acidStream.PoolRadius);
                     newPuddleEntity.AddPosition(hit.point);
                     newPuddleEntity.AddRotation(Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up));
+                    newPuddleEntity.AddDamage(e.damage.Value);
+                    newPuddleEntity.AddDamageOverTimeZone(e.damage.Value);
+                    newPuddleEntity.AddAutoDestruction(e.acidStream.PuddleLifetime);
                     newPuddleEntity.AddResource(e.acidStream.PoolPrefab);
                 }
             }

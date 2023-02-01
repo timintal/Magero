@@ -8,5 +8,6 @@ public class WeaponFeature : Feature
         Add(new LightningStrikeShootingSystem(contexts));
         Add(new AcidStreamSystem(contexts));
         Add(new AcidPuddleSystem(contexts));
+        Add(new DamageOverTimeZoneSystem(contexts));
     }    
 }

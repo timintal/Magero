@@ -11,17 +11,17 @@ public partial class GameEntity {
     public AutoDestructionComponent autoDestruction { get { return (AutoDestructionComponent)GetComponent(GameComponentsLookup.AutoDestruction); } }
     public bool hasAutoDestruction { get { return HasComponent(GameComponentsLookup.AutoDestruction); } }
 
-    public void AddAutoDestruction(float newLifetime) {
+    public void AddAutoDestruction(float newDelay) {
         var index = GameComponentsLookup.AutoDestruction;
         var component = (AutoDestructionComponent)CreateComponent(index, typeof(AutoDestructionComponent));
-        component.Lifetime = newLifetime;
+        component.Delay = newDelay;
         AddComponent(index, component);
     }
 
-    public void ReplaceAutoDestruction(float newLifetime) {
+    public void ReplaceAutoDestruction(float newDelay) {
         var index = GameComponentsLookup.AutoDestruction;
         var component = (AutoDestructionComponent)CreateComponent(index, typeof(AutoDestructionComponent));
-        component.Lifetime = newLifetime;
+        component.Delay = newDelay;
         ReplaceComponent(index, component);
     }
 

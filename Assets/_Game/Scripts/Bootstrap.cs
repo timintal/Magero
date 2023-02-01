@@ -78,7 +78,6 @@ public class Bootstrap : MonoBehaviour
                 
                 .Add(new DebugFeature(contexts))
                 
-                .Add(new FloatDamageSystem(contexts))
                 .Add(new DamageSystem(contexts))
 
                 .Add(new RagdollCreationSystem(contexts))//should be after damage system
@@ -90,7 +89,8 @@ public class Bootstrap : MonoBehaviour
                 //view
                 .Add(new CreateViewSystem(contexts, _poolService))
                 
-                .Add(new LaserVisualizationSystem(contexts))
+                .Add(new WeaponBeamVisualizationSystem(contexts))
+                .Add(new WeaponHitPointFxUpdateSystem(contexts))
                 .Add(new LaserAnimationSystem(contexts))
                 
                 .Add(new ExplosionVisualizationSystem(contexts))

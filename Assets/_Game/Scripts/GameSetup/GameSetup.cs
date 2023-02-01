@@ -17,7 +17,7 @@ public class GameSetup : ScriptableObject
     public FireballSettings FireballSetings;
     public LaserSettings LaserSettings;
     public LightningStrikeSettings LightningStrikeSettings;
-    public AcidStreamSettings _acidStreamSettings;
+    public AcidStreamSettings AcidStreamSettings;
     public PlayerSettings PlayerSettings;
 }
 
@@ -94,7 +94,8 @@ public class AcidStreamSettings
     public float PoolRadius;
     public GameObject PuddlePrefab;
     public float DamagePerSecond;
-    public float RadiusDecreasePerSecond;
+    public float PuddleLifetime;
+    public AnimationCurve RadiusCurve;
 }
 
 [Serializable]

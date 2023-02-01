@@ -28,7 +28,7 @@ public class ExplosionSystem : ReactiveSystem<GameEntity>
     protected override bool Filter(GameEntity entity)
     {
         return entity.hasExplosion && 
-               entity.hasPosition && 
+               entity.hasPosition &&
                entity.hasDamage;
     }
 
@@ -37,7 +37,7 @@ public class ExplosionSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             var explosionRadiusSqr = e.explosion.Radius * e.explosion.Radius;
-            var damage = e.damage.Damage;
+            var damage = e.damage.Value;
             var position = e.position.Value;
 
             AddVisualization(position, e);
@@ -47,17 +47,19 @@ public class ExplosionSystem : ReactiveSystem<GameEntity>
                 var diff = target.position.Value - position;
                 if (diff.sqrMagnitude < explosionRadiusSqr)
                 {
-                    int totalDamage = damage;
-                    if (target.hasDamage)
-                    {
-                        totalDamage += target.damage.Damage;
-                    }
+                    ApplyDamage(damage, target);
 
-                    target.ReplaceDamage(totalDamage);
                     target.ReplaceDamageSourcePosition(position);
                 }
             }
         }
+    }
+
+    private void ApplyDamage(float damage, GameEntity target)
+    {
+        var damageEntity = _contexts.game.CreateEntity();
+        damageEntity.AddReceivedDamage(damage);
+        damageEntity.AddEntityRef(target.id.Value);
     }
 
     private void AddVisualization(Vector3 position, GameEntity e)

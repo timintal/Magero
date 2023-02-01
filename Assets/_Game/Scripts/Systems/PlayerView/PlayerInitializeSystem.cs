@@ -29,12 +29,12 @@ public class PlayerInitializeSystem : IInitializeSystem
             weaponEntity.AddProjectileShooter(gameSetup.FireballSetings.Cooldown,
                 gameSetup.FireballSetings.ProjectilePrefab,
                 gameSetup.FireballSetings.ProjectileSpeed,
-                TargetType.Enemy,
-                gameSetup.FireballSetings.Damage);
+                TargetType.Enemy);
 
             weaponEntity.AddExplodableProjectileShooter(gameSetup.FireballSetings.ExplosionRadius);
             weaponEntity.AddTransform(sceneReferences.FireballsShootTransform);
             weaponEntity.AddAnimator(sceneReferences.FireballAnimator);
+            weaponEntity.AddDamage(gameSetup.FireballSetings.Damage);
             weaponEntity.isPlayerWeaponDirection = true;
             weaponEntity.isPlayer = true;
         }
@@ -42,11 +42,13 @@ public class PlayerInitializeSystem : IInitializeSystem
         if (gameSetup.AddLaser)
         {
             var laserEntity = _contexts.game.CreateEntity();
-            laserEntity.AddLaserShooter(sceneReferences.LaserRenderer, gameSetup.LaserSettings.DamagePerSecond);
+            laserEntity.isLaserShooter = true;
             laserEntity.AddTransform(sceneReferences.LaserShootTransform);
-            laserEntity.AddLaserSparkles(sceneReferences.LaserSparkles);
-            laserEntity.AddLaserHitPoint(sceneReferences.LaserShootTransform.position);
+            laserEntity.AddHitPointEffect(sceneReferences.LaserSparkles);
+            laserEntity.AddBeamRenderer(sceneReferences.LaserRenderer);
+            laserEntity.AddWeaponHitPoint(sceneReferences.LaserShootTransform.position);
             laserEntity.AddAnimator(sceneReferences.LaserAnimator);
+            laserEntity.AddDamage(gameSetup.LaserSettings.DamagePerSecond);
             laserEntity.isPlayerWeaponDirection = true;
             laserEntity.isPlayer = true;
         }
@@ -70,12 +72,13 @@ public class PlayerInitializeSystem : IInitializeSystem
         {
             var acidSpray = _contexts.game.CreateEntity();
             acidSpray.AddAcidStream(
-                gameSetup._acidStreamSettings.Cooldown, 
-                gameSetup._acidStreamSettings.PoolRadius,
-                gameSetup._acidStreamSettings.PuddlePrefab,
-                gameSetup._acidStreamSettings.DamagePerSecond,
-                gameSetup._acidStreamSettings.RadiusDecreasePerSecond);
+                gameSetup.AcidStreamSettings.Cooldown, 
+                gameSetup.AcidStreamSettings.PoolRadius,
+                gameSetup.AcidStreamSettings.PuddlePrefab,
+                gameSetup.AcidStreamSettings.PuddleLifetime,
+                gameSetup.AcidStreamSettings.RadiusCurve);
 
+            acidSpray.AddDamage(gameSetup.AcidStreamSettings.DamagePerSecond);
             acidSpray.AddTransform(sceneReferences.LaserShootTransform);
             acidSpray.isPlayerWeaponDirection = true;
             acidSpray.isPlayer = true;

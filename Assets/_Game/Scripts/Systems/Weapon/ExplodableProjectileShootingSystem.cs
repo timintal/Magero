@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
-
 public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
 {
     Contexts _contexts;
@@ -17,7 +16,7 @@ public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
         return context.CreateCollector(
             GameMatcher.WeaponCooldown.Removed(),
             GameMatcher.WeaponDisabled.Removed(),
-            GameMatcher.ProjectileShooter.Added());
+            GameMatcher.ExplodableProjectileShooter.Added());
     }
 
     protected override bool Filter(GameEntity entity)
@@ -36,7 +35,7 @@ public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             var projectileEntity = _contexts.game.CreateEntity();
-            projectileEntity.AddProjectile(e.projectileShooter.Target, e.projectileShooter.Damage);
+            projectileEntity.AddProjectile(e.projectileShooter.Target);
             projectileEntity.AddResource(e.projectileShooter.Prefab);
             projectileEntity.AddPosition(e.transform.Transform.position);
             projectileEntity.AddRotation(Quaternion.identity);
@@ -45,7 +44,7 @@ public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
             projectileEntity.AddAutoDestruction(7);
             projectileEntity.AddEntityRef(e.id.Value);
             projectileEntity.AddExplodableProjectile(e.explodableProjectileShooter.ExplosionRadius);
-            projectileEntity.AddDamage(e.projectileShooter.Damage);
+            projectileEntity.AddDamage(e.damage.Value);
 
             WeaponCooldownComponent.StartWeaponCooldown(e, e.projectileShooter.Cooldown, _contexts.game);
         }

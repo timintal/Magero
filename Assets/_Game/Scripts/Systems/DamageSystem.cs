@@ -12,25 +12,33 @@ public class DamageSystem : ReactiveSystem<GameEntity>
 
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
     {
-        return context.CreateCollector(GameMatcher.AllOf(GameMatcher.Damage));
+        return context.CreateCollector(GameMatcher.AllOf(GameMatcher.ReceivedDamage));
     }
 
     protected override bool Filter(GameEntity entity)
     {
-        return entity.hasDamage && entity.hasHealth;
+        return entity.hasReceivedDamage && entity.hasEntityRef;
     }
 
     protected override void Execute(List<GameEntity> entities)
     {
         foreach (var e in entities)
         {
-            var healthLeft = e.health.Value - e.damage.Damage;
-            e.ReplaceHealth(healthLeft);
-            if (healthLeft <= 0)
+            var targetEntity = _contexts.game.GetEntityWithId(e.entityRef.EntityId);
+            if (targetEntity != null && targetEntity.hasHealth)
             {
-                e.isDestroyed = true;
+                var healthLeft = targetEntity.health.Value - e.receivedDamage.Value;
+                if (healthLeft < 0)
+                {
+                    targetEntity.isDestroyed = true;
+                }
+                else
+                {
+                    targetEntity.ReplaceHealth(healthLeft);
+                }
             }
-            e.RemoveDamage();
+
+            e.isDestroyed = true;
         }
     }
 }

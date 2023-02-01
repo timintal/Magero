@@ -4,5 +4,4 @@ using Entitas;
 public class ProjectileComponent : IComponent
 {
     public TargetType Targets;
-    public int Damage;
 }

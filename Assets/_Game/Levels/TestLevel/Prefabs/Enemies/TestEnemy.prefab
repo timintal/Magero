@@ -56,6 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7969321768603503875}
   - component: {fileID: 4916442793981441218}
+  - component: {fileID: 3403624264278489981}
   m_Layer: 6
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -97,6 +98,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &3403624264278489981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7969321768603503873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7241072ec5c49edb09471cec703376e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animators:
+  - {fileID: 6716539190518695118}
 --- !u!1001 &1143442952044688124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -404,6 +419,12 @@ PrefabInstance:
 --- !u!4 &852829710288592564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2567192069101704963, guid: e39f101d91daddd40961f2d4b6385c0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2915416170694134199}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6716539190518695118 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8448844440935337337, guid: e39f101d91daddd40961f2d4b6385c0f,
     type: 3}
   m_PrefabInstance: {fileID: 2915416170694134199}
   m_PrefabAsset: {fileID: 0}

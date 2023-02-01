@@ -10,7 +10,7 @@ public class LaserShootingSystem : IExecuteSystem
     public LaserShootingSystem(Contexts contexts)
     {
         _contexts = contexts;
-        _laserShooterGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.LaserShooter, GameMatcher.Transform).NoneOf(GameMatcher.WeaponDisabled));
+        _laserShooterGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.LaserShooter, GameMatcher.Transform, GameMatcher.Damage).NoneOf(GameMatcher.WeaponDisabled));
         _colliderCacheGroup = _contexts.game.GetGroup(GameMatcher.ColliderCache);
     }
 
@@ -20,8 +20,6 @@ public class LaserShootingSystem : IExecuteSystem
 
         foreach (var e in _laserShooterGroup.GetEntities())
         {
-            var laserShooter = e.laserShooter;
-
             if (Physics.Raycast(e.transform.Transform.position,
                     e.direction.Value,
                     out RaycastHit hit,
@@ -31,20 +29,21 @@ public class LaserShootingSystem : IExecuteSystem
                 if (colliderCacheColliderCacheMap.ContainsKey(hit.collider))
                 {
                     var enemy = _contexts.game.GetEntityWithId(colliderCacheColliderCacheMap[hit.collider]);
-                    float totalDamage = Time.deltaTime * laserShooter.DamagePerSecond;
-                    if (enemy.hasFloatDamage)
-                    {
-                        totalDamage += enemy.floatDamage.Value;
-                    }
-                    enemy.ReplaceFloatDamage(totalDamage);
+                    
+                    float totalDamage = Time.deltaTime * e.damage.Value;
+
+                    var damageEntity = _contexts.game.CreateEntity();
+                    damageEntity.AddReceivedDamage(totalDamage);
+                    damageEntity.AddEntityRef(enemy.id.Value);
+
                     enemy.ReplaceDamageSourcePosition(hit.point - hit.normal);
                 }
 
-                e.ReplaceLaserHitPoint(hit.point);
+                e.ReplaceWeaponHitPoint(hit.point);
             }
             else
             {
-                e.ReplaceLaserHitPoint(e.transform.Transform.position);
+                e.ReplaceWeaponHitPoint(e.transform.Transform.position);
             }
             
             

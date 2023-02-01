@@ -1,7 +1,7 @@
 using Entitas;
 
 [Game]
-public class FloatDamageComponent : IComponent
+public class ReceivedDamageComponent : IComponent
 {
     public float Value;
 }

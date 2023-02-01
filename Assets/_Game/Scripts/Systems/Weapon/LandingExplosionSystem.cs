@@ -10,7 +10,7 @@ public class LandingExplosionSystem : IExecuteSystem
     public LandingExplosionSystem(Contexts contexts)
     {
         _contexts = contexts;
-        _projectilesGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Projectile, GameMatcher.ExplodableProjectile, GameMatcher.Position));
+        _projectilesGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Projectile, GameMatcher.ExplodableProjectile, GameMatcher.Position, GameMatcher.Damage));
         _flowFieldGroup = contexts.game.GetGroup(GameMatcher.FlowField);
     }
 
@@ -27,7 +27,7 @@ public class LandingExplosionSystem : IExecuteSystem
                 positionValue.y = 0;
                 explosion.AddPosition(positionValue);
                 explosion.AddExplosion(e.explodableProjectile.ExplosionRadius);
-                explosion.AddDamage(e.damage.Damage);
+                explosion.AddDamage(e.damage.Value);
                 
                 CreateFlowFieldObstacle(e, positionValue);
             }

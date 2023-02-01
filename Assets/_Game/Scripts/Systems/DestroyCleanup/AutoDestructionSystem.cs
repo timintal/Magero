@@ -16,7 +16,7 @@ public class AutoDestructionSystem : IExecuteSystem
     {
         foreach (var e in _autodestructGroup.GetEntities())
         {
-            float timeLeft = e.autoDestruction.Lifetime - Time.deltaTime;
+            float timeLeft = e.autoDestruction.Delay - Time.deltaTime;
             if (timeLeft < 0)
             {
                 e.isDestroyed = true;

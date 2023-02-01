@@ -51,11 +51,10 @@ public class LightningStrikeShootingSystem : ReactiveSystem<GameEntity>
                     if (enemy.hasTarget && enemy.target.TargetType == TargetType.Enemy)
                     {
                         int totalDamage = e.lightningShooter.TargetDamage;
-                        if (enemy.hasDamage)
-                        {
-                            totalDamage += enemy.damage.Damage;
-                        }
-                        enemy.ReplaceDamage(totalDamage);
+                        var damageEntity = _contexts.game.CreateEntity();
+                        damageEntity.AddReceivedDamage(totalDamage);
+                        damageEntity.AddEntityRef(enemy.id.Value);
+                        
                         enemy.ReplaceDamageSourcePosition(hit.point - hit.normal);
                     }
                 }
@@ -69,11 +68,11 @@ public class LightningStrikeShootingSystem : ReactiveSystem<GameEntity>
                         if (enemy.hasTarget && enemy.target.TargetType == TargetType.Enemy)
                         {
                             int totalDamage = e.lightningShooter.AOEDamage;
-                            if (enemy.hasDamage)
-                            {
-                                totalDamage += enemy.damage.Damage;
-                            }
-                            enemy.ReplaceDamage(totalDamage);
+                            
+                            var damageEntity = _contexts.game.CreateEntity();
+                            damageEntity.AddReceivedDamage(totalDamage);
+                            damageEntity.AddEntityRef(enemy.id.Value);
+                            
                             enemy.ReplaceDamageSourcePosition(hit.point - hit.normal);
                             enemy.ReplaceStunned(e.lightningShooter.StunDuration);
                         }

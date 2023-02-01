@@ -3,5 +3,5 @@ using Entitas;
 [Game]
 public class AutoDestructionComponent : IComponent
 {
-    public float Lifetime;
+    public float Delay;
 }

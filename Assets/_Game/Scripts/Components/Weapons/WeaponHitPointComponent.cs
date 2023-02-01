@@ -2,7 +2,7 @@ using Entitas;
 using UnityEngine;
 
 [Game]
-public class LaserHitPointComponent : IComponent
+public class WeaponHitPointComponent : IComponent
 {
     public Vector3 Value;
 }

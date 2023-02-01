@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public FloatDamageComponent floatDamage { get { return (FloatDamageComponent)GetComponent(GameComponentsLookup.FloatDamage); } }
-    public bool hasFloatDamage { get { return HasComponent(GameComponentsLookup.FloatDamage); } }
+    public ReceivedDamageComponent receivedDamage { get { return (ReceivedDamageComponent)GetComponent(GameComponentsLookup.ReceivedDamage); } }
+    public bool hasReceivedDamage { get { return HasComponent(GameComponentsLookup.ReceivedDamage); } }
 
-    public void AddFloatDamage(float newValue) {
-        var index = GameComponentsLookup.FloatDamage;
-        var component = (FloatDamageComponent)CreateComponent(index, typeof(FloatDamageComponent));
+    public void AddReceivedDamage(float newValue) {
+        var index = GameComponentsLookup.ReceivedDamage;
+        var component = (ReceivedDamageComponent)CreateComponent(index, typeof(ReceivedDamageComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceFloatDamage(float newValue) {
-        var index = GameComponentsLookup.FloatDamage;
-        var component = (FloatDamageComponent)CreateComponent(index, typeof(FloatDamageComponent));
+    public void ReplaceReceivedDamage(float newValue) {
+        var index = GameComponentsLookup.ReceivedDamage;
+        var component = (ReceivedDamageComponent)CreateComponent(index, typeof(ReceivedDamageComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveFloatDamage() {
-        RemoveComponent(GameComponentsLookup.FloatDamage);
+    public void RemoveReceivedDamage() {
+        RemoveComponent(GameComponentsLookup.ReceivedDamage);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherFloatDamage;
+    static Entitas.IMatcher<GameEntity> _matcherReceivedDamage;
 
-    public static Entitas.IMatcher<GameEntity> FloatDamage {
+    public static Entitas.IMatcher<GameEntity> ReceivedDamage {
         get {
-            if (_matcherFloatDamage == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.FloatDamage);
+            if (_matcherReceivedDamage == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.ReceivedDamage);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherFloatDamage = matcher;
+                _matcherReceivedDamage = matcher;
             }
 
-            return _matcherFloatDamage;
+            return _matcherReceivedDamage;
         }
     }
 }

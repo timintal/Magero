@@ -11,25 +11,25 @@ public partial class GameEntity {
     public AcidStreamComponent acidStream { get { return (AcidStreamComponent)GetComponent(GameComponentsLookup.AcidStream); } }
     public bool hasAcidStream { get { return HasComponent(GameComponentsLookup.AcidStream); } }
 
-    public void AddAcidStream(float newCooldown, float newPoolRadius, UnityEngine.GameObject newPoolPrefab, float newDamagePerSecond, float newRadiusDecreasePerSecond) {
+    public void AddAcidStream(float newCooldown, float newPoolRadius, UnityEngine.GameObject newPoolPrefab, float newPuddleLifetime, UnityEngine.AnimationCurve newRadiusCurve) {
         var index = GameComponentsLookup.AcidStream;
         var component = (AcidStreamComponent)CreateComponent(index, typeof(AcidStreamComponent));
         component.Cooldown = newCooldown;
         component.PoolRadius = newPoolRadius;
         component.PoolPrefab = newPoolPrefab;
-        component.DamagePerSecond = newDamagePerSecond;
-        component.RadiusDecreasePerSecond = newRadiusDecreasePerSecond;
+        component.PuddleLifetime = newPuddleLifetime;
+        component.RadiusCurve = newRadiusCurve;
         AddComponent(index, component);
     }
 
-    public void ReplaceAcidStream(float newCooldown, float newPoolRadius, UnityEngine.GameObject newPoolPrefab, float newDamagePerSecond, float newRadiusDecreasePerSecond) {
+    public void ReplaceAcidStream(float newCooldown, float newPoolRadius, UnityEngine.GameObject newPoolPrefab, float newPuddleLifetime, UnityEngine.AnimationCurve newRadiusCurve) {
         var index = GameComponentsLookup.AcidStream;
         var component = (AcidStreamComponent)CreateComponent(index, typeof(AcidStreamComponent));
         component.Cooldown = newCooldown;
         component.PoolRadius = newPoolRadius;
         component.PoolPrefab = newPoolPrefab;
-        component.DamagePerSecond = newDamagePerSecond;
-        component.RadiusDecreasePerSecond = newRadiusDecreasePerSecond;
+        component.PuddleLifetime = newPuddleLifetime;
+        component.RadiusCurve = newRadiusCurve;
         ReplaceComponent(index, component);
     }
 

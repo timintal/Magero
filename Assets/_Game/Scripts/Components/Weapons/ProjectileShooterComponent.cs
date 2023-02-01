@@ -8,5 +8,4 @@ public class ProjectileShooterComponent : IComponent
     public GameObject Prefab;
     public float ProjectileSpeed;
     public TargetType Target;
-    public int Damage;
 }

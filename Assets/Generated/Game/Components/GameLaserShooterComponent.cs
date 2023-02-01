@@ -8,27 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public LaserShooterComponent laserShooter { get { return (LaserShooterComponent)GetComponent(GameComponentsLookup.LaserShooter); } }
-    public bool hasLaserShooter { get { return HasComponent(GameComponentsLookup.LaserShooter); } }
+    static readonly LaserShooterComponent laserShooterComponent = new LaserShooterComponent();
 
-    public void AddLaserShooter(UnityEngine.LineRenderer newRenderer, float newDamagePerSecond) {
-        var index = GameComponentsLookup.LaserShooter;
-        var component = (LaserShooterComponent)CreateComponent(index, typeof(LaserShooterComponent));
-        component.Renderer = newRenderer;
-        component.DamagePerSecond = newDamagePerSecond;
-        AddComponent(index, component);
-    }
+    public bool isLaserShooter {
+        get { return HasComponent(GameComponentsLookup.LaserShooter); }
+        set {
+            if (value != isLaserShooter) {
+                var index = GameComponentsLookup.LaserShooter;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : laserShooterComponent;
 
-    public void ReplaceLaserShooter(UnityEngine.LineRenderer newRenderer, float newDamagePerSecond) {
-        var index = GameComponentsLookup.LaserShooter;
-        var component = (LaserShooterComponent)CreateComponent(index, typeof(LaserShooterComponent));
-        component.Renderer = newRenderer;
-        component.DamagePerSecond = newDamagePerSecond;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveLaserShooter() {
-        RemoveComponent(GameComponentsLookup.LaserShooter);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

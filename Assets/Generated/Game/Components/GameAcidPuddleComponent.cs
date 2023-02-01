@@ -11,19 +11,21 @@ public partial class GameEntity {
     public AcidPuddleComponent acidPuddle { get { return (AcidPuddleComponent)GetComponent(GameComponentsLookup.AcidPuddle); } }
     public bool hasAcidPuddle { get { return HasComponent(GameComponentsLookup.AcidPuddle); } }
 
-    public void AddAcidPuddle(float newDamagePerSecond, float newRadiusDecreaseSpeed) {
+    public void AddAcidPuddle(float newPuddleLifetime, float newInitialRadius, UnityEngine.AnimationCurve newRadiusCurve) {
         var index = GameComponentsLookup.AcidPuddle;
         var component = (AcidPuddleComponent)CreateComponent(index, typeof(AcidPuddleComponent));
-        component.DamagePerSecond = newDamagePerSecond;
-        component.RadiusDecreaseSpeed = newRadiusDecreaseSpeed;
+        component.PuddleLifetime = newPuddleLifetime;
+        component.InitialRadius = newInitialRadius;
+        component.RadiusCurve = newRadiusCurve;
         AddComponent(index, component);
     }
 
-    public void ReplaceAcidPuddle(float newDamagePerSecond, float newRadiusDecreaseSpeed) {
+    public void ReplaceAcidPuddle(float newPuddleLifetime, float newInitialRadius, UnityEngine.AnimationCurve newRadiusCurve) {
         var index = GameComponentsLookup.AcidPuddle;
         var component = (AcidPuddleComponent)CreateComponent(index, typeof(AcidPuddleComponent));
-        component.DamagePerSecond = newDamagePerSecond;
-        component.RadiusDecreaseSpeed = newRadiusDecreaseSpeed;
+        component.PuddleLifetime = newPuddleLifetime;
+        component.InitialRadius = newInitialRadius;
+        component.RadiusCurve = newRadiusCurve;
         ReplaceComponent(index, component);
     }
 
