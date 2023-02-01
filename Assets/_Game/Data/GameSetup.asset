@@ -15,8 +15,8 @@ MonoBehaviour:
   AddLaser: 0
   AddFireballs: 0
   AddLightning: 0
-  AddAcid: 1
-  AddGasCloud: 0
+  AddAcid: 0
+  AddGasCloud: 1
   CameraSettings:
     RotationSpeed: 40
     HorizontalBounds: {x: -50, y: 50}
@@ -127,12 +127,15 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   GasCloudSettings:
-    Cooldown: 0
-    Damage: 0
-    ProjectilePrefab: {fileID: 0}
-    CloudPrefab: {fileID: 0}
-    ProjectileSpeed: 0
-    CloudRadius: 0
+    Cooldown: 0.75
+    Damage: 0.5
+    ProjectilePrefab: {fileID: 7671730865203008364, guid: 08823d26b0f72460e8e243eb1abf6534,
+      type: 3}
+    CloudPrefab: {fileID: 3676044374875549090, guid: 102a497a34fda4f1b90212115baf456b,
+      type: 3}
+    ProjectileSpeed: 100
+    CloudRadius: 4
+    CloudSpeedMultiplier: 0.4
   PlayerSettings:
     Health: 20
     DistanceForDamage: 5

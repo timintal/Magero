@@ -23,7 +23,7 @@ public class GasProjectileShootingSystem : ReactiveSystem<GameEntity>
     {
         return
             entity.hasProjectileShooter &&
-            entity.hasExplodableProjectileShooter &&
+            entity.hasGasProjectileShooter &&
             entity.hasTransform &&
             entity.hasDirection && 
             !entity.isWeaponDisabled &&
@@ -35,7 +35,8 @@ public class GasProjectileShootingSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             var projectileEntity = _contexts.game.CreateEntity();
-            projectileEntity.AddProjectile(e.projectileShooter.Target);
+            projectileEntity.isProjectile = true;
+            projectileEntity.AddAttacker(e.attacker.TargetType, e.attacker.TargetMask);
             projectileEntity.AddResource(e.projectileShooter.Prefab);
             projectileEntity.AddPosition(e.transform.Transform.position);
             projectileEntity.AddRotation(Quaternion.identity);
@@ -43,7 +44,9 @@ public class GasProjectileShootingSystem : ReactiveSystem<GameEntity>
             projectileEntity.AddSpeed(e.projectileShooter.ProjectileSpeed, e.projectileShooter.ProjectileSpeed);
             projectileEntity.AddAutoDestruction(7);
             projectileEntity.AddEntityRef(e.id.Value);
-            // projectileEntity.AddExplodableProjectile(e.gasProjectileShooter.ExplosionRadius, e.gasProjectileShooter.Damage);
+            projectileEntity.AddGasProjectile(e.gasProjectileShooter.CloudRadius, e.gasProjectileShooter.MoveSpeedMultiplier, e.gasProjectileShooter.CloudPrefab);
+            projectileEntity.AddDamage(e.damage.Value);
+            projectileEntity.AddTarget(TargetType.Player);
 
             WeaponCooldownComponent.StartWeaponCooldown(e, e.projectileShooter.Cooldown, _contexts.game);
         }

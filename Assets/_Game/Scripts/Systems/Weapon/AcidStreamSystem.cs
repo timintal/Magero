@@ -60,7 +60,7 @@ public class AcidStreamSystem : ReactiveSystem<GameEntity>
                     newPuddleEntity.AddPosition(hit.point);
                     newPuddleEntity.AddRotation(Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up));
                     newPuddleEntity.AddDamage(e.damage.Value);
-                    newPuddleEntity.AddDamageOverTimeZone(e.damage.Value);
+                    newPuddleEntity.isDamageOverTimeZone = true;
                     newPuddleEntity.AddAutoDestruction(e.acidStream.PuddleLifetime);
                     newPuddleEntity.AddResource(e.acidStream.PoolPrefab);
                 }

@@ -8,31 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public GasCloudComponent gasCloud { get { return (GasCloudComponent)GetComponent(GameComponentsLookup.GasCloud); } }
-    public bool hasGasCloud { get { return HasComponent(GameComponentsLookup.GasCloud); } }
+    static readonly GasCloudComponent gasCloudComponent = new GasCloudComponent();
 
-    public void AddGasCloud(float newCloudRadius, float newDamagePerSecon, float newMoveSpeedMultiplier, TargetType newTargets) {
-        var index = GameComponentsLookup.GasCloud;
-        var component = (GasCloudComponent)CreateComponent(index, typeof(GasCloudComponent));
-        component.CloudRadius = newCloudRadius;
-        component.DamagePerSecon = newDamagePerSecon;
-        component.MoveSpeedMultiplier = newMoveSpeedMultiplier;
-        component.Targets = newTargets;
-        AddComponent(index, component);
-    }
+    public bool isGasCloud {
+        get { return HasComponent(GameComponentsLookup.GasCloud); }
+        set {
+            if (value != isGasCloud) {
+                var index = GameComponentsLookup.GasCloud;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : gasCloudComponent;
 
-    public void ReplaceGasCloud(float newCloudRadius, float newDamagePerSecon, float newMoveSpeedMultiplier, TargetType newTargets) {
-        var index = GameComponentsLookup.GasCloud;
-        var component = (GasCloudComponent)CreateComponent(index, typeof(GasCloudComponent));
-        component.CloudRadius = newCloudRadius;
-        component.DamagePerSecon = newDamagePerSecon;
-        component.MoveSpeedMultiplier = newMoveSpeedMultiplier;
-        component.Targets = newTargets;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveGasCloud() {
-        RemoveComponent(GameComponentsLookup.GasCloud);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

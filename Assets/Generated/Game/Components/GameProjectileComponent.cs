@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public ProjectileComponent projectile { get { return (ProjectileComponent)GetComponent(GameComponentsLookup.Projectile); } }
-    public bool hasProjectile { get { return HasComponent(GameComponentsLookup.Projectile); } }
+    static readonly ProjectileComponent projectileComponent = new ProjectileComponent();
 
-    public void AddProjectile(TargetType newTargets) {
-        var index = GameComponentsLookup.Projectile;
-        var component = (ProjectileComponent)CreateComponent(index, typeof(ProjectileComponent));
-        component.Targets = newTargets;
-        AddComponent(index, component);
-    }
+    public bool isProjectile {
+        get { return HasComponent(GameComponentsLookup.Projectile); }
+        set {
+            if (value != isProjectile) {
+                var index = GameComponentsLookup.Projectile;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : projectileComponent;
 
-    public void ReplaceProjectile(TargetType newTargets) {
-        var index = GameComponentsLookup.Projectile;
-        var component = (ProjectileComponent)CreateComponent(index, typeof(ProjectileComponent));
-        component.Targets = newTargets;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveProjectile() {
-        RemoveComponent(GameComponentsLookup.Projectile);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 
