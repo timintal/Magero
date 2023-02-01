@@ -13,6 +13,8 @@ public class GameSceneReferences : MonoBehaviour
 
     public LineRenderer LaserRenderer;
     public Transform LaserSparkles;
+    
+    public LineRenderer AcidRenderer;
 
     public Image PlayerHealthBar;
 

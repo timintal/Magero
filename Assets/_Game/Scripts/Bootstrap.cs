@@ -67,6 +67,7 @@ public class Bootstrap : MonoBehaviour
 
                 .Add(new WeaponFeature(contexts))
                 
+                .Add(new ForcedMovementSystem(contexts))
                 .Add(new MovementSystem(contexts))
                 .Add(new RotationSystem(contexts))
                 .Add(new RagdollUpdateSystem(contexts))
@@ -86,6 +87,7 @@ public class Bootstrap : MonoBehaviour
                 .Add(new MultiDestroySystem(contexts))
                 
                 //view
+                .Add(new AnimatorSpeedSyncSystem(contexts))
                 .Add(new CreateViewSystem(contexts, _poolService))
                 
                 .Add(new WeaponBeamVisualizationSystem(contexts))

@@ -64,7 +64,13 @@ public class AcidStreamSystem : ReactiveSystem<GameEntity>
                     newPuddleEntity.AddAutoDestruction(e.acidStream.PuddleLifetime);
                     newPuddleEntity.AddResource(e.acidStream.PoolPrefab);
                 }
+                e.ReplaceWeaponHitPoint(hit.point);
             }
+            else
+            {
+                e.ReplaceWeaponHitPoint(e.transform.Transform.position);
+            }
+            
             
             WeaponCooldownComponent.StartWeaponCooldown(e, e.acidStream.Cooldown, _contexts.game);
         }

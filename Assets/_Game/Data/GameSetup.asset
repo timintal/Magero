@@ -17,6 +17,7 @@ MonoBehaviour:
   AddLightning: 0
   AddAcid: 0
   AddGasCloud: 1
+  AddWind: 0
   CameraSettings:
     RotationSpeed: 40
     HorizontalBounds: {x: -50, y: 50}
@@ -135,7 +136,13 @@ MonoBehaviour:
       type: 3}
     ProjectileSpeed: 100
     CloudRadius: 4
-    CloudSpeedMultiplier: 0.4
+    CloudSpeedMultiplier: 0.3
+    CloudLifetime: 6
+  WindGustSettings:
+    Damage: 0.1
+    PushSpeed: 10
+    PushDamping: 10
+    WindStreamRadius: 5
   PlayerSettings:
     Health: 20
     DistanceForDamage: 5

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
+
 public class GasProjectileImpactSystem: ReactiveSystem<GameEntity>
 {
     Contexts _contexts;
@@ -41,6 +42,7 @@ public class GasProjectileImpactSystem: ReactiveSystem<GameEntity>
             gasCloud.AddDamage(e.damage.Value);
             gasCloud.AddAttacker(e.attacker.TargetType, e.attacker.TargetMask);
             gasCloud.AddResource(e.gasProjectile.CloudPrefab);
+            gasCloud.AddAutoDestruction(e.gasProjectile.CloudLifetime);
                 
             CreateFlowFieldObstacle(e, positionValue);
         }

@@ -11,21 +11,23 @@ public partial class GameEntity {
     public GasProjectileComponent gasProjectile { get { return (GasProjectileComponent)GetComponent(GameComponentsLookup.GasProjectile); } }
     public bool hasGasProjectile { get { return HasComponent(GameComponentsLookup.GasProjectile); } }
 
-    public void AddGasProjectile(float newCloudRadius, float newMoveSpeedMultiplier, UnityEngine.GameObject newCloudPrefab) {
+    public void AddGasProjectile(float newCloudRadius, float newMoveSpeedMultiplier, UnityEngine.GameObject newCloudPrefab, float newCloudLifetime) {
         var index = GameComponentsLookup.GasProjectile;
         var component = (GasProjectileComponent)CreateComponent(index, typeof(GasProjectileComponent));
         component.CloudRadius = newCloudRadius;
         component.MoveSpeedMultiplier = newMoveSpeedMultiplier;
         component.CloudPrefab = newCloudPrefab;
+        component.CloudLifetime = newCloudLifetime;
         AddComponent(index, component);
     }
 
-    public void ReplaceGasProjectile(float newCloudRadius, float newMoveSpeedMultiplier, UnityEngine.GameObject newCloudPrefab) {
+    public void ReplaceGasProjectile(float newCloudRadius, float newMoveSpeedMultiplier, UnityEngine.GameObject newCloudPrefab, float newCloudLifetime) {
         var index = GameComponentsLookup.GasProjectile;
         var component = (GasProjectileComponent)CreateComponent(index, typeof(GasProjectileComponent));
         component.CloudRadius = newCloudRadius;
         component.MoveSpeedMultiplier = newMoveSpeedMultiplier;
         component.CloudPrefab = newCloudPrefab;
+        component.CloudLifetime = newCloudLifetime;
         ReplaceComponent(index, component);
     }
 

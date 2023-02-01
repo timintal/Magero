@@ -12,6 +12,7 @@ public class GameSetup : ScriptableObject
     public bool AddLightning;
     public bool AddAcid;
     public bool AddGasCloud;
+    public bool AddWind;
     public CameraSettings CameraSettings;
     public FlowFieldSettings FlowFieldSettings;
     public DebugSettings DebugSettings;
@@ -20,6 +21,7 @@ public class GameSetup : ScriptableObject
     public LightningStrikeSettings LightningStrikeSettings;
     public AcidStreamSettings AcidStreamSettings;
     public GasCloudSettings GasCloudSettings;
+    public WindGustSettings WindGustSettings;
     public PlayerSettings PlayerSettings;
 }
 
@@ -118,5 +120,15 @@ public class GasCloudSettings
     public float ProjectileSpeed;
     public float CloudRadius;
     public float CloudSpeedMultiplier;
+    [FormerlySerializedAs("Lifetime")] public float CloudLifetime;
+}
+
+[Serializable]
+public class WindGustSettings
+{
+    public float Damage;
+    public float PushSpeed;
+    public float PushDamping;
+    public float WindStreamRadius;
 }
 

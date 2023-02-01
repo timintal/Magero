@@ -25,7 +25,7 @@ public class GasProjectileShootingSystem : ReactiveSystem<GameEntity>
             entity.hasProjectileShooter &&
             entity.hasGasProjectileShooter &&
             entity.hasTransform &&
-            entity.hasDirection && 
+            entity.hasDirection &&
             !entity.isWeaponDisabled &&
             !entity.hasWeaponCooldown;
     }
@@ -44,13 +44,16 @@ public class GasProjectileShootingSystem : ReactiveSystem<GameEntity>
             projectileEntity.AddSpeed(e.projectileShooter.ProjectileSpeed, e.projectileShooter.ProjectileSpeed);
             projectileEntity.AddAutoDestruction(7);
             projectileEntity.AddEntityRef(e.id.Value);
-            projectileEntity.AddGasProjectile(e.gasProjectileShooter.CloudRadius, e.gasProjectileShooter.MoveSpeedMultiplier, e.gasProjectileShooter.CloudPrefab);
+            
+            projectileEntity.AddGasProjectile(e.gasProjectileShooter.CloudRadius,
+                e.gasProjectileShooter.MoveSpeedMultiplier, 
+                e.gasProjectileShooter.CloudPrefab,
+                e.gasProjectileShooter.CloudLifetime);
+            
             projectileEntity.AddDamage(e.damage.Value);
             projectileEntity.AddTarget(TargetType.Player);
 
             WeaponCooldownComponent.StartWeaponCooldown(e, e.projectileShooter.Cooldown, _contexts.game);
         }
     }
-
-    
 }

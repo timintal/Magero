@@ -20,5 +20,8 @@ public class WeaponFeature : Feature
         
         Add(new GasProjectileShootingSystem(contexts));
         Add(new GasProjectileImpactSystem(contexts));
+
+        Add(new WindBlowerSystem(contexts));
+        Add(new WindImpulseUpdateSystem(contexts));
     }
 }

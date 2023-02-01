@@ -69,6 +69,8 @@ public class FlowFieldComponent : IComponent
     {
         var (x, y) = GetIndex(position);
 
+        if (!IsIndexValid(x, y)) return false;
+        
         return IsPassablePosition(maxDistance, x, y);
     }
 
