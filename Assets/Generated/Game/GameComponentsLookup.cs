@@ -56,28 +56,31 @@ public static class GameComponentsLookup {
     public const int Pool = 45;
     public const int Position = 46;
     public const int Projectile = 47;
-    public const int ProjectileShooter = 48;
-    public const int Radius = 49;
-    public const int RagdollAngularVelocity = 50;
-    public const int RagdollCurrentVelocity = 51;
-    public const int RagdollDeath = 52;
-    public const int RagdollRemoveTimer = 53;
-    public const int ReceivedDamage = 54;
-    public const int ReceivedFloatDamage = 55;
-    public const int Renderer = 56;
-    public const int Resource = 57;
-    public const int Rotation = 58;
-    public const int Speed = 59;
-    public const int Stunned = 60;
-    public const int Target = 61;
-    public const int TimerCompleted = 62;
-    public const int Timer = 63;
-    public const int Transform = 64;
-    public const int WeaponCooldown = 65;
-    public const int WeaponDisabled = 66;
-    public const int WeaponHitPoint = 67;
+    public const int ProjectileLanded = 48;
+    public const int ProjectileShooter = 49;
+    public const int Radius = 50;
+    public const int RagdollAngularVelocity = 51;
+    public const int RagdollCurrentVelocity = 52;
+    public const int RagdollDeath = 53;
+    public const int RagdollRemoveTimer = 54;
+    public const int ReceivedDamage = 55;
+    public const int ReceivedFloatDamage = 56;
+    public const int Renderer = 57;
+    public const int Resource = 58;
+    public const int Rotation = 59;
+    public const int Scale = 60;
+    public const int Speed = 61;
+    public const int SpeedModifierZone = 62;
+    public const int Stunned = 63;
+    public const int Target = 64;
+    public const int TimerCompleted = 65;
+    public const int Timer = 66;
+    public const int Transform = 67;
+    public const int WeaponCooldown = 68;
+    public const int WeaponDisabled = 69;
+    public const int WeaponHitPoint = 70;
 
-    public const int TotalComponents = 68;
+    public const int TotalComponents = 71;
 
     public static readonly string[] componentNames = {
         "AcidPuddle",
@@ -128,6 +131,7 @@ public static class GameComponentsLookup {
         "Pool",
         "Position",
         "Projectile",
+        "ProjectileLanded",
         "ProjectileShooter",
         "Radius",
         "RagdollAngularVelocity",
@@ -139,7 +143,9 @@ public static class GameComponentsLookup {
         "Renderer",
         "Resource",
         "Rotation",
+        "Scale",
         "Speed",
+        "SpeedModifierZone",
         "Stunned",
         "Target",
         "TimerCompleted",
@@ -199,6 +205,7 @@ public static class GameComponentsLookup {
         typeof(PoolComponent),
         typeof(PositionComponent),
         typeof(ProjectileComponent),
+        typeof(ProjectileLandedComponent),
         typeof(ProjectileShooterComponent),
         typeof(RadiusComponent),
         typeof(RagdollAngularVelocityComponent),
@@ -210,7 +217,9 @@ public static class GameComponentsLookup {
         typeof(RendererComponent),
         typeof(ResourceComponent),
         typeof(RotationComponent),
+        typeof(ScaleComponent),
         typeof(SpeedComponent),
+        typeof(SpeedModifierZone),
         typeof(StunnedComponent),
         typeof(TargetComponent),
         typeof(TimerCompletedComponent),

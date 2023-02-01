@@ -35,7 +35,8 @@ public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             var projectileEntity = _contexts.game.CreateEntity();
-            projectileEntity.AddProjectile(e.projectileShooter.Target);
+            projectileEntity.isProjectile = true;
+            projectileEntity.AddAttacker(e.attacker.TargetType, e.attacker.TargetMask);
             projectileEntity.AddResource(e.projectileShooter.Prefab);
             projectileEntity.AddPosition(e.transform.Transform.position);
             projectileEntity.AddRotation(Quaternion.identity);

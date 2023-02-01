@@ -49,6 +49,7 @@ public class Bootstrap : MonoBehaviour
                 //effects
                 .Add(new StunMovementSystem(contexts))
                 .Add(new ApplyStunSystem(contexts))
+                .Add(new SpeedModifierZoneUpdateSystem(contexts))
                 
                 .Add(new PlayerUpdateSystem(contexts))
                 .Add(new PlayerShooterDirectionUpdateSystem(contexts))
@@ -69,9 +70,7 @@ public class Bootstrap : MonoBehaviour
                 .Add(new MovementSystem(contexts))
                 .Add(new RotationSystem(contexts))
                 .Add(new RagdollUpdateSystem(contexts))
-                
-                .Add(new LandingExplosionSystem(contexts))
-                
+
                 .Add(new ExplosionSystem(contexts))
                 
                 .Add(new PlayerDamageSystem(contexts))

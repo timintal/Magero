@@ -117,5 +117,6 @@ public class GasCloudSettings
     public GameObject CloudPrefab;
     public float ProjectileSpeed;
     public float CloudRadius;
+    public float CloudSpeedMultiplier;
 }
 

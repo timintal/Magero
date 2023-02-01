@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public DamageOverTimeZoneComponent damageOverTimeZone { get { return (DamageOverTimeZoneComponent)GetComponent(GameComponentsLookup.DamageOverTimeZone); } }
-    public bool hasDamageOverTimeZone { get { return HasComponent(GameComponentsLookup.DamageOverTimeZone); } }
+    static readonly DamageOverTimeZoneComponent damageOverTimeZoneComponent = new DamageOverTimeZoneComponent();
 
-    public void AddDamageOverTimeZone(float newDamagePerSecond) {
-        var index = GameComponentsLookup.DamageOverTimeZone;
-        var component = (DamageOverTimeZoneComponent)CreateComponent(index, typeof(DamageOverTimeZoneComponent));
-        component.DamagePerSecond = newDamagePerSecond;
-        AddComponent(index, component);
-    }
+    public bool isDamageOverTimeZone {
+        get { return HasComponent(GameComponentsLookup.DamageOverTimeZone); }
+        set {
+            if (value != isDamageOverTimeZone) {
+                var index = GameComponentsLookup.DamageOverTimeZone;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : damageOverTimeZoneComponent;
 
-    public void ReplaceDamageOverTimeZone(float newDamagePerSecond) {
-        var index = GameComponentsLookup.DamageOverTimeZone;
-        var component = (DamageOverTimeZoneComponent)CreateComponent(index, typeof(DamageOverTimeZoneComponent));
-        component.DamagePerSecond = newDamagePerSecond;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveDamageOverTimeZone() {
-        RemoveComponent(GameComponentsLookup.DamageOverTimeZone);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

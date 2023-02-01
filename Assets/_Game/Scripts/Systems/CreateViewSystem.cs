@@ -47,6 +47,11 @@ public class CreateViewSystem : ReactiveSystem<GameEntity>
             {
                 entity.AddAnimator(animator);
             }
+
+            if (entity.hasScale)
+            {
+                obj.transform.localScale = entity.scale.Value;
+            }
             
             obj.gameObject.Link(entity);
         }

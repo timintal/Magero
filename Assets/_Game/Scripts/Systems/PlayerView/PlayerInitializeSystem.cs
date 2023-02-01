@@ -1,4 +1,5 @@
 using Entitas;
+using UnityEngine;
 
 public class PlayerInitializeSystem : IInitializeSystem
 {
@@ -28,13 +29,13 @@ public class PlayerInitializeSystem : IInitializeSystem
 
             fireballShooter.AddProjectileShooter(gameSetup.FireballSetings.Cooldown,
                 gameSetup.FireballSetings.ProjectilePrefab,
-                gameSetup.FireballSetings.ProjectileSpeed,
-                TargetType.Enemy);
+                gameSetup.FireballSetings.ProjectileSpeed);
 
             fireballShooter.AddExplodableProjectileShooter(gameSetup.FireballSetings.ExplosionRadius);
             fireballShooter.AddTransform(sceneReferences.FireballsShootTransform);
             fireballShooter.AddAnimator(sceneReferences.FireballAnimator);
             fireballShooter.AddDamage(gameSetup.FireballSetings.Damage);
+            fireballShooter.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy", "Environment"));
             fireballShooter.isPlayerWeaponDirection = true;
             fireballShooter.isPlayer = true;
         }
@@ -49,6 +50,7 @@ public class PlayerInitializeSystem : IInitializeSystem
             laserEntity.AddWeaponHitPoint(sceneReferences.LaserShootTransform.position);
             laserEntity.AddAnimator(sceneReferences.LaserAnimator);
             laserEntity.AddDamage(gameSetup.LaserSettings.DamagePerSecond);
+            laserEntity.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
             laserEntity.isPlayerWeaponDirection = true;
             laserEntity.isPlayer = true;
         }
@@ -64,6 +66,8 @@ public class PlayerInitializeSystem : IInitializeSystem
                 gameSetup.LightningStrikeSettings.StunDuration);
 
             lightningShooter.AddTransform(sceneReferences.LaserShootTransform);
+            lightningShooter.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
+
             lightningShooter.isPlayerWeaponDirection = true;
             lightningShooter.isPlayer = true;
         }
@@ -81,25 +85,28 @@ public class PlayerInitializeSystem : IInitializeSystem
 
             acidSpray.AddDamage(gameSetup.AcidStreamSettings.DamagePerSecond);
             acidSpray.AddTransform(sceneReferences.LaserShootTransform);
+            acidSpray.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
+
             acidSpray.isPlayerWeaponDirection = true;
             acidSpray.isPlayer = true;
         }
 
         if (gameSetup.AddGasCloud)
         {
-            var weaponEntity = _contexts.game.CreateEntity();
+            var gasShooter = _contexts.game.CreateEntity();
 
-            weaponEntity.AddProjectileShooter(gameSetup.FireballSetings.Cooldown,
-                gameSetup.FireballSetings.ProjectilePrefab,
-                gameSetup.FireballSetings.ProjectileSpeed,
-                TargetType.Enemy);
+            gasShooter.AddProjectileShooter(gameSetup.GasCloudSettings.Cooldown,
+                gameSetup.GasCloudSettings.ProjectilePrefab,
+                gameSetup.GasCloudSettings.ProjectileSpeed);
 
-            weaponEntity.AddExplodableProjectileShooter(gameSetup.FireballSetings.ExplosionRadius);
-            weaponEntity.AddTransform(sceneReferences.FireballsShootTransform);
-            weaponEntity.AddAnimator(sceneReferences.FireballAnimator);
-            weaponEntity.AddDamage(gameSetup.FireballSetings.Damage);
-            weaponEntity.isPlayerWeaponDirection = true;
-            weaponEntity.isPlayer = true;
+            gasShooter.AddGasProjectileShooter(gameSetup.GasCloudSettings.CloudRadius, gameSetup.GasCloudSettings.CloudSpeedMultiplier, gameSetup.GasCloudSettings.CloudPrefab);
+            gasShooter.AddTransform(sceneReferences.FireballsShootTransform);
+            gasShooter.AddAnimator(sceneReferences.FireballAnimator);
+            gasShooter.AddDamage(gameSetup.GasCloudSettings.Damage);
+            gasShooter.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
+
+            gasShooter.isPlayerWeaponDirection = true;
+            gasShooter.isPlayer = true;
         }
     }
 }

@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly GasCloudComponent gasCloudComponent = new GasCloudComponent();
+    static readonly ProjectileLandedComponent projectileLandedComponent = new ProjectileLandedComponent();
 
-    public bool isGasCloud {
-        get { return HasComponent(GameComponentsLookup.GasCloud); }
+    public bool isProjectileLanded {
+        get { return HasComponent(GameComponentsLookup.ProjectileLanded); }
         set {
-            if (value != isGasCloud) {
-                var index = GameComponentsLookup.GasCloud;
+            if (value != isProjectileLanded) {
+                var index = GameComponentsLookup.ProjectileLanded;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : gasCloudComponent;
+                            : projectileLandedComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherGasCloud;
+    static Entitas.IMatcher<GameEntity> _matcherProjectileLanded;
 
-    public static Entitas.IMatcher<GameEntity> GasCloud {
+    public static Entitas.IMatcher<GameEntity> ProjectileLanded {
         get {
-            if (_matcherGasCloud == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.GasCloud);
+            if (_matcherProjectileLanded == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.ProjectileLanded);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherGasCloud = matcher;
+                _matcherProjectileLanded = matcher;
             }
 
-            return _matcherGasCloud;
+            return _matcherProjectileLanded;
         }
     }
 }
