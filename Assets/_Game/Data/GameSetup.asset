@@ -85,8 +85,8 @@ MonoBehaviour:
     ImpactFx: {fileID: 6772208814823110858, guid: 1ef3534a99690410db48b3baf42f3e09,
       type: 3}
   AcidStreamSettings:
-    Cooldown: 0.1
-    PoolRadius: 1.5
+    Cooldown: 0
+    PoolRadius: 1
     PuddlePrefab: {fileID: 7979384038678166815, guid: 22bba0a77eaf94d6698748f7b2cbff96,
       type: 3}
     DamagePerSecond: 1.5
@@ -96,16 +96,16 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: 0.02744638
-        outSlope: 0.02744638
+        value: 0
+        inSlope: 13.169317
+        outSlope: 13.169317
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.09387602
+        outWeight: 0.08858561
       - serializedVersion: 3
-        time: 0.11325708
-        value: 0.9671275
+        time: 0.1
+        value: 1
         inSlope: 0.017084552
         outSlope: 0.017084552
         tangentMode: 1
@@ -113,31 +113,13 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.29956362
-        value: 1.0546721
-        inSlope: 0.13582197
-        outSlope: 0.13582197
-        tangentMode: 1
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.51450086
-        value: 1.0053096
-        inSlope: 0.001457278
-        outSlope: -0.3949986
-        tangentMode: 1
-        weightedMode: 0
-        inWeight: 0.071070455
-        outWeight: 0.112146184
-      - serializedVersion: 3
         time: 1.02
         value: 0.040000916
-        inSlope: -0.037274614
-        outSlope: -0.037274614
+        inSlope: -3.3875105
+        outSlope: -3.3875105
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.053893
+        inWeight: 0.05227101
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
