@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1c4ea737cd44f54aa42637abdb0b05, type: 3}
   m_Name: GameSetup
   m_EditorClassIdentifier: 
-  AddLaser: 0
+  AddLaser: 1
   AddFireballs: 0
   AddLightning: 0
   AddAcid: 0
-  AddGasCloud: 1
+  AddGasCloud: 0
   AddWind: 0
   CameraSettings:
     RotationSpeed: 40
@@ -91,7 +91,7 @@ MonoBehaviour:
     PoolRadius: 1
     PuddlePrefab: {fileID: 7979384038678166815, guid: 22bba0a77eaf94d6698748f7b2cbff96,
       type: 3}
-    DamagePerSecond: 1.5
+    DamagePerSecond: 2
     PuddleLifetime: 2
     RefreshTimestamp: 0.9
     RadiusCurve:
@@ -139,10 +139,10 @@ MonoBehaviour:
     CloudSpeedMultiplier: 0.3
     CloudLifetime: 6
   WindGustSettings:
-    Damage: 0.1
-    PushSpeed: 10
-    PushDamping: 10
-    WindStreamRadius: 5
+    Damage: 1
+    PushSpeed: 6
+    PushDamping: 5
+    WindStreamRadius: 2
   PlayerSettings:
     Health: 20
     DistanceForDamage: 5

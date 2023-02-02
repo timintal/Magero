@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LaserBeam
-  m_Shader: {fileID: -6465566751694194690, guid: b192a406e4ebf624f8c7c044d64a8a6f,
+  m_Shader: {fileID: -6465566751694194690, guid: e6bb4f166a98b7143bd92f0e9a8043cb,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,6 +21,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Mask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Texture:
         m_Texture: {fileID: 2800000, guid: bf061f3b4550754439f54a6ca8e5854b, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -41,8 +45,9 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ScrollSpeed1: 2.25
-    - _ScrollSpeed2: 2.75
+    - _ScrollSpeed1: 4
+    - _ScrollSpeed2: 6
+    - _Tiling: 3
     m_Colors:
     - _Color1: {r: 0, g: 1.0830022, b: 6.4980197, a: 0}
     - _Color2: {r: 2.5462458, g: 0, b: 21.361254, a: 0}
