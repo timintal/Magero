@@ -11,23 +11,27 @@ public partial class GameEntity {
     public SummonSpellComponent summonSpell { get { return (SummonSpellComponent)GetComponent(GameComponentsLookup.SummonSpell); } }
     public bool hasSummonSpell { get { return HasComponent(GameComponentsLookup.SummonSpell); } }
 
-    public void AddSummonSpell(float newCooldown, int newUnitsCount, float newUnitsSpeed, float newUnitRadius) {
+    public void AddSummonSpell(float newCooldown, int newUnitsCount, float newUnitsSpeed, float newUnitRadius, float newUnitLifetime, UnityEngine.GameObject newUnitExplosionPrefab) {
         var index = GameComponentsLookup.SummonSpell;
         var component = (SummonSpellComponent)CreateComponent(index, typeof(SummonSpellComponent));
         component.Cooldown = newCooldown;
         component.UnitsCount = newUnitsCount;
         component.UnitsSpeed = newUnitsSpeed;
         component.UnitRadius = newUnitRadius;
+        component.UnitLifetime = newUnitLifetime;
+        component.UnitExplosionPrefab = newUnitExplosionPrefab;
         AddComponent(index, component);
     }
 
-    public void ReplaceSummonSpell(float newCooldown, int newUnitsCount, float newUnitsSpeed, float newUnitRadius) {
+    public void ReplaceSummonSpell(float newCooldown, int newUnitsCount, float newUnitsSpeed, float newUnitRadius, float newUnitLifetime, UnityEngine.GameObject newUnitExplosionPrefab) {
         var index = GameComponentsLookup.SummonSpell;
         var component = (SummonSpellComponent)CreateComponent(index, typeof(SummonSpellComponent));
         component.Cooldown = newCooldown;
         component.UnitsCount = newUnitsCount;
         component.UnitsSpeed = newUnitsSpeed;
         component.UnitRadius = newUnitRadius;
+        component.UnitLifetime = newUnitLifetime;
+        component.UnitExplosionPrefab = newUnitExplosionPrefab;
         ReplaceComponent(index, component);
     }
 

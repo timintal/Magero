@@ -70,6 +70,9 @@ public class SummonUnitsSystem : ReactiveSystem<GameEntity>
                         summonEntity.AddSpeed(e.summonSpell.UnitsSpeed, e.summonSpell.UnitsSpeed);
                         summonEntity.AddFlowFieldMover(summonFlowField.id.Value);
                         summonEntity.AddResource(e.assetLink.Asset);
+                        summonEntity.AddAutoDestruction(e.summonSpell.UnitLifetime);
+                        summonEntity.isOnDestroyFx = true;
+                        summonEntity.AddAssetLink(e.summonSpell.UnitExplosionPrefab);
                     }
                 }
             }

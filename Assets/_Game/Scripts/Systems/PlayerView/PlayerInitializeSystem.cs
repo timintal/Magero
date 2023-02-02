@@ -180,7 +180,13 @@ public class PlayerInitializeSystem : IInitializeSystem
         if (gameSetup.AddSummon)
         {
             var summonSpell = _contexts.game.CreateEntity();
-            summonSpell.AddSummonSpell(gameSetup.SummonSettings.Cooldown, gameSetup.SummonSettings.Count, gameSetup.SummonSettings.UnitSpeed, gameSetup.SummonSettings.UnitRadius);
+            summonSpell.AddSummonSpell(gameSetup.SummonSettings.Cooldown, 
+                gameSetup.SummonSettings.Count, 
+                gameSetup.SummonSettings.UnitSpeed, 
+                gameSetup.SummonSettings.UnitRadius, 
+                gameSetup.SummonSettings.Lifetime,
+                gameSetup.SummonSettings.ExplosionPrefab);
+            
             summonSpell.AddAssetLink(gameSetup.SummonSettings.SummonPrefab);
 
             sceneReferences.Arms[armIndex].transform.position = sceneReferences.Arms[armIndex].transform.position +

@@ -1,4 +1,5 @@
 using Entitas;
+using UnityEngine;
 
 [Game]
 public class SummonSpellComponent : IComponent
@@ -7,4 +8,6 @@ public class SummonSpellComponent : IComponent
     public int UnitsCount;
     public float UnitsSpeed;
     public float UnitRadius;
+    public float UnitLifetime;
+    public GameObject UnitExplosionPrefab;
 }

@@ -86,6 +86,7 @@ public class Bootstrap : MonoBehaviour
                 .Add(new RagdollCreationSystem(contexts))//should be after damage system
                 
                 .Add(new AutoDestructionSystem(contexts))
+                .Add(new SpawnOnDestroyVisualSystem(contexts))
                 .Add(new ReturnToPoolSystem(contexts))
                 .Add(new MultiDestroySystem(contexts))
                 

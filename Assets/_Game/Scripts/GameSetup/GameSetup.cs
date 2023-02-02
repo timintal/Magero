@@ -162,6 +162,8 @@ public class SummonSettings
     public float UnitDamage;
     public float UnitSpeed;
     public float UnitRadius;
+    public float Lifetime;
     public GameObject SummonPrefab;
+    public GameObject ExplosionPrefab;
 }
 
