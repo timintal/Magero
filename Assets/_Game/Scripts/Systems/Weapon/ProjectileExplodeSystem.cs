@@ -35,6 +35,7 @@ public class ProjectileExplodeSystem : ReactiveSystem<GameEntity>
             explosion.AddPosition(positionValue);
             explosion.AddExplosion(e.explodableProjectile.ExplosionRadius);
             explosion.AddDamage(e.damage.Value);
+            explosion.AddAssetLink(_contexts.game.gameSetup.value.FireballSetings.ExplosionVisualPrefab);
                 
             CreateFlowFieldObstacle(e, positionValue);
         }

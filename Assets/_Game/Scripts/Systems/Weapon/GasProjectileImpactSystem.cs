@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
-
 public class GasProjectileImpactSystem: ReactiveSystem<GameEntity>
 {
     Contexts _contexts;

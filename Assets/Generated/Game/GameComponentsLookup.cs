@@ -12,89 +12,96 @@ public static class GameComponentsLookup {
     public const int AcidStream = 1;
     public const int Animator = 2;
     public const int AnimatorSpeedSync = 3;
-    public const int Attacker = 4;
-    public const int AutoDestruction = 5;
-    public const int BeamRenderer = 6;
-    public const int Camera = 7;
-    public const int ColliderCache = 8;
-    public const int Collider = 9;
-    public const int CurrentLevelStage = 10;
-    public const int Damage = 11;
-    public const int DamageOverTimeZone = 12;
-    public const int DamageSourcePosition = 13;
-    public const int Damping = 14;
-    public const int Destroyed = 15;
-    public const int Direction = 16;
-    public const int EnemySpawner = 17;
-    public const int EnemySpawnRequest = 18;
-    public const int EntityRef = 19;
-    public const int ExplodableProjectile = 20;
-    public const int ExplodableProjectileShooter = 21;
-    public const int Explosion = 22;
-    public const int ExplosionVisualization = 23;
-    public const int FlowField = 24;
-    public const int FlowFieldDirectionUpdateDelay = 25;
-    public const int FlowFieldMover = 26;
-    public const int FlowFieldTarget = 27;
-    public const int FlowFieldTemporaryObstacle = 28;
-    public const int ForcedMovement = 29;
-    public const int GameSceneReferences = 30;
-    public const int GameSetup = 31;
-    public const int GasCloud = 32;
-    public const int GasProjectile = 33;
-    public const int GasProjectileShooter = 34;
-    public const int HealthBarUI = 35;
-    public const int Health = 36;
-    public const int HitPointEffect = 37;
-    public const int Id = 38;
-    public const int LaserShooter = 39;
-    public const int LayerMask = 40;
-    public const int Level = 41;
-    public const int LevelFinished = 42;
-    public const int LightningShooter = 43;
-    public const int MaxHealth = 44;
-    public const int PartitionGrid = 45;
-    public const int Player = 46;
-    public const int PlayerWeaponDirection = 47;
-    public const int Pool = 48;
-    public const int Position = 49;
-    public const int Projectile = 50;
-    public const int ProjectileLanded = 51;
-    public const int ProjectileShooter = 52;
-    public const int Radius = 53;
-    public const int RagdollAngularVelocity = 54;
-    public const int RagdollCurrentVelocity = 55;
-    public const int RagdollDeath = 56;
-    public const int RagdollRemoveTimer = 57;
-    public const int ReceivedDamage = 58;
-    public const int ReceivedFloatDamage = 59;
-    public const int Renderer = 60;
-    public const int Resource = 61;
-    public const int Rotation = 62;
-    public const int Scale = 63;
-    public const int Speed = 64;
-    public const int SpeedModifierZone = 65;
-    public const int Stunned = 66;
-    public const int Target = 67;
-    public const int TimerCompleted = 68;
-    public const int Timer = 69;
-    public const int Transform = 70;
-    public const int WeaponCooldown = 71;
-    public const int WeaponDisabled = 72;
-    public const int WeaponHitPoint = 73;
-    public const int WindBlower = 74;
-    public const int WindImpulse = 75;
+    public const int AssetLink = 4;
+    public const int Attacker = 5;
+    public const int AutoDestruction = 6;
+    public const int BeamRenderer = 7;
+    public const int BlackHole = 8;
+    public const int BlackHoleProjectile = 9;
+    public const int BlackHoleShooter = 10;
+    public const int Camera = 11;
+    public const int ColliderCache = 12;
+    public const int Collider = 13;
+    public const int CurrentLevelStage = 14;
+    public const int Damage = 15;
+    public const int DamageOverTimeZone = 16;
+    public const int DamageSourcePosition = 17;
+    public const int Damping = 18;
+    public const int Destroyed = 19;
+    public const int Direction = 20;
+    public const int EnemySpawner = 21;
+    public const int EnemySpawnRequest = 22;
+    public const int EntityRef = 23;
+    public const int ExplodableProjectile = 24;
+    public const int ExplodableProjectileShooter = 25;
+    public const int Explosion = 26;
+    public const int ExplosionVisualization = 27;
+    public const int FlowField = 28;
+    public const int FlowFieldDirectionUpdateDelay = 29;
+    public const int FlowFieldMover = 30;
+    public const int FlowFieldTarget = 31;
+    public const int FlowFieldTemporaryObstacle = 32;
+    public const int ForcedMovement = 33;
+    public const int GameSceneReferences = 34;
+    public const int GameSetup = 35;
+    public const int GasCloud = 36;
+    public const int GasProjectile = 37;
+    public const int GasProjectileShooter = 38;
+    public const int HealthBarUI = 39;
+    public const int Health = 40;
+    public const int HitPointEffect = 41;
+    public const int Id = 42;
+    public const int LaserShooter = 43;
+    public const int LayerMask = 44;
+    public const int Level = 45;
+    public const int LevelFinished = 46;
+    public const int LightningShooter = 47;
+    public const int MaxHealth = 48;
+    public const int PartitionGrid = 49;
+    public const int Player = 50;
+    public const int PlayerWeaponDirection = 51;
+    public const int Position = 52;
+    public const int Projectile = 53;
+    public const int ProjectileLanded = 54;
+    public const int ProjectileShooter = 55;
+    public const int Radius = 56;
+    public const int RagdollAngularVelocity = 57;
+    public const int RagdollCurrentVelocity = 58;
+    public const int RagdollDeath = 59;
+    public const int RagdollRemoveTimer = 60;
+    public const int ReceivedDamage = 61;
+    public const int ReceivedFloatDamage = 62;
+    public const int Renderer = 63;
+    public const int Resource = 64;
+    public const int Rotation = 65;
+    public const int Scale = 66;
+    public const int Speed = 67;
+    public const int SpeedModifierZone = 68;
+    public const int Stunned = 69;
+    public const int Target = 70;
+    public const int TimerCompleted = 71;
+    public const int Timer = 72;
+    public const int Transform = 73;
+    public const int WeaponCooldown = 74;
+    public const int WeaponDisabled = 75;
+    public const int WeaponHitPoint = 76;
+    public const int WindBlower = 77;
+    public const int WindImpulse = 78;
 
-    public const int TotalComponents = 76;
+    public const int TotalComponents = 79;
 
     public static readonly string[] componentNames = {
         "AcidPuddle",
         "AcidStream",
         "Animator",
         "AnimatorSpeedSync",
+        "AssetLink",
         "Attacker",
         "AutoDestruction",
         "BeamRenderer",
+        "BlackHole",
+        "BlackHoleProjectile",
+        "BlackHoleShooter",
         "Camera",
         "ColliderCache",
         "Collider",
@@ -136,7 +143,6 @@ public static class GameComponentsLookup {
         "PartitionGrid",
         "Player",
         "PlayerWeaponDirection",
-        "Pool",
         "Position",
         "Projectile",
         "ProjectileLanded",
@@ -171,9 +177,13 @@ public static class GameComponentsLookup {
         typeof(AcidStreamComponent),
         typeof(AnimatorComponent),
         typeof(AnimatorSpeedSyncComponent),
+        typeof(AssetLinkComponent),
         typeof(AttackerComponent),
         typeof(AutoDestructionComponent),
         typeof(BeamRendererComponent),
+        typeof(BlackHoleComponent),
+        typeof(BlackHoleProjectileComponent),
+        typeof(BlackHoleShooterComponent),
         typeof(CameraComponent),
         typeof(ColliderCacheComponent),
         typeof(ColliderComponent),
@@ -215,7 +225,6 @@ public static class GameComponentsLookup {
         typeof(PartitionGridComponent),
         typeof(PlayerComponent),
         typeof(PlayerWeaponDirectionComponent),
-        typeof(PoolComponent),
         typeof(PositionComponent),
         typeof(ProjectileComponent),
         typeof(ProjectileLandedComponent),

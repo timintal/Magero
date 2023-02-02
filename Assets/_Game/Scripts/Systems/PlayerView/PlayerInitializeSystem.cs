@@ -133,16 +133,45 @@ public class PlayerInitializeSystem : IInitializeSystem
         {
             var windBlower = _contexts.game.CreateEntity();
             windBlower.AddWindBlower(gameSetup.WindGustSettings.PushSpeed, gameSetup.WindGustSettings.PushDamping, gameSetup.WindGustSettings.MaxDistance);
-            windBlower.AddTransform(sceneReferences.Arms[armIndex].BeamShootingTransform);
-            
             windBlower.AddRadius(gameSetup.WindGustSettings.WindStreamRadius);
             
+            windBlower.AddTransform(sceneReferences.Arms[armIndex].BeamShootingTransform);
+
             windBlower.AddAnimator(sceneReferences.Arms[armIndex].Animator);
             windBlower.AddDamage(gameSetup.WindGustSettings.Damage);
             windBlower.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
             windBlower.isPlayerWeaponDirection = true;
             windBlower.isPlayer = true;
+            
+            armIndex++;
         }
+
+        if (gameSetup.AddBlackHole)
+        {
+            var gasShooter = _contexts.game.CreateEntity();
+
+            gasShooter.AddProjectileShooter(gameSetup.BlackHoleSettings.Cooldown,
+                gameSetup.BlackHoleSettings.ProjectilePrefab,
+                gameSetup.BlackHoleSettings.ProjectileSpeed);
+            
+            gasShooter.AddBlackHoleShooter(gameSetup.BlackHoleSettings.ExplosionRadius, 
+                gameSetup.BlackHoleSettings.PullSpeed, 
+                gameSetup.BlackHoleSettings.PullRadius, 
+                gameSetup.BlackHoleSettings.Lifetime, 
+                gameSetup.BlackHoleSettings.BlackHolePrefab);
+            
+            gasShooter.AddTransform(sceneReferences.Arms[armIndex].ProjectileShootingTransform);
+            gasShooter.AddAnimator(sceneReferences.Arms[armIndex].Animator);
+            
+            gasShooter.AddDamage(gameSetup.BlackHoleSettings.Damage);
+            gasShooter.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
+
+            gasShooter.isPlayerWeaponDirection = true;
+            gasShooter.isPlayer = true;
+
+            armIndex++;
+        }
+        
 
         for (int i = armIndex; i < sceneReferences.Arms.Length; i++)
         {

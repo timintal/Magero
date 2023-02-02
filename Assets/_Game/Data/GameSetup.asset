@@ -17,7 +17,8 @@ MonoBehaviour:
   AddLightning: 0
   AddAcid: 0
   AddGasCloud: 0
-  AddWind: 1
+  AddWind: 0
+  AddBlackHole: 1
   CameraSettings:
     RotationSpeed: 40
     HorizontalBounds: {x: -50, y: 50}
@@ -145,13 +146,19 @@ MonoBehaviour:
     WindStreamRadius: 5
     MaxDistance: 70
   BlackHoleSettings:
-    Damage: 0
-    ExplosionRadius: 0
-    PullSpeed: 0
-    PullRadius: 0
-    Lifetime: 0
-    ProjectilePrefab: {fileID: 0}
-    BlackHolePrefab: {fileID: 0}
+    Cooldown: 1
+    Damage: 15
+    ExplosionRadius: 4
+    PullSpeed: 5
+    PullRadius: 7
+    Lifetime: 3
+    ProjectileSpeed: 100
+    ProjectilePrefab: {fileID: 7671730865203008364, guid: b9e30c6c4bbc54a00bb679b2df861185,
+      type: 3}
+    BlackHolePrefab: {fileID: 3676044374875549090, guid: 292cb758b2c974fe2a19026dc3d76b3d,
+      type: 3}
+    ExplosionPrefab: {fileID: 1043818705560514718, guid: 7a84eff5bd15f42b5aa7f3e592448eae,
+      type: 3}
   PlayerSettings:
     Health: 20
     DistanceForDamage: 5

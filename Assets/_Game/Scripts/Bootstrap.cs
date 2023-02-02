@@ -43,6 +43,8 @@ public class Bootstrap : MonoBehaviour
                 
                 .Add(new UserInputSystem(contexts))
                 
+                .Add(new TimerSystem(contexts))
+                
                 //Reset
                 .Add(new SpeedResetSystem(contexts))
                 
@@ -54,7 +56,6 @@ public class Bootstrap : MonoBehaviour
                 .Add(new PlayerUpdateSystem(contexts))
                 .Add(new PlayerShooterDirectionUpdateSystem(contexts))
                 
-                .Add(new TimerSystem(contexts))
 
                 .Add(new CameraControlSystem(contexts))
                 
@@ -92,11 +93,11 @@ public class Bootstrap : MonoBehaviour
                 
                 .Add(new WeaponBeamVisualizationSystem(contexts))
                 .Add(new WeaponHitPointFxUpdateSystem(contexts))
-                .Add(new LaserAnimationSystem(contexts))
+                .Add(new ArmAnimationBeamSystem(contexts))
                 
                 .Add(new ExplosionVisualizationSystem(contexts))
                 
-                .Add(new FireballAnimationSystem(contexts))
+                .Add(new ArmAnimationSystemForProjectiles(contexts))
                 
                 .Add(new UpdateViewSystem(contexts))
                 .Add(new HealthBarSystem(contexts))

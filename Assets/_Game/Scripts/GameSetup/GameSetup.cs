@@ -12,6 +12,7 @@ public class GameSetup : ScriptableObject
     public bool AddAcid;
     public bool AddGasCloud;
     public bool AddWind;
+    public bool AddBlackHole;
     public CameraSettings CameraSettings;
     public FlowFieldSettings FlowFieldSettings;
     public DebugSettings DebugSettings;
@@ -136,13 +137,16 @@ public class WindGustSettings
 [Serializable]
 public class BlackHoleSettings
 {
+    public float Cooldown;
     public float Damage;
     public float ExplosionRadius;
     public float PullSpeed;
     public float PullRadius;
     public float Lifetime;
+    public float ProjectileSpeed;
     public GameObject ProjectilePrefab;
     public GameObject BlackHolePrefab;
+    public GameObject ExplosionPrefab;
 
 }
 

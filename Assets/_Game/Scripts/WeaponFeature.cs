@@ -23,5 +23,9 @@ public class WeaponFeature : Feature
 
         Add(new WindBlowerSystem(contexts));
         Add(new WindImpulseUpdateSystem(contexts));
+
+        Add(new BlackHoleShootingSystem(contexts));
+        Add(new BlackHoleProjectileImpactSystem(contexts));
+        Add(new BlackHoleUpdateSystem(contexts));
     }
 }

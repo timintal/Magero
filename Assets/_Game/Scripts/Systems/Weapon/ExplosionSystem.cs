@@ -29,7 +29,8 @@ public class ExplosionSystem : ReactiveSystem<GameEntity>
     {
         return entity.hasExplosion && 
                entity.hasPosition &&
-               entity.hasDamage;
+               entity.hasDamage &&
+               entity.hasAssetLink;
     }
 
     protected override void Execute(List<GameEntity> entities)
@@ -69,6 +70,6 @@ public class ExplosionSystem : ReactiveSystem<GameEntity>
         visualizationEntity.AddPosition(position + Vector3.up * 0.1f);
         visualizationEntity.AddRotation(Quaternion.identity);
         visualizationEntity.AddRadius(e.explosion.Radius * 2);
-        visualizationEntity.AddResource(_contexts.game.gameSetup.value.FireballSetings.ExplosionVisualPrefab);
+        visualizationEntity.AddResource(e.assetLink.Asset);
     }
 }
