@@ -1,7 +1,6 @@
 using System;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 [Game, Unique]
@@ -22,6 +21,7 @@ public class GameSetup : ScriptableObject
     public AcidStreamSettings AcidStreamSettings;
     public GasCloudSettings GasCloudSettings;
     public WindGustSettings WindGustSettings;
+    public BlackHoleSettings BlackHoleSettings;
     public PlayerSettings PlayerSettings;
 }
 
@@ -120,7 +120,7 @@ public class GasCloudSettings
     public float ProjectileSpeed;
     public float CloudRadius;
     public float CloudSpeedMultiplier;
-    [FormerlySerializedAs("Lifetime")] public float CloudLifetime;
+    public float CloudLifetime;
 }
 
 [Serializable]
@@ -130,5 +130,19 @@ public class WindGustSettings
     public float PushSpeed;
     public float PushDamping;
     public float WindStreamRadius;
+    public float MaxDistance;
+}
+
+[Serializable]
+public class BlackHoleSettings
+{
+    public float Damage;
+    public float ExplosionRadius;
+    public float PullSpeed;
+    public float PullRadius;
+    public float Lifetime;
+    public GameObject ProjectilePrefab;
+    public GameObject BlackHolePrefab;
+
 }
 

@@ -23,6 +23,8 @@ public class PlayerInitializeSystem : IInitializeSystem
         playerEntity.AddHealthBarUI(sceneReferences.PlayerHealthBar);
         playerEntity.isPlayer = true;
 
+        int armIndex = 0;
+        
         if (gameSetup.AddFireballs)
         {
             var fireballShooter = _contexts.game.CreateEntity();
@@ -32,27 +34,31 @@ public class PlayerInitializeSystem : IInitializeSystem
                 gameSetup.FireballSetings.ProjectileSpeed);
 
             fireballShooter.AddExplodableProjectileShooter(gameSetup.FireballSetings.ExplosionRadius);
-            fireballShooter.AddTransform(sceneReferences.FireballsShootTransform);
-            fireballShooter.AddAnimator(sceneReferences.FireballAnimator);
+            fireballShooter.AddTransform(sceneReferences.Arms[armIndex].ProjectileShootingTransform);
+            fireballShooter.AddAnimator(sceneReferences.Arms[armIndex].Animator);
             fireballShooter.AddDamage(gameSetup.FireballSetings.Damage);
             fireballShooter.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy", "Environment"));
             fireballShooter.isPlayerWeaponDirection = true;
             fireballShooter.isPlayer = true;
+
+            armIndex++;
         }
 
         if (gameSetup.AddLaser)
         {
             var laserEntity = _contexts.game.CreateEntity();
             laserEntity.isLaserShooter = true;
-            laserEntity.AddTransform(sceneReferences.LaserShootTransform);
+            laserEntity.AddTransform(sceneReferences.Arms[armIndex].BeamShootingTransform);
             laserEntity.AddHitPointEffect(sceneReferences.LaserSparkles);
             laserEntity.AddBeamRenderer(sceneReferences.LaserRenderer);
-            laserEntity.AddWeaponHitPoint(sceneReferences.LaserShootTransform.position);
-            laserEntity.AddAnimator(sceneReferences.LaserAnimator);
+            laserEntity.AddWeaponHitPoint(sceneReferences.Arms[armIndex].BeamShootingTransform.position);
+            laserEntity.AddAnimator(sceneReferences.Arms[armIndex].Animator);
             laserEntity.AddDamage(gameSetup.LaserSettings.DamagePerSecond);
             laserEntity.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
             laserEntity.isPlayerWeaponDirection = true;
             laserEntity.isPlayer = true;
+
+            armIndex++;
         }
 
         if (gameSetup.AddLightning)
@@ -65,11 +71,14 @@ public class PlayerInitializeSystem : IInitializeSystem
                 gameSetup.LightningStrikeSettings.AOEDamage,
                 gameSetup.LightningStrikeSettings.StunDuration);
 
-            lightningShooter.AddTransform(sceneReferences.LaserShootTransform);
+            lightningShooter.AddTransform(sceneReferences.Arms[armIndex].BeamShootingTransform);
+            lightningShooter.AddAnimator(sceneReferences.Arms[armIndex].Animator);
             lightningShooter.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
 
             lightningShooter.isPlayerWeaponDirection = true;
             lightningShooter.isPlayer = true;
+
+            armIndex++;
         }
 
         if (gameSetup.AddAcid)
@@ -84,15 +93,16 @@ public class PlayerInitializeSystem : IInitializeSystem
                 gameSetup.AcidStreamSettings.RadiusCurve);
 
             acidSpray.AddBeamRenderer(sceneReferences.AcidRenderer);
-            acidSpray.AddWeaponHitPoint(sceneReferences.LaserShootTransform.position);
-            acidSpray.AddAnimator(sceneReferences.LaserAnimator);
+            acidSpray.AddWeaponHitPoint(sceneReferences.Arms[armIndex].BeamShootingTransform.position);
+            acidSpray.AddAnimator(sceneReferences.Arms[armIndex].Animator);
 
             acidSpray.AddDamage(gameSetup.AcidStreamSettings.DamagePerSecond);
-            acidSpray.AddTransform(sceneReferences.LaserShootTransform);
+            acidSpray.AddTransform(sceneReferences.Arms[armIndex].BeamShootingTransform);
             acidSpray.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
 
             acidSpray.isPlayerWeaponDirection = true;
             acidSpray.isPlayer = true;
+            armIndex++;
         }
 
         if (gameSetup.AddGasCloud)
@@ -108,28 +118,35 @@ public class PlayerInitializeSystem : IInitializeSystem
                 gameSetup.GasCloudSettings.CloudPrefab,
                 gameSetup.GasCloudSettings.CloudLifetime);
             
-            gasShooter.AddTransform(sceneReferences.FireballsShootTransform);
-            gasShooter.AddAnimator(sceneReferences.FireballAnimator);
+            gasShooter.AddTransform(sceneReferences.Arms[armIndex].ProjectileShootingTransform);
+            gasShooter.AddAnimator(sceneReferences.Arms[armIndex].Animator);
             gasShooter.AddDamage(gameSetup.GasCloudSettings.Damage);
             gasShooter.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
 
             gasShooter.isPlayerWeaponDirection = true;
             gasShooter.isPlayer = true;
+
+            armIndex++;
         }
 
         if (gameSetup.AddWind)
         {
             var windBlower = _contexts.game.CreateEntity();
-            windBlower.AddWindBlower(gameSetup.WindGustSettings.PushSpeed, gameSetup.WindGustSettings.PushDamping);
-            windBlower.AddTransform(sceneReferences.LaserShootTransform);
+            windBlower.AddWindBlower(gameSetup.WindGustSettings.PushSpeed, gameSetup.WindGustSettings.PushDamping, gameSetup.WindGustSettings.MaxDistance);
+            windBlower.AddTransform(sceneReferences.Arms[armIndex].BeamShootingTransform);
             
             windBlower.AddRadius(gameSetup.WindGustSettings.WindStreamRadius);
             
-            windBlower.AddAnimator(sceneReferences.LaserAnimator);
+            windBlower.AddAnimator(sceneReferences.Arms[armIndex].Animator);
             windBlower.AddDamage(gameSetup.WindGustSettings.Damage);
             windBlower.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
             windBlower.isPlayerWeaponDirection = true;
             windBlower.isPlayer = true;
+        }
+
+        for (int i = armIndex; i < sceneReferences.Arms.Length; i++)
+        {
+            sceneReferences.Arms[i].gameObject.SetActive(false);
         }
     }
 }

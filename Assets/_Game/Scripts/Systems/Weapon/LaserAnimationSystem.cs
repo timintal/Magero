@@ -19,7 +19,10 @@ public class FireballAnimationSystem : ReactiveSystem<GameEntity>
 
     protected override bool Filter(GameEntity entity)
     {
-        return entity.isPlayer && entity.hasExplodableProjectileShooter && entity.hasWeaponCooldown && entity.hasAnimator;
+        return entity.isPlayer && 
+               (entity.hasProjectileShooter || entity.hasLightningShooter) 
+               && entity.hasWeaponCooldown && 
+               entity.hasAnimator;
     }
 
     protected override void Execute(List<GameEntity> entities)
@@ -34,18 +37,19 @@ public class FireballAnimationSystem : ReactiveSystem<GameEntity>
 public class LaserAnimationSystem : IExecuteSystem
 {
     Contexts _contexts;
-    private IGroup<GameEntity> _laserWeaponGroup;
+    private IGroup<GameEntity> _beamWeaponGroup;
     private static readonly int Laser = Animator.StringToHash("laser");
 
     public LaserAnimationSystem(Contexts contexts)
     {
         _contexts = contexts;
-        _laserWeaponGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Player, GameMatcher.LaserShooter, GameMatcher.Animator));
+        _beamWeaponGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Player, GameMatcher.Animator)
+            .AnyOf(GameMatcher.LaserShooter, GameMatcher.AcidStream, GameMatcher.WindBlower));
     }
 
     public void Execute()
     {
-        foreach (var e in _laserWeaponGroup.GetEntities())
+        foreach (var e in _beamWeaponGroup.GetEntities())
         {
             e.animator.Value.SetBool(Laser, !e.isWeaponDisabled);
         }

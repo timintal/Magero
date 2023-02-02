@@ -1,4 +1,5 @@
 using Entitas;
+using UnityEngine;
 
 
 public class WeaponHitPointFxUpdateSystem : IExecuteSystem
@@ -22,7 +23,7 @@ public class WeaponHitPointFxUpdateSystem : IExecuteSystem
         {
             if (e.isWeaponDisabled)
             {
-                e.hitPointEffect.FxTransform.position = e.transform.Transform.position;
+                e.hitPointEffect.FxTransform.position = new Vector3(-100,-100,-100);
             }
             else
             {

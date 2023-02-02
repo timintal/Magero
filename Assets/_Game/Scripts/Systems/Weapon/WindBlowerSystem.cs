@@ -28,7 +28,7 @@ public class WindBlowerSystem : IExecuteSystem
         foreach (var e in _windBlowerGroup.GetEntities())
         {
             var position = e.transform.Transform.position;
-            var count = Physics.SphereCastNonAlloc(position, e.radius.Value, e.direction.Value, _queryResults, 100);
+            var count = Physics.SphereCastNonAlloc(position, e.radius.Value, e.direction.Value, _queryResults, e.windBlower.MaxDistance);
             for (int i = 0; i < count; i++)
             {
                 if (colliderCacheMap.ContainsKey(_queryResults[i].collider))

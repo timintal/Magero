@@ -11,19 +11,21 @@ public partial class GameEntity {
     public WindBlowerComponent windBlower { get { return (WindBlowerComponent)GetComponent(GameComponentsLookup.WindBlower); } }
     public bool hasWindBlower { get { return HasComponent(GameComponentsLookup.WindBlower); } }
 
-    public void AddWindBlower(float newPushSpeed, float newPushDamping) {
+    public void AddWindBlower(float newPushSpeed, float newPushDamping, float newMaxDistance) {
         var index = GameComponentsLookup.WindBlower;
         var component = (WindBlowerComponent)CreateComponent(index, typeof(WindBlowerComponent));
         component.PushSpeed = newPushSpeed;
         component.PushDamping = newPushDamping;
+        component.MaxDistance = newMaxDistance;
         AddComponent(index, component);
     }
 
-    public void ReplaceWindBlower(float newPushSpeed, float newPushDamping) {
+    public void ReplaceWindBlower(float newPushSpeed, float newPushDamping, float newMaxDistance) {
         var index = GameComponentsLookup.WindBlower;
         var component = (WindBlowerComponent)CreateComponent(index, typeof(WindBlowerComponent));
         component.PushSpeed = newPushSpeed;
         component.PushDamping = newPushDamping;
+        component.MaxDistance = newMaxDistance;
         ReplaceComponent(index, component);
     }
 
