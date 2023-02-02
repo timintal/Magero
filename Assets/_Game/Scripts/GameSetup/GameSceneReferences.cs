@@ -8,17 +8,13 @@ public class GameSceneReferences : MonoBehaviour
     public Transform CameraTransform;
     public Joystick Joystick;
     
-    public Transform FireballsShootTransform;
-    public Transform LaserShootTransform;
-
     public LineRenderer LaserRenderer;
     public Transform LaserSparkles;
     
     public LineRenderer AcidRenderer;
 
     public Image PlayerHealthBar;
-
-    public Animator LaserAnimator;
-    public Animator FireballAnimator;
+    
+    public ArmView[] Arms;
 
 }

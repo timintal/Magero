@@ -43,7 +43,7 @@ public class LaserShootingSystem : IExecuteSystem
             }
             else
             {
-                e.ReplaceWeaponHitPoint(e.transform.Transform.position);
+                e.ReplaceWeaponHitPoint(new Vector3(-100,-100,-100));
             }
             
             
