@@ -27,5 +27,7 @@ public class WeaponFeature : Feature
         Add(new BlackHoleShootingSystem(contexts));
         Add(new BlackHoleProjectileImpactSystem(contexts));
         Add(new BlackHoleUpdateSystem(contexts));
+
+        Add(new SummonUnitsSystem(contexts));
     }
 }

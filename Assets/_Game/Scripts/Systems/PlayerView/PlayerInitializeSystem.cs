@@ -71,6 +71,11 @@ public class PlayerInitializeSystem : IInitializeSystem
                 gameSetup.LightningStrikeSettings.AOEDamage,
                 gameSetup.LightningStrikeSettings.StunDuration);
 
+            sceneReferences.Arms[armIndex].transform.position = sceneReferences.Arms[armIndex].transform.position +
+                                                                Vector3.up * 0.02f + 
+                                                                Vector3.left * sceneReferences.Arms[armIndex].transform.localScale.x * 0.03f;
+
+            
             lightningShooter.AddTransform(sceneReferences.Arms[armIndex].BeamShootingTransform);
             lightningShooter.AddAnimator(sceneReferences.Arms[armIndex].Animator);
             lightningShooter.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
@@ -168,6 +173,28 @@ public class PlayerInitializeSystem : IInitializeSystem
 
             gasShooter.isPlayerWeaponDirection = true;
             gasShooter.isPlayer = true;
+
+            armIndex++;
+        }
+        
+        if (gameSetup.AddSummon)
+        {
+            var summonSpell = _contexts.game.CreateEntity();
+            summonSpell.AddSummonSpell(gameSetup.SummonSettings.Cooldown, gameSetup.SummonSettings.Count, gameSetup.SummonSettings.UnitSpeed, gameSetup.SummonSettings.UnitRadius);
+            summonSpell.AddAssetLink(gameSetup.SummonSettings.SummonPrefab);
+
+            sceneReferences.Arms[armIndex].transform.position = sceneReferences.Arms[armIndex].transform.position +
+                                                                Vector3.up * 0.02f + 
+                                                                Vector3.left * sceneReferences.Arms[armIndex].transform.localScale.x * 0.03f;
+            
+            summonSpell.AddTransform(sceneReferences.Arms[armIndex].BeamShootingTransform);
+            summonSpell.AddAnimator(sceneReferences.Arms[armIndex].Animator);
+            summonSpell.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
+            summonSpell.AddTarget(TargetType.Player);
+            summonSpell.AddDamage(gameSetup.SummonSettings.UnitDamage);
+
+            summonSpell.isPlayerWeaponDirection = true;
+            summonSpell.isPlayer = true;
 
             armIndex++;
         }

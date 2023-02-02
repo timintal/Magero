@@ -17,7 +17,7 @@ public class DebugKillUnitsSystem : IExecuteSystem
             var enemieTargets = _contexts.game.GetEntitiesWithTarget(TargetType.Enemy);
             foreach (var e in enemieTargets)
             {
-                if (e.isFlowFieldMover)
+                if (e.hasFlowFieldMover)
                     e.isDestroyed = true;
             }
         }

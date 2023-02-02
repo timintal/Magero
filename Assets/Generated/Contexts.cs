@@ -64,11 +64,17 @@ public partial class Contexts : Entitas.IContexts {
 //------------------------------------------------------------------------------
 public partial class Contexts {
 
+    public const string FlowFieldMover = "FlowFieldMover";
     public const string Id = "Id";
     public const string Target = "Target";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, int>(
+            FlowFieldMover,
+            game.GetGroup(GameMatcher.FlowFieldMover),
+            (e, c) => ((FlowFieldMoverComponent)c).FlowFieldIndex));
+
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, int>(
             Id,
             game.GetGroup(GameMatcher.Id),
@@ -86,6 +92,10 @@ public partial class Contexts {
 }
 
 public static class ContextsExtensions {
+
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithFlowFieldMover(this GameContext context, int FlowFieldIndex) {
+        return ((Entitas.EntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.FlowFieldMover)).GetEntities(FlowFieldIndex);
+    }
 
     public static GameEntity GetEntityWithId(this GameContext context, int Value) {
         return ((Entitas.PrimaryEntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.Id)).GetEntity(Value);

@@ -10,7 +10,7 @@ public class GasProjectileImpactSystem: ReactiveSystem<GameEntity>
     public GasProjectileImpactSystem(Contexts contexts) : base(contexts.game)
     {
         _contexts = contexts;
-        _flowFieldGroup = contexts.game.GetGroup(GameMatcher.FlowField);
+        _flowFieldGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField, GameMatcher.GroundEnemyFlowField));
     }
 
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)

@@ -9,12 +9,16 @@ public class VisualizeFlowFieldSystem : IExecuteSystem
     
     private readonly Contexts _contexts;
 
-    private IGroup<GameEntity> _flowFieldGroup;
+    private IGroup<GameEntity> _groundflowFieldGroup;
+    private IGroup<GameEntity> _flyingflowFieldGroup;
+    private IGroup<GameEntity> _summonflowFieldGroup;
 
     public VisualizeFlowFieldSystem(Contexts contexts)
     {
         _contexts = contexts;
-        _flowFieldGroup = contexts.game.GetGroup(GameMatcher.FlowField);
+        _groundflowFieldGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField, GameMatcher.GroundEnemyFlowField));
+        _flyingflowFieldGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField, GameMatcher.FlyingEnemyFlowField));
+        _summonflowFieldGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField, GameMatcher.SummonFlowField));
     }
 
 
@@ -24,10 +28,34 @@ public class VisualizeFlowFieldSystem : IExecuteSystem
     public void Execute()
     {
         DebugSettings debugSettings = _contexts.game.gameSetup.value.DebugSettings;
-        if (!debugSettings.VisualizeFlowField || _flowFieldGroup.count == 0)
-            return;
-        
-        var e = _flowFieldGroup.GetSingleEntity();
+        if (debugSettings.VisualizeGroundEnemyFlowField)
+        {
+            var e = _groundflowFieldGroup.GetSingleEntity();
+            if (e != null)
+            {
+                DrawFlowField(e, debugSettings);
+            }
+        }
+        if (debugSettings.VisualizeFlyingEnemyFlowField)
+        {
+            var e = _flyingflowFieldGroup.GetSingleEntity();
+            if (e != null)
+            {
+                DrawFlowField(e, debugSettings);
+            }
+        }
+        if (debugSettings.VisualizeSummonFlowField)
+        {
+            var e = _summonflowFieldGroup.GetSingleEntity();
+            if (e != null)
+            {
+                DrawFlowField(e, debugSettings);
+            }
+        }
+    }
+
+    private void DrawFlowField(GameEntity e, DebugSettings debugSettings)
+    {
         var lvlField = e.flowField.CurrentField;
         var initialPoint = e.flowField.InitialPoint;
 
@@ -35,7 +63,7 @@ public class VisualizeFlowFieldSystem : IExecuteSystem
 
         EnsureArrayLength(cellsCount);
 
-        var quaternion = Quaternion.AngleAxis(90, new Vector3(1,0,0));
+        var quaternion = Quaternion.AngleAxis(90, new Vector3(1, 0, 0));
 
         for (int i = 0; i < e.flowField.Width; i++)
         {
@@ -51,15 +79,15 @@ public class VisualizeFlowFieldSystem : IExecuteSystem
                 {
                     continue;
                 }
-                
+
                 var currMatrix = matrices[i * e.flowField.Height + j];
                 currMatrix.SetTRS(
-                    initialPoint + new Vector3((i + 0.5f) * e.flowField.CellSize,1, (j + 0.5f) * e.flowField.CellSize),
-                    quaternion, 
+                    initialPoint + new Vector3((i + 0.5f) * e.flowField.CellSize, 1, (j + 0.5f) * e.flowField.CellSize),
+                    quaternion,
                     Vector3.one * e.flowField.CellSize);
 
                 matrices[i * e.flowField.Height + j] = currMatrix;
-                
+
                 colors[i * e.flowField.Height + j] = c;
             }
         }
@@ -71,22 +99,21 @@ public class VisualizeFlowFieldSystem : IExecuteSystem
         {
             tempMatrices.Clear();
             tempColors.Clear();
-            
+
             int count = Mathf.Min(256, matrices.Count - drawnCount);
             for (int i = 0; i < count; i++)
             {
                 tempMatrices.Add(matrices[drawnCount + i]);
                 tempColors.Add(colors[drawnCount + i]);
             }
-            
+
             MaterialPropertyBlock block = new MaterialPropertyBlock();
-            
+
             block.SetVectorArray(BaseColor, tempColors);
             Graphics.DrawMeshInstanced(debugSettings.CellMesh, 0, debugSettings.FlowFieldMaterial, tempMatrices, block);
 
             drawnCount += count;
         }
-        
     }
 
     private void EnsureArrayLength(int cellsCount)

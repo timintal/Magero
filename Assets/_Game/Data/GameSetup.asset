@@ -18,13 +18,14 @@ MonoBehaviour:
   AddAcid: 0
   AddGasCloud: 0
   AddWind: 0
-  AddBlackHole: 1
+  AddBlackHole: 0
+  AddSummon: 1
   CameraSettings:
     RotationSpeed: 40
     HorizontalBounds: {x: -50, y: 50}
     VerticalBounds: {x: -10, y: 85}
   FlowFieldSettings:
-    CellSize: 0.5
+    CellSize: 0.8
     StepWeight: 100
     StepDiagonalWeight: 121
     MaxCalculationDistance: 80000
@@ -35,10 +36,12 @@ MonoBehaviour:
     ExplosionRepulsionValue: 8000
     ExplosionRepulsionSizeMultiplier: 2
   DebugSettings:
-    VisualizeFlowField: 0
+    VisualizeGroundEnemyFlowField: 0
+    VisualizeFlyingEnemyFlowField: 0
+    VisualizeSummonFlowField: 0
     FlowFieldMaterial: {fileID: 2100000, guid: 7444c09ed2ebc4b56ac689c2eb5cf15e, type: 2}
     CellMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
-    MaxValueColor: 23326
+    MaxValueColor: 11296
     mapGradient:
       serializedVersion: 2
       key0: {r: 0.9137255, g: 0.8923656, b: 0, a: 0.84313726}
@@ -159,6 +162,14 @@ MonoBehaviour:
       type: 3}
     ExplosionPrefab: {fileID: 1043818705560514718, guid: 7a84eff5bd15f42b5aa7f3e592448eae,
       type: 3}
+  SummonSettings:
+    Cooldown: 0.1
+    Count: 1
+    UnitDamage: 10
+    UnitSpeed: 4
+    UnitRadius: 0.3
+    SummonPrefab: {fileID: 5509589539477055301, guid: 82c19d880984a489499b511d46cf0ace,
+      type: 3}
   PlayerSettings:
     Health: 20
-    DistanceForDamage: 5
+    DistanceForDamage: 7

@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly FlowFieldMoverComponent flowFieldMoverComponent = new FlowFieldMoverComponent();
+    public FlowFieldMoverComponent flowFieldMover { get { return (FlowFieldMoverComponent)GetComponent(GameComponentsLookup.FlowFieldMover); } }
+    public bool hasFlowFieldMover { get { return HasComponent(GameComponentsLookup.FlowFieldMover); } }
 
-    public bool isFlowFieldMover {
-        get { return HasComponent(GameComponentsLookup.FlowFieldMover); }
-        set {
-            if (value != isFlowFieldMover) {
-                var index = GameComponentsLookup.FlowFieldMover;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : flowFieldMoverComponent;
+    public void AddFlowFieldMover(int newFlowFieldIndex) {
+        var index = GameComponentsLookup.FlowFieldMover;
+        var component = (FlowFieldMoverComponent)CreateComponent(index, typeof(FlowFieldMoverComponent));
+        component.FlowFieldIndex = newFlowFieldIndex;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceFlowFieldMover(int newFlowFieldIndex) {
+        var index = GameComponentsLookup.FlowFieldMover;
+        var component = (FlowFieldMoverComponent)CreateComponent(index, typeof(FlowFieldMoverComponent));
+        component.FlowFieldIndex = newFlowFieldIndex;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveFlowFieldMover() {
+        RemoveComponent(GameComponentsLookup.FlowFieldMover);
     }
 }
 

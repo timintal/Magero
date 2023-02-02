@@ -9,5 +9,5 @@ public class EnemySettings : ScriptableObject
     public float Speed;
     public int Health;
     public float Radius;
-    public float RepulsionRadius;
+    public bool IsFlying;
 }

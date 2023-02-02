@@ -1,6 +1,7 @@
 using System;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 [Game, Unique]
@@ -13,6 +14,7 @@ public class GameSetup : ScriptableObject
     public bool AddGasCloud;
     public bool AddWind;
     public bool AddBlackHole;
+    public bool AddSummon;
     public CameraSettings CameraSettings;
     public FlowFieldSettings FlowFieldSettings;
     public DebugSettings DebugSettings;
@@ -23,6 +25,7 @@ public class GameSetup : ScriptableObject
     public GasCloudSettings GasCloudSettings;
     public WindGustSettings WindGustSettings;
     public BlackHoleSettings BlackHoleSettings;
+    public SummonSettings SummonSettings;
     public PlayerSettings PlayerSettings;
 }
 
@@ -57,7 +60,9 @@ public class FlowFieldSettings
 [Serializable]
 public class DebugSettings
 {
-    public bool VisualizeFlowField;
+    public bool VisualizeGroundEnemyFlowField;
+    public bool VisualizeFlyingEnemyFlowField;
+    public bool VisualizeSummonFlowField;
     public Material FlowFieldMaterial;
     public Mesh CellMesh;
     public int MaxValueColor;
@@ -147,6 +152,16 @@ public class BlackHoleSettings
     public GameObject ProjectilePrefab;
     public GameObject BlackHolePrefab;
     public GameObject ExplosionPrefab;
+}
 
+[Serializable]
+public class SummonSettings
+{
+    public float Cooldown;
+    public int Count;
+    public float UnitDamage;
+    public float UnitSpeed;
+    public float UnitRadius;
+    public GameObject SummonPrefab;
 }
 

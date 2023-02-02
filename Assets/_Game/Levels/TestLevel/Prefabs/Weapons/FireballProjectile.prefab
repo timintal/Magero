@@ -129,6 +129,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoftFireTrail
       objectReference: {fileID: 0}
+    - target: {fileID: 428662, guid: c39f135b5ead72a49b86bcf04496181d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 458914, guid: c39f135b5ead72a49b86bcf04496181d, type: 3}
       propertyPath: m_RootOrder
       value: 1

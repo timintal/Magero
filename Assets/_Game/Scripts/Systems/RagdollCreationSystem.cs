@@ -30,7 +30,9 @@ public class RagdollCreationSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             e.isDestroyed = false;
-            e.isFlowFieldMover = false;
+             
+            if (e.hasFlowFieldMover)
+                e.RemoveFlowFieldMover();
             
             if (e.hasDirection)
                 e.RemoveDirection();
@@ -55,10 +57,7 @@ public class RagdollCreationSystem : ReactiveSystem<GameEntity>
             
             if (e.hasRenderer)
             {
-                MaterialPropertyBlock block = new();
-                e.renderer.Renderer.GetPropertyBlock(block);
-                block.SetColor("_BaseColor", Color.grey);
-                e.renderer.Renderer.SetPropertyBlock(block);
+                e.renderer.Renderer.material.color = Color.gray;
             }
         }
     }

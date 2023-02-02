@@ -5,19 +5,15 @@ public class ForcedMovementSystem : IExecuteSystem
 {
     Contexts _contexts;
     private IGroup<GameEntity> _movementsGroup;
-    private IGroup<GameEntity> _flowFieldGroup;
 
     public ForcedMovementSystem(Contexts contexts)
     {
         _contexts = contexts;
         _movementsGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.ForcedMovement, GameMatcher.Direction, GameMatcher.EntityRef));
-        _flowFieldGroup = contexts.game.GetGroup(GameMatcher.FlowField);
     }
 
     public void Execute()
     {
-        var flowField = _flowFieldGroup.GetSingleEntity().flowField;
-
         foreach (var e in _movementsGroup.GetEntities())
         {
             var movable = _contexts.game.GetEntityWithId(e.entityRef.EntityId);
@@ -25,10 +21,18 @@ public class ForcedMovementSystem : IExecuteSystem
             {
                var newPos =  movable.position.Value + e.direction.Value * e.forcedMovement.Speed * Time.deltaTime;
 
-               if (flowField.IsPassablePosition(newPos, int.MaxValue - 100))
+               bool isPositionPassable = true;
+               if (movable.hasFlowFieldMover)
+               {
+                   var flowField = _contexts.game.GetEntityWithId(movable.flowFieldMover.FlowFieldIndex).flowField;
+                   isPositionPassable = flowField.IsPassablePosition(newPos, int.MaxValue - 100);
+               }
+
+               if (isPositionPassable)
                {
                    movable.ReplacePosition(newPos);
                }
+               
             }
 
             e.isDestroyed = true;

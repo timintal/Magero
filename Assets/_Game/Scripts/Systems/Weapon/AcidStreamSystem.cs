@@ -34,6 +34,12 @@ public class AcidStreamSystem : ReactiveSystem<GameEntity>
     {
         foreach (var e in entities)
         {
+            if (e.direction.Value.y > 0)
+            {
+                e.ReplaceWeaponHitPoint(new Vector3(-100,-100,-100));
+                continue;
+            }
+            
             if (Physics.Raycast(e.transform.Transform.position,
                     e.direction.Value,
                     out RaycastHit hit,

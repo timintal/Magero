@@ -41,54 +41,60 @@ public static class GameComponentsLookup {
     public const int FlowFieldMover = 30;
     public const int FlowFieldTarget = 31;
     public const int FlowFieldTemporaryObstacle = 32;
-    public const int ForcedMovement = 33;
-    public const int GameSceneReferences = 34;
-    public const int GameSetup = 35;
-    public const int GasCloud = 36;
-    public const int GasProjectile = 37;
-    public const int GasProjectileShooter = 38;
-    public const int HealthBarUI = 39;
-    public const int Health = 40;
-    public const int HitPointEffect = 41;
-    public const int Id = 42;
-    public const int LaserShooter = 43;
-    public const int LayerMask = 44;
-    public const int Level = 45;
-    public const int LevelFinished = 46;
-    public const int LightningShooter = 47;
-    public const int MaxHealth = 48;
-    public const int PartitionGrid = 49;
-    public const int Player = 50;
-    public const int PlayerWeaponDirection = 51;
-    public const int Position = 52;
-    public const int Projectile = 53;
-    public const int ProjectileLanded = 54;
-    public const int ProjectileShooter = 55;
-    public const int Radius = 56;
-    public const int RagdollAngularVelocity = 57;
-    public const int RagdollCurrentVelocity = 58;
-    public const int RagdollDeath = 59;
-    public const int RagdollRemoveTimer = 60;
-    public const int ReceivedDamage = 61;
-    public const int ReceivedFloatDamage = 62;
-    public const int Renderer = 63;
-    public const int Resource = 64;
-    public const int Rotation = 65;
-    public const int Scale = 66;
-    public const int Speed = 67;
-    public const int SpeedModifierZone = 68;
-    public const int Stunned = 69;
-    public const int Target = 70;
-    public const int TimerCompleted = 71;
-    public const int Timer = 72;
-    public const int Transform = 73;
-    public const int WeaponCooldown = 74;
-    public const int WeaponDisabled = 75;
-    public const int WeaponHitPoint = 76;
-    public const int WindBlower = 77;
-    public const int WindImpulse = 78;
+    public const int Flying = 33;
+    public const int FlyingEnemyFlowField = 34;
+    public const int ForcedMovement = 35;
+    public const int GameSceneReferences = 36;
+    public const int GameSetup = 37;
+    public const int GasCloud = 38;
+    public const int GasProjectile = 39;
+    public const int GasProjectileShooter = 40;
+    public const int GroundEnemyFlowField = 41;
+    public const int HealthBarUI = 42;
+    public const int Health = 43;
+    public const int HitPointEffect = 44;
+    public const int Id = 45;
+    public const int LaserShooter = 46;
+    public const int LayerMask = 47;
+    public const int Level = 48;
+    public const int LevelFinished = 49;
+    public const int LightningShooter = 50;
+    public const int MaxHealth = 51;
+    public const int PartitionGrid = 52;
+    public const int Player = 53;
+    public const int PlayerWeaponDirection = 54;
+    public const int Position = 55;
+    public const int Projectile = 56;
+    public const int ProjectileLanded = 57;
+    public const int ProjectileShooter = 58;
+    public const int Radius = 59;
+    public const int RagdollAngularVelocity = 60;
+    public const int RagdollCurrentVelocity = 61;
+    public const int RagdollDeath = 62;
+    public const int RagdollRemoveTimer = 63;
+    public const int ReceivedDamage = 64;
+    public const int ReceivedFloatDamage = 65;
+    public const int Renderer = 66;
+    public const int Resource = 67;
+    public const int Rotation = 68;
+    public const int Scale = 69;
+    public const int Speed = 70;
+    public const int SpeedModifierZone = 71;
+    public const int Stunned = 72;
+    public const int Summon = 73;
+    public const int SummonFlowField = 74;
+    public const int SummonSpell = 75;
+    public const int Target = 76;
+    public const int TimerCompleted = 77;
+    public const int Timer = 78;
+    public const int Transform = 79;
+    public const int WeaponCooldown = 80;
+    public const int WeaponDisabled = 81;
+    public const int WeaponHitPoint = 82;
+    public const int WindBlower = 83;
+    public const int WindImpulse = 84;
 
-    public const int TotalComponents = 79;
+    public const int TotalComponents = 85;
 
     public static readonly string[] componentNames = {
         "AcidPuddle",
@@ -124,12 +130,15 @@ public static class GameComponentsLookup {
         "FlowFieldMover",
         "FlowFieldTarget",
         "FlowFieldTemporaryObstacle",
+        "Flying",
+        "FlyingEnemyFlowField",
         "ForcedMovement",
         "GameSceneReferences",
         "GameSetup",
         "GasCloud",
         "GasProjectile",
         "GasProjectileShooter",
+        "GroundEnemyFlowField",
         "HealthBarUI",
         "Health",
         "HitPointEffect",
@@ -161,6 +170,9 @@ public static class GameComponentsLookup {
         "Speed",
         "SpeedModifierZone",
         "Stunned",
+        "Summon",
+        "SummonFlowField",
+        "SummonSpell",
         "Target",
         "TimerCompleted",
         "Timer",
@@ -206,12 +218,15 @@ public static class GameComponentsLookup {
         typeof(FlowFieldMoverComponent),
         typeof(FlowFieldTargetComponent),
         typeof(FlowFieldTemporaryObstacleComponent),
+        typeof(FlyingComponent),
+        typeof(FlyingEnemyFlowFieldComponent),
         typeof(ForcedMovementComponent),
         typeof(GameSceneReferencesComponent),
         typeof(GameSetupComponent),
         typeof(GasCloudComponent),
         typeof(GasProjectileComponent),
         typeof(GasProjectileShooterComponent),
+        typeof(GroundEnemyFlowFieldComponent),
         typeof(HealthBarUIComponent),
         typeof(HealthComponent),
         typeof(HitPointEffectComponent),
@@ -243,6 +258,9 @@ public static class GameComponentsLookup {
         typeof(SpeedComponent),
         typeof(SpeedModifierZone),
         typeof(StunnedComponent),
+        typeof(SummonComponent),
+        typeof(SummonFlowFieldComponent),
+        typeof(SummonSpellComponent),
         typeof(TargetComponent),
         typeof(TimerCompletedComponent),
         typeof(TimerComponent),

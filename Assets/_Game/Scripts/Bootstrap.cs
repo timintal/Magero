@@ -73,6 +73,8 @@ public class Bootstrap : MonoBehaviour
                 .Add(new RotationSystem(contexts))
                 .Add(new RagdollUpdateSystem(contexts))
 
+                .Add(new SummonUpdateSystem(contexts))
+                
                 .Add(new ExplosionSystem(contexts))
                 
                 .Add(new PlayerDamageSystem(contexts))
@@ -93,11 +95,13 @@ public class Bootstrap : MonoBehaviour
                 
                 .Add(new WeaponBeamVisualizationSystem(contexts))
                 .Add(new WeaponHitPointFxUpdateSystem(contexts))
+                
                 .Add(new ArmAnimationBeamSystem(contexts))
+                .Add(new ArmAnimationCastSystem(contexts))
+                .Add(new ArmAnimationSystemForProjectiles(contexts))
                 
                 .Add(new ExplosionVisualizationSystem(contexts))
                 
-                .Add(new ArmAnimationSystemForProjectiles(contexts))
                 
                 .Add(new UpdateViewSystem(contexts))
                 .Add(new HealthBarSystem(contexts))
