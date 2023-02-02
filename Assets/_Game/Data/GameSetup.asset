@@ -165,8 +165,8 @@ MonoBehaviour:
   SummonSettings:
     Cooldown: 0.1
     Count: 1
-    UnitDamage: 10
-    UnitSpeed: 4
+    UnitDamage: 5
+    UnitSpeed: 2
     UnitRadius: 0.3
     Lifetime: 1
     SummonPrefab: {fileID: 5509589539477055301, guid: 82c19d880984a489499b511d46cf0ace,
