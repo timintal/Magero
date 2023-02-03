@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Game.UIFramework
+namespace Magero.UIFramework
 {
     public class PopupBackgroundBlocker : MonoBehaviour, IPointerDownHandler
     {

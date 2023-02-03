@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Game.UIFramework.Editor
+namespace Magero.UIFramework.Editor
 {
     [CustomPropertyDrawer(typeof(ScreenInfo))]
     public class ScreenInfoPropertyDrawer : PropertyDrawer

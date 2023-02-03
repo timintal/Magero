@@ -1,0 +1,25 @@
+.button-label {
+    background-color: rgb(144, 91, 91);
+    -unity-font-style: bold;
+    flex-grow: 1;
+}
+
+.slider-label .unity-slider__label {
+    min-width: 50px;
+}
+
+.play-button {
+    background-color: rgb(58, 76, 130);
+}
+
+.button-clicked:active {
+    background-color: rgb(115, 115, 115);
+}
+
+.play-button:active {
+    background-color: rgb(37, 50, 89);
+}
+
+.progeress_bar .unity-progress-bar__progress {
+    background-color: rgba(75, 192, 103, 255);
+}

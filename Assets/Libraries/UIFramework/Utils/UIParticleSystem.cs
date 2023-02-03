@@ -5,7 +5,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.UIFramework.Utils
+namespace Magero.UIFramework.Utils
 {
 #if UNITY_5_3_OR_NEWER
     [ExecuteInEditMode]

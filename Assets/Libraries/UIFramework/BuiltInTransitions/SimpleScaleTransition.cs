@@ -1,9 +1,9 @@
 ﻿using System;
 using DG.Tweening;
-using Game.UIFramework;
+using Magero.UIFramework;
 using UnityEngine;
 
-namespace Game.BuiltInTransitions
+namespace Magero.BuiltInTransitions
 {
     public class SimpleScaleTransition : UITransition
     {

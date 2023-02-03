@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Game.UIFramework.ScrollExtensions
+namespace Magero.UIFramework.ScrollExtensions
 {
     [RequireComponent(typeof(ScrollRect))]
     public class UIScrollSnap : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerDownHandler, IPointerUpHandler

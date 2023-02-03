@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Game.UIFramework
+namespace Magero.UIFramework
 {
     /// <summary>
     /// Screens use UITransitions to animate their in and out transitions.

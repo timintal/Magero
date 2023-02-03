@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
-using Game.UIFramework;
+using Magero.UIFramework;
 using UnityEngine;
 
-namespace Game.BuiltInTransitions
+namespace Magero.BuiltInTransitions
 {
 
     public class AnimatorTransition : UITransition

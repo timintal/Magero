@@ -4,7 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Game.UIFramework
+namespace Magero.UIFramework
 {
     /// <summary>
     /// UILayer is responsible for opening/closing screens

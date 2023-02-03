@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Game.UIFramework
+namespace Magero.UIFramework
 {
     /// <summary>
     /// Optional properties base for screens

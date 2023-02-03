@@ -39,7 +39,7 @@ public class UpdateFlowFieldSystem : IExecuteSystem
             var movers = _contexts.game.GetEntitiesWithFlowFieldMover(flowField.id.Value);
             
             IncludeMoversIntoFlowField(flowField, movers);
-            UpdateFlowFieldObstacles(flowField);
+            IncludeTempAvoidanceZones(flowField);
             flowField.flowField.SwapFields();
             
             if (_summonFlowFieldGroup.count > 0)
@@ -58,7 +58,6 @@ public class UpdateFlowFieldSystem : IExecuteSystem
                             _contexts.game.gameSetup.value.FlowFieldSettings, 1, _cellsBuffer, 1000);
                     }
 
-                    UpdateFlowFieldObstacles(summonFlowField);
                     summonFlowField.flowField.SwapFields();
                 }
             }
@@ -113,7 +112,7 @@ public class UpdateFlowFieldSystem : IExecuteSystem
         }
     }
 
-    private void UpdateFlowFieldObstacles(GameEntity flowField)
+    private void IncludeTempAvoidanceZones(GameEntity flowField)
     {
         var ffComponent = flowField.flowField;
 

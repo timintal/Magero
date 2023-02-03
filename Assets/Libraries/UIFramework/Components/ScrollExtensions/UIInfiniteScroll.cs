@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.UIFramework.Components.ScrollExtensions
+namespace Magero.UIFramework.Components.ScrollExtensions
 {
     /// <summary>
     /// Infinite scroll view with automatic configuration 

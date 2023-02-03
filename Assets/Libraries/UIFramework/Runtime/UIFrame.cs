@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.UIFramework
+namespace Magero.UIFramework
 {
     public enum OnScreenEvent
     {

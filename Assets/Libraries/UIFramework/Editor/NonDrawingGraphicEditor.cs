@@ -6,12 +6,12 @@
 /// @intended project path: Assets/Plugins/Editor/UnityEngine UI Extensions/NonDrawingGraphicEditor.cs
 /// @interwebsouce: https://gist.github.com/capnslipp/349c18283f2fea316369
 
-using Game.UIFramework.Utils;
+using Magero.UIFramework.Utils;
 using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine;
 
-namespace Game.UIFramework.Editor
+namespace Magero.UIFramework.Editor
 {
     [CanEditMultipleObjects, CustomEditor(typeof(NonDrawingGraphic), false)]
     public class NonDrawingGraphicEditor : GraphicEditor

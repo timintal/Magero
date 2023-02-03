@@ -1,10 +1,10 @@
-﻿using Game.UIFramework.ScrollExtensions;
+﻿using Magero.UIFramework.ScrollExtensions;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Game.UIFramework.Editor
+namespace Magero.UIFramework.Editor
 {
     [CustomEditor(typeof(UIScrollSnap))]
     public class UIScrollSnapEditor : UnityEditor.Editor

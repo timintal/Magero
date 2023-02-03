@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.UIFramework.Utils
+namespace Magero.UIFramework.Utils
 {
     /// <summary>
     /// Safe area implementation for notched mobile devices. Usage:

@@ -1,10 +1,10 @@
 using System;
 using DG.Tweening;
-using Game.UIFramework;
+using Magero.UIFramework;
 using UnityEngine;
 
 
-namespace Game.BuiltInTransitions
+namespace Magero.BuiltInTransitions
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class SimpleFadeTransition : UITransition

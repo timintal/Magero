@@ -6,7 +6,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Game.UIFramework.Tests.PlayModeTests
+namespace Magero.UIFramework.Tests.PlayModeTests
 {
     public class UISettingsTests
     {

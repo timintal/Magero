@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Game.UIFramework.Tests.PlayModeTests
+namespace Magero.UIFramework.Tests.PlayModeTests
 {
     public class UICallbackTests
     {
