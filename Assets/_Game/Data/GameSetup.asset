@@ -171,7 +171,8 @@ MonoBehaviour:
     Lifetime: 5
     SummonPrefab: {fileID: 5509589539477055301, guid: 82c19d880984a489499b511d46cf0ace,
       type: 3}
-    ExplosionPrefab: {fileID: 187952, guid: c05e92eaee7a00844867e5edc8e0dde1, type: 3}
+    ExplosionPrefab: {fileID: 8141597893229132638, guid: cc36d47ee27f0f24b993cf546c0452ee,
+      type: 3}
   PlayerSettings:
     Health: 20
     DistanceForDamage: 7
