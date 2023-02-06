@@ -46,6 +46,7 @@ public class ExplodableProjectileShootingSystem : ReactiveSystem<GameEntity>
             projectileEntity.AddEntityRef(e.id.Value);
             projectileEntity.AddExplodableProjectile(e.explodableProjectileShooter.ExplosionRadius);
             projectileEntity.AddDamage(e.damage.Value);
+            projectileEntity.AddAssetLink(e.explodableProjectileShooter.ExplosionPrefab);
 
             WeaponCooldownComponent.StartWeaponCooldown(e, e.projectileShooter.Cooldown, _contexts.game);
         }

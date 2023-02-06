@@ -29,6 +29,7 @@ public class LightningStrikeShootingSystem : ReactiveSystem<GameEntity>
         return entity.hasLightningShooter && 
                entity.hasTransform && 
                entity.hasDirection && 
+               entity.hasAssetLink &&
                !entity.isWeaponDisabled &&
                !entity.hasWeaponCooldown;
     }
@@ -93,7 +94,7 @@ public class LightningStrikeShootingSystem : ReactiveSystem<GameEntity>
         visualizationEntity.AddPosition(position + Vector3.up * 0.1f);
         visualizationEntity.AddRotation(Quaternion.identity);
         visualizationEntity.AddRadius(e.lightningShooter.EffectRadius);
-        visualizationEntity.AddResource(_contexts.game.gameSetup.value.LightningStrikeSettings.ImpactFx);
+        visualizationEntity.AddResource(e.assetLink.Asset);
     }
     
 }

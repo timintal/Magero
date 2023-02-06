@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da96236f6a13460ea93717a70f4d9120, type: 3}
+  m_Name: FireballSettings
+  m_EditorClassIdentifier: 
+  WeaponSprite: {fileID: 21300000, guid: 88c8f62bd7dfa4b87b6c1e623842ce38, type: 3}
+  WeaponName: Fireball
+  Cooldown: 0.75
+  Damage: 10
+  ProjectilePrefab: {fileID: 7671730865203008364, guid: 05d8dc39a59ca4726829f1680fd4b918,
+    type: 3}
+  ExplosionVisualPrefab: {fileID: 1043818705560514718, guid: 7a84eff5bd15f42b5aa7f3e592448eae,
+    type: 3}
+  ProjectileSpeed: 100
+  ExplosionRadius: 4

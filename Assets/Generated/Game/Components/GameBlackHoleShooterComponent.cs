@@ -11,7 +11,7 @@ public partial class GameEntity {
     public BlackHoleShooterComponent blackHoleShooter { get { return (BlackHoleShooterComponent)GetComponent(GameComponentsLookup.BlackHoleShooter); } }
     public bool hasBlackHoleShooter { get { return HasComponent(GameComponentsLookup.BlackHoleShooter); } }
 
-    public void AddBlackHoleShooter(float newExplosionRadius, float newBlackHolePullSpeed, float newBlackHolePullRadius, float newBlackHoleLifetime, UnityEngine.GameObject newBlackHolePrefab) {
+    public void AddBlackHoleShooter(float newExplosionRadius, float newBlackHolePullSpeed, float newBlackHolePullRadius, float newBlackHoleLifetime, UnityEngine.GameObject newBlackHolePrefab, UnityEngine.GameObject newExplosionPrefab) {
         var index = GameComponentsLookup.BlackHoleShooter;
         var component = (BlackHoleShooterComponent)CreateComponent(index, typeof(BlackHoleShooterComponent));
         component.ExplosionRadius = newExplosionRadius;
@@ -19,10 +19,11 @@ public partial class GameEntity {
         component.BlackHolePullRadius = newBlackHolePullRadius;
         component.BlackHoleLifetime = newBlackHoleLifetime;
         component.BlackHolePrefab = newBlackHolePrefab;
+        component.ExplosionPrefab = newExplosionPrefab;
         AddComponent(index, component);
     }
 
-    public void ReplaceBlackHoleShooter(float newExplosionRadius, float newBlackHolePullSpeed, float newBlackHolePullRadius, float newBlackHoleLifetime, UnityEngine.GameObject newBlackHolePrefab) {
+    public void ReplaceBlackHoleShooter(float newExplosionRadius, float newBlackHolePullSpeed, float newBlackHolePullRadius, float newBlackHoleLifetime, UnityEngine.GameObject newBlackHolePrefab, UnityEngine.GameObject newExplosionPrefab) {
         var index = GameComponentsLookup.BlackHoleShooter;
         var component = (BlackHoleShooterComponent)CreateComponent(index, typeof(BlackHoleShooterComponent));
         component.ExplosionRadius = newExplosionRadius;
@@ -30,6 +31,7 @@ public partial class GameEntity {
         component.BlackHolePullRadius = newBlackHolePullRadius;
         component.BlackHoleLifetime = newBlackHoleLifetime;
         component.BlackHolePrefab = newBlackHolePrefab;
+        component.ExplosionPrefab = newExplosionPrefab;
         ReplaceComponent(index, component);
     }
 

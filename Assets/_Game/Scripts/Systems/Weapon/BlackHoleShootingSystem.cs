@@ -43,6 +43,7 @@ public class BlackHoleShootingSystem: ReactiveSystem<GameEntity>
             projectileEntity.AddDirection(e.direction.Value);
             projectileEntity.AddSpeed(e.projectileShooter.ProjectileSpeed, e.projectileShooter.ProjectileSpeed);
             projectileEntity.AddAutoDestruction(7);
+            projectileEntity.AddAssetLink(e.blackHoleShooter.ExplosionPrefab);
             
             projectileEntity.AddBlackHoleProjectile(
                 e.blackHoleShooter.ExplosionRadius, 

@@ -342,6 +342,7 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
+  _gameSetup: {fileID: 11400000, guid: 85ffd52a4277c41c6aa5768019f5d7ef, type: 2}
   _uiSettings: {fileID: 11400000, guid: 57e9c6ddb0ced404085161170834d3ad, type: 2}
   _uiCamera: {fileID: 967138676}
 --- !u!4 &2141036078

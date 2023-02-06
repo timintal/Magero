@@ -9,6 +9,7 @@ using VContainer.Unity;
 
 public class InitialLifetimeScope : LifetimeScope
 {
+    [SerializeField] private GameSetup _gameSetup;
     [SerializeField] private UISettings _uiSettings;
     [SerializeField] private Camera _uiCamera;
     
@@ -16,9 +17,13 @@ public class InitialLifetimeScope : LifetimeScope
     
     protected override void Configure(IContainerBuilder builder)
     {
+        builder.RegisterInstance(_gameSetup);
+
         builder.Register<AutoInjectFactory>(Lifetime.Scoped).AsSelf();
         
         builder.RegisterInstance(_uiCamera);
+
+        builder.Register<WeaponControlService>(Lifetime.Singleton);
         
         RegisterUI(builder);
         RegisterFsm(builder);
@@ -60,6 +65,7 @@ public class InitialLifetimeScope : LifetimeScope
         builder.RegisterEntryPoint<DataManager>().AsSelf();
         builder.Register<IPersistentDataHandler, PlayerPrefsDataHandler>(Lifetime.Singleton);
         builder.Register<PlayerData>(Lifetime.Singleton).As<PersistentDataBase>().AsSelf();
+        builder.Register<WeaponData>(Lifetime.Singleton).As<PersistentDataBase>().AsSelf();
     }
 
     private void Start()

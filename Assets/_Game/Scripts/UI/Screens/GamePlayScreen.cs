@@ -29,6 +29,6 @@ public class GamePlayScreen : UIScreen
 
     private void OnBackButtonClicked()
     {
-        _gameFSM.GoTo<MainMenuState>();
+        _gameFSM.GoTo<UnloadGameplayState>();
     }
 }

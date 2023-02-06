@@ -20,7 +20,10 @@ public class BlackHoleProjectileImpactSystem: ReactiveSystem<GameEntity>
 
     protected override bool Filter(GameEntity entity)
     {
-        return entity.hasBlackHoleProjectile && entity.hasDamage && entity.hasPosition;
+        return entity.hasBlackHoleProjectile && 
+               entity.hasDamage &&
+               entity.hasPosition &&
+               entity.hasAssetLink;
     }
 
     protected override void Execute(List<GameEntity> entities)
@@ -41,6 +44,7 @@ public class BlackHoleProjectileImpactSystem: ReactiveSystem<GameEntity>
             blackHole.AddResource(e.blackHoleProjectile.BlackHolePrefab);
             blackHole.AddTimer(e.blackHoleProjectile.Lifetime);
             blackHole.AddBlackHole(e.blackHoleProjectile.ExplosionRadius, e.blackHoleProjectile.PullSpeed);
+            blackHole.AddAssetLink(e.assetLink.Asset);
                 
             CreateFlowFieldObstacle(e, positionValue);
         }

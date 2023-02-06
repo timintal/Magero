@@ -20,7 +20,7 @@ public class ProjectileExplodeSystem : ReactiveSystem<GameEntity>
 
     protected override bool Filter(GameEntity entity)
     {
-        return entity.hasExplodableProjectile && entity.hasDamage && entity.hasPosition;
+        return entity.hasExplodableProjectile && entity.hasDamage && entity.hasPosition && entity.hasAssetLink;
     }
 
     protected override void Execute(List<GameEntity> entities)
@@ -35,7 +35,7 @@ public class ProjectileExplodeSystem : ReactiveSystem<GameEntity>
             explosion.AddPosition(positionValue);
             explosion.AddExplosion(e.explodableProjectile.ExplosionRadius);
             explosion.AddDamage(e.damage.Value);
-            explosion.AddAssetLink(_contexts.game.gameSetup.value.FireballSetings.ExplosionVisualPrefab);
+            explosion.AddAssetLink(e.assetLink.Asset);
                 
             CreateFlowFieldObstacle(e, positionValue);
         }

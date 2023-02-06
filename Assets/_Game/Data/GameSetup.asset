@@ -12,14 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1c4ea737cd44f54aa42637abdb0b05, type: 3}
   m_Name: GameSetup
   m_EditorClassIdentifier: 
-  AddLaser: 0
-  AddFireballs: 0
-  AddLightning: 0
-  AddAcid: 0
-  AddGasCloud: 0
-  AddWind: 0
-  AddBlackHole: 0
-  AddSummon: 1
   CameraSettings:
     RotationSpeed: 40
     HorizontalBounds: {x: -50, y: 50}
@@ -71,108 +63,15 @@ MonoBehaviour:
       m_Mode: 0
       m_NumColorKeys: 3
       m_NumAlphaKeys: 2
-  FireballSetings:
-    Cooldown: 0.75
-    Damage: 10
-    ProjectilePrefab: {fileID: 7671730865203008364, guid: 05d8dc39a59ca4726829f1680fd4b918,
-      type: 3}
-    ExplosionVisualPrefab: {fileID: 1043818705560514718, guid: 7a84eff5bd15f42b5aa7f3e592448eae,
-      type: 3}
-    ProjectileSpeed: 100
-    ExplosionRadius: 4
-  LaserSettings:
-    DamagePerSecond: 60
-  LightningStrikeSettings:
-    Cooldown: 0.7
-    EffectRadius: 5
-    TargetDamage: 10
-    AOEDamage: 1
-    StunDuration: 1
-    ImpactFx: {fileID: 6772208814823110858, guid: 1ef3534a99690410db48b3baf42f3e09,
-      type: 3}
-  AcidStreamSettings:
-    Cooldown: 0
-    PoolRadius: 1
-    PuddlePrefab: {fileID: 7979384038678166815, guid: 22bba0a77eaf94d6698748f7b2cbff96,
-      type: 3}
-    DamagePerSecond: 1.5
-    PuddleLifetime: 2
-    RefreshTimestamp: 0.9
-    RadiusCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 13.169317
-        outSlope: 13.169317
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0.08858561
-      - serializedVersion: 3
-        time: 0.1
-        value: 1
-        inSlope: 0.017084552
-        outSlope: 0.017084552
-        tangentMode: 1
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1.02
-        value: 0.040000916
-        inSlope: -3.3875105
-        outSlope: -3.3875105
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.05227101
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  GasCloudSettings:
-    Cooldown: 0.75
-    Damage: 0.5
-    ProjectilePrefab: {fileID: 7671730865203008364, guid: 08823d26b0f72460e8e243eb1abf6534,
-      type: 3}
-    CloudPrefab: {fileID: 3676044374875549090, guid: 102a497a34fda4f1b90212115baf456b,
-      type: 3}
-    ProjectileSpeed: 100
-    CloudRadius: 4
-    CloudSpeedMultiplier: 0.3
-    CloudLifetime: 6
-  WindGustSettings:
-    Damage: 0.1
-    PushSpeed: 10
-    PushDamping: 10
-    WindStreamRadius: 5
-    MaxDistance: 70
-  BlackHoleSettings:
-    Cooldown: 2
-    Damage: 10
-    ExplosionRadius: 4
-    PullSpeed: 4
-    PullRadius: 8
-    Lifetime: 2
-    ProjectileSpeed: 100
-    ProjectilePrefab: {fileID: 7671730865203008364, guid: b9e30c6c4bbc54a00bb679b2df861185,
-      type: 3}
-    BlackHolePrefab: {fileID: 3676044374875549090, guid: 292cb758b2c974fe2a19026dc3d76b3d,
-      type: 3}
-    ExplosionPrefab: {fileID: 1043818705560514718, guid: 7a84eff5bd15f42b5aa7f3e592448eae,
-      type: 3}
-  SummonSettings:
-    Cooldown: 0.1
-    Count: 1
-    UnitDamage: 5
-    UnitSpeed: 2
-    UnitRadius: 0.3
-    Lifetime: 5
-    SummonPrefab: {fileID: 5509589539477055301, guid: 82c19d880984a489499b511d46cf0ace,
-      type: 3}
-    ExplosionPrefab: {fileID: 8141597893229132638, guid: cc36d47ee27f0f24b993cf546c0452ee,
-      type: 3}
+  WeaponSettings:
+  - {fileID: 11400000, guid: ed7802a8590684087bef1f34bd398547, type: 2}
+  - {fileID: 11400000, guid: 4bb25b1c72dc8458c9af6c7957e679ba, type: 2}
+  - {fileID: 11400000, guid: 9b0623cf7ff8f435f9512d023f312302, type: 2}
+  - {fileID: 11400000, guid: 816acd474462648e49eed32028f8b72a, type: 2}
+  - {fileID: 11400000, guid: 51f9a3637a5144267b7dab37bdc4c951, type: 2}
+  - {fileID: 11400000, guid: 975777992c2534680b373af6e9e449a9, type: 2}
+  - {fileID: 11400000, guid: 4633ac0eaa18c4a8e9eceeec7334872a, type: 2}
+  - {fileID: 11400000, guid: 13d48f6eb049c4b91a5a557b121a1703, type: 2}
   PlayerSettings:
     Health: 20
     DistanceForDamage: 7

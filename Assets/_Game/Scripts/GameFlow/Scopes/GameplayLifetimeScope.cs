@@ -7,7 +7,7 @@ using VContainer.Unity;
 
 public class GameplayLifetimeScope : LifetimeScope
 {
-    [SerializeField] private GameSetup _gameSetup;
+    
     [SerializeField] private UnitStatsService _unitStatsService;
     [SerializeField] GameSceneReferences _gameSceneReferences;
     [SerializeField] private Camera _mainCamera;
@@ -16,7 +16,6 @@ public class GameplayLifetimeScope : LifetimeScope
 
     protected override void Configure(IContainerBuilder builder)
     {
-        builder.RegisterInstance(_gameSetup);
         builder.RegisterInstance(_gameSceneReferences);
 
         builder.Register<PoolService>(Lifetime.Singleton);

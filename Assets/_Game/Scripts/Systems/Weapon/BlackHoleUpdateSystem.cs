@@ -11,7 +11,11 @@ public class BlackHoleUpdateSystem : IExecuteSystem
     public BlackHoleUpdateSystem(Contexts contexts)
     {
         _contexts = contexts;
-        _blackHoleGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.BlackHole, GameMatcher.Position, GameMatcher.Radius, GameMatcher.Attacker));
+        _blackHoleGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.BlackHole, 
+            GameMatcher.Position, 
+            GameMatcher.Radius,
+            GameMatcher.Attacker,
+            GameMatcher.AssetLink));
         _queryResults = new Collider[2048];
     }
 
@@ -53,7 +57,7 @@ public class BlackHoleUpdateSystem : IExecuteSystem
                 explosionEntity.AddPosition(e.position.Value);
                 explosionEntity.AddExplosion(e.blackHole.ExplosionRadius);
                 explosionEntity.AddDamage(e.damage.Value);
-                explosionEntity.AddAssetLink(_contexts.game.gameSetup.value.BlackHoleSettings.ExplosionPrefab);
+                explosionEntity.AddAssetLink(e.assetLink.Asset);
             }
         }
     }

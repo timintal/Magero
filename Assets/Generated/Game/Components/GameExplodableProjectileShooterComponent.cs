@@ -11,17 +11,19 @@ public partial class GameEntity {
     public ExplodableProjectileShooterComponent explodableProjectileShooter { get { return (ExplodableProjectileShooterComponent)GetComponent(GameComponentsLookup.ExplodableProjectileShooter); } }
     public bool hasExplodableProjectileShooter { get { return HasComponent(GameComponentsLookup.ExplodableProjectileShooter); } }
 
-    public void AddExplodableProjectileShooter(float newExplosionRadius) {
+    public void AddExplodableProjectileShooter(float newExplosionRadius, UnityEngine.GameObject newExplosionPrefab) {
         var index = GameComponentsLookup.ExplodableProjectileShooter;
         var component = (ExplodableProjectileShooterComponent)CreateComponent(index, typeof(ExplodableProjectileShooterComponent));
         component.ExplosionRadius = newExplosionRadius;
+        component.ExplosionPrefab = newExplosionPrefab;
         AddComponent(index, component);
     }
 
-    public void ReplaceExplodableProjectileShooter(float newExplosionRadius) {
+    public void ReplaceExplodableProjectileShooter(float newExplosionRadius, UnityEngine.GameObject newExplosionPrefab) {
         var index = GameComponentsLookup.ExplodableProjectileShooter;
         var component = (ExplodableProjectileShooterComponent)CreateComponent(index, typeof(ExplodableProjectileShooterComponent));
         component.ExplosionRadius = newExplosionRadius;
+        component.ExplosionPrefab = newExplosionPrefab;
         ReplaceComponent(index, component);
     }
 

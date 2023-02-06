@@ -9,4 +9,6 @@ public class BlackHoleShooterComponent : IComponent
     public float BlackHolePullRadius;
     public float BlackHoleLifetime;
     public GameObject BlackHolePrefab;
+    public GameObject ExplosionPrefab;
+    
 }

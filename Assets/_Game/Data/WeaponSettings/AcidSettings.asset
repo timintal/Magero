@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ceef57aa64b4fe7951e64dfa09ac09a, type: 3}
+  m_Name: AcidSettings
+  m_EditorClassIdentifier: 
+  WeaponSprite: {fileID: 21300000, guid: d687be31ab5d84ca8ad33ebce69d62e5, type: 3}
+  WeaponName: Acid
+  Cooldown: 0
+  PoolRadius: 1
+  PuddlePrefab: {fileID: 7979384038678166815, guid: 22bba0a77eaf94d6698748f7b2cbff96,
+    type: 3}
+  Damage: 1.5
+  PuddleLifetime: 2
+  RefreshTimestamp: 0.9
+  RadiusCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.014556885
+      value: -0.0066223145
+      inSlope: 11.760351
+      outSlope: 11.760351
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.10002725
+      value: 0.9985392
+      inSlope: 0.13564472
+      outSlope: 0.13564472
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.05385383
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.3215384
+      outSlope: -2.3215384
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.039658412
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

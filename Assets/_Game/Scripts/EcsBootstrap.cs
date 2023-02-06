@@ -45,7 +45,7 @@ public class EcsBootstrap : MonoBehaviour, IDisposable
     private Systems CreateSystems(Contexts contexts)
     {
         return new Feature("Game")
-                .Add(new PlayerInitializeSystem(contexts))
+                .Add(new PlayerInitializeSystem(contexts, _playerData))
                 .Add(new LevelStageActivationSystem(contexts))
                 
                 .Add(new ColliderCacheSystem(contexts))

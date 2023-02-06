@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c914727c3544421ad3ce8b8a34d8009, type: 3}
+  m_Name: LightningSettings
+  m_EditorClassIdentifier: 
+  WeaponSprite: {fileID: 21300000, guid: 443ce8f427ef94893a407ad7da2b4900, type: 3}
+  WeaponName: Lightning
+  Cooldown: 0.7
+  EffectRadius: 5
+  TargetDamage: 10
+  AOEDamage: 1
+  StunDuration: 1
+  ImpactFx: {fileID: 6772208814823110858, guid: 1ef3534a99690410db48b3baf42f3e09,
+    type: 3}
