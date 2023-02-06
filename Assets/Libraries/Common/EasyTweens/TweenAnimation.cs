@@ -138,6 +138,16 @@ namespace EasyTweens
         
 #if UNITY_EDITOR
 
+        [ContextMenu("Show All Children")]
+        void ShowAllChildren()
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                var child = transform.GetChild(i);
+                child.gameObject.hideFlags = HideFlags.None;
+            }
+        }
+        
         public void SubscribeToEditorUpdates()
         {
             EditorApplication.update += EditorUpdate;
@@ -160,7 +170,7 @@ namespace EasyTweens
                     Update();
                 }
             }
-            catch (Exception _)
+            catch 
             {
                 //could throw when prefab editor is closed, we don't care
             }

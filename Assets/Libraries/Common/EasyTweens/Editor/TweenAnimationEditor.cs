@@ -113,12 +113,15 @@ namespace EasyTweens
         private void SetupFactorProgressBar(SerializedObject animObj)
         {
             ProgressBar factorProgressBar = rootElement.Q<ProgressBar>("Factor");
+            Label label = rootElement.Q<Label>("FactorLabel");
             factorUpdateAction = pos =>
             {
                 animation.enabled = false;
                 float factor = pos.x / factorProgressBar.layout.width * animation.duration;
+                // label.text = (factor * animation.duration).ToString("F1");
                 animation.SetFactor(factor);
                 factorProgressBar.value = pos.x / factorProgressBar.layout.width;
+                factorProgressBar.title = (factor).ToString("F2");
             };
             //
             factorProgressBar.RegisterCallback<MouseDownEvent>(mde =>
@@ -197,8 +200,15 @@ namespace EasyTweens
                 tweenTypes.Add(type);
                 PropertyInfo pi = type.GetProperty("TweenName",
                     BindingFlags.Public | BindingFlags.Static | BindingFlags.GetProperty);
-                
-                choices.Add((string)pi.GetValue(null));
+
+                if (pi != null)
+                {
+                    choices.Add((string) pi.GetValue(null));
+                }
+                else
+                {
+                    choices.Add(type.Name);
+                }
             }
 
             var tweensDropdown = rootElement.Q<DropdownField>("AddTween");
@@ -221,6 +231,7 @@ namespace EasyTweens
             newTweenGO.transform.parent = animation.transform;
             newTweenGO.hideFlags = HideFlags.HideInHierarchy;
             TweenBase tween = (TweenBase)newTweenGO.AddComponent(tweenType);
+            tween.curve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(1, 1));
             animation.tweens.Add(tween);
             FillTweenEditors();
         }

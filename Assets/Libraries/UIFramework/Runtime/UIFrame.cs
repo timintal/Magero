@@ -362,5 +362,16 @@ namespace Magero.UIFramework
                 actionDict[screen] -= cb;
             }
         }
+
+        [PublicAPI]
+        public void RemoveAllEventsForScreen<T>(OnScreenEvent ev)
+        {
+            var actionDict = _onSpecificScreenEvent[(int) ev];
+            var screen = typeof(T);
+            if (actionDict.ContainsKey(screen))
+            {
+                actionDict[screen] = null;
+            }
+        }
     }
 }

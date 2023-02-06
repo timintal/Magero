@@ -21,5 +21,17 @@
 }
 
 .progeress_bar .unity-progress-bar__progress {
-    background-color: rgba(75, 192, 103, 255);
+    background-color: rgb(75, 192, 103);
+}
+
+#Duration .unity-base-field__label {
+    min-width: 90px;
+}
+
+#PlayOnAwake .unity-base-field__label {
+    min-width: 90px;
+}
+
+#LoopType .unity-base-field__label {
+    min-width: 90px;
 }

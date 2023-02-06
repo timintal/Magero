@@ -11,14 +11,14 @@ public partial class GameEntity {
     public MaxHealthComponent maxHealth { get { return (MaxHealthComponent)GetComponent(GameComponentsLookup.MaxHealth); } }
     public bool hasMaxHealth { get { return HasComponent(GameComponentsLookup.MaxHealth); } }
 
-    public void AddMaxHealth(int newValue) {
+    public void AddMaxHealth(float newValue) {
         var index = GameComponentsLookup.MaxHealth;
         var component = (MaxHealthComponent)CreateComponent(index, typeof(MaxHealthComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceMaxHealth(int newValue) {
+    public void ReplaceMaxHealth(float newValue) {
         var index = GameComponentsLookup.MaxHealth;
         var component = (MaxHealthComponent)CreateComponent(index, typeof(MaxHealthComponent));
         component.Value = newValue;

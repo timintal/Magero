@@ -64,3 +64,9 @@ crashlytics-build.properties
 UserSettings/
 
 *.unitypackage.meta
+
+*.idea/
+
+DataClassExtensions/DataClassExtensions/bin/
+
+DataClassExtensions/DataClassExtensions/obj/

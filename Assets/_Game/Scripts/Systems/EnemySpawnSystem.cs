@@ -1,16 +1,29 @@
 using System.Collections.Generic;
+using _Game.Data;
 using Entitas;
 using UnityEngine;
 
 public class EnemySpawnSystem : ReactiveSystem<GameEntity>
 {
     Contexts _contexts;
+    private readonly IUnitHealthProvider _healthProvider;
+    private readonly IUnitMovementSpeedProvider _unitMovementSpeedProvider;
+    private readonly IUnitDamageProvider _unitDamageProvider;
+    private readonly PlayerData _playerData;
     private IGroup<GameEntity> _groundEnemyFlowFieldGroup;
     private IGroup<GameEntity> _flyingEnemyFlowFieldGroup;
 
-    public EnemySpawnSystem(Contexts contexts) : base(contexts.game)
+    public EnemySpawnSystem(Contexts contexts, 
+        IUnitHealthProvider healthProvider,
+        IUnitMovementSpeedProvider unitMovementSpeedProvider,
+        IUnitDamageProvider unitDamageProvider,
+        PlayerData playerData) : base(contexts.game)
     {
         _contexts = contexts;
+        _healthProvider = healthProvider;
+        _unitMovementSpeedProvider = unitMovementSpeedProvider;
+        _unitDamageProvider = unitDamageProvider;
+        _playerData = playerData;
         _groundEnemyFlowFieldGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField, GameMatcher.GroundEnemyFlowField));
         _flyingEnemyFlowFieldGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField, GameMatcher.FlyingEnemyFlowField));
     }
@@ -38,9 +51,13 @@ public class EnemySpawnSystem : ReactiveSystem<GameEntity>
             {
                 var enemyEntity = _contexts.game.CreateEntity();
                 enemyEntity.AddResource(e.enemySpawnRequest.EnemySettings.Prefab);
-                enemyEntity.AddSpeed(e.enemySpawnRequest.EnemySettings.Speed, e.enemySpawnRequest.EnemySettings.Speed);
-                enemyEntity.AddHealth(e.enemySpawnRequest.EnemySettings.Health);
-                enemyEntity.AddMaxHealth(e.enemySpawnRequest.EnemySettings.Health);
+                var unitType = e.enemySpawnRequest.EnemySettings.Type;
+                var speed = _unitMovementSpeedProvider.GetSpeed(unitType, _playerData.PlayerLevel);
+                enemyEntity.AddSpeed(speed, speed);
+                var health = _healthProvider.GetHealth(unitType, _playerData.PlayerLevel);
+                enemyEntity.AddHealth(health);
+                enemyEntity.AddMaxHealth(health);
+                enemyEntity.AddDamage(_unitDamageProvider.GetDamage(unitType, _playerData.PlayerLevel));
                 enemyEntity.AddRadius(e.enemySpawnRequest.EnemySettings.Radius);
                 enemyEntity.AddTarget(TargetType.Enemy);
                 enemyEntity.AddAnimatorSpeedSync(Animator.StringToHash("SpeedFactor"));

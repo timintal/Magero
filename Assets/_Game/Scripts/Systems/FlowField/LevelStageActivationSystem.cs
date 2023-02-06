@@ -62,7 +62,7 @@ public class LevelStageActivationSystem : ReactiveSystem<GameEntity>
             }
             else
             {
-                level.isLevelFinished = true;
+                level.ReplaceLevelFinished(true);
             }
         }
     }

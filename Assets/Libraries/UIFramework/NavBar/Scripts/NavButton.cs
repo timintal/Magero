@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 namespace Magero.UIFramework.Components.NavBar
 {
+    [RequireComponent(typeof(Button))]
     public class NavButton : MonoBehaviour
     {
 
@@ -47,6 +48,8 @@ namespace Magero.UIFramework.Components.NavBar
             Debug.AssertFormat(_rectTransform != null, $"NavButton ${name} has no rect transform, this will crash!");
             _iconTransform = icon.GetComponent<RectTransform>();
             label.DOFade(0, 0);
+            var button = gameObject.GetComponent<Button>();
+            button.onClick.AddListener(OnClick);
         }
 
         internal void Init(int index, NavButtonData nbd, UIFrame uiFrame, float initialWidth)
@@ -55,6 +58,8 @@ namespace Magero.UIFramework.Components.NavBar
             ScreenID = nbd.prefab.GetType();
             _labelLocID = nbd.name;
 
+            label.text = nbd.name;
+            
             icon.sprite = nbd.icon;
 
             uiFrame.AddEventForAllScreens(OnScreenEvent.Created, (screen) =>

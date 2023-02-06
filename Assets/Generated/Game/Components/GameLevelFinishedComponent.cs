@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly LevelFinishedComponent levelFinishedComponent = new LevelFinishedComponent();
+    public LevelFinishedComponent levelFinished { get { return (LevelFinishedComponent)GetComponent(GameComponentsLookup.LevelFinished); } }
+    public bool hasLevelFinished { get { return HasComponent(GameComponentsLookup.LevelFinished); } }
 
-    public bool isLevelFinished {
-        get { return HasComponent(GameComponentsLookup.LevelFinished); }
-        set {
-            if (value != isLevelFinished) {
-                var index = GameComponentsLookup.LevelFinished;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : levelFinishedComponent;
+    public void AddLevelFinished(bool newIsWin) {
+        var index = GameComponentsLookup.LevelFinished;
+        var component = (LevelFinishedComponent)CreateComponent(index, typeof(LevelFinishedComponent));
+        component.IsWin = newIsWin;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceLevelFinished(bool newIsWin) {
+        var index = GameComponentsLookup.LevelFinished;
+        var component = (LevelFinishedComponent)CreateComponent(index, typeof(LevelFinishedComponent));
+        component.IsWin = newIsWin;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveLevelFinished() {
+        RemoveComponent(GameComponentsLookup.LevelFinished);
     }
 }
 

@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BasicShapes
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 3
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 7c16d6465f6653d4f86becc0634919e1, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f5e2a80066e0e4e16a7fd5f954008ac4, type: 3}
+  - {fileID: 21300000, guid: 587626188a6cc394b921f63593ebefb5, type: 3}
+  - {fileID: 21300000, guid: da1157f90921e5042807bec90edde801, type: 3}
+  - {fileID: 21300000, guid: 5091e98c9223d7f4d870f1c848afc543, type: 3}
+  - {fileID: 21300000, guid: b7d81a6e9dd44fd47a2cee681889c064, type: 3}
+  - {fileID: 21300000, guid: 6e2c529f9edd16d4ca7da26d0566db79, type: 3}
+  - {fileID: 21300000, guid: 45e803ff6b188d848b1763e773e09dc1, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - basicCircleSmall
+  - basicSquareRounded
+  - basicSquareRoundedOutline
+  - basicSquareOutline
+  - basicCircle
+  - basicSquare
+  - basicCircleOutline
+  m_RenderDataMap: {}
+  m_Tag: BasicShapes
+  m_IsVariant: 0

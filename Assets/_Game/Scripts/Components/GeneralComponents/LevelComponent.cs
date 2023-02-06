@@ -15,5 +15,5 @@ public class CurrentLevelStageComponent : IComponent
 [Game]
 public class LevelFinishedComponent : IComponent
 {
-    
+    public bool IsWin;
 }

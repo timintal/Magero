@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
@@ -66,7 +67,7 @@ namespace EasyTweens
             PropertyInfo pi = tween.GetType().GetProperty("TweenName",
                 BindingFlags.Public | BindingFlags.Static | BindingFlags.GetProperty);
 
-            mainFoldout.text = ((string) pi.GetValue(null)) + goName;
+            mainFoldout.text = (pi != null ? ((string) pi.GetValue(null)) : tween.GetType().Name) + goName;
         }
 
         void BindProperties()
@@ -77,7 +78,6 @@ namespace EasyTweens
             CurveField curveField = this.Q<CurveField>("Curve");
             FloatField delayField = this.Q<FloatField>("Delay");
             FloatField durationField = this.Q<FloatField>("Duration");
-            
             
             SerializedObject so = new SerializedObject(tween);
             SerializedProperty targetProp = so.FindProperty("target");
@@ -93,6 +93,11 @@ namespace EasyTweens
             curveField.BindProperty(curveProp);
             delayField.BindProperty(delayProp);
             durationField.BindProperty(durationProp);
+            
+            target.AddToClassList("min-label");
+            target.EnableInClassList("min-label", true);
+            
+            BindAdditionalParams();
             
             durationField.RegisterCallback<ChangeEvent<float>>(evt =>
             {
@@ -129,7 +134,22 @@ namespace EasyTweens
         {
             delayDurationSlider.minValue = tween.delay / mainAnimationEditor.Animation.duration;
             delayDurationSlider.maxValue = (tween.delay + tween.duration) / mainAnimationEditor.Animation.duration;
+        }
 
+        void BindAdditionalParams()
+        {
+            SerializedObject so = new SerializedObject(tween);
+            var fields = tween.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly).Where(info => info.IsDefined(typeof(ExposeInEditorAttribute), false));
+
+            var parent = this.Q<VisualElement>("AdditionalProperties");
+
+            foreach (var field in fields)
+            {
+                var serializedProperty = so.FindProperty(field.Name);
+                PropertyField propertyField = new PropertyField(serializedProperty);
+                propertyField.BindProperty(serializedProperty);
+                parent.Add(propertyField);
+            }
         }
 
     }

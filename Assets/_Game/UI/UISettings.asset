@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414062f9d9180b24eb66136c31c0fe4c, type: 3}
   m_Name: UISettings
   m_EditorClassIdentifier: 
-  renderMode: 0
+  renderMode: 1
   sortingLayerName: UI
   orderInLayer: 10000
   screenMatchMode: 1
@@ -26,13 +26,37 @@ MonoBehaviour:
     Screens: []
   - Name: Default
     LayerType: 0
-    Screens: []
-  - Name: Foreground
+    Screens:
+    - Prefab: {fileID: 4690169969121199990, guid: 3e0975c9680984778a257fd7a83ebec4,
+        type: 3}
+      LoadOnDemand: 1
+      DestroyOnClose: 0
+      CloseWithEscape: 0
+      CloseWithBgClick: 0
+  - Name: NavBar
     LayerType: 0
-    Screens: []
+    Screens:
+    - Prefab: {fileID: 1275890637186989305, guid: b5b9d55abc9334f3fa5fac6ea7da33f0,
+        type: 3}
+      LoadOnDemand: 1
+      DestroyOnClose: 0
+      CloseWithEscape: 0
+      CloseWithBgClick: 0
   - Name: Popups
     LayerType: 1
-    Screens: []
+    Screens:
+    - Prefab: {fileID: 1860527943651017544, guid: 629ebee4188794034915ccf8416ec975,
+        type: 3}
+      LoadOnDemand: 1
+      DestroyOnClose: 1
+      CloseWithEscape: 0
+      CloseWithBgClick: 0
+    - Prefab: {fileID: 762842006153383435, guid: f68e5390be8004d40a5f965e3e2c9976,
+        type: 3}
+      LoadOnDemand: 1
+      DestroyOnClose: 1
+      CloseWithEscape: 0
+      CloseWithBgClick: 0
   - Name: Overlay
     LayerType: 0
     Screens: []

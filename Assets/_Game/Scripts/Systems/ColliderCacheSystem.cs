@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
-public class ColliderCacheSystem : ReactiveSystem<GameEntity>, IInitializeSystem
+public class ColliderCacheSystem : ReactiveSystem<GameEntity>, IInitializeSystem, ITearDownSystem
 {
     Contexts _contexts;
 
@@ -49,5 +49,11 @@ public class ColliderCacheSystem : ReactiveSystem<GameEntity>, IInitializeSystem
     public void Initialize()
     {
         _contexts.game.SetColliderCache(new Dictionary<Collider, int>());
+    }
+
+    public void TearDown()
+    {
+        _contexts.game.OnEntityWillBeDestroyed -= GameOnEntityWillBeDestroyed;
+        
     }
 }

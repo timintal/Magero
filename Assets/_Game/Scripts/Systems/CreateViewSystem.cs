@@ -3,7 +3,7 @@ using Entitas;
 using Entitas.Unity;
 using UnityEngine;
 
-public class CreateViewSystem : ReactiveSystem<GameEntity>
+public class CreateViewSystem : ReactiveSystem<GameEntity>, ITearDownSystem
 {
     private Contexts _contexts;
     private readonly PoolService _poolService;
@@ -54,6 +54,21 @@ public class CreateViewSystem : ReactiveSystem<GameEntity>
             }
             
             obj.gameObject.Link(entity);
+        }
+    }
+
+    public void TearDown()
+    {
+        var viewGroup = _contexts.game.GetGroup(GameMatcher.Transform);
+        foreach (var e in viewGroup.GetEntities())
+        {
+            if (e.transform.Transform == null) continue;
+            
+            var entityLink = e.transform.Transform.gameObject.GetEntityLink();
+            if (entityLink != null)
+            {
+                entityLink.Unlink();
+            }
         }
     }
 }
