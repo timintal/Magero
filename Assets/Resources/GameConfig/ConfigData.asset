@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9507c9a997fa0564f8464a521c70995f, type: 3}
+  m_Name: ConfigData
+  m_EditorClassIdentifier: 
+  GoogleSpreadsheetCredentialFileUri: ./Assets/Libraries/Common/GameConfig/client_secret.json
+  Debug_UseLocalConfigModel: 0
+  Debug_AlwaysDownloadFromCDN: 0
+  Debug_TestProdCDN: 0
+  Sheets:
+  - ID: MageroConfig
+    URL: 1ST-O4nPhqhckFBE8GiJyOFCQGlYhhj_9rtgBHO9ABSo
+    LoadByDefault: 1
+  S3Path: 
+  Version: 6

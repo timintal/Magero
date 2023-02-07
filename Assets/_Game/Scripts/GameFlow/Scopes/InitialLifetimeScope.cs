@@ -1,6 +1,7 @@
 using _Game.Data;
 using _Game.Flow;
 using Game.Common;
+using Game.Config.Model;
 using Magero.UIFramework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,7 +13,6 @@ public class InitialLifetimeScope : LifetimeScope
     [SerializeField] private GameSetup _gameSetup;
     [SerializeField] private UISettings _uiSettings;
     [SerializeField] private Camera _uiCamera;
-    [SerializeField] private EnemyStatsService _enemyStats;
     
     private UIFrame _uiFrame;
     
@@ -26,7 +26,9 @@ public class InitialLifetimeScope : LifetimeScope
 
         builder.Register<WeaponControlService>(Lifetime.Singleton);
 
-        builder.RegisterInstance(_enemyStats).AsImplementedInterfaces();
+
+        builder.Register<GameConfig>(Lifetime.Singleton);
+        builder.RegisterEntryPoint<EnemyStatsConfig>();
         
         RegisterUI(builder);
         RegisterFsm(builder);
@@ -77,6 +79,7 @@ public class InitialLifetimeScope : LifetimeScope
         _uiFrame.Initialize(_uiCamera);
 
         Container.Resolve<GameFSM>().GoTo<MainMenuState>();
+        Container.Resolve<GameConfig>().Init(null);
         
         AddCheats();
     }
