@@ -12,6 +12,7 @@ public class InitialLifetimeScope : LifetimeScope
     [SerializeField] private GameSetup _gameSetup;
     [SerializeField] private UISettings _uiSettings;
     [SerializeField] private Camera _uiCamera;
+    [SerializeField] private EnemyStatsService _enemyStats;
     
     private UIFrame _uiFrame;
     
@@ -24,6 +25,8 @@ public class InitialLifetimeScope : LifetimeScope
         builder.RegisterInstance(_uiCamera);
 
         builder.Register<WeaponControlService>(Lifetime.Singleton);
+
+        builder.RegisterInstance(_enemyStats).AsImplementedInterfaces();
         
         RegisterUI(builder);
         RegisterFsm(builder);

@@ -8,7 +8,6 @@ using VContainer.Unity;
 public class GameplayLifetimeScope : LifetimeScope
 {
     
-    [SerializeField] private UnitStatsService _unitStatsService;
     [SerializeField] GameSceneReferences _gameSceneReferences;
     [SerializeField] private Camera _mainCamera;
 
@@ -20,7 +19,6 @@ public class GameplayLifetimeScope : LifetimeScope
 
         builder.Register<PoolService>(Lifetime.Singleton);
         builder.Register<Contexts>(Lifetime.Scoped);
-        builder.RegisterInstance(_unitStatsService).AsImplementedInterfaces();
 
         SetupCamera();
     }

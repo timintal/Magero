@@ -8,13 +8,12 @@ using VContainer;
 
 public class MageScreen : NavBarScreen
 {
-    [SerializeField] private Image _leftHandWeapon;
-    [SerializeField] private Image _rightHandWeapon;
-
-    [SerializeField] private Button _clearLeftHandButton;
-    [SerializeField] private Button _clearRightHandButton;
+    [SerializeField] private WeaponSlot _leftHandWeapon;
+    [SerializeField] private WeaponSlot _rightHandWeapon;
 
     [SerializeField] private WeaponSlot _slotTemplate;
+    [SerializeField] private Button _upgradeLeftButton;
+    [SerializeField] private Button _upgradeRightButton;
 
     private List<WeaponSlot> _weaponSlots = new();
 
@@ -22,27 +21,7 @@ public class MageScreen : NavBarScreen
     private PlayerData _playerData;
     private WeaponData _weaponData;
     private GameSetup _gameSetup;
-
-    void OnEnable()
-    {
-        _clearLeftHandButton.onClick.AddListener(() =>
-        {
-            _playerData.LeftHandWeapon = WeaponType.None;
-            UpdateSelectedWeapon();
-        });
-        _clearRightHandButton.onClick.AddListener(() =>
-        {
-            _playerData.RightHandWeapon = WeaponType.None;
-            UpdateSelectedWeapon();
-        });
-    }
-
-    void OnDisable()
-    {
-        _clearLeftHandButton.onClick.RemoveAllListeners();
-        _clearRightHandButton.onClick.RemoveAllListeners();
-    }
-
+    
     [Inject, UsedImplicitly]
     public void SetDependencies(WeaponControlService controlService, PlayerData playerData, WeaponData weaponData,
         GameSetup gameSetup)
@@ -53,55 +32,93 @@ public class MageScreen : NavBarScreen
         _gameSetup = gameSetup;
     }
 
+    void OnEnable()
+    {
+        _upgradeLeftButton.onClick.AddListener(() =>
+        {
+            _weaponData.UpgradeWeaponLevel(_playerData.LeftHandWeapon);
+            UpdateSelectedWeapon();
+        });
+        _upgradeRightButton.onClick.AddListener(() =>
+        {
+            _weaponData.UpgradeWeaponLevel(_playerData.RightHandWeapon);
+            UpdateSelectedWeapon();
+        });
+    }
+
+    void OnDisable()
+    {
+        _upgradeLeftButton.onClick.RemoveAllListeners();
+        _upgradeRightButton.onClick.RemoveAllListeners();
+    }
+    
     protected override void OnOpening()
     {
         UpdateSelectedWeapon();
 
         CreateWeaponSlots();
+        
     }
 
     private void UpdateSelectedWeapon()
     {
-        var leftHandWeapon = _gameSetup.GetWeaponSettings(_playerData.LeftHandWeapon);
-        var rightHandWeapon = _gameSetup.GetWeaponSettings(_playerData.RightHandWeapon);
+        var leftSettings = _gameSetup.GetWeaponSettings(_playerData.LeftHandWeapon);
+        var rightSettings = _gameSetup.GetWeaponSettings(_playerData.RightHandWeapon);
 
-        if (leftHandWeapon != null)
+        if (leftSettings != null)
         {
-            _leftHandWeapon.sprite = leftHandWeapon.WeaponSprite;
+            _leftHandWeapon.DeInit();
+            _leftHandWeapon.Init(leftSettings, _weaponData,
+                () =>
+                {
+                    _playerData.LeftHandWeapon = WeaponType.None;
+                    UpdateSelectedWeapon();
+                });
         }
         else
         {
-            _leftHandWeapon.sprite = null;
+            _leftHandWeapon.Clear();
         }
 
-        if (rightHandWeapon != null)
+        if (rightSettings != null)
         {
-            _rightHandWeapon.sprite = rightHandWeapon.WeaponSprite;
+            _rightHandWeapon.DeInit();
+            _rightHandWeapon.Init(rightSettings, _weaponData,
+                () =>
+                {
+                    _playerData.RightHandWeapon = WeaponType.None;
+                    UpdateSelectedWeapon();
+                });
         }
         else
         {
-            _rightHandWeapon.sprite = null;
+            _rightHandWeapon.Clear();
         }
     }
 
-    void CreateWeaponSlots()
+    protected override void OnClosed()
     {
         foreach (var weaponSlot in _weaponSlots)
         {
+            weaponSlot.DeInit();
             Destroy(weaponSlot.gameObject);
         }
 
         _weaponSlots.Clear();
+    }
 
+    void CreateWeaponSlots()
+    {
         foreach (var weaponSetting in _gameSetup.WeaponSettings)
         {
             var weaponSlot = Instantiate(_slotTemplate, _slotTemplate.transform.parent);
             weaponSlot.gameObject.SetActive(true);
-            weaponSlot.Init(weaponSetting.WeaponSprite, weaponSetting.WeaponName, () =>
+            weaponSlot.Init(weaponSetting, _weaponData, () =>
             {
                 _weaponControlService.EquipWeapon(weaponSetting.Type);
                 UpdateSelectedWeapon();
             });
+            
             _weaponSlots.Add(weaponSlot);
         }
     }
