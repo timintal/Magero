@@ -29,7 +29,8 @@ public class LightningStrikeShootingSystem : ReactiveSystem<GameEntity>
         return entity.hasLightningShooter && 
                entity.hasTransform && 
                entity.hasDirection && 
-               entity.hasAssetLink &&
+               entity.hasAssetLink && 
+               entity.hasAttacker &&
                !entity.isWeaponDisabled &&
                !entity.hasWeaponCooldown;
     }
@@ -60,7 +61,7 @@ public class LightningStrikeShootingSystem : ReactiveSystem<GameEntity>
                     }
                 }
 
-                var collidersCount = Physics.OverlapSphereNonAlloc(hit.point, e.lightningShooter.EffectRadius, _queryResults, LayerMask.GetMask("Enemy"));
+                var collidersCount = Physics.OverlapSphereNonAlloc(hit.point, e.lightningShooter.EffectRadius, _queryResults, e.attacker.TargetMask);
                 for (int i = 0; i < collidersCount; i++)
                 {
                     if (colliderCacheColliderCacheMap.ContainsKey(_queryResults[i]))

@@ -20,7 +20,7 @@ namespace EasyTweens
         {
             Property = Lerp(f);
         }
-
+#if UNITY_EDITOR
         public override void SetCurrentAsEndValue()
         {
             endValue = Property;
@@ -30,7 +30,7 @@ namespace EasyTweens
         {
             startValue = Property;
         }
-
+#endif
         protected abstract T2 Lerp(float factor);
 
     }
