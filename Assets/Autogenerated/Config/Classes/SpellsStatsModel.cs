@@ -27,7 +27,6 @@ namespace Game.Config.Model
         public float HoleSize => holeSize;
         public float HoleDamage => holeDamage;
         public float HoleDuration => holeDuration;
-        public float HoleSpeed => holeSpeed;
 
 
         protected string id;
@@ -51,7 +50,6 @@ namespace Game.Config.Model
         protected float holeSize;
         protected float holeDamage;
         protected float holeDuration;
-        protected float holeSpeed;
 
     }
 }

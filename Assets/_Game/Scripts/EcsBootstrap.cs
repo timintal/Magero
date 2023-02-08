@@ -19,7 +19,6 @@ public class EcsBootstrap : MonoBehaviour, IDisposable
     [Inject] private Contexts _contexts;
     [Inject] private IUnitHealthProvider _unitHealthProvider;
     [Inject] private IUnitDamageProvider _unitDamageProvider;
-    [Inject] private IUnitMovementSpeedProvider _movementSpeedProvider ;
     [Inject] private PlayerData _playerData;
     [Inject] private WeaponData _weaponData;
     [Inject] private GameConfig _gameConfig;
@@ -72,7 +71,7 @@ public class EcsBootstrap : MonoBehaviour, IDisposable
                 .Add(new LevelStageProgressSystem(contexts))
                 
                 .Add(new EnemySpawnersUpdateSystem(contexts))
-                .Add(new EnemySpawnSystem(contexts, _unitHealthProvider, _movementSpeedProvider, _unitDamageProvider, _playerData))
+                .Add(new EnemySpawnSystem(contexts, _unitHealthProvider, _unitDamageProvider, _playerData))
             
                 .Add(new FlowFieldFeature(contexts))
 

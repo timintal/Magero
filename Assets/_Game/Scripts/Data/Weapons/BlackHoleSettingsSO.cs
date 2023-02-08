@@ -9,11 +9,8 @@ public class BlackHoleSettingsSO : WeaponSettings
     public override WeaponType Type => WeaponType.BlackHole;
     
     public float Cooldown;
-    public float Damage;
     public float ExplosionRadius;
     public float PullSpeed;
-    public float PullRadius;
-    public float Lifetime;
     public float ProjectileSpeed;
     public GameObject ProjectilePrefab;
     public GameObject BlackHolePrefab;
@@ -24,7 +21,6 @@ public class BlackHoleSettingsSO : WeaponSettings
     {
         int sizeLevel = weaponData.GetWeaponParamLevel(Type, nameof(SpellsStatsModel.HoleSize));
         int durationLevel = weaponData.GetWeaponParamLevel(Type, nameof(SpellsStatsModel.HoleDuration));
-        int speedLevel = weaponData.GetWeaponParamLevel(Type, nameof(SpellsStatsModel.HoleSpeed));
         int damageLevel = weaponData.GetWeaponParamLevel(Type, nameof(SpellsStatsModel.HoleDamage));
         
         entity.AddProjectileShooter(Cooldown,
@@ -32,7 +28,7 @@ public class BlackHoleSettingsSO : WeaponSettings
             ProjectileSpeed);
             
         entity.AddBlackHoleShooter(ExplosionRadius, 
-            gameConfig.GetConfigModel<SpellsStatsModel>()[speedLevel.ToString()].HoleSpeed, 
+            PullSpeed, 
             gameConfig.GetConfigModel<SpellsStatsModel>()[sizeLevel.ToString()].HoleSize, 
             gameConfig.GetConfigModel<SpellsStatsModel>()[durationLevel.ToString()].HoleDuration, 
             BlackHolePrefab,
@@ -58,7 +54,6 @@ public class BlackHoleSettingsSO : WeaponSettings
                 _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.HoleDamage, ParamName = "Damage", ParamKey = nameof(SpellsStatsModel.HoleDamage)});
                 _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.HoleSize, ParamName = "Size", ParamKey = nameof(SpellsStatsModel.HoleSize)});
                 _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.HoleDuration, ParamName = "Duration", ParamKey = nameof(SpellsStatsModel.HoleDuration)});
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.HoleSpeed, ParamName = "Speed", ParamKey = nameof(SpellsStatsModel.HoleSpeed)});
             }
 
             return _upgradableParams;

@@ -7,7 +7,6 @@ public class EnemySpawnSystem : ReactiveSystem<GameEntity>
 {
     Contexts _contexts;
     private readonly IUnitHealthProvider _healthProvider;
-    private readonly IUnitMovementSpeedProvider _unitMovementSpeedProvider;
     private readonly IUnitDamageProvider _unitDamageProvider;
     private readonly PlayerData _playerData;
     private IGroup<GameEntity> _groundEnemyFlowFieldGroup;
@@ -15,13 +14,11 @@ public class EnemySpawnSystem : ReactiveSystem<GameEntity>
 
     public EnemySpawnSystem(Contexts contexts, 
         IUnitHealthProvider healthProvider,
-        IUnitMovementSpeedProvider unitMovementSpeedProvider,
         IUnitDamageProvider unitDamageProvider,
         PlayerData playerData) : base(contexts.game)
     {
         _contexts = contexts;
         _healthProvider = healthProvider;
-        _unitMovementSpeedProvider = unitMovementSpeedProvider;
         _unitDamageProvider = unitDamageProvider;
         _playerData = playerData;
         _groundEnemyFlowFieldGroup = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField, GameMatcher.GroundEnemyFlowField));
@@ -52,7 +49,7 @@ public class EnemySpawnSystem : ReactiveSystem<GameEntity>
                 var enemyEntity = _contexts.game.CreateEntity();
                 enemyEntity.AddResource(e.enemySpawnRequest.EnemySettings.Prefab);
                 var unitType = e.enemySpawnRequest.EnemySettings.Type;
-                var speed = _unitMovementSpeedProvider.GetSpeed(unitType, _playerData.PlayerLevel);
+                var speed = e.enemySpawnRequest.EnemySettings.Speed;
                 enemyEntity.AddSpeed(speed, speed);
                 var health = _healthProvider.GetHealth(unitType, _playerData.PlayerLevel);
                 enemyEntity.AddHealth(health);
