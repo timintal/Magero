@@ -19,10 +19,13 @@ public class MainMenuState : FSMState
             PreSelectIndex = 1,
             AutoInjectFactory = _autoInjectFactory
         });
+        
+        _uiFrame.Open<CurrencyPanel>();
     }
 
     internal override void OnExit()
     {
         _uiFrame.Close<NavBar>();
+        _uiFrame.Close<CurrencyPanel>();
     }
 }

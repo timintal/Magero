@@ -42,6 +42,15 @@ MonoBehaviour:
       DestroyOnClose: 0
       CloseWithEscape: 0
       CloseWithBgClick: 0
+  - Name: OverlayPanel
+    LayerType: 0
+    Screens:
+    - Prefab: {fileID: 5426542448523162257, guid: 55743f80f84b1456ab7c0cf26b175ec9,
+        type: 3}
+      LoadOnDemand: 0
+      DestroyOnClose: 0
+      CloseWithEscape: 0
+      CloseWithBgClick: 0
   - Name: Popups
     LayerType: 1
     Screens:
@@ -57,6 +66,3 @@ MonoBehaviour:
       DestroyOnClose: 1
       CloseWithEscape: 0
       CloseWithBgClick: 0
-  - Name: Overlay
-    LayerType: 0
-    Screens: []

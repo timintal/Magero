@@ -12,6 +12,7 @@ public class WeaponUpgradePanel : MonoBehaviour
 
     [Inject] private WeaponData _weaponData;
     [Inject] GameConfig _gameConfig;
+    [Inject] PlayerData _playerData;
 
     public void Init(WeaponSettings settings)
     {
@@ -42,14 +43,23 @@ public class WeaponUpgradePanel : MonoBehaviour
         var paramValueForLevel = upgradeParam.GetParamValueForLevel(currLevel + 1, _gameConfig);
         if (paramValueForLevel > 0)
         {
+            var upgradePrice = upgradeParam.GetParamUpgradePriceForLevel(currLevel, _gameConfig);
             view.Init(upgradeParam.ParamName,
                 upgradeParam.GetParamValueForLevel(currLevel, _gameConfig).ToString("F1"),
                 paramValueForLevel.ToString("F1"),
-                upgradeParam.GetParamUpgradePriceForLevel(currLevel, _gameConfig),
+                upgradePrice,
                 () =>
                 {
-                    _weaponData.IncreaseWeaponParamLevel(settings.Type, upgradeParam.ParamKey);
-                    SetupView(settings, upgradeParam, view);
+                    if (_playerData.SpendCoins(upgradePrice))
+                    {
+                        _weaponData.IncreaseWeaponParamLevel(settings.Type, upgradeParam.ParamKey);
+                        SetupView(settings, upgradeParam, view);
+                        view.PlayUpgradeAnimation();
+                    }
+                    else
+                    {
+                        view.PlayNotEnoughAnimation();
+                    }
                 });
         }
         else

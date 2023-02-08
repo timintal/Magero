@@ -8,11 +8,12 @@ using UnityEngine.UI;
 public class UpgradableParamView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _nameLabel;
-    [FormerlySerializedAs("_value")] [SerializeField] private TextMeshProUGUI _currentValue;
+    [SerializeField] private TextMeshProUGUI _currentValue;
     [SerializeField] private TextMeshProUGUI _priceLabel;
     [SerializeField] private TextMeshProUGUI _upgradeValue;
     [SerializeField] private Button _upgradeButton;
     [SerializeField] private TweenAnimation _upgradeAnimation;
+    [SerializeField] private TweenAnimation _notEnoughAnimation;
 
     [SerializeField] private Transform _normalRoot;
     [SerializeField] Transform _maxedRoot;
@@ -32,23 +33,26 @@ public class UpgradableParamView : MonoBehaviour
         _maxedRoot.gameObject.SetActive(isMaxedOut);
     }
 
-    public void Clear()
+    public void PlayNotEnoughAnimation()
     {
-        _onUpgradeAction = null;
-        _nameLabel.text = "";
-        _currentValue.text = "";
-        _upgradeValue.text = "";
+        if (_notEnoughAnimation != null)
+        {
+            _notEnoughAnimation.PlayForward();
+        }
     }
-
+    
+    public void PlayUpgradeAnimation()
+    {
+        if (_upgradeAnimation != null)
+        {
+            _upgradeAnimation.PlayForward();
+        }
+    }
+    
     void OnEnable()
     {
         _upgradeButton.onClick.AddListener(() =>
         {
-            if (_upgradeAnimation != null)
-            {
-                _upgradeAnimation.PlayForward();
-            }
-
             _onUpgradeAction?.Invoke();
         });
     }
