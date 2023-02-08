@@ -42,8 +42,16 @@ public class FireballSettingsSO : WeaponSettings
             if (_upgradableParams == null)
             {
                 _upgradableParams = new List<UpgradableWeaponParam>();
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.FireballDamage, ParamName = "Damage", ParamKey = nameof(SpellsStatsModel.FireballDamage)});
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.FireballSize, ParamName = "Radius", ParamKey = nameof(SpellsStatsModel.FireballSize)});
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.FireballDamage,
+                    ParamName = "Damage",
+                    ParamKey = nameof(SpellsStatsModel.FireballDamage),
+                    GetParamUpgradePrice = model => model.FireballDamage
+                });
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.FireballSize,
+                    ParamName = "Radius", 
+                    ParamKey = nameof(SpellsStatsModel.FireballSize),
+                    GetParamUpgradePrice = model => model.FireballSize
+                });
             }
 
             return _upgradableParams;

@@ -14,12 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponSprite: {fileID: 21300000, guid: e555f2c32c3c44184b2af629293a7626, type: 3}
   WeaponName: Black Hole
+  WeaponKey: hole
   Cooldown: 2
-  Damage: 10
   ExplosionRadius: 4
   PullSpeed: 4
-  PullRadius: 8
-  Lifetime: 2
   ProjectileSpeed: 100
   ProjectilePrefab: {fileID: 7671730865203008364, guid: b9e30c6c4bbc54a00bb679b2df861185,
     type: 3}

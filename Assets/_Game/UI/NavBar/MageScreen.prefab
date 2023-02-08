@@ -1947,6 +1947,7 @@ MonoBehaviour:
   _weaponIcon: {fileID: 3462698959717435998}
   _label: {fileID: 7615309106781193344}
   _selectionAnimation: {fileID: 0}
+  _lockIcon: {fileID: 0}
   _selectionButton: {fileID: 3536009748244585896}
 --- !u!114 &3536009748244585896
 MonoBehaviour:
@@ -2302,6 +2303,7 @@ MonoBehaviour:
   _weaponIcon: {fileID: 1233347679050677499}
   _label: {fileID: 3614396224029054034}
   _selectionAnimation: {fileID: 0}
+  _lockIcon: {fileID: 0}
   _selectionButton: {fileID: 5319167880561355545}
 --- !u!114 &5319167880561355545
 MonoBehaviour:
@@ -2765,6 +2767,7 @@ MonoBehaviour:
   _weaponIcon: {fileID: 6998714350948298796}
   _label: {fileID: 4098649955555029544}
   _selectionAnimation: {fileID: 0}
+  _lockIcon: {fileID: 0}
   _selectionButton: {fileID: 581096006221106378}
 --- !u!114 &581096006221106378
 MonoBehaviour:
@@ -2911,6 +2914,82 @@ MonoBehaviour:
   target: {fileID: 7409979719089943571}
   startValue: {r: 0.21333215, g: 0.32461926, b: 0.9622642, a: 0}
   endValue: {r: 0.19517623, g: 0.30916116, b: 0.9622642, a: 1}
+--- !u!1 &6148029660874938642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6834863796409629981}
+  - component: {fileID: 5024227553958750587}
+  - component: {fileID: 5522996459999586328}
+  m_Layer: 5
+  m_Name: LockIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6834863796409629981
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6148029660874938642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4403806921899154368}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5024227553958750587
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6148029660874938642}
+  m_CullTransparentMesh: 1
+--- !u!114 &5522996459999586328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6148029660874938642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 4520adbfd8b4b724cb134c4c92afa1be, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6419964086960241210
 GameObject:
   m_ObjectHideFlags: 0
@@ -4229,12 +4308,13 @@ RectTransform:
   - {fileID: 5243706981054735589}
   - {fileID: 3360150654161276412}
   - {fileID: 1855918274850203701}
+  - {fileID: 6834863796409629981}
   m_Father: {fileID: 5090965963590303347}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -204.485}
+  m_AnchoredPosition: {x: 450, y: -204.485}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7409979719089943571
@@ -4282,6 +4362,7 @@ MonoBehaviour:
   _weaponIcon: {fileID: 4335274647961539070}
   _label: {fileID: 6911334561274471302}
   _selectionAnimation: {fileID: 6864232498895539232}
+  _lockIcon: {fileID: 5522996459999586328}
   _selectionButton: {fileID: 6249123880352363139}
 --- !u!114 &6249123880352363139
 MonoBehaviour:

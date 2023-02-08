@@ -51,9 +51,21 @@ public class BlackHoleSettingsSO : WeaponSettings
             if (_upgradableParams == null)
             {
                 _upgradableParams = new List<UpgradableWeaponParam>();
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.HoleDamage, ParamName = "Damage", ParamKey = nameof(SpellsStatsModel.HoleDamage)});
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.HoleSize, ParamName = "Size", ParamKey = nameof(SpellsStatsModel.HoleSize)});
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.HoleDuration, ParamName = "Duration", ParamKey = nameof(SpellsStatsModel.HoleDuration)});
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.HoleDamage,
+                    ParamName = "Damage",
+                    ParamKey = nameof(SpellsStatsModel.HoleDamage),
+                    GetParamUpgradePrice = model => model.HoleDamage
+                });
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.HoleSize,
+                    ParamName = "Size",
+                    ParamKey = nameof(SpellsStatsModel.HoleSize),
+                    GetParamUpgradePrice = model => model.HoleSize
+                });
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.HoleDuration, 
+                    ParamName = "Duration", 
+                    ParamKey = nameof(SpellsStatsModel.HoleDuration),
+                    GetParamUpgradePrice = model => model.HoleDuration
+                });
             }
 
             return _upgradableParams;

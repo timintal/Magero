@@ -51,9 +51,21 @@ public class SummonSettingsSO : WeaponSettings
             if (_upgradableParams == null)
             {
                 _upgradableParams = new List<UpgradableWeaponParam>();
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.SummonDamage, ParamName = "Damage", ParamKey = nameof(SpellsStatsModel.SummonDamage)});
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.SummonDuration, ParamName = "Duration", ParamKey = nameof(SpellsStatsModel.SummonDuration)});
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.SummonSpeed, ParamName = "Speed", ParamKey = nameof(SpellsStatsModel.SummonSpeed)});
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.SummonDamage, 
+                    ParamName = "Damage", 
+                    ParamKey = nameof(SpellsStatsModel.SummonDamage),
+                    GetParamUpgradePrice = model => model.SummonDamage
+                });
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.SummonDuration,
+                    ParamName = "Duration", 
+                    ParamKey = nameof(SpellsStatsModel.SummonDuration),
+                    GetParamUpgradePrice = model => model.SummonDuration
+                });
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.SummonSpeed, 
+                    ParamName = "Speed",
+                    ParamKey = nameof(SpellsStatsModel.SummonSpeed),
+                    GetParamUpgradePrice = model => model.SummonSpeed
+                });
             }
 
             return _upgradableParams;

@@ -14,13 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponSprite: {fileID: 21300000, guid: 3d856768c20ed4751bc42a166de72862, type: 3}
   WeaponName: GasCloud
+  WeaponKey: gas
   Cooldown: 0.75
-  Damage: 0.5
   ProjectilePrefab: {fileID: 7671730865203008364, guid: 08823d26b0f72460e8e243eb1abf6534,
     type: 3}
   CloudPrefab: {fileID: 3676044374875549090, guid: 102a497a34fda4f1b90212115baf456b,
     type: 3}
   ProjectileSpeed: 100
-  CloudRadius: 4
   CloudSpeedMultiplier: 0.3
-  CloudLifetime: 6

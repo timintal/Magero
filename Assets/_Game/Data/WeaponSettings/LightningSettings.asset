@@ -14,10 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponSprite: {fileID: 21300000, guid: 443ce8f427ef94893a407ad7da2b4900, type: 3}
   WeaponName: Lightning
+  WeaponKey: lightning
   Cooldown: 0.7
-  EffectRadius: 5
-  TargetDamage: 10
-  AOEDamage: 1
-  StunDuration: 1
+  AOEDamageFactor: 0.1
   ImpactFx: {fileID: 6772208814823110858, guid: 1ef3534a99690410db48b3baf42f3e09,
     type: 3}

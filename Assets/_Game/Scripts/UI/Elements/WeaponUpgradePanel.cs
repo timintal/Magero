@@ -45,7 +45,7 @@ public class WeaponUpgradePanel : MonoBehaviour
             view.Init(upgradeParam.ParamName,
                 upgradeParam.GetParamValueForLevel(currLevel, _gameConfig).ToString("F1"),
                 paramValueForLevel.ToString("F1"),
-                Mathf.RoundToInt(upgradeParam.GetParamValueForLevel(currLevel, _gameConfig) * 100),
+                upgradeParam.GetParamUpgradePriceForLevel(currLevel, _gameConfig),
                 () =>
                 {
                     _weaponData.IncreaseWeaponParamLevel(settings.Type, upgradeParam.ParamKey);

@@ -14,12 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponSprite: {fileID: 21300000, guid: d687be31ab5d84ca8ad33ebce69d62e5, type: 3}
   WeaponName: Acid
+  WeaponKey: acid
   Cooldown: 0
-  PoolRadius: 1
   PuddlePrefab: {fileID: 7979384038678166815, guid: 22bba0a77eaf94d6698748f7b2cbff96,
     type: 3}
-  Damage: 1.5
-  PuddleLifetime: 2
   RefreshTimestamp: 0.9
   RadiusCurve:
     serializedVersion: 2

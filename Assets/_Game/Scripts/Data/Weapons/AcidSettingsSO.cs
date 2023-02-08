@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using _Game.Data;
 using Game.Config.Model;
@@ -50,9 +49,24 @@ public class AcidSettingsSO : WeaponSettings
             if (_upgradableParams == null)
             {
                 _upgradableParams = new List<UpgradableWeaponParam>();
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.AcidDps, ParamName = "Damage", ParamKey = nameof(SpellsStatsModel.AcidDps)});
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.AcidDuration, ParamName = "Duration", ParamKey = nameof(SpellsStatsModel.AcidDuration)});
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.AcidSize, ParamName = "Size", ParamKey = nameof(SpellsStatsModel.AcidSize)});
+                
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.AcidDps, 
+                    ParamName = "Damage", 
+                    ParamKey = nameof(SpellsStatsModel.AcidDps),
+                    GetParamUpgradePrice = model => model.AcidDps
+                });
+                
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.AcidDuration, 
+                    ParamName = "Duration",
+                    ParamKey = nameof(SpellsStatsModel.AcidDuration),
+                    GetParamUpgradePrice = model => model.AcidDuration
+                });
+                
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.AcidSize,
+                    ParamName = "Size",
+                    ParamKey = nameof(SpellsStatsModel.AcidSize),
+                    GetParamUpgradePrice = model => model.AcidSize
+                });
             }
 
             return _upgradableParams;

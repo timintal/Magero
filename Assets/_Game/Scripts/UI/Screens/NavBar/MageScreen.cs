@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Game.Data;
+using Game.Config.Model;
 using JetBrains.Annotations;
 using Magero.UIFramework.Components.NavBar;
 using UnityEngine;
@@ -25,14 +26,15 @@ public class MageScreen : NavBarScreen
     private WeaponControlService _weaponControlService;
     private PlayerData _playerData;
     private GameSetup _gameSetup;
-    
+    private GameConfig _gameConfig;
+
     [Inject, UsedImplicitly]
-    public void SetDependencies(WeaponControlService controlService, PlayerData playerData,
-        GameSetup gameSetup)
+    public void SetDependencies(WeaponControlService controlService, PlayerData playerData, GameSetup gameSetup, GameConfig gameConfig)
     {
         _weaponControlService = controlService;
         _playerData = playerData;
         _gameSetup = gameSetup;
+        _gameConfig = gameConfig;
     }
 
     private void OnEnable()
@@ -119,16 +121,21 @@ public class MageScreen : NavBarScreen
                 RemoveSelectionFromAll();
 
                 weaponSlot.SetSelected(true);
-                _selectedWeapon.Init(weaponSetting, null);
+                _selectedWeapon.Init(weaponSetting, null, false);
                 _upgradePanel.Init(weaponSetting);
                 
                 UpdateSelectedWeapon();
-            });
+            }, IsWeaponLocked(weaponSetting));
             
             _weaponSlots.Add(weaponSlot);
         }
     }
-    
+
+    private bool IsWeaponLocked(WeaponSettings weaponSetting)
+    {
+        return _gameConfig.GetConfigModel<SpellsUnlockModel>()[weaponSetting.WeaponKey].Level > _playerData.PlayerLevel;
+    }
+
     void RemoveSelectionFromAll()
     {
         foreach (var weaponSlot in _weaponSlots)

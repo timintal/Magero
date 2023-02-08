@@ -10,20 +10,26 @@ public class WeaponSlot : MonoBehaviour
     [SerializeField] private Image _weaponIcon;
     [SerializeField] private TextMeshProUGUI _label;
     [SerializeField] TweenAnimation _selectionAnimation;
+    [SerializeField] Image _lockIcon;
 
     [SerializeField] private Button _selectionButton;
 
     private Action _onSelectedAction;
     private WeaponSettings _settings;
 
-    public WeaponType WeaponType => _settings.Type; 
+    public WeaponType WeaponType => _settings.Type;
 
-    public void Init(WeaponSettings settings, Action onSelected)
+    public void Init(WeaponSettings settings, Action onSelected, bool locked = false)
     {
         _settings = settings;
         _weaponIcon.sprite = settings.WeaponSprite;
         _label.text = settings.WeaponName;
 
+        if (_lockIcon != null)
+            _lockIcon.gameObject.SetActive(locked);
+        
+        _selectionButton.interactable = !locked;
+        
         _onSelectedAction = onSelected;
     }
 

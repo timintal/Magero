@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponSprite: {fileID: 21300000, guid: d3f9cb269ca474d858af84ab17ba55be, type: 3}
   WeaponName: Wind
-  Damage: 0.1
-  PushSpeed: 10
+  WeaponKey: wind
   PushDamping: 10
   WindStreamRadius: 5
   MaxDistance: 70

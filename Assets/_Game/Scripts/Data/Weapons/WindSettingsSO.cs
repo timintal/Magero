@@ -39,8 +39,16 @@ public class WindSettingsSO : WeaponSettings
             if (_upgradableParams == null)
             {
                 _upgradableParams = new List<UpgradableWeaponParam>();
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.WindDps, ParamName = "Damage", ParamKey = nameof(SpellsStatsModel.WindDps)});
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.WindSpeed, ParamName = "Speed", ParamKey = nameof(SpellsStatsModel.WindSpeed)});
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.WindDps,
+                    ParamName = "Damage", 
+                    ParamKey = nameof(SpellsStatsModel.WindDps),
+                    GetParamUpgradePrice = model => model.WindDps
+                });
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.WindSpeed, 
+                    ParamName = "Speed", 
+                    ParamKey = nameof(SpellsStatsModel.WindSpeed),
+                    GetParamUpgradePrice = model => model.WindSpeed
+                });
                 
             }
 

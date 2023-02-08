@@ -11,7 +11,7 @@ public partial class GameEntity {
     public LightningShooterComponent lightningShooter { get { return (LightningShooterComponent)GetComponent(GameComponentsLookup.LightningShooter); } }
     public bool hasLightningShooter { get { return HasComponent(GameComponentsLookup.LightningShooter); } }
 
-    public void AddLightningShooter(float newCooldown, float newEffectRadius, int newTargetDamage, float newAOEDamage, float newStunDuration) {
+    public void AddLightningShooter(float newCooldown, float newEffectRadius, float newTargetDamage, float newAOEDamage, float newStunDuration) {
         var index = GameComponentsLookup.LightningShooter;
         var component = (LightningShooterComponent)CreateComponent(index, typeof(LightningShooterComponent));
         component.Cooldown = newCooldown;
@@ -22,7 +22,7 @@ public partial class GameEntity {
         AddComponent(index, component);
     }
 
-    public void ReplaceLightningShooter(float newCooldown, float newEffectRadius, int newTargetDamage, float newAOEDamage, float newStunDuration) {
+    public void ReplaceLightningShooter(float newCooldown, float newEffectRadius, float newTargetDamage, float newAOEDamage, float newStunDuration) {
         var index = GameComponentsLookup.LightningShooter;
         var component = (LightningShooterComponent)CreateComponent(index, typeof(LightningShooterComponent));
         component.Cooldown = newCooldown;

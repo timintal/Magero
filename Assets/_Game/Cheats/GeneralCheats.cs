@@ -16,4 +16,16 @@ public class GeneralCheats
     {
         _playerData.PlayerLevel = LevelToSet;
     }
+    
+    [Category("Economy"), UsedImplicitly]
+    public void AddCoins100()
+    {
+        _playerData.Coins += 100;
+    }
+    
+    [Category("Economy"), UsedImplicitly]
+    public void AddCoins1000()
+    {
+        _playerData.Coins += 1000;
+    }
 }

@@ -47,9 +47,21 @@ public class GasCloudSettingsSO : WeaponSettings
             if (_upgradableParams == null)
             {
                 _upgradableParams = new List<UpgradableWeaponParam>();
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.GasDps, ParamName = "Damage", ParamKey = nameof(SpellsStatsModel.GasDps)});
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.GasDuration, ParamName = "Duration", ParamKey = nameof(SpellsStatsModel.GasDuration)});
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.GasSize, ParamName = "Radius", ParamKey = nameof(SpellsStatsModel.GasSize)});
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.GasDps, 
+                    ParamName = "Damage",
+                    ParamKey = nameof(SpellsStatsModel.GasDps),
+                    GetParamUpgradePrice = model => model.GasDps
+                });
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.GasDuration, 
+                    ParamName = "Duration",
+                    ParamKey = nameof(SpellsStatsModel.GasDuration),
+                    GetParamUpgradePrice = model => model.GasDuration
+                });
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.GasSize, 
+                    ParamName = "Radius",
+                    ParamKey = nameof(SpellsStatsModel.GasSize),
+                    GetParamUpgradePrice = model => model.GasSize
+                });
             }
 
             return _upgradableParams;

@@ -9,7 +9,7 @@ public class LightningSettingsSO : WeaponSettings
     public override WeaponType Type => WeaponType.Lightning;
     
     public float Cooldown;
-    public int TargetDamage;
+    public float AOEDamageFactor;
     public GameObject ImpactFx;
     private List<UpgradableWeaponParam> _upgradableParams;
 
@@ -22,8 +22,8 @@ public class LightningSettingsSO : WeaponSettings
         entity.AddLightningShooter(
             Cooldown,
             gameConfig.GetConfigModel<SpellsStatsModel>()[sizeLevel.ToString()].LightningSize,
-            TargetDamage,
             gameConfig.GetConfigModel<SpellsStatsModel>()[damageLevel.ToString()].LightningDamage,
+            gameConfig.GetConfigModel<SpellsStatsModel>()[damageLevel.ToString()].LightningDamage * AOEDamageFactor,
             gameConfig.GetConfigModel<SpellsStatsModel>()[durationLevel.ToString()].LightningDuration);
 
         sceneReferences.Arms[armIndex].transform.position = sceneReferences.Arms[armIndex].transform.position +
@@ -47,9 +47,21 @@ public class LightningSettingsSO : WeaponSettings
             if (_upgradableParams == null)
             {
                 _upgradableParams = new List<UpgradableWeaponParam>();
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.LightningDamage, ParamName = "Damage", ParamKey = nameof(SpellsStatsModel.LightningDamage)});
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.LightningDuration, ParamName = "Stun Duration", ParamKey = nameof(SpellsStatsModel.LightningDuration)});
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.LightningSize, ParamName = "Radius", ParamKey = nameof(SpellsStatsModel.LightningSize)});
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.LightningDamage, 
+                    ParamName = "Damage", 
+                    ParamKey = nameof(SpellsStatsModel.LightningDamage),    
+                    GetParamUpgradePrice = model => model.LightningDamage
+                });
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.LightningDuration, 
+                    ParamName = "Stun Duration",
+                    ParamKey = nameof(SpellsStatsModel.LightningDuration),
+                    GetParamUpgradePrice = model => model.LightningDuration
+                });
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.LightningSize,
+                    ParamName = "Radius",
+                    ParamKey = nameof(SpellsStatsModel.LightningSize),
+                    GetParamUpgradePrice = model => model.LightningSize
+                });
             }
 
             return _upgradableParams;

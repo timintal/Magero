@@ -31,7 +31,11 @@ public class LaserSettingsSO : WeaponSettings
             if (_upgradableParams == null)
             {
                 _upgradableParams = new List<UpgradableWeaponParam>();
-                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.LaserDps, ParamName = "Damage", ParamKey = nameof(SpellsStatsModel.LaserDps)});
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.LaserDps, 
+                    ParamName = "Damage", 
+                    ParamKey = nameof(SpellsStatsModel.LaserDps),
+                    GetParamUpgradePrice = model => model.LaserDps
+                });
             }
 
             return _upgradableParams;

@@ -14,12 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponSprite: {fileID: 21300000, guid: 968781fe47fe34a96aec57df54b31a7a, type: 3}
   WeaponName: Summon
+  WeaponKey: summon
   Cooldown: 0.1
   Count: 1
-  UnitDamage: 5
-  UnitSpeed: 2
   UnitRadius: 0.3
-  Lifetime: 5
   SummonPrefab: {fileID: 5509589539477055301, guid: 82c19d880984a489499b511d46cf0ace,
     type: 3}
   ExplosionPrefab: {fileID: 8141597893229132638, guid: cc36d47ee27f0f24b993cf546c0452ee,
