@@ -29,6 +29,9 @@ namespace EasyTweens
         public Action OnPlayForwardFinished;
         public Action OnPlayBackwardFinished;
         
+        public bool IsInStartState => currentTime < 0.01f && !enabled;
+        public bool IsInEndState => currentTime > duration * 0.99f && !enabled;
+        
         #if UNITY_EDITOR
         private float editorDeltaTime;
         private double previousEditorTime;

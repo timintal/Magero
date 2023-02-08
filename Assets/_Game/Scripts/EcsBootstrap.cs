@@ -4,6 +4,7 @@ using System.Linq;
 using _Game.Data;
 using _Game.Flow;
 using Entitas;
+using Game.Config.Model;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
@@ -20,12 +21,12 @@ public class EcsBootstrap : MonoBehaviour, IDisposable
     [Inject] private IUnitDamageProvider _unitDamageProvider;
     [Inject] private IUnitMovementSpeedProvider _movementSpeedProvider ;
     [Inject] private PlayerData _playerData;
+    [Inject] private WeaponData _weaponData;
+    [Inject] private GameConfig _gameConfig;
     [Inject] private GameFSM _gameFsm;
 
     private Systems _systems;
     
-    
-   
     
     void Start()
     {
@@ -45,7 +46,7 @@ public class EcsBootstrap : MonoBehaviour, IDisposable
     private Systems CreateSystems(Contexts contexts)
     {
         return new Feature("Game")
-                .Add(new PlayerInitializeSystem(contexts, _playerData))
+                .Add(new PlayerInitializeSystem(contexts, _playerData, _weaponData, _gameConfig))
                 .Add(new LevelStageActivationSystem(contexts))
                 
                 .Add(new ColliderCacheSystem(contexts))

@@ -9,45 +9,49 @@ namespace _Game.Data
     { 
         public override string DataId => "WeaponData";
     
-        [JsonProperty] Dictionary<WeaponType, int> _weaponLevels = new();
+        [JsonProperty] Dictionary<WeaponType, Dictionary<string, int>> _weaponLevels = new();
 
         public Action<WeaponType, int> OnWeaponLevelUpdated;
 
-        public void SetWeaponLevel(WeaponType type, int level)
+        public void SetWeaponParamLevel(WeaponType type, int level, string paramName)
         {
             IsDirty = true;
             
             if (!_weaponLevels.ContainsKey(type))
             {
-                _weaponLevels.Add(type, 1);    
+                _weaponLevels.Add(type, new Dictionary<string, int>());    
             }
-            
-            _weaponLevels[type] = level;
+
+            if (!_weaponLevels[type].ContainsKey(paramName))
+            {
+                _weaponLevels[type].Add(paramName, level);    
+            }
+            else
+            {
+                _weaponLevels[type][paramName] = level;    
+            }
+
             OnWeaponLevelUpdated?.Invoke(type, level);
         }
 
-        public void UpgradeWeaponLevel(WeaponType type)
-        {
-            if (type == WeaponType.None) return;
-            
-            IsDirty = true;
-            if (!_weaponLevels.ContainsKey(type))
-            {
-                _weaponLevels.Add(type, 1);    
-            }
-
-            _weaponLevels[type] += 1;
-            OnWeaponLevelUpdated?.Invoke(type, _weaponLevels[type]);
-        }
-
-        public int GetWeaponLevel(WeaponType type)
+        public int GetWeaponParamLevel(WeaponType type, string paramName)
         {
             if (!_weaponLevels.ContainsKey(type))
             {
                 return 1;
             }
 
-            return _weaponLevels[type];
+            if (!_weaponLevels[type].ContainsKey(paramName))
+            {
+                return 1;
+            }
+
+            return _weaponLevels[type][paramName];
+        }
+        
+        public void IncreaseWeaponParamLevel(WeaponType type, string paramName)
+        {
+            SetWeaponParamLevel(type, GetWeaponParamLevel(type, paramName) + 1, paramName);
         }
     }
 }

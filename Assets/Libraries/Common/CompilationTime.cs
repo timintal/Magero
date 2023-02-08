@@ -27,8 +27,8 @@ namespace Morpeh.Utils.Editor {
 
         
         static CompilationTime() {
-            CompilationPipeline.assemblyCompilationStarted  += CompilationPipelineOnAssemblyCompilationStarted;
-            CompilationPipeline.assemblyCompilationFinished += CompilationPipelineOnAssemblyCompilationFinished;
+            // CompilationPipeline.assemblyCompilationStarted  += CompilationPipelineOnAssemblyCompilationStarted;
+            // CompilationPipeline.assemblyCompilationFinished += CompilationPipelineOnAssemblyCompilationFinished;
             AssemblyReloadEvents.beforeAssemblyReload       += AssemblyReloadEventsOnBeforeAssemblyReload;
             AssemblyReloadEvents.afterAssemblyReload        += AssemblyReloadEventsOnAfterAssemblyReload;
         }

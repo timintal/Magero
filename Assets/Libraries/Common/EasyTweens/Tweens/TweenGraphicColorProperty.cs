@@ -1,4 +1,7 @@
 using System;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +15,17 @@ namespace EasyTweens
         protected override Color Property
         {
             get => target.color;
-            set => target.color = value;
+            set
+            {
+                target.color = value;
+                #if UNITY_EDITOR
+                
+                if (!Application.isPlaying)
+                {
+                    EditorUtility.SetDirty(target);
+                }
+                #endif
+            }
         }
     }
 }

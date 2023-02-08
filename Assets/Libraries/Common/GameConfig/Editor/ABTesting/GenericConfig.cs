@@ -49,7 +49,7 @@ namespace _Game.Editor.Utils
                 {
                     ResetConfig();
                 }
-                catch (Exception e)
+                catch 
                 {
                     //I don't care that it will be index out of range 🤪
                 }

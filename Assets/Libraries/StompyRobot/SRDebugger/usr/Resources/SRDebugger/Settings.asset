@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isEnabled: 1
   _uiInputMode: 0
-  _defaultTab: 0
+  _defaultTab: 1
   _triggerEnableMode: 0
   _triggerBehaviour: 0
   _errorNotification: 1
@@ -23,22 +23,22 @@ MonoBehaviour:
   _newKeyboardShortcuts:
   - Action: 1
     Alt: 0
-    Control: 1
+    Control: 0
     Key: 282
     Shift: 1
   - Action: 2
     Alt: 0
-    Control: 1
+    Control: 0
     Key: 283
     Shift: 1
   - Action: 3
     Alt: 0
-    Control: 1
+    Control: 0
     Key: 284
     Shift: 1
   - Action: 4
     Alt: 0
-    Control: 1
+    Control: 0
     Key: 285
     Shift: 1
   _keyboardModifierControl: 1

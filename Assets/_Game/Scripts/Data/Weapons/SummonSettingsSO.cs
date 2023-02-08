@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using _Game.Data;
+using Game.Config.Model;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Magero/Weapons/Summon Settings")]
@@ -8,20 +10,22 @@ public class SummonSettingsSO : WeaponSettings
     
     public float Cooldown;
     public int Count;
-    public float UnitDamage;
-    public float UnitSpeed;
     public float UnitRadius;
-    public float Lifetime;
     public GameObject SummonPrefab;
     public GameObject ExplosionPrefab;
+    private List<UpgradableWeaponParam> _upgradableParams;
 
-    public override void ConfigWeaponEntity(GameEntity entity, GameSceneReferences sceneReferences, int armIndex)
+    public override void ConfigWeaponEntity(GameEntity entity, GameSceneReferences sceneReferences, int armIndex, WeaponData weaponData, GameConfig gameConfig)
     {
+        int damageLevel = weaponData.GetWeaponParamLevel(Type, nameof(SpellsStatsModel.SummonDamage));
+        int durationLevel = weaponData.GetWeaponParamLevel(Type, nameof(SpellsStatsModel.SummonDuration));
+        int speedLevel = weaponData.GetWeaponParamLevel(Type, nameof(SpellsStatsModel.SummonSpeed));
+        
         entity.AddSummonSpell(Cooldown, 
             Count, 
-            UnitSpeed, 
+            gameConfig.GetConfigModel<SpellsStatsModel>()[speedLevel.ToString()].SummonSpeed, 
             UnitRadius, 
-            Lifetime,
+            gameConfig.GetConfigModel<SpellsStatsModel>()[durationLevel.ToString()].SummonDuration,
             ExplosionPrefab);
             
         entity.AddAssetLink(SummonPrefab);
@@ -34,9 +38,25 @@ public class SummonSettingsSO : WeaponSettings
         entity.AddAnimator(sceneReferences.Arms[armIndex].Animator);
         entity.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
         entity.AddTarget(TargetType.Player);
-        entity.AddDamage(UnitDamage);
+        entity.AddDamage(gameConfig.GetConfigModel<SpellsStatsModel>()[damageLevel.ToString()].SummonDamage);
 
         entity.isPlayerWeaponDirection = true;
         entity.isPlayer = true;
+    }
+    
+    public override List<UpgradableWeaponParam> UpgradableParams
+    {
+        get
+        {
+            if (_upgradableParams == null)
+            {
+                _upgradableParams = new List<UpgradableWeaponParam>();
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.SummonDamage, ParamName = "Damage", ParamKey = nameof(SpellsStatsModel.SummonDamage)});
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.SummonDuration, ParamName = "Duration", ParamKey = nameof(SpellsStatsModel.SummonDuration)});
+                _upgradableParams.Add(new UpgradableWeaponParam{GetParamValue = model => model.SummonSpeed, ParamName = "Speed", ParamKey = nameof(SpellsStatsModel.SummonSpeed)});
+            }
+
+            return _upgradableParams;
+        }
     }
 }

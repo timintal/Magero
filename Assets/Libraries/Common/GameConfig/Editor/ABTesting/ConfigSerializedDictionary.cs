@@ -7,7 +7,7 @@ public class ConfigSerializedDictionary : Dictionary<string, string>, ISerializa
 {
     //------------------------------------------------------------------------------------------------------------------
     [SerializeField, HideInInspector]
-    private List<string> keyData = new List<string>();
+    private readonly List<string> keyData = new List<string>();
 
     [SerializeField, HideInInspector] private List<string> valueData = new List<string>();
     
@@ -75,6 +75,17 @@ public class ConfigSerializedDictionary : Dictionary<string, string>, ISerializa
         }
 
         return true;
+    }
+    
+    public override int GetHashCode()
+    {
+        int hash = 0;   
+        for (int i = 0; i < keyData.Count; i++)
+        {
+            hash ^= keyData[i].GetHashCode();
+        }
+
+        return hash;
     }
 
     public ConfigSerializedDictionary Clone()

@@ -88,6 +88,8 @@ namespace Game.Config.Model
             // in the first ever run we will cache the data if it doesn't exist on the drive.
             EnsureCachedDataExists(sheetsToLoad);
 
+            return;
+            
             bool checkCDN = true;
             bool reDownloadFromCDNEvenIfSame = false;
 

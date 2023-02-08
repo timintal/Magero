@@ -8,7 +8,7 @@ namespace _Game.Data
     {
         public override string DataId => "PlayerData";
 
-        [DataField, JsonProperty] protected int _playerLevel = 0;
+        [DataField, JsonProperty] protected int _playerLevel = 1;
 
         [DataField, JsonProperty] private WeaponType _leftHandWeapon;
         [DataField, JsonProperty] private WeaponType _rightHandWeapon;

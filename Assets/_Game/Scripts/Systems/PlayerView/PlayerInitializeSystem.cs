@@ -1,16 +1,21 @@
 using _Game.Data;
 using Entitas;
+using Game.Config.Model;
 using UnityEngine;
 
 public class PlayerInitializeSystem : IInitializeSystem
 {
     Contexts _contexts;
     private readonly PlayerData _playerData;
+    private readonly WeaponData _weaponData;
+    private readonly GameConfig _gameConfig;
 
-    public PlayerInitializeSystem(Contexts contexts, PlayerData playerData)
+    public PlayerInitializeSystem(Contexts contexts, PlayerData playerData, WeaponData weaponData, GameConfig gameConfig)
     {
         _contexts = contexts;
         _playerData = playerData;
+        _weaponData = weaponData;
+        _gameConfig = gameConfig;
     }
 
     public void Initialize()
@@ -32,14 +37,14 @@ public class PlayerInitializeSystem : IInitializeSystem
         {
             var leftWeapon = gameSetup.GetWeaponSettings(_playerData.LeftHandWeapon);
             var weaponEntity = _contexts.game.CreateEntity();
-            leftWeapon.ConfigWeaponEntity(weaponEntity, sceneReferences, armIndex++);
+            leftWeapon.ConfigWeaponEntity(weaponEntity, sceneReferences, armIndex++, _weaponData, _gameConfig);
         }
         
         if (_playerData.RightHandWeapon != WeaponType.None)
         {
             var rightWeapon = gameSetup.GetWeaponSettings(_playerData.RightHandWeapon);
             var weaponEntity = _contexts.game.CreateEntity();
-            rightWeapon.ConfigWeaponEntity(weaponEntity, sceneReferences, armIndex++);
+            rightWeapon.ConfigWeaponEntity(weaponEntity, sceneReferences, armIndex++, _weaponData, _gameConfig);
         }
         
         

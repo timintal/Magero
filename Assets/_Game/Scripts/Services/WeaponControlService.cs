@@ -3,20 +3,29 @@ using _Game.Data;
 public class WeaponControlService 
 {
     private readonly PlayerData _playerData;
-    private readonly WeaponData _weaponData;
 
-    public WeaponControlService(PlayerData playerData, WeaponData weaponData)
+    public WeaponControlService(PlayerData playerData)
     {
         _playerData = playerData;
-        _weaponData = weaponData;
     }
 
-    public void EquipWeapon(WeaponType t)
+    public void EquipWeapon(WeaponType t, bool isLeftHand)
     {
-        if (_playerData.LeftHandWeapon == t)
-            return;
-
-        _playerData.RightHandWeapon = _playerData.LeftHandWeapon;
-        _playerData.LeftHandWeapon = t;
+        if (isLeftHand)
+        {
+            _playerData.LeftHandWeapon = t;
+            if (_playerData.RightHandWeapon == t)
+            {
+                _playerData.RightHandWeapon = WeaponType.None;
+            }
+        }
+        else
+        {
+            _playerData.RightHandWeapon = t;
+            if (_playerData.LeftHandWeapon == t)
+            {
+                _playerData.LeftHandWeapon = WeaponType.None;
+            }
+        }
     }
 }

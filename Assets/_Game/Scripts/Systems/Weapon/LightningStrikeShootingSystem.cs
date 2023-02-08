@@ -69,7 +69,7 @@ public class LightningStrikeShootingSystem : ReactiveSystem<GameEntity>
                         var enemy = _contexts.game.GetEntityWithId(colliderCacheColliderCacheMap[_queryResults[i]]);
                         if (enemy.hasTarget && enemy.target.TargetType == TargetType.Enemy)
                         {
-                            int totalDamage = e.lightningShooter.AOEDamage;
+                            float totalDamage = e.lightningShooter.AOEDamage;
                             
                             var damageEntity = _contexts.game.CreateEntity();
                             damageEntity.AddReceivedDamage(totalDamage);

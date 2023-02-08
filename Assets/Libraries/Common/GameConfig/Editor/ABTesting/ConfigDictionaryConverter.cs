@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -11,7 +12,10 @@ namespace _Game.Editor.Utils
     {
         public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
         {
-            GenericConfig genericConfig = value as GenericConfig;
+            GenericConfig? genericConfig = value as GenericConfig;
+            if (genericConfig == null)
+                return;
+            
             Dictionary<string, object> configDict = new Dictionary<string, object>();
             configDict.Add("name", genericConfig.name);
             configDict.Add("structure", genericConfig.structure);
@@ -21,14 +25,14 @@ namespace _Game.Editor.Utils
             
             foreach (var configItem in genericConfig.items)
             {
-                Dictionary<string, object> currentItemDict = new Dictionary<string, object>();
+                Dictionary<string, object?> currentItemDict = new Dictionary<string, object?>();
                 foreach (var itemKey in configItem.Keys)
                 {
                     if (string.IsNullOrEmpty(configItem[itemKey]))
                         continue;
                     
                     string typeString = genericConfig.structure[itemKey].Split(',')[0].RemoveInvisible();
-                    object itemFieldValue = null;
+                    object? itemFieldValue = null;
 
                     itemFieldValue = GetItemFieldValue(typeString, configItem, itemKey);
                     
@@ -41,10 +45,10 @@ namespace _Game.Editor.Utils
             jObject.WriteTo(writer);
         }
 
-        private static object GetItemFieldValue(string typeString,  ConfigSerializedDictionary configItem,
+        private static object? GetItemFieldValue(string typeString,  ConfigSerializedDictionary configItem,
             string itemKey)
         {
-            object itemFieldValue = null;
+            object? itemFieldValue = null;
             
             if (typeString == "string")
             {

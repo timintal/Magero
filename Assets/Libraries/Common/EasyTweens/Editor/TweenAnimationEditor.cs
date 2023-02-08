@@ -52,6 +52,8 @@ namespace EasyTweens
             playFastForward.clickable.clicked += () =>
             {
                 animation.PlayForward(false);
+                ProgressBar factorProgressBar = rootElement.Q<ProgressBar>("Factor");
+                factorProgressBar.value = 1;
             };
             
             Button playBackward = rootElement.Q<Button>("PlayBackward");
@@ -63,6 +65,8 @@ namespace EasyTweens
             playFastBackward.clickable.clicked += () =>
             {
                 animation.PlayBackward(false);
+                ProgressBar factorProgressBar = rootElement.Q<ProgressBar>("Factor");
+                factorProgressBar.value = 0;
             };
 
             Button minimizeDuration = rootElement.Q<Button>("MinimizeDuration");
@@ -84,6 +88,7 @@ namespace EasyTweens
 
             SerializedProperty animDurationProperty = animObj.FindProperty("duration");
             FloatField durationField = rootElement.Q<FloatField>("Duration");
+            durationField.isReadOnly = true;
             durationField.BindProperty(animDurationProperty);
             durationField.RegisterCallback<ChangeEvent<float>>(evt =>
             {
