@@ -1,30 +1,22 @@
 using System.Collections.Generic;
 using Entitas;
+using UnityEngine;
 
-public class HealthBarSystem : ReactiveSystem<GameEntity>
+public class HealthBarSystem : IExecuteSystem
 {
-    Contexts _contexts;
+    private IGroup<GameEntity> _healthBarEntities;
 
-    public HealthBarSystem(Contexts contexts) : base(contexts.game)
+    public HealthBarSystem(Contexts contexts)
     {
-        _contexts = contexts;
+        _healthBarEntities = contexts.game.GetGroup(Matcher<GameEntity>.AllOf(GameMatcher.Health, GameMatcher.MaxHealth, GameMatcher.HealthBarUI));
     }
 
-    protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
+    public void Execute()
     {
-        return context.CreateCollector(GameMatcher.Health);
-    }
-
-    protected override bool Filter(GameEntity entity)
-    {
-        return entity.hasHealth && entity.hasMaxHealth && entity.hasHealthBarUI;
-    }
-
-    protected override void Execute(List<GameEntity> entities)
-    {
-        foreach (var e in entities)
+        foreach (var entity in _healthBarEntities.GetEntities())
         {
-            e.healthBarUI.FillBar.fillAmount = (float)e.health.Value / e.maxHealth.Value;
+            var healthBarUI = entity.healthBarUI;
+            healthBarUI.FillBar.value = Mathf.Lerp(healthBarUI.FillBar.value, entity.health.Value / entity.maxHealth.Value, Time.deltaTime * 7);
         }
     }
 }

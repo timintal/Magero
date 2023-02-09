@@ -1,6 +1,7 @@
 using _Game.Data;
 using Entitas;
 using Game.Config.Model;
+using Magero.UIFramework;
 using UnityEngine;
 
 public class PlayerInitializeSystem : IInitializeSystem
@@ -9,13 +10,19 @@ public class PlayerInitializeSystem : IInitializeSystem
     private readonly PlayerData _playerData;
     private readonly WeaponData _weaponData;
     private readonly GameConfig _gameConfig;
+    private readonly UIFrame _uiFrame;
 
-    public PlayerInitializeSystem(Contexts contexts, PlayerData playerData, WeaponData weaponData, GameConfig gameConfig)
+    public PlayerInitializeSystem(Contexts contexts, 
+        PlayerData playerData, 
+        WeaponData weaponData, 
+        GameConfig gameConfig,
+        UIFrame uiFrame)
     {
         _contexts = contexts;
         _playerData = playerData;
         _weaponData = weaponData;
         _gameConfig = gameConfig;
+        _uiFrame = uiFrame;
     }
 
     public void Initialize()
@@ -28,7 +35,7 @@ public class PlayerInitializeSystem : IInitializeSystem
         playerEntity.AddMaxHealth(gameSetup.PlayerSettings.Health);
         playerEntity.AddTarget(TargetType.Player);
         playerEntity.AddTransform(sceneReferences.CameraTransform);
-        playerEntity.AddHealthBarUI(sceneReferences.PlayerHealthBar);
+        playerEntity.AddHealthBarUI(_uiFrame.GetScreen<GamePlayScreen>().HealthBar);
         playerEntity.isPlayer = true;
 
         int armIndex = 0;

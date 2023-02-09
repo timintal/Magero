@@ -14,6 +14,7 @@ public class GameSetup : ScriptableObject
     public WeaponSettings[] WeaponSettings;
     public PlayerSettings PlayerSettings;
 
+    public GameObject DamageUIOverlayPrefab;
 
     public WeaponSettings GetWeaponSettings(WeaponType t)
     {

@@ -8,15 +8,24 @@
 //------------------------------------------------------------------------------
 public static class UIComponentsLookup {
 
+    public const int DamageForUI = 0;
+    public const int Destroyed = 1;
+    public const int MaxHealth = 2;
+    public const int Position = 3;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
-
+        "DamageForUI",
+        "Destroyed",
+        "MaxHealth",
+        "Position"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(DamageForUIComponent),
+        typeof(DestroyedComponent),
+        typeof(MaxHealthComponent),
+        typeof(PositionComponent)
     };
 }

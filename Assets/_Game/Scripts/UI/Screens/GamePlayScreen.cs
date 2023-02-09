@@ -8,6 +8,10 @@ using VContainer;
 public class GamePlayScreen : UIScreen
 {
     [SerializeField] private Button _backButton;
+    [SerializeField] Slider _healthBar;
+
+    public Slider HealthBar => _healthBar;
+
     private GameFSM _gameFSM;
 
     [Inject, UsedImplicitly]

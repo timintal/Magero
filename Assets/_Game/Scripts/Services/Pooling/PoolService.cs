@@ -16,14 +16,25 @@ public class PoolService
         return _fxPools[template].Pool.Get();
     }
 
-    public PoolableMonoBehaviour GetGameObject(GameObject template)
+    public PoolableMonoBehaviour GetGameObject(GameObject template, Transform parent = null)
     {
         if (!_objectPools.ContainsKey(template))
         {
-            _objectPools.Add(template, new GameObjectPool(template));
+            _objectPools.Add(template, new GameObjectPool(template, parent));
         }
 
         var gameObject = _objectPools[template].Pool.Get();
         return gameObject.GetComponent<PoolableMonoBehaviour>();
+    }
+    
+    public T GetPoolable<T>(GameObject template, Transform parent = null) where T : MonoBehaviour
+    {
+        if (!_objectPools.ContainsKey(template))
+        {
+            _objectPools.Add(template, new GameObjectPool(template, parent));
+        }
+
+        var gameObject = _objectPools[template].Pool.Get();
+        return gameObject.GetComponent<T>();
     }
 }

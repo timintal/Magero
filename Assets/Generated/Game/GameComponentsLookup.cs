@@ -90,13 +90,14 @@ public static class GameComponentsLookup {
     public const int TimerCompleted = 79;
     public const int Timer = 80;
     public const int Transform = 81;
-    public const int WeaponCooldown = 82;
-    public const int WeaponDisabled = 83;
-    public const int WeaponHitPoint = 84;
-    public const int WindBlower = 85;
-    public const int WindImpulse = 86;
+    public const int UIOverlay = 82;
+    public const int WeaponCooldown = 83;
+    public const int WeaponDisabled = 84;
+    public const int WeaponHitPoint = 85;
+    public const int WindBlower = 86;
+    public const int WindImpulse = 87;
 
-    public const int TotalComponents = 87;
+    public const int TotalComponents = 88;
 
     public static readonly string[] componentNames = {
         "AcidPuddle",
@@ -181,6 +182,7 @@ public static class GameComponentsLookup {
         "TimerCompleted",
         "Timer",
         "Transform",
+        "UIOverlay",
         "WeaponCooldown",
         "WeaponDisabled",
         "WeaponHitPoint",
@@ -271,6 +273,7 @@ public static class GameComponentsLookup {
         typeof(TimerCompletedComponent),
         typeof(TimerComponent),
         typeof(TransformComponent),
+        typeof(UIOverlayComponent),
         typeof(WeaponCooldownComponent),
         typeof(WeaponDisabledComponent),
         typeof(WeaponHitPointComponent),

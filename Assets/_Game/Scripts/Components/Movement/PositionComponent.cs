@@ -3,7 +3,7 @@ using Entitas;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[Serializable,Game]
+[Game, UI]
 public class PositionComponent : IComponent
 {
     public Vector3 Value;

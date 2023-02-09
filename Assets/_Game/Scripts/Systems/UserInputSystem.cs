@@ -43,9 +43,6 @@ public class UserInputSystem : IExecuteSystem, IInitializeSystem
 
     public void Initialize()
     {
-        var gameSceneReferences = _contexts.game.gameSceneReferences.value;
-        var joystickEntity = _contexts.input.CreateEntity();
-        joystickEntity.AddJoystick(gameSceneReferences.Joystick);
         _contexts.input.CreateEntity().AddUserInput(Vector2.zero, Vector2.zero, false);
 
     }

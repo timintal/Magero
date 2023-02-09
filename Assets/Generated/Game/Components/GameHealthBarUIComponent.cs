@@ -11,14 +11,14 @@ public partial class GameEntity {
     public HealthBarUIComponent healthBarUI { get { return (HealthBarUIComponent)GetComponent(GameComponentsLookup.HealthBarUI); } }
     public bool hasHealthBarUI { get { return HasComponent(GameComponentsLookup.HealthBarUI); } }
 
-    public void AddHealthBarUI(UnityEngine.UI.Image newFillBar) {
+    public void AddHealthBarUI(UnityEngine.UI.Slider newFillBar) {
         var index = GameComponentsLookup.HealthBarUI;
         var component = (HealthBarUIComponent)CreateComponent(index, typeof(HealthBarUIComponent));
         component.FillBar = newFillBar;
         AddComponent(index, component);
     }
 
-    public void ReplaceHealthBarUI(UnityEngine.UI.Image newFillBar) {
+    public void ReplaceHealthBarUI(UnityEngine.UI.Slider newFillBar) {
         var index = GameComponentsLookup.HealthBarUI;
         var component = (HealthBarUIComponent)CreateComponent(index, typeof(HealthBarUIComponent));
         component.FillBar = newFillBar;

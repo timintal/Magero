@@ -5,6 +5,7 @@ using _Game.Data;
 using _Game.Flow;
 using Entitas;
 using Game.Config.Model;
+using Magero.UIFramework;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
@@ -23,6 +24,8 @@ public class EcsBootstrap : MonoBehaviour, IDisposable
     [Inject] private WeaponData _weaponData;
     [Inject] private GameConfig _gameConfig;
     [Inject] private GameFSM _gameFsm;
+    [Inject] private UIFrame _uiFrame;
+    [Inject] private Camera _gameCamera;
 
     private Systems _systems;
     
@@ -45,7 +48,7 @@ public class EcsBootstrap : MonoBehaviour, IDisposable
     private Systems CreateSystems(Contexts contexts)
     {
         return new Feature("Game")
-                .Add(new PlayerInitializeSystem(contexts, _playerData, _weaponData, _gameConfig))
+                .Add(new PlayerInitializeSystem(contexts, _playerData, _weaponData, _gameConfig, _uiFrame))
                 .Add(new LevelStageActivationSystem(contexts))
                 
                 .Add(new ColliderCacheSystem(contexts))
@@ -91,6 +94,8 @@ public class EcsBootstrap : MonoBehaviour, IDisposable
                 
                 .Add(new DamageSystem(contexts))
 
+                .Add(new UIFeature(contexts, _poolService))
+                
                 .Add(new RagdollCreationSystem(contexts))//should be after damage system
                 
                 .Add(new AutoDestructionSystem(contexts))

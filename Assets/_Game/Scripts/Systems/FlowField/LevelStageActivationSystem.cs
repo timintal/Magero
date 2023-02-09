@@ -120,7 +120,7 @@ public class LevelStageActivationSystem : ReactiveSystem<GameEntity>
 
         foreach (var crowdTarget in levelToLoad.CrowdTargets)
         {
-            HelperFunctions.UpdateFlowFieldForTarget(crowdTarget.position, flowFieldEntity.flowField, gameSetup.FlowFieldSettings, 8f, _cellsToCheck);
+            HelperFunctions.UpdateFlowFieldForTarget(crowdTarget.position, flowFieldEntity.flowField, gameSetup.FlowFieldSettings, 4f, _cellsToCheck);
         }
 
         flowFieldEntity.flowField.CopyField(flowFieldEntity.flowField.BackField, flowFieldEntity.flowField.LevelField);

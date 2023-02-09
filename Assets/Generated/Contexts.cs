@@ -64,12 +64,18 @@ public partial class Contexts : Entitas.IContexts {
 //------------------------------------------------------------------------------
 public partial class Contexts {
 
+    public const string DamageForUI = "DamageForUI";
     public const string FlowFieldMover = "FlowFieldMover";
     public const string Id = "Id";
     public const string Target = "Target";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
+        uI.AddEntityIndex(new Entitas.PrimaryEntityIndex<UIEntity, int>(
+            DamageForUI,
+            uI.GetGroup(UIMatcher.DamageForUI),
+            (e, c) => ((DamageForUIComponent)c).TargetId));
+
         game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, int>(
             FlowFieldMover,
             game.GetGroup(GameMatcher.FlowFieldMover),
@@ -92,6 +98,10 @@ public partial class Contexts {
 }
 
 public static class ContextsExtensions {
+
+    public static UIEntity GetEntityWithDamageForUI(this UIContext context, int TargetId) {
+        return ((Entitas.PrimaryEntityIndex<UIEntity, int>)context.GetEntityIndex(Contexts.DamageForUI)).GetEntity(TargetId);
+    }
 
     public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithFlowFieldMover(this GameContext context, int FlowFieldIndex) {
         return ((Entitas.EntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.FlowFieldMover)).GetEntities(FlowFieldIndex);

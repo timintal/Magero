@@ -75,4 +75,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 13d48f6eb049c4b91a5a557b121a1703, type: 2}
   PlayerSettings:
     Health: 20
-    DistanceForDamage: 7
+    DistanceForDamage: 8
+  DamageUIOverlayPrefab: {fileID: 5522990829814765292, guid: bab1b887db02f417d904ebc9f6051fe3,
+    type: 3}

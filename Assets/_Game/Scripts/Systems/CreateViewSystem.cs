@@ -28,6 +28,7 @@ public class CreateViewSystem : ReactiveSystem<GameEntity>, ITearDownSystem
     {
         foreach (var entity in entities)
         {
+            
             var obj = _poolService.GetGameObject(entity.resource.Prefab);
 
             entity.AddTransform(obj.transform);
