@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
@@ -18,11 +17,11 @@ public class UpdateFlowFieldSystem : IExecuteSystem
         _contexts = contexts;
 
         _groundEnemiesFlowFieldGroup =
-            _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField, GameMatcher.GroundEnemyFlowField));
+            _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField, GameMatcher.GroundEnemyFlowField).NoneOf(GameMatcher.FieldUpdateCooldown));
         _flyingEnemiesFlowFieldGroup =
-            _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField, GameMatcher.FlyingEnemyFlowField));
+            _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField, GameMatcher.FlyingEnemyFlowField).NoneOf(GameMatcher.FieldUpdateCooldown));
         _summonFlowFieldGroup =
-            _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField, GameMatcher.SummonFlowField));
+            _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowField, GameMatcher.SummonFlowField).NoneOf(GameMatcher.FieldUpdateCooldown));
         _tempObstaclesGroup = _contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.FlowFieldTemporaryObstacle,
             GameMatcher.Position, GameMatcher.Timer));
 
@@ -41,7 +40,9 @@ public class UpdateFlowFieldSystem : IExecuteSystem
             IncludeMoversIntoFlowField(flowField, movers);
             IncludeTempAvoidanceZones(flowField);
             flowField.flowField.SwapFields();
-            
+
+            AddUpdateCooldown(flowField);
+
             if (_summonFlowFieldGroup.count > 0)
             {
                 var summonFlowField = _summonFlowFieldGroup.GetSingleEntity();
@@ -59,6 +60,7 @@ public class UpdateFlowFieldSystem : IExecuteSystem
                     }
 
                     summonFlowField.flowField.SwapFields();
+                    AddUpdateCooldown(summonFlowField);
                 }
             }
         }
@@ -72,10 +74,18 @@ public class UpdateFlowFieldSystem : IExecuteSystem
             
             IncludeMoversIntoFlowField(flowField, movers);
             flowField.flowField.SwapFields();
+            AddUpdateCooldown(flowField);
         }
         
-        
-        
+    }
+
+    private void AddUpdateCooldown(GameEntity flowField)
+    {
+        var timer = _contexts.game.CreateEntity();
+        timer.AddTimer(_contexts.game.gameSetup.value.FlowFieldSettings.FlowFieldUpdateCooldown);
+        timer.AddEntityRef(flowField.id.Value);
+        timer.hasFieldUpdateCooldown = true;
+        flowField.hasFieldUpdateCooldown = true;
     }
 
     private void IncludeMoversIntoFlowField(GameEntity flowField, HashSet<GameEntity> movers)

@@ -53,6 +53,8 @@ public class FlowFieldSettings
     public float ExplosionRepulsionTime;
     public int ExplosionRepulsionValue;
     public int ExplosionRepulsionSizeMultiplier;
+    
+    public float FlowFieldUpdateCooldown;
 }
 
 [Serializable]

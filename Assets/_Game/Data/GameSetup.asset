@@ -27,6 +27,7 @@ MonoBehaviour:
     ExplosionRepulsionTime: 3
     ExplosionRepulsionValue: 8000
     ExplosionRepulsionSizeMultiplier: 2
+    FlowFieldUpdateCooldown: 0.3
   DebugSettings:
     VisualizeGroundEnemyFlowField: 0
     VisualizeFlyingEnemyFlowField: 0

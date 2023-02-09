@@ -53,6 +53,8 @@ public class ExplosionSystem : ReactiveSystem<GameEntity>
                     target.ReplaceDamageSourcePosition(position);
                 }
             }
+
+            e.isDestroyed = true;   
         }
     }
 

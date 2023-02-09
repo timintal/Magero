@@ -24,7 +24,7 @@ public class LaserShootingSystem : IExecuteSystem
                     e.direction.Value,
                     out RaycastHit hit,
                     1000,
-                    LayerMask.GetMask("Enemy", "Environment")))
+                    e.attacker.TargetMask))
             {
                 if (colliderCacheColliderCacheMap.ContainsKey(hit.collider))
                 {

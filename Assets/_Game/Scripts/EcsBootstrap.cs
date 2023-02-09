@@ -65,7 +65,6 @@ public class EcsBootstrap : MonoBehaviour, IDisposable
                 .Add(new PlayerUpdateSystem(contexts))
                 .Add(new PlayerShooterDirectionUpdateSystem(contexts))
                 
-
                 .Add(new CameraControlSystem(contexts))
                 
                 .Add(new LevelStageProgressSystem(contexts))

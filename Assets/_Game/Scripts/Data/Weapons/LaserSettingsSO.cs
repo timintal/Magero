@@ -19,7 +19,7 @@ public class LaserSettingsSO : WeaponSettings
         entity.AddWeaponHitPoint(sceneReferences.Arms[armIndex].BeamShootingTransform.position);
         entity.AddAnimator(sceneReferences.Arms[armIndex].Animator);
         entity.AddDamage(gameConfig.GetConfigModel<SpellsStatsModel>()[damageLevel.ToString()].LaserDps);
-        entity.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy"));
+        entity.AddAttacker(TargetType.Enemy, LayerMask.GetMask("Enemy", "Environment"));
         entity.isPlayerWeaponDirection = true;
         entity.isPlayer = true;
     }

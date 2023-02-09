@@ -36,66 +36,67 @@ public static class GameComponentsLookup {
     public const int ExplodableProjectileShooter = 25;
     public const int Explosion = 26;
     public const int ExplosionVisualization = 27;
-    public const int FlowField = 28;
-    public const int FlowFieldDirectionUpdateDelay = 29;
-    public const int FlowFieldMover = 30;
-    public const int FlowFieldTarget = 31;
-    public const int FlowFieldTemporaryObstacle = 32;
-    public const int Flying = 33;
-    public const int FlyingEnemyFlowField = 34;
-    public const int ForcedMovement = 35;
-    public const int GameSceneReferences = 36;
-    public const int GameSetup = 37;
-    public const int GasCloud = 38;
-    public const int GasProjectile = 39;
-    public const int GasProjectileShooter = 40;
-    public const int GroundEnemyFlowField = 41;
-    public const int HealthBarUI = 42;
-    public const int Health = 43;
-    public const int HitPointEffect = 44;
-    public const int Id = 45;
-    public const int LaserShooter = 46;
-    public const int LayerMask = 47;
-    public const int Level = 48;
-    public const int LevelFinished = 49;
-    public const int LightningShooter = 50;
-    public const int MaxHealth = 51;
-    public const int OnDestroyFx = 52;
-    public const int PartitionGrid = 53;
-    public const int Player = 54;
-    public const int PlayerWeaponDirection = 55;
-    public const int Position = 56;
-    public const int Projectile = 57;
-    public const int ProjectileLanded = 58;
-    public const int ProjectileShooter = 59;
-    public const int Radius = 60;
-    public const int RagdollAngularVelocity = 61;
-    public const int RagdollCurrentVelocity = 62;
-    public const int RagdollDeath = 63;
-    public const int RagdollRemoveTimer = 64;
-    public const int ReceivedDamage = 65;
-    public const int ReceivedFloatDamage = 66;
-    public const int Renderer = 67;
-    public const int Resource = 68;
-    public const int Rotation = 69;
-    public const int Scale = 70;
-    public const int Speed = 71;
-    public const int SpeedModifierZone = 72;
-    public const int Stunned = 73;
-    public const int Summon = 74;
-    public const int SummonFlowField = 75;
-    public const int SummonSpell = 76;
-    public const int Target = 77;
-    public const int TimerCompleted = 78;
-    public const int Timer = 79;
-    public const int Transform = 80;
-    public const int WeaponCooldown = 81;
-    public const int WeaponDisabled = 82;
-    public const int WeaponHitPoint = 83;
-    public const int WindBlower = 84;
-    public const int WindImpulse = 85;
+    public const int FieldUpdateCooldown = 28;
+    public const int FlowField = 29;
+    public const int FlowFieldDirectionUpdateDelay = 30;
+    public const int FlowFieldMover = 31;
+    public const int FlowFieldTarget = 32;
+    public const int FlowFieldTemporaryObstacle = 33;
+    public const int Flying = 34;
+    public const int FlyingEnemyFlowField = 35;
+    public const int ForcedMovement = 36;
+    public const int GameSceneReferences = 37;
+    public const int GameSetup = 38;
+    public const int GasCloud = 39;
+    public const int GasProjectile = 40;
+    public const int GasProjectileShooter = 41;
+    public const int GroundEnemyFlowField = 42;
+    public const int HealthBarUI = 43;
+    public const int Health = 44;
+    public const int HitPointEffect = 45;
+    public const int Id = 46;
+    public const int LaserShooter = 47;
+    public const int LayerMask = 48;
+    public const int Level = 49;
+    public const int LevelFinished = 50;
+    public const int LightningShooter = 51;
+    public const int MaxHealth = 52;
+    public const int OnDestroyFx = 53;
+    public const int PartitionGrid = 54;
+    public const int Player = 55;
+    public const int PlayerWeaponDirection = 56;
+    public const int Position = 57;
+    public const int Projectile = 58;
+    public const int ProjectileLanded = 59;
+    public const int ProjectileShooter = 60;
+    public const int Radius = 61;
+    public const int RagdollAngularVelocity = 62;
+    public const int RagdollCurrentVelocity = 63;
+    public const int RagdollDeath = 64;
+    public const int RagdollRemoveTimer = 65;
+    public const int ReceivedDamage = 66;
+    public const int ReceivedFloatDamage = 67;
+    public const int Renderer = 68;
+    public const int Resource = 69;
+    public const int Rotation = 70;
+    public const int Scale = 71;
+    public const int Speed = 72;
+    public const int SpeedModifierZone = 73;
+    public const int Stunned = 74;
+    public const int Summon = 75;
+    public const int SummonFlowField = 76;
+    public const int SummonSpell = 77;
+    public const int Target = 78;
+    public const int TimerCompleted = 79;
+    public const int Timer = 80;
+    public const int Transform = 81;
+    public const int WeaponCooldown = 82;
+    public const int WeaponDisabled = 83;
+    public const int WeaponHitPoint = 84;
+    public const int WindBlower = 85;
+    public const int WindImpulse = 86;
 
-    public const int TotalComponents = 86;
+    public const int TotalComponents = 87;
 
     public static readonly string[] componentNames = {
         "AcidPuddle",
@@ -126,6 +127,7 @@ public static class GameComponentsLookup {
         "ExplodableProjectileShooter",
         "Explosion",
         "ExplosionVisualization",
+        "FieldUpdateCooldown",
         "FlowField",
         "FlowFieldDirectionUpdateDelay",
         "FlowFieldMover",
@@ -215,6 +217,7 @@ public static class GameComponentsLookup {
         typeof(ExplodableProjectileShooterComponent),
         typeof(ExplosionComponent),
         typeof(ExplosionVisualizationComponent),
+        typeof(FieldUpdateCooldownComponent),
         typeof(FlowFieldComponent),
         typeof(FlowFieldDirectionUpdateDelayComponent),
         typeof(FlowFieldMoverComponent),

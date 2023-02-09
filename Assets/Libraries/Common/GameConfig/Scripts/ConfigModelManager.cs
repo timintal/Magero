@@ -235,7 +235,7 @@ namespace Game.Config.Model
             foreach (var sheet in sheetsToLoad)
             {
 #if UNITY_ANDROID && !UNITY_EDITOR
-                var loadingRequest = UnityWebRequest.Get(Path.Combine(RemoteConfigModelPaths.LocalAssetPath, sheet));
+                var loadingRequest = UnityWebRequest.Get(Path.Combine(ConfigPaths.LocalAssetPath, sheet));
                 loadingRequest.SendWebRequest();
                 while (!loadingRequest.isDone) {
                     if (loadingRequest.isNetworkError || loadingRequest.isHttpError) {
@@ -245,7 +245,7 @@ namespace Game.Config.Model
                 if (loadingRequest.isNetworkError || loadingRequest.isHttpError) {
  
                 } else {
-                    File.WriteAllBytes(Path.Combine(_adminData.GetCachedPath(), sheet), loadingRequest.downloadHandler.data);
+                    File.WriteAllBytes(Path.Combine(_data.GetCachedPath(), sheet), loadingRequest.downloadHandler.data);
                 }
 #else
                 File.Copy(Path.Combine(ConfigPaths.LocalAssetPath, sheet), Path.Combine(_data.GetCachedPath(), sheet), true);
