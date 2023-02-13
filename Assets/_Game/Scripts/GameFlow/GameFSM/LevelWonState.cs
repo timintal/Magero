@@ -12,7 +12,7 @@ public class LevelWonState : FSMState
     
     internal override void OnEnter()
     {
-        _playerData.PlayerLevel += 1;
+        _playerData.Level += 1;
         _uiFrame.Open<LevelFinishedScreen>();
     }
 

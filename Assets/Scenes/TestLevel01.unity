@@ -240,6 +240,9 @@ MonoBehaviour:
     - Name: EnemyToSpawn
       Entry: 10
       Data: 0
+    - Name: EnemyLevel
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -510,6 +513,9 @@ MonoBehaviour:
     - Name: EnemyToSpawn
       Entry: 10
       Data: 0
+    - Name: EnemyLevel
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -653,6 +659,9 @@ MonoBehaviour:
     - Name: EnemyToSpawn
       Entry: 10
       Data: 0
+    - Name: EnemyLevel
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1662,6 +1671,9 @@ MonoBehaviour:
     - Name: EnemyToSpawn
       Entry: 10
       Data: 0
+    - Name: EnemyLevel
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -2687,6 +2699,9 @@ MonoBehaviour:
     - Name: EnemyToSpawn
       Entry: 10
       Data: 0
+    - Name: EnemyLevel
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -3334,6 +3349,9 @@ MonoBehaviour:
     - Name: EnemyToSpawn
       Entry: 10
       Data: 0
+    - Name: EnemyLevel
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 

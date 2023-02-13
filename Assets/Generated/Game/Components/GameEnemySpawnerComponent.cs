@@ -11,7 +11,7 @@ public partial class GameEntity {
     public EnemySpawnerComponent enemySpawner { get { return (EnemySpawnerComponent)GetComponent(GameComponentsLookup.EnemySpawner); } }
     public bool hasEnemySpawner { get { return HasComponent(GameComponentsLookup.EnemySpawner); } }
 
-    public void AddEnemySpawner(UnityEngine.Vector2 newSpawnDelayRange, UnityEngine.Vector2Int newSpawnCountRange, UnityEngine.Vector2 newSpawnArea, int newUnitsToSpawn, int newUnitsSpawned, float newTimeToNextSpawn, EnemySettings newEnemyToSpawn) {
+    public void AddEnemySpawner(UnityEngine.Vector2 newSpawnDelayRange, UnityEngine.Vector2Int newSpawnCountRange, UnityEngine.Vector2 newSpawnArea, int newUnitsToSpawn, int newUnitsSpawned, float newTimeToNextSpawn, EnemySettings newEnemyToSpawn, int newEnemyLevel) {
         var index = GameComponentsLookup.EnemySpawner;
         var component = (EnemySpawnerComponent)CreateComponent(index, typeof(EnemySpawnerComponent));
         component.SpawnDelayRange = newSpawnDelayRange;
@@ -21,10 +21,11 @@ public partial class GameEntity {
         component.UnitsSpawned = newUnitsSpawned;
         component.TimeToNextSpawn = newTimeToNextSpawn;
         component.EnemyToSpawn = newEnemyToSpawn;
+        component.EnemyLevel = newEnemyLevel;
         AddComponent(index, component);
     }
 
-    public void ReplaceEnemySpawner(UnityEngine.Vector2 newSpawnDelayRange, UnityEngine.Vector2Int newSpawnCountRange, UnityEngine.Vector2 newSpawnArea, int newUnitsToSpawn, int newUnitsSpawned, float newTimeToNextSpawn, EnemySettings newEnemyToSpawn) {
+    public void ReplaceEnemySpawner(UnityEngine.Vector2 newSpawnDelayRange, UnityEngine.Vector2Int newSpawnCountRange, UnityEngine.Vector2 newSpawnArea, int newUnitsToSpawn, int newUnitsSpawned, float newTimeToNextSpawn, EnemySettings newEnemyToSpawn, int newEnemyLevel) {
         var index = GameComponentsLookup.EnemySpawner;
         var component = (EnemySpawnerComponent)CreateComponent(index, typeof(EnemySpawnerComponent));
         component.SpawnDelayRange = newSpawnDelayRange;
@@ -34,6 +35,7 @@ public partial class GameEntity {
         component.UnitsSpawned = newUnitsSpawned;
         component.TimeToNextSpawn = newTimeToNextSpawn;
         component.EnemyToSpawn = newEnemyToSpawn;
+        component.EnemyLevel = newEnemyLevel;
         ReplaceComponent(index, component);
     }
 

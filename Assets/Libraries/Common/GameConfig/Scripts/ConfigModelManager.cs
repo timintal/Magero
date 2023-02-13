@@ -29,7 +29,7 @@ namespace Game.Config.Model
     {
         private Action OnComplete;
 
-        private bool Initialised { get; set; }
+        public bool Initialised { get; protected set; }
         private ConfigData _data;
 
         public Dictionary<string, T> GetConfigModel<T>() where T : IConfigModel

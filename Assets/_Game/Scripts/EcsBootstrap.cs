@@ -96,6 +96,8 @@ public class EcsBootstrap : MonoBehaviour, IDisposable
 
                 .Add(new UIFeature(contexts, _poolService))
                 
+                .Add(new PlayerExpSystem(contexts.game, _playerData))
+                
                 .Add(new RagdollCreationSystem(contexts))//should be after damage system
                 
                 .Add(new AutoDestructionSystem(contexts))

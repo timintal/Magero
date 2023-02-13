@@ -32,73 +32,74 @@ public static class GameComponentsLookup {
     public const int EnemySpawner = 21;
     public const int EnemySpawnRequest = 22;
     public const int EntityRef = 23;
-    public const int ExplodableProjectile = 24;
-    public const int ExplodableProjectileShooter = 25;
-    public const int Explosion = 26;
-    public const int ExplosionVisualization = 27;
-    public const int FieldUpdateCooldown = 28;
-    public const int FlowField = 29;
-    public const int FlowFieldDirectionUpdateDelay = 30;
-    public const int FlowFieldMover = 31;
-    public const int FlowFieldTarget = 32;
-    public const int FlowFieldTemporaryObstacle = 33;
-    public const int Flying = 34;
-    public const int FlyingEnemyFlowField = 35;
-    public const int ForcedMovement = 36;
-    public const int GameSceneReferences = 37;
-    public const int GameSetup = 38;
-    public const int GasCloud = 39;
-    public const int GasProjectile = 40;
-    public const int GasProjectileShooter = 41;
-    public const int GroundEnemyFlowField = 42;
-    public const int HealthBarUI = 43;
-    public const int Health = 44;
-    public const int HitPointEffect = 45;
-    public const int Id = 46;
-    public const int LaserShooter = 47;
-    public const int LayerMask = 48;
-    public const int Level = 49;
-    public const int LevelFinished = 50;
-    public const int LightningShooter = 51;
-    public const int MaxHealth = 52;
-    public const int OnDestroyFx = 53;
-    public const int OutOfScreen = 54;
-    public const int PartitionGrid = 55;
-    public const int Player = 56;
-    public const int PlayerWeaponDirection = 57;
-    public const int Position = 58;
-    public const int Projectile = 59;
-    public const int ProjectileLanded = 60;
-    public const int ProjectileShooter = 61;
-    public const int Radius = 62;
-    public const int RagdollAngularVelocity = 63;
-    public const int RagdollCurrentVelocity = 64;
-    public const int RagdollDeath = 65;
-    public const int RagdollRemoveTimer = 66;
-    public const int ReceivedDamage = 67;
-    public const int ReceivedFloatDamage = 68;
-    public const int Renderer = 69;
-    public const int Resource = 70;
-    public const int Rotation = 71;
-    public const int Scale = 72;
-    public const int Speed = 73;
-    public const int SpeedModifierZone = 74;
-    public const int Stunned = 75;
-    public const int Summon = 76;
-    public const int SummonFlowField = 77;
-    public const int SummonSpell = 78;
-    public const int Target = 79;
-    public const int TimerCompleted = 80;
-    public const int Timer = 81;
-    public const int Transform = 82;
-    public const int UIOverlay = 83;
-    public const int WeaponCooldown = 84;
-    public const int WeaponDisabled = 85;
-    public const int WeaponHitPoint = 86;
-    public const int WindBlower = 87;
-    public const int WindImpulse = 88;
+    public const int Exp = 24;
+    public const int ExplodableProjectile = 25;
+    public const int ExplodableProjectileShooter = 26;
+    public const int Explosion = 27;
+    public const int ExplosionVisualization = 28;
+    public const int FieldUpdateCooldown = 29;
+    public const int FlowField = 30;
+    public const int FlowFieldDirectionUpdateDelay = 31;
+    public const int FlowFieldMover = 32;
+    public const int FlowFieldTarget = 33;
+    public const int FlowFieldTemporaryObstacle = 34;
+    public const int Flying = 35;
+    public const int FlyingEnemyFlowField = 36;
+    public const int ForcedMovement = 37;
+    public const int GameSceneReferences = 38;
+    public const int GameSetup = 39;
+    public const int GasCloud = 40;
+    public const int GasProjectile = 41;
+    public const int GasProjectileShooter = 42;
+    public const int GroundEnemyFlowField = 43;
+    public const int HealthBarUI = 44;
+    public const int Health = 45;
+    public const int HitPointEffect = 46;
+    public const int Id = 47;
+    public const int LaserShooter = 48;
+    public const int LayerMask = 49;
+    public const int Level = 50;
+    public const int LevelFinished = 51;
+    public const int LightningShooter = 52;
+    public const int MaxHealth = 53;
+    public const int OnDestroyFx = 54;
+    public const int OutOfScreen = 55;
+    public const int PartitionGrid = 56;
+    public const int Player = 57;
+    public const int PlayerWeaponDirection = 58;
+    public const int Position = 59;
+    public const int Projectile = 60;
+    public const int ProjectileLanded = 61;
+    public const int ProjectileShooter = 62;
+    public const int Radius = 63;
+    public const int RagdollAngularVelocity = 64;
+    public const int RagdollCurrentVelocity = 65;
+    public const int RagdollDeath = 66;
+    public const int RagdollRemoveTimer = 67;
+    public const int ReceivedDamage = 68;
+    public const int ReceivedFloatDamage = 69;
+    public const int Renderer = 70;
+    public const int Resource = 71;
+    public const int Rotation = 72;
+    public const int Scale = 73;
+    public const int Speed = 74;
+    public const int SpeedModifierZone = 75;
+    public const int Stunned = 76;
+    public const int Summon = 77;
+    public const int SummonFlowField = 78;
+    public const int SummonSpell = 79;
+    public const int Target = 80;
+    public const int TimerCompleted = 81;
+    public const int Timer = 82;
+    public const int Transform = 83;
+    public const int UIOverlay = 84;
+    public const int WeaponCooldown = 85;
+    public const int WeaponDisabled = 86;
+    public const int WeaponHitPoint = 87;
+    public const int WindBlower = 88;
+    public const int WindImpulse = 89;
 
-    public const int TotalComponents = 89;
+    public const int TotalComponents = 90;
 
     public static readonly string[] componentNames = {
         "AcidPuddle",
@@ -125,6 +126,7 @@ public static class GameComponentsLookup {
         "EnemySpawner",
         "EnemySpawnRequest",
         "EntityRef",
+        "Exp",
         "ExplodableProjectile",
         "ExplodableProjectileShooter",
         "Explosion",
@@ -217,6 +219,7 @@ public static class GameComponentsLookup {
         typeof(EnemySpawnerComponent),
         typeof(EnemySpawnRequestComponent),
         typeof(EntityRefComponent),
+        typeof(ExpComponent),
         typeof(ExplodableProjectileComponent),
         typeof(ExplodableProjectileShooterComponent),
         typeof(ExplosionComponent),

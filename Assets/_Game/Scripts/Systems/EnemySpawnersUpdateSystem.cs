@@ -23,7 +23,7 @@ public class EnemySpawnersUpdateSystem : IExecuteSystem
             {
                 var spawnRequestEntity = _contexts.game.CreateEntity();
                 var unitsCount = Random.Range(e.enemySpawner.SpawnCountRange.x, e.enemySpawner.SpawnCountRange.y);
-                spawnRequestEntity.AddEnemySpawnRequest(e.enemySpawner.EnemyToSpawn, e.enemySpawner.SpawnArea, unitsCount);
+                spawnRequestEntity.AddEnemySpawnRequest(e.enemySpawner.EnemyToSpawn, e.enemySpawner.SpawnArea, unitsCount, e.enemySpawner.EnemyLevel);
                 spawnRequestEntity.AddPosition(e.position.Value);
 
                 e.ReplaceEnemySpawner(e.enemySpawner.SpawnDelayRange,
@@ -32,7 +32,8 @@ public class EnemySpawnersUpdateSystem : IExecuteSystem
                     e.enemySpawner.UnitsToSpawn,
                     e.enemySpawner.UnitsSpawned + unitsCount,
                     Random.Range(e.enemySpawner.SpawnDelayRange.x, e.enemySpawner.SpawnDelayRange.y),
-                    e.enemySpawner.EnemyToSpawn);
+                    e.enemySpawner.EnemyToSpawn,
+                    e.enemySpawner.EnemyLevel);
                 
                 if (e.enemySpawner.UnitsToSpawn <= e.enemySpawner.UnitsSpawned)
                 {
@@ -47,7 +48,8 @@ public class EnemySpawnersUpdateSystem : IExecuteSystem
                     e.enemySpawner.UnitsToSpawn,
                     e.enemySpawner.UnitsSpawned,
                     timeToNextSpawn,
-                    e.enemySpawner.EnemyToSpawn);
+                    e.enemySpawner.EnemyToSpawn,
+                    e.enemySpawner.EnemyLevel);
             }
         }
     }

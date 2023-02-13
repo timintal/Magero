@@ -73,7 +73,6 @@ public class DebugSettings
 [Serializable]
 public class PlayerSettings
 {
-    public int Health;
     public float DistanceForDamage;
 }
 

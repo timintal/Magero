@@ -1715,7 +1715,7 @@ GameObject:
   - component: {fileID: 4243016418665753897}
   - component: {fileID: 5435589722693192873}
   m_Layer: 6
-  m_Name: TestEnemyGiant
+  m_Name: GiantCactus_Brute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

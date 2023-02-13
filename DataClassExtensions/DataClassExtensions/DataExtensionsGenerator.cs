@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
@@ -90,7 +87,7 @@ public partial class {classSymbol.Name}
         }
         
         const string extensionsSource =@"
-        public System.Action<$type$, $type$> On$NameUpper$Changed;
+        public event System.Action<$type$, $type$> On$NameUpper$Changed;
         public $type$ $NameUpper$
         {
             get => $NameLower$;

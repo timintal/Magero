@@ -50,7 +50,7 @@ public class WeaponUpgradePanel : MonoBehaviour
                 upgradePrice,
                 () =>
                 {
-                    if (_playerData.SpendCoins(upgradePrice))
+                    if (_playerData.PlayerLevel > currLevel && _playerData.SpendCoins(upgradePrice))
                     {
                         _weaponData.IncreaseWeaponParamLevel(settings.Type, upgradeParam.ParamKey);
                         SetupView(settings, upgradeParam, view);

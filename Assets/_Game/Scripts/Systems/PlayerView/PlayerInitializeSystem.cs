@@ -30,9 +30,13 @@ public class PlayerInitializeSystem : IInitializeSystem
         var gameSetup = _contexts.game.gameSetup.value;
         var sceneReferences = _contexts.game.gameSceneReferences.value;
 
+        var castleStatsModels = _gameConfig.GetConfigModel<CastleStatsModel>();
+
         var playerEntity = _contexts.game.CreateEntity();
-        playerEntity.AddHealth(gameSetup.PlayerSettings.Health);
-        playerEntity.AddMaxHealth(gameSetup.PlayerSettings.Health);
+        var wallHp = castleStatsModels[_playerData.WallLevel.ToString()].WallHp;
+        
+        playerEntity.AddHealth(wallHp);
+        playerEntity.AddMaxHealth(wallHp);
         playerEntity.AddTarget(TargetType.Player);
         playerEntity.AddTransform(sceneReferences.CameraTransform);
         playerEntity.AddHealthBarUI(_uiFrame.GetScreen<GamePlayScreen>().HealthBar);

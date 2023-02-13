@@ -12,4 +12,7 @@ public class EnemySettings : ScriptableObject
 
     public float Radius;
     public bool IsFlying;
+
+    public int Exp;
+    
 }

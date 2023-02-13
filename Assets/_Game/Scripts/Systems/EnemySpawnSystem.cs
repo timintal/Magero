@@ -51,15 +51,16 @@ public class EnemySpawnSystem : ReactiveSystem<GameEntity>
                 var unitType = e.enemySpawnRequest.EnemySettings.Type;
                 var speed = e.enemySpawnRequest.EnemySettings.Speed;
                 enemyEntity.AddSpeed(speed, speed);
-                var health = _healthProvider.GetHealth(unitType, _playerData.PlayerLevel);
+                var health = _healthProvider.GetHealth(unitType, e.enemySpawnRequest.EnemyLevel);
                 enemyEntity.AddHealth(health);
                 enemyEntity.AddMaxHealth(health);
-                enemyEntity.AddDamage(_unitDamageProvider.GetDamage(unitType, _playerData.PlayerLevel));
+                enemyEntity.AddDamage(_unitDamageProvider.GetDamage(unitType, e.enemySpawnRequest.EnemyLevel));
                 enemyEntity.AddRadius(e.enemySpawnRequest.EnemySettings.Radius);
                 enemyEntity.AddTarget(TargetType.Enemy);
                 enemyEntity.AddAnimatorSpeedSync(Animator.StringToHash("SpeedFactor"));
                 enemyEntity.AddFlowFieldMover(e.enemySpawnRequest.EnemySettings.IsFlying ? flyingFlowFieldId : groundFlowFieldId);
                 enemyEntity.isRagdollDeath = true;
+                enemyEntity.AddExp(e.enemySpawnRequest.EnemySettings.Exp);
 
                 var randPart = new Vector3(Random.Range(-e.enemySpawnRequest.Bounds.x * 0.5f, e.enemySpawnRequest.Bounds.x * 0.5f), 0,
                     Random.Range(e.enemySpawnRequest.Bounds.y * 0.5f, e.enemySpawnRequest.Bounds.y * 0.5f));

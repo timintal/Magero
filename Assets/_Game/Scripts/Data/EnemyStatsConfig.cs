@@ -1,4 +1,5 @@
 using Game.Config.Model;
+using UnityEngine;
 
 namespace _Game.Data
 {
@@ -31,7 +32,8 @@ namespace _Game.Data
                 }
             }
 
-
+            Debug.LogError($"Cannot find enemy {t} upgrade for level {level}");
+            
             return -1;
         }
 
@@ -55,6 +57,7 @@ namespace _Game.Data
                 }
             }
 
+            Debug.LogError($"Cannot find enemy {t} upgrade for level {level}");
 
             return -1;
         }

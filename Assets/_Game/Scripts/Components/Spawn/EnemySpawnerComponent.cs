@@ -15,4 +15,5 @@ public class EnemySpawnerComponent : IComponent
     public float TimeToNextSpawn;
 
     public EnemySettings EnemyToSpawn;
+    public int EnemyLevel;
 }

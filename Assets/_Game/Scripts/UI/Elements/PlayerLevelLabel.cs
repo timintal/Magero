@@ -4,8 +4,7 @@ using TMPro;
 using UnityEngine;
 using VContainer;
 
-
-public class LevelLabel : MonoBehaviour
+public class PlayerLevelLabel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _label;
     
@@ -13,7 +12,7 @@ public class LevelLabel : MonoBehaviour
 
     private void OnPlayerLevelChanged(int prev, int curr)
     {
-        _label.text = $"LEVEL {curr}";
+        _label.text = $"MAGE LEVEL {curr}";
     }
 
     void OnDestroy()
@@ -26,8 +25,8 @@ public class LevelLabel : MonoBehaviour
     {
         _playerData = playerData;
         
-        _playerData.OnLevelChanged += OnPlayerLevelChanged;
-        OnPlayerLevelChanged(_playerData.Level, _playerData.Level);
+        _playerData.OnPlayerLevelChanged += OnPlayerLevelChanged;
+        OnPlayerLevelChanged(_playerData.PlayerLevel, _playerData.PlayerLevel);
     }
 
 }
