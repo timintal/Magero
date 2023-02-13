@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using _Game.Flow;
 using JetBrains.Annotations;
 using Magero.UIFramework;
@@ -9,6 +10,9 @@ public class GamePlayScreen : UIScreen
 {
     [SerializeField] private Button _backButton;
     [SerializeField] Slider _healthBar;
+    [SerializeField] EnemyPointersPresenter _enemyPointersPresenter;
+    
+    public EnemyPointersPresenter EnemyPointersPresenter => _enemyPointersPresenter;
 
     public Slider HealthBar => _healthBar;
 

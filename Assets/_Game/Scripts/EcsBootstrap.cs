@@ -107,6 +107,8 @@ public class EcsBootstrap : MonoBehaviour, IDisposable
                 .Add(new LevelFinishSystem(contexts, _gameFsm))
                 
                 //view
+                .Add(new EnemyPointersFeature(contexts, _uiFrame))
+                
                 .Add(new AnimatorSpeedSyncSystem(contexts))
                 .Add(new CreateViewSystem(contexts, _poolService))
                 
@@ -125,6 +127,7 @@ public class EcsBootstrap : MonoBehaviour, IDisposable
                 
                 //Cleanup
                 .Add(new CleanupComponentSystem<DamageSourcePositionComponent>(contexts.game))
+                .Add(new CleanupComponentSystem<OutOfScreenComponent>(contexts.game))
             ;
     }
 

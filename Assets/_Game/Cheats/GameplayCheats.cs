@@ -32,7 +32,13 @@ public class GameplayCheats
         ent.AddLevelFinished(false);
     }
     
-	    
+    [Category("Test")]
+    public void ToggleUICamera()
+    {
+        _uiFrame.UICamera.enabled = !_uiFrame.UICamera.enabled;
+    }
+    
+    
     
     
     
