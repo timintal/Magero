@@ -6,10 +6,12 @@ namespace _Game.DataExtension
     public class DataFieldAttribute : Attribute
     {
         public bool IsDirtySetter;
+        public bool IsUpgrade;
 
-        public DataFieldAttribute(bool isDirtySetter = true)
+        public DataFieldAttribute(bool isDirtySetter = true, bool isUpgrade = false)
         {
             IsDirtySetter = isDirtySetter;
+            IsUpgrade = isUpgrade;
         }
     }
 }

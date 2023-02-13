@@ -26,15 +26,23 @@ public class InitialLifetimeScope : LifetimeScope
 
         builder.Register<WeaponControlService>(Lifetime.Singleton);
 
-
         builder.Register<GameConfig>(Lifetime.Singleton);
         builder.RegisterEntryPoint<EnemyStatsConfig>();
         
+        RegisterServices(builder);
+
         RegisterUI(builder);
         RegisterFsm(builder);
         RegisterGameSequences(builder);
         RegisterData(builder);
     }
+
+    private static void RegisterServices(IContainerBuilder builder)
+    {
+        builder.Register<ExpForUpgradeService>(Lifetime.Singleton);
+        builder.Register<PassiveIncomeService>(Lifetime.Singleton);
+    }
+
     private void RegisterUI(IContainerBuilder builder)
     {
         _uiFrame = _uiSettings.BuildUIFrame();
@@ -71,6 +79,7 @@ public class InitialLifetimeScope : LifetimeScope
         builder.Register<IPersistentDataHandler, PlayerPrefsDataHandler>(Lifetime.Singleton);
         builder.Register<PlayerData>(Lifetime.Singleton).As<PersistentDataBase>().AsSelf();
         builder.Register<WeaponData>(Lifetime.Singleton).As<PersistentDataBase>().AsSelf();
+        builder.Register<PassiveIncomeData>(Lifetime.Singleton).As<PersistentDataBase>().AsSelf();
     }
 
     private void Start()
@@ -80,6 +89,8 @@ public class InitialLifetimeScope : LifetimeScope
 
         Container.Resolve<GameFSM>().GoTo<MainMenuState>();
         Container.Resolve<GameConfig>().Init(null);
+        
+        Container.Resolve<ExpForUpgradeService>().Init();
         
         AddCheats();
     }

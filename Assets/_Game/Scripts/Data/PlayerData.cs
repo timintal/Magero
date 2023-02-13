@@ -14,10 +14,10 @@ namespace _Game.Data
         [DataField, JsonProperty] protected int _playerExp = 0;
         
         [DataField, JsonProperty] protected int _level = 1;
-        [DataField, JsonProperty] protected int _wallLevel = 1;
-        [DataField, JsonProperty] protected int _incomeRateLevel = 1;
-        [DataField, JsonProperty] protected int _archersNumberLevel = 1;
-        [DataField, JsonProperty] protected int _archerDamageLevel = 1;
+        [DataField(isUpgrade:true), JsonProperty] protected int _wallLevel = 1;
+        [DataField(isUpgrade:true), JsonProperty] protected int _incomeRateLevel = 1;
+        [DataField(isUpgrade:true), JsonProperty] protected int _archersNumberLevel = 1;
+        [DataField(isUpgrade:true), JsonProperty] protected int _archerDamageLevel = 1;
         
         [DataField, JsonProperty] private WeaponType _leftHandWeapon;
         [DataField, JsonProperty] private WeaponType _rightHandWeapon;

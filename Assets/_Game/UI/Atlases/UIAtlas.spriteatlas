@@ -39,6 +39,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 886e46324f5ab49cfa5baa87c2468d66, type: 3}
     - {fileID: 2800000, guid: a0141cd9f926c4a3e9a361d041d05655, type: 3}
     - {fileID: 2800000, guid: cd9e1436adbc94cafbfe64fee0518a09, type: 3}
+    - {fileID: 2800000, guid: ab3ae1ffeb0c6412798973cfd7fb15d0, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -51,6 +52,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a0141cd9f926c4a3e9a361d041d05655, type: 3}
   - {fileID: 21300000, guid: 5649518a0104c4fdda2a3d3d0d10ad55, type: 3}
   - {fileID: 21300000, guid: f5ba7fce415b540a09aefd906d27fa19, type: 3}
+  - {fileID: 21300000, guid: ab3ae1ffeb0c6412798973cfd7fb15d0, type: 3}
   m_PackedSpriteNamesToIndex:
   - set_icon_menu05_boss
   - slider_edgetype_00_frame_front
@@ -59,6 +61,7 @@ SpriteAtlas:
   - slider_edgetype_00_frame_icon1
   - slider_edgetype_00_fill
   - icon_color_arrow_next
+  - LabelBack
   m_RenderDataMap: {}
   m_Tag: UIAtlas
   m_IsVariant: 0

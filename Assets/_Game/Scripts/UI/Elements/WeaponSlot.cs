@@ -19,11 +19,17 @@ public class WeaponSlot : MonoBehaviour
 
     public WeaponType WeaponType => _settings.Type;
 
+    private void Awake()
+    {
+        _weaponIcon.color = Color.clear;
+    }
+
     public void Init(WeaponSettings settings, Action onSelected, bool locked = false)
     {
         _settings = settings;
         _weaponIcon.sprite = settings.WeaponSprite;
         _label.text = settings.WeaponName;
+        _weaponIcon.color = _weaponIcon.sprite == null ? Color.clear : Color.white;
 
         if (_lockIcon != null)
             _lockIcon.gameObject.SetActive(locked);

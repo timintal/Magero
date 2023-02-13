@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ceef57aa64b4fe7951e64dfa09ac09a, type: 3}
   m_Name: AcidSettings
   m_EditorClassIdentifier: 
-  WeaponSprite: {fileID: 21300000, guid: d687be31ab5d84ca8ad33ebce69d62e5, type: 3}
+  WeaponSprite: {fileID: 21300000, guid: f71562f1ed5a840cd938e92fe1f9f2f3, type: 3}
   WeaponName: Acid
   WeaponKey: acid
   Cooldown: 0
