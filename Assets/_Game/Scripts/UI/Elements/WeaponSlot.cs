@@ -44,6 +44,7 @@ public class WeaponSlot : MonoBehaviour
         _onSelectedAction = null;
         _weaponIcon.sprite = null;
         _label.text = "";
+        _weaponIcon.color = Color.clear;
     }
 
     void OnEnable()
