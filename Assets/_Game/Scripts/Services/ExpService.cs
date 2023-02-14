@@ -2,13 +2,13 @@ using System;
 using _Game.Data;
 using Game.Config.Model;
 
-public class ExpForUpgradeService: IDisposable
+public class ExpService : IDisposable
 {
     private readonly PlayerData _playerData;
     private readonly WeaponData _weaponData;
     private readonly GameConfig _gameConfig;
 
-    public ExpForUpgradeService(PlayerData playerData, WeaponData weaponData, GameConfig gameConfig)
+    public ExpService(PlayerData playerData, WeaponData weaponData, GameConfig gameConfig)
     {
         _playerData = playerData;
         _weaponData = weaponData;
@@ -19,6 +19,15 @@ public class ExpForUpgradeService: IDisposable
     {
         _playerData.OnPlayerParamUpgraded += PlayerDataOnOnPlayerParamUpgraded;
         _weaponData.OnWeaponLevelUpdated += OnWeaponLevelUpdated;
+        _playerData.OnPlayerExpChanged += PlayerDataOnOnPlayerExpChanged;
+        
+        UpdatePlayerLevel();
+    }
+
+    private void PlayerDataOnOnPlayerExpChanged(int previous, int current)
+    {
+        if (current > previous)
+            UpdatePlayerLevel();
     }
 
     private void OnWeaponLevelUpdated(WeaponType arg1, int arg2)
@@ -35,6 +44,21 @@ public class ExpForUpgradeService: IDisposable
         var expForUpgrade = gameSettingsModels.ExpForUpgrade;
         _playerData.PlayerExp += (expForUpgrade);
     }
+    
+    void UpdatePlayerLevel()
+    {
+        var expModels = _gameConfig.GetConfigModel<ExpModel>();
+        
+        var expToNextLevel = expModels[_playerData.PlayerLevel.ToString()];
+
+        while (_playerData.PlayerExp >= expToNextLevel.Exp)
+        {
+            _playerData.PlayerExp -= expToNextLevel.Exp;
+            _playerData.PlayerLevel += 1;
+            expToNextLevel = expModels[_playerData.PlayerLevel.ToString()];
+        }
+    }
+    
 
     public void Dispose()
     {

@@ -37,6 +37,6 @@ public class GamePlayScreen : UIScreen
 
     private void OnBackButtonClicked()
     {
-        _gameFSM.GoTo<UnloadGameplayState>();
+        _gameFSM.GoTo<GameOverState>();
     }
 }

@@ -39,7 +39,7 @@ public class InitialLifetimeScope : LifetimeScope
 
     private static void RegisterServices(IContainerBuilder builder)
     {
-        builder.Register<ExpForUpgradeService>(Lifetime.Singleton);
+        builder.Register<ExpService>(Lifetime.Singleton);
         builder.Register<PassiveIncomeService>(Lifetime.Singleton);
     }
 
@@ -90,7 +90,7 @@ public class InitialLifetimeScope : LifetimeScope
         Container.Resolve<GameFSM>().GoTo<MainMenuState>();
         Container.Resolve<GameConfig>().Init(null);
         
-        Container.Resolve<ExpForUpgradeService>().Init();
+        Container.Resolve<ExpService>().Init();
         
         AddCheats();
     }

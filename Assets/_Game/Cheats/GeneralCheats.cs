@@ -17,6 +17,13 @@ public class GeneralCheats
         _playerData.PlayerLevel = LevelToSet;
     }
     
+    [Category("Progress")] public int ExpToAdd { get; set; }
+    [Category("Progress"), UsedImplicitly]
+    public void AddExp()
+    {
+        _playerData.PlayerExp += ExpToAdd;
+    }
+    
     [Category("Economy"), UsedImplicitly]
     public void AddCoins100()
     {
