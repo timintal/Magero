@@ -21,7 +21,7 @@
 }
 
 .progeress_bar .unity-progress-bar__progress {
-    background-color: rgb(75, 192, 103);
+    background-color: rgb(52, 222, 93);
 }
 
 #Duration .unity-base-field__label {
@@ -34,4 +34,7 @@
 
 #LoopType .unity-base-field__label {
     min-width: 90px;
+}
+
+.progeress_bar {
 }

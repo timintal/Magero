@@ -121,7 +121,7 @@ namespace EasyTweens
             //MinMaxSlider
             delayDurationSlider = this.Q<MinMaxSlider>("DelayDurationSlider");
             UpdateDelayDurationSlider();
-            delayDurationSlider.RegisterCallback<PointerUpEvent>(evt =>
+            delayDurationSlider.RegisterCallback<ChangeEvent<Vector2>>(evt =>
             {
                 mainAnimationEditor.Animation.CheckDuration();
                 tween.delay = delayDurationSlider.minValue * mainAnimationEditor.Animation.duration;

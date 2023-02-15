@@ -4,7 +4,7 @@ using UnityEngine;
 namespace EasyTweens
 {
     [Serializable]
-    public class TweenBase : MonoBehaviour // To be able to serialize generic fields
+    public class TweenBase : MonoBehaviour // To be able to serialize generic fields and use VisualElement binding, we need to derive from MonoBehaviour
     {
         public float delay;
         public float duration;
