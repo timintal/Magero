@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using UIFramework.Runtime;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Magero.UIFramework.Tests.PlayModeTests
+namespace UIFramework.Tests.PlayModeTests
 {
     public class UISettingsTests
     {

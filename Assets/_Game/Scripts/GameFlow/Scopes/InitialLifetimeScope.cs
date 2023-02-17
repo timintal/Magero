@@ -2,7 +2,8 @@ using _Game.Data;
 using _Game.Flow;
 using Game.Common;
 using Game.Config.Model;
-using Magero.UIFramework;
+using UIFramework;
+using UIFramework.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VContainer;
@@ -33,13 +34,13 @@ public class InitialLifetimeScope : LifetimeScope
 
         RegisterUI(builder);
         RegisterFsm(builder);
-        RegisterGameSequences(builder);
+        RegisterCommandQueues(builder);
         RegisterData(builder);
     }
 
     private static void RegisterServices(IContainerBuilder builder)
     {
-        builder.Register<ExpService>(Lifetime.Singleton);
+        builder.Register<ExpService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
         builder.Register<PassiveIncomeService>(Lifetime.Singleton);
     }
 
@@ -50,6 +51,8 @@ public class InitialLifetimeScope : LifetimeScope
         builder.RegisterComponent(_uiFrame).AsSelf();
         
         _uiFrame.AddEventForAllScreens(OnScreenEvent.Created, UiFrameOnOnScreenCreated);
+        
+        builder.Register<RewardsUIFeedbackService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
     }
     
     private void UiFrameOnOnScreenCreated(UIScreenBase screen)
@@ -57,16 +60,17 @@ public class InitialLifetimeScope : LifetimeScope
         Container.InjectGameObject(screen.gameObject);
     }
     
-    void RegisterGameSequences(IContainerBuilder builder)
+    void RegisterCommandQueues(IContainerBuilder builder)
     {
-        builder.RegisterEntryPoint<InjectableGameFlowService>().As<GameFlowService>();
+        builder.RegisterEntryPoint<InjectableCommandQueueService>().As<CommandQueueService>();
+        builder.Register<CommandQueue,MainMenuCommandQueue>(Lifetime.Singleton);
     }
 
     void RegisterFsm(IContainerBuilder builder)
     {
         builder.RegisterEntryPoint<InjectableGameFSM>().As<GameFSM>();
 
-        builder.Register<FSMState, MainMenuState>(Lifetime.Singleton);
+        builder.Register<FSMState, MainMenuState>(Lifetime.Singleton).AsImplementedInterfaces();
         builder.Register<FSMState, GameplayState>(Lifetime.Singleton);
         builder.Register<FSMState, LevelWonState>(Lifetime.Singleton);
         builder.Register<FSMState, GameOverState>(Lifetime.Singleton);
@@ -87,10 +91,12 @@ public class InitialLifetimeScope : LifetimeScope
         Application.targetFrameRate = 60;
         _uiFrame.Initialize(_uiCamera);
 
-        Container.Resolve<GameFSM>().GoTo<MainMenuState>();
-        Container.Resolve<GameConfig>().Init(null);
+        Container.Resolve<GameConfig>().Init(() =>
+        {
+            Container.Resolve<GameFSM>().GoTo<MainMenuState>();
+        });
         
-        Container.Resolve<ExpService>().Init();
+        
         
         AddCheats();
     }

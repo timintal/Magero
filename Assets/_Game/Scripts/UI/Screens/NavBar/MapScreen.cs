@@ -1,6 +1,6 @@
 using _Game.Flow;
 using JetBrains.Annotations;
-using Magero.UIFramework.Components.NavBar;
+using UIFramework.Components.NavBar;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;

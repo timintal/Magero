@@ -5,7 +5,7 @@ using _Game.Data;
 using _Game.Flow;
 using Entitas;
 using Game.Config.Model;
-using Magero.UIFramework;
+using UIFramework.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;

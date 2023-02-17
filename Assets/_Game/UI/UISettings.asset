@@ -66,3 +66,12 @@ MonoBehaviour:
       DestroyOnClose: 1
       CloseWithEscape: 0
       CloseWithBgClick: 0
+  - Name: RewardFeedback
+    LayerType: 0
+    Screens:
+    - Prefab: {fileID: 8567319572033622390, guid: 435c20ad007bc46d7a43d938c39803f0,
+        type: 3}
+      LoadOnDemand: 0
+      DestroyOnClose: 0
+      CloseWithEscape: 0
+      CloseWithBgClick: 0

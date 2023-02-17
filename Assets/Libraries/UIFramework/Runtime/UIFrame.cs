@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Magero.UIFramework
+namespace UIFramework.Runtime
 {
     public enum OnScreenEvent
     {
@@ -242,6 +242,10 @@ namespace Magero.UIFramework
         }
         
         [PublicAPI] public T Open<T>(IScreenProperties properties = null) where T : UIScreenBase
+        {
+            return GetLayerByScreenType<T>()?.OpenScreen<T>(properties);
+        }
+        [PublicAPI] public T OpenAsync<T>(IScreenProperties properties = null) where T : UIScreenBase
         {
             return GetLayerByScreenType<T>()?.OpenScreen<T>(properties);
         }

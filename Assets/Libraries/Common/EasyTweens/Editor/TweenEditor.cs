@@ -132,6 +132,8 @@ namespace EasyTweens
 
         public void UpdateDelayDurationSlider()
         {
+            if (mainAnimationEditor.Animation.duration == 0)
+                return;
             delayDurationSlider.minValue = tween.delay / mainAnimationEditor.Animation.duration;
             delayDurationSlider.maxValue = (tween.delay + tween.duration) / mainAnimationEditor.Animation.duration;
         }

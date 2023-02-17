@@ -1,14 +1,15 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Magero.UIFramework;
+using UIFramework;
+using UIFramework.Runtime;
 
 namespace _Game.Flow
 {
-    public class PresentScreenAction<T> : SequenceAction where T : UIScreenBase
+    public class PresentDialogCommand<T> : Command where T : UIScreenBase
     {
         private readonly UIFrame _uiFrame;
 
-        public PresentScreenAction(UIFrame uiFrame, IScreenProperties properties = null)
+        public PresentDialogCommand(UIFrame uiFrame, IScreenProperties properties = null)
         {
             _uiFrame = uiFrame;
         }

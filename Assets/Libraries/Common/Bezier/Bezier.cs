@@ -3,6 +3,27 @@ using System.Collections.Generic;
 
 public static class Bezier {
 
+	public static Vector3 GetPoint(Vector3[] points, float t)
+	{
+		if (points.Length < 2 || points.Length > 4)
+		{
+			Debug.LogError($"Bezier: Invalid number of points: {points.Length}");
+		}
+		
+		switch (points.Length)
+		{
+			case 2:
+				return Vector3.Lerp(points[0], points[1], t);
+			case 3:
+				return GetPoint(points[0], points[1], points[2], t);
+			case 4:
+				return GetPoint(points[0], points[1], points[2], points[3], t);
+			default:
+				return Vector3.zero;
+		}
+			
+	}
+	
 	public static Vector3 GetPoint (Vector3 p0, Vector3 p1, Vector3 p2, float t) {
 		t = Mathf.Clamp01(t);
 		float oneMinusT = 1f - t;

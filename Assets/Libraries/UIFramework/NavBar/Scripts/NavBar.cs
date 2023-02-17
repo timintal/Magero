@@ -2,10 +2,11 @@
 using Cysharp.Threading.Tasks;
 using Game.Common;
 using JetBrains.Annotations;
+using UIFramework.Runtime;
 using MoreMountains.NiceVibrations;
 using UnityEngine;
 
-namespace Magero.UIFramework.Components.NavBar
+namespace UIFramework.Components.NavBar
 {
     public class NavBarProps : IScreenProperties
     {

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using UIFramework.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Magero.UIFramework
+namespace UIFramework
 {
     [Serializable] public class ScreenInfo
     {

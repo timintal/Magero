@@ -26,7 +26,7 @@ public class PlayerExpSystem : ReactiveSystem<GameEntity>
     {
         foreach (var e in entities)
         {
-            _playerData.PlayerExp += e.exp.Value;
+            _playerData.TotalExp += e.exp.Value;
         }
     }
 }

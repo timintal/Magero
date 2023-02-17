@@ -1,8 +1,9 @@
 using System;
 using _Game.Data;
 using Game.Config.Model;
+using VContainer.Unity;
 
-public class ExpService : IDisposable
+public class ExpService : IDisposable, IStartable
 {
     private readonly PlayerData _playerData;
     private readonly WeaponData _weaponData;
@@ -14,51 +15,50 @@ public class ExpService : IDisposable
         _weaponData = weaponData;
         _gameConfig = gameConfig;
     }
-    
-    public void Init()
+
+    public void Start()
     {
         _playerData.OnPlayerParamUpgraded += PlayerDataOnOnPlayerParamUpgraded;
         _weaponData.OnWeaponLevelUpdated += OnWeaponLevelUpdated;
-        _playerData.OnPlayerExpChanged += PlayerDataOnOnPlayerExpChanged;
         
-        UpdatePlayerLevel();
+        _playerData.TotalExpPresented = _playerData.TotalExp;
     }
 
-    private void PlayerDataOnOnPlayerExpChanged(int previous, int current)
+    public int PlayerLevel => GetPlayerLevel(_playerData.TotalExp, out _);
+    public int PlayerLevelPresented => GetPlayerLevel(_playerData.TotalExpPresented, out _);
+    
+    public int GetPlayerLevel(int exp, out int currentExp)
     {
-        if (current > previous)
-            UpdatePlayerLevel();
+        int ExpForLevel(int i) => _gameConfig.GetConfigModel<ExpModel>()[IntToString.Get(i)].Exp;
+
+        int totalExp = exp;
+        int level = 1;
+
+        while (totalExp > ExpForLevel(level))
+        {
+            totalExp -= ExpForLevel(level);
+            level++;
+        }
+
+        currentExp = totalExp;
+        
+        return level;
     }
 
     private void OnWeaponLevelUpdated(WeaponType arg1, int arg2)
     {
         var gameSettingsModels = _gameConfig.GetConfigModel<GameSettingsModel>()["default"];
         var expForUpgrade = gameSettingsModels.ExpForUpgrade;
-        _playerData.PlayerExp += (expForUpgrade);
-        
+        _playerData.TotalExp += (expForUpgrade);
     }
 
     private void PlayerDataOnOnPlayerParamUpgraded()
     {
         var gameSettingsModels = _gameConfig.GetConfigModel<GameSettingsModel>()["default"];
         var expForUpgrade = gameSettingsModels.ExpForUpgrade;
-        _playerData.PlayerExp += (expForUpgrade);
+        _playerData.TotalExp += (expForUpgrade);
     }
-    
-    void UpdatePlayerLevel()
-    {
-        var expModels = _gameConfig.GetConfigModel<ExpModel>();
-        
-        var expToNextLevel = expModels[_playerData.PlayerLevel.ToString()];
 
-        while (_playerData.PlayerExp >= expToNextLevel.Exp)
-        {
-            _playerData.PlayerExp -= expToNextLevel.Exp;
-            _playerData.PlayerLevel += 1;
-            expToNextLevel = expModels[_playerData.PlayerLevel.ToString()];
-        }
-    }
-    
 
     public void Dispose()
     {

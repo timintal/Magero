@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using UIFramework.Runtime;
 using UnityEngine;
 
-namespace Magero.UIFramework
+namespace UIFramework
 {
     /// <summary>
     /// UILayer is responsible for opening/closing screens
@@ -144,7 +145,7 @@ namespace Magero.UIFramework
             screen.OnScreenEvent += _uiFrame.OnScreenEventInternal;
             
             // Trigger created callback
-            _uiFrame.OnScreenEventInternal(UIFramework.OnScreenEvent.Created,screen);
+            _uiFrame.OnScreenEventInternal(OnScreenEvent.Created,screen);
 
             screen.InitScreen();
 

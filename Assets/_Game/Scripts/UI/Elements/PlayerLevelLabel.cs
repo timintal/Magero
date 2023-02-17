@@ -1,3 +1,4 @@
+using System;
 using _Game.Data;
 using JetBrains.Annotations;
 using TMPro;
@@ -9,6 +10,14 @@ public class PlayerLevelLabel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _label;
     
     private PlayerData _playerData;
+    
+    [Inject] ExpService _expService;
+
+    private void Start()
+    {
+        var playerLevel = _expService.GetPlayerLevel(_playerData.TotalExpPresented, out _);
+        OnPlayerLevelChanged(playerLevel, playerLevel);
+    }
 
     private void OnPlayerLevelChanged(int prev, int curr)
     {
@@ -17,7 +26,7 @@ public class PlayerLevelLabel : MonoBehaviour
 
     void OnDestroy()
     {
-        _playerData.OnPlayerLevelChanged -= OnPlayerLevelChanged;
+        _playerData.OnTotalExpChanged -= OnPlayerLevelChanged;
     }
     
     [Inject, UsedImplicitly]
@@ -25,8 +34,7 @@ public class PlayerLevelLabel : MonoBehaviour
     {
         _playerData = playerData;
         
-        _playerData.OnPlayerLevelChanged += OnPlayerLevelChanged;
-        OnPlayerLevelChanged(_playerData.PlayerLevel, _playerData.PlayerLevel);
+        _playerData.OnTotalExpChanged += OnPlayerLevelChanged;
     }
 
 }

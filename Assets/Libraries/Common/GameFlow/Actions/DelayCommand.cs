@@ -4,11 +4,11 @@ using Cysharp.Threading.Tasks;
 
 namespace _Game.Flow
 {
-    public class DelayAction : SequenceAction
+    public class DelayCommand : Command
     {
         private readonly float _delay;
 
-        public DelayAction(float delay)
+        public DelayCommand(float delay)
         {
             _delay = delay;
         }

@@ -7,11 +7,13 @@ namespace _Game.DataExtension
     {
         public bool IsDirtySetter;
         public bool IsUpgrade;
+        public bool CreatePresentedCounterpart;
 
-        public DataFieldAttribute(bool isDirtySetter = true, bool isUpgrade = false)
+        public DataFieldAttribute(bool isDirtySetter = true, bool isUpgrade = false, bool createPresentedCounterpart = false)
         {
             IsDirtySetter = isDirtySetter;
             IsUpgrade = isUpgrade;
+            CreatePresentedCounterpart = createPresentedCounterpart;
         }
     }
 }

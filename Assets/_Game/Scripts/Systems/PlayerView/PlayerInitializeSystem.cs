@@ -1,7 +1,7 @@
 using _Game.Data;
 using Entitas;
 using Game.Config.Model;
-using Magero.UIFramework;
+using UIFramework.Runtime;
 using UnityEngine;
 
 public class PlayerInitializeSystem : IInitializeSystem
