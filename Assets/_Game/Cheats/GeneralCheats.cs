@@ -1,27 +1,32 @@
 using System.ComponentModel;
+using System.Threading;
 using _Game.Data;
+using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
-using Magero.UIFramework;
+using UIFramework.Runtime;
+using UnityEngine;
 using VContainer;
 
 public class GeneralCheats
 {
     [Inject] private readonly PlayerData _playerData;
     [Inject] private UIFrame _uiFrame;
+    [Inject] RewardsUIFeedbackService _rewardsUIFeedbackService;
    
-    [Category("Progress")] public int LevelToSet { get; set; }
-    
-    [Category("Progress"), UsedImplicitly]
-    public void SetLevel()
-    {
-        _playerData.PlayerLevel = LevelToSet;
-    }
-    
+   
     [Category("Progress")] public int ExpToAdd { get; set; }
     [Category("Progress"), UsedImplicitly]
     public void AddExp()
     {
-        _playerData.PlayerExp += ExpToAdd;
+        _playerData.TotalExp += ExpToAdd;
+    }
+    
+    [Category("Progress"), UsedImplicitly]
+    public void AddExpAnimated()
+    {
+        _playerData.TotalExp += ExpToAdd;
+        var syncPresentedExpCommand = new SyncPresentedExpCommand(_rewardsUIFeedbackService, _playerData, _uiFrame.UICamera.ViewportToWorldPoint(new Vector3(0.5f, 0.2f)));
+        syncPresentedExpCommand.Execute(CancellationToken.None).Forget();
     }
     
     [Category("Economy"), UsedImplicitly]

@@ -11,14 +11,14 @@ public class LevelLabel : MonoBehaviour
     
     private PlayerData _playerData;
 
-    private void OnPlayerLevelChanged(int prev, int curr)
+    private void OnLevelChanged(int prev, int curr)
     {
         _label.text = $"LEVEL {curr}";
     }
 
     void OnDestroy()
     {
-        _playerData.OnPlayerLevelChanged -= OnPlayerLevelChanged;
+        _playerData.OnLevelChanged -= OnLevelChanged;
     }
     
     [Inject, UsedImplicitly]
@@ -26,8 +26,8 @@ public class LevelLabel : MonoBehaviour
     {
         _playerData = playerData;
         
-        _playerData.OnLevelChanged += OnPlayerLevelChanged;
-        OnPlayerLevelChanged(_playerData.Level, _playerData.Level);
+        _playerData.OnLevelChanged += OnLevelChanged;
+        OnLevelChanged(_playerData.Level, _playerData.Level);
     }
 
 }

@@ -9,22 +9,11 @@ using System.Threading.Tasks;
 using UnityEditor;
 using StopWatch = System.Diagnostics.Stopwatch;
 #endif
-using System.Runtime.CompilerServices;
 using System;
 
 
 namespace Game.Config.Model
 {
-    public static class ExtensionMethods
-    {
-        public static TaskAwaiter GetAwaiter(this AsyncOperation asyncOp)
-        {
-            var tcs = new TaskCompletionSource<object>();
-            asyncOp.completed += obj => { tcs.SetResult(null); };
-            return ((Task)tcs.Task).GetAwaiter();
-        }
-    }
-
     public class GameConfig
     {
         private Action OnComplete;

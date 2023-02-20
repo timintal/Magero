@@ -30,6 +30,7 @@ namespace DataClassExtensions
             foreach (IGrouping<INamedTypeSymbol, IFieldSymbol> group in groups)
             {
                 var classSource = ProcessClass(group.Key, group, attributeSymbol);
+                
                 context.AddSource($"{group.Key.Name}_Components_g.cs", SourceText.From(classSource, Encoding.UTF8));
             }
         }
@@ -38,22 +39,28 @@ namespace DataClassExtensions
             ISymbol attributeSymbol)
         {
             var source = new StringBuilder($@"
+using Newtonsoft.Json;
 namespace {classSymbol.ContainingNamespace}
 {{
 public partial class {classSymbol.Name} 
 {{
-");
+");         bool needAddUpgradeEvent = false;
 
             foreach (IFieldSymbol fieldSymbol in fields)
             {
-                ProcessField(source, fieldSymbol, attributeSymbol);
+                ProcessField(source, fieldSymbol, attributeSymbol, out bool generateUpgradeEvent);
+                needAddUpgradeEvent |= generateUpgradeEvent;
             }
 
+            if (needAddUpgradeEvent)
+            {
+                source.AppendLine("public event System.Action OnPlayerParamUpgraded;");
+            }
             source.Append("\n\n}}");
             return source.ToString();
         }
     
-        private void ProcessField(StringBuilder source, IFieldSymbol fieldSymbol, ISymbol attributeSymbol)
+        private void ProcessField(StringBuilder source, IFieldSymbol fieldSymbol, ISymbol attributeSymbol, out bool generateUpgradeEvent)
         {
             var fieldName = fieldSymbol.Name;
             ITypeSymbol fieldType = fieldSymbol.Type;
@@ -61,30 +68,46 @@ public partial class {classSymbol.Name}
             AttributeData attributeData = fieldSymbol.GetAttributes().Single(ad =>
                 ad.AttributeClass.Equals(attributeSymbol, SymbolEqualityComparer.Default));
 
-            bool needDirty = ProcessAttribute(attributeData);
+            ProcessAttribute(attributeData, out bool needDirty, out bool isUpgrade, out bool createPresentedCounterpart);
 
             string nameUpper = fieldName.Replace("_", "");
             char firstLetter = Char.ToUpper(nameUpper[0]);
             nameUpper = firstLetter + nameUpper.Substring(1, nameUpper.Length - 1);
 
+            generateUpgradeEvent = isUpgrade;
+            
             var text = extensionsSource
                 .Replace("$type$", fieldType.ToDisplayString())
                 .Replace("$NameUpper$", nameUpper)
                 .Replace("$NameLower$", fieldName)
-                .Replace("$NeedDirty$", (needDirty ? "IsDirty = true;" : ""));
+                .Replace("$NeedDirty$", (needDirty ? "IsDirty = true;" : ""))
+                .Replace("$IsUpgradeMade$", (isUpgrade ? "OnPlayerParamUpgraded?.Invoke();" : ""));
 
             source.AppendLine(text);
-        }
 
-        private bool ProcessAttribute(AttributeData attributeData)
-        {
-            if (attributeData.ConstructorArguments.Length > 0)
+            if (createPresentedCounterpart)
             {
-                return (bool) attributeData.ConstructorArguments[0].Value;
-            }
+                
+                source.AppendLine($"\t\t[JsonProperty] protected {fieldType.ToDisplayString()} {fieldName}Presented;");
+                
+                var presentedFieldText = extensionsSource
+                    .Replace("$type$", fieldType.ToDisplayString())
+                    .Replace("$NameUpper$", nameUpper + "Presented")
+                    .Replace("$NameLower$", fieldName + "Presented")
+                    .Replace("$NeedDirty$", ("IsDirty = true;"))
+                    .Replace("$IsUpgradeMade$", (isUpgrade ? "OnPlayerParamUpgraded?.Invoke();" : ""));
 
-            return false;
+                source.AppendLine(presentedFieldText);
+            }
         }
+
+        private void ProcessAttribute(AttributeData attributeData, out bool needDirty, out bool isUpgrade, out bool createPresentedCounterpart)
+        {
+            needDirty = (bool) attributeData.ConstructorArguments[0].Value;
+            isUpgrade = (bool) attributeData.ConstructorArguments[1].Value;
+            createPresentedCounterpart = (bool) attributeData.ConstructorArguments[2].Value;
+        }
+            
         
         const string extensionsSource =@"
         public event System.Action<$type$, $type$> On$NameUpper$Changed;
@@ -96,8 +119,10 @@ public partial class {classSymbol.Name}
                 if ($NameLower$ != value)
                 {
                     $NeedDirty$
-                    On$NameUpper$Changed?.Invoke($NameLower$, value);
+                    $type$ oldValue = $NameLower$;
                     $NameLower$ = value;
+                    On$NameUpper$Changed?.Invoke(oldValue, value);
+                    $IsUpgradeMade$
                 }
             }
         }

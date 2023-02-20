@@ -1,6 +1,6 @@
 ﻿using System;
 using DG.Tweening;
-using Magero.UIFramework;
+using UIFramework;
 using UnityEngine;
 
 namespace Magero.BuiltInTransitions

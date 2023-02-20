@@ -1,9 +1,8 @@
 ﻿using System;
 using DG.Tweening;
 using UnityEngine;
-using Magero.UIFramework;
 
-namespace Voodoo.BuiltInTransitions
+namespace UIFramework.BuiltInTransitions
 {
     public class ScreenSlideTransition : UITransition
     {

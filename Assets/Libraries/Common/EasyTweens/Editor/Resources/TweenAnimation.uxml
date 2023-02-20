@@ -26,10 +26,10 @@
         <ui:Label text="Tweens:" display-tooltip-when-elided="true" style="-unity-font-style: bold; font-size: 15px;" />
         <ui:VisualElement name="TweensContainer" style="flex-grow: 1; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;" />
         <ui:VisualElement style="flex-direction: row; justify-content: space-around; align-items: auto;">
-            <ui:Button text="Remove All" display-tooltip-when-elided="true" name="ClearTweens" enable-rich-text="true" class="button-label button-clicked" style="align-items: auto; flex-direction: row; max-width: none; width: 40%; background-color: rgb(204, 70, 70);" />
+            <ui:Button text="Remove All" display-tooltip-when-elided="true" name="ClearTweens" enable-rich-text="true" class="button-label button-clicked" style="align-items: auto; flex-direction: row; max-width: none; width: 40%; background-color: rgb(231, 58, 61);" />
             <ui:VisualElement style="flex-direction: row; flex-grow: 1; border-left-color: rgb(108, 200, 116); border-right-color: rgb(108, 200, 116); border-top-color: rgb(108, 200, 116); border-bottom-color: rgb(108, 200, 116); justify-content: space-between; background-color: rgba(101, 164, 108, 0); flex-shrink: 0; align-items: stretch; width: 60%;">
                 <ui:DropdownField index="-1" name="AddTween" style="background-color: rgba(83, 118, 89, 0); flex-grow: 1; align-items: auto; flex-basis: 30%;" />
-                <ui:Button text="+" display-tooltip-when-elided="true" name="AddTween" style="border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); align-items: auto; flex-grow: 1; flex-shrink: 1; background-color: rgb(80, 159, 99); -unity-font-style: bold; font-size: 18px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+                <ui:Button text="+" display-tooltip-when-elided="true" name="AddTween" style="border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); align-items: auto; flex-grow: 1; flex-shrink: 1; background-color: rgb(51, 221, 92); -unity-font-style: bold; font-size: 18px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

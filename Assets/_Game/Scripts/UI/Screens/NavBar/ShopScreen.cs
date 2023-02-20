@@ -1,4 +1,4 @@
-using Magero.UIFramework.Components.NavBar;
+using UIFramework.Components.NavBar;
 
 public class ShopScreen : NavBarScreen
 {

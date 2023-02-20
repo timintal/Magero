@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Magero.UIFramework.Components.NavBar
+namespace UIFramework.Components.NavBar
 {
     [Serializable]
     public class NavButtonData

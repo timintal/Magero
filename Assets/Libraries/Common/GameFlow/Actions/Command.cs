@@ -6,7 +6,7 @@ using Cysharp.Threading.Tasks;
 namespace _Game.Flow
 {
     [Serializable]
-    public abstract class SequenceAction
+    public abstract class Command
     {
         public static readonly int DefaultPriority = 0;
         public static readonly int HighPriority = 100;
@@ -15,17 +15,19 @@ namespace _Game.Flow
         public static readonly int LowestPriority = -200;
         
         private readonly int _priority;
+        
+        public bool RemoveAfterExecute { get; set; }
 
         public int Priority => _priority;
 
         public abstract UniTask Execute(CancellationToken token);
 
-        protected SequenceAction()
+        protected Command()
         {
             _priority = DefaultPriority;
         }
 
-        protected SequenceAction(int priority)
+        protected Command(int priority)
         {
             _priority = priority;
         }

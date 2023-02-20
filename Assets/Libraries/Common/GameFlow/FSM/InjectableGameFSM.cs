@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Magero.UIFramework;
+using UIFramework.Runtime;
 
 namespace _Game.Flow
 {

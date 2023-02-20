@@ -35,24 +35,28 @@
 }
 
 .delay-duration-tracker .unity-min-max-slider__tracker {
-    background-color: rgb(195, 222, 229);
+    background-color: rgb(255, 255, 255);
     border-left-color: rgb(0, 0, 0);
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
+    height: 4px;
 }
 
 .delay-duration-tracker .unity-min-max-slider__dragger {
-    background-color: rgba(28, 192, 233, 0);
+    background-color: rgb(255, 115, 0);
     border-left-color: rgb(0, 0, 0);
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
-    background-image: url('project://database/Assets/Libraries/Common/EasyTweens/Editor/Icons/dragger.png?fileID=21300000&guid=334c6ef03d0e047568f796021f5fd772&type=3#dragger');
+    background-image: none;
     -unity-slice-left: 7;
     -unity-slice-right: 7;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 4px;
+    margin-top: 8px;
+    margin-bottom: 10px;
 }
 
 .small-buttons:active {
@@ -63,4 +67,7 @@
 .min-label {
     min-width: 60px;
     max-width: initial;
+}
+
+.delay-duration-dragger {
 }

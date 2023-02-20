@@ -1,10 +1,11 @@
 ﻿using System;
 using DG.Tweening;
+using UIFramework.Runtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Magero.UIFramework.Components.NavBar
+namespace UIFramework.Components.NavBar
 {
     [RequireComponent(typeof(Button))]
     public class NavButton : MonoBehaviour

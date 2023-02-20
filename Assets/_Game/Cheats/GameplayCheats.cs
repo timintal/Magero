@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using _Game.Data;
-using Magero.UIFramework;
+using UIFramework.Runtime;
 using VContainer;
 
 public class GameplayCheats 

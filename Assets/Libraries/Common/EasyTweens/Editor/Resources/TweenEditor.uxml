@@ -6,11 +6,11 @@
                 <uie:PropertyField name="TargetField" label="Target" style="flex-shrink: 0; flex-grow: 1;" />
                 <ui:VisualElement style="flex-direction: row; justify-content: space-around; flex-wrap: nowrap; flex-grow: 1; align-items: flex-end; width: 100%;">
                     <uie:PropertyField name="StartValue" label="Start" class="small-label" style="flex-direction: column; flex-shrink: 1; flex-grow: 10; justify-content: flex-start;" />
-                    <ui:Button text="←" display-tooltip-when-elided="true" name="SetCurrentToStart" tooltip="Set current value as start" class="set-current-button" />
+                    <ui:Button text="←" display-tooltip-when-elided="true" name="SetCurrentToStart" tooltip="Set current value as start" class="set-current-button" style="background-color: rgb(255, 240, 71);" />
                 </ui:VisualElement>
                 <ui:VisualElement style="flex-direction: row; justify-content: space-around; flex-wrap: nowrap; flex-grow: 1; align-items: flex-end; width: 100%;">
                     <uie:PropertyField name="EndValue" label="End" class="small-label" style="flex-direction: column; flex-shrink: 1; flex-grow: 10; justify-content: flex-start;" />
-                    <ui:Button text="←" display-tooltip-when-elided="true" name="SetCurrentToEnd" tooltip="Set current value as end." class="set-current-button" />
+                    <ui:Button text="←" display-tooltip-when-elided="true" name="SetCurrentToEnd" tooltip="Set current value as end." class="set-current-button" style="background-color: rgb(255, 240, 71);" />
                 </ui:VisualElement>
                 <ui:VisualElement name="AdditionalProperties" style="flex-shrink: 0;" />
                 <uie:CurveField label="Curve" name="Curve" class="small-label" style="height: auto; width: auto; align-items: center; justify-content: space-between; flex-direction: row;" />
@@ -20,8 +20,8 @@
             <ui:MinMaxSlider picking-mode="Ignore" min-value="0.4" max-value="0.8" low-limit="0" high-limit="1" name="DelayDurationSlider" class="delay-duration-tracker delay-duration-dragger" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-basis: 40px; border-left-color: rgb(128, 128, 128); border-right-color: rgb(128, 128, 128); border-top-color: rgb(128, 128, 128); border-bottom-color: rgb(128, 128, 128); border-left-width: 0; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px;">
-            <ui:Button text="X" display-tooltip-when-elided="true" tooltip="Remove Tween" name="RemoveTween" class="small-buttons" style="background-color: rgb(238, 66, 66);" />
-            <ui:Button text="D" display-tooltip-when-elided="true" tooltip="Duplicate Tween" name="DuplicateTween" class="small-buttons" style="background-color: rgb(70, 204, 198);" />
+            <ui:Button text="X" display-tooltip-when-elided="true" tooltip="Remove Tween" name="RemoveTween" class="small-buttons" style="background-color: rgb(255, 73, 73);" />
+            <ui:Button text="D" display-tooltip-when-elided="true" tooltip="Duplicate Tween" name="DuplicateTween" class="small-buttons" style="background-color: rgb(72, 236, 228);" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

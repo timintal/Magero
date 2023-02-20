@@ -1,7 +1,8 @@
 ﻿using System;
+using UIFramework.Runtime;
 using UnityEngine;
 
-namespace Magero.UIFramework
+namespace UIFramework
 {
     /// <summary>
     /// Optional properties base for screens
@@ -89,7 +90,7 @@ namespace Magero.UIFramework
         
         private void OnDestroy()
         {
-            OnScreenEvent?.Invoke(UIFramework.OnScreenEvent.Destoryed,this);
+            OnScreenEvent?.Invoke(UIFramework.Runtime.OnScreenEvent.Destoryed,this);
             OnDestroyed();
         }
         
@@ -126,7 +127,7 @@ namespace Magero.UIFramework
             _screenState = ScreenState.Opening;
 
             // Call OnOpening first
-            OnScreenEvent?.Invoke(UIFramework.OnScreenEvent.Opening,this);
+            OnScreenEvent?.Invoke(UIFramework.Runtime.OnScreenEvent.Opening,this);
             OnOpening();
             
             // Start transition animation
@@ -136,7 +137,7 @@ namespace Magero.UIFramework
                 _screenState = ScreenState.Opened;
                 
                 // Call OnOpened when transition finishes
-                OnScreenEvent?.Invoke(UIFramework.OnScreenEvent.Opened,this);
+                OnScreenEvent?.Invoke(UIFramework.Runtime.OnScreenEvent.Opened,this);
                 OnOpened();
                 
                 // Animation complete callback
@@ -158,7 +159,7 @@ namespace Magero.UIFramework
             _screenState = ScreenState.Closing;
             
             // Call OnClosing first
-            OnScreenEvent?.Invoke(UIFramework.OnScreenEvent.Closing,this);
+            OnScreenEvent?.Invoke(UIFramework.Runtime.OnScreenEvent.Closing,this);
             OnClosing();
             
             // Start transition animation
@@ -171,7 +172,7 @@ namespace Magero.UIFramework
                 _screenState = ScreenState.Closed;
                 
                 // Call OnClosed when transition finishes
-                OnScreenEvent?.Invoke(UIFramework.OnScreenEvent.Closed,this);
+                OnScreenEvent?.Invoke(UIFramework.Runtime.OnScreenEvent.Closed,this);
                 OnClosed();
                 
                 // Animation complete callback

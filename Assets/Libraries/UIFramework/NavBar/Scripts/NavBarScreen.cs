@@ -1,8 +1,7 @@
 
-using Magero.UIFramework;
-using Magero.UIFramework.Components.NavBar;
+using UIFramework.Components.NavBar;
 
-namespace Magero.UIFramework.Components.NavBar
+namespace UIFramework.Components.NavBar
 {
     // Every screen that wants to have a button on the NavBar should inherit from this class.
     public class NavBarScreen : UIScreen

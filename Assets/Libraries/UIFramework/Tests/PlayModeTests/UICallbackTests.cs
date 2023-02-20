@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using UIFramework.Runtime;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Magero.UIFramework.Tests.PlayModeTests
+namespace UIFramework.Tests.PlayModeTests
 {
     public class UICallbackTests
     {

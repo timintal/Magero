@@ -1,4 +1,4 @@
-using Magero.UIFramework;
+using UIFramework.Runtime;
 
 public class EnemyPointersFeature : Feature
 {

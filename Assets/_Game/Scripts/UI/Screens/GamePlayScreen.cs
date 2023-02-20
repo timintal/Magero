@@ -1,7 +1,6 @@
-using System.Collections.Generic;
 using _Game.Flow;
 using JetBrains.Annotations;
-using Magero.UIFramework;
+using UIFramework;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
